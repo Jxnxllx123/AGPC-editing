@@ -314,6 +314,10 @@ img {
     content: "";
 }
 
+/* The homepage uses its own cream photo overlay */
+.hero-homepage::before {
+    content: none;
+}
 .hero-section .container {
     position: relative;
     z-index: 1;
