@@ -438,13 +438,27 @@ section h2 {
 .hero-homepage {
     --hero-ink: #30465d;
     --hero-muted: #547e92;
-    --hero-cream: #f7f2ec;
     --hero-clay: #c98267;
 
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background: var(--hero-cream);
+    background-color: #f7f2ec;
+
+    /* Change Church.jpg to Church.png if needed */
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(247, 242, 236, 0.94) 0%,
+            rgba(247, 242, 236, 0.86) 48%,
+            rgba(247, 242, 236, 0.55) 100%
+        ),
+        url("../Images/Church.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     color: var(--hero-ink);
     text-align: center;
     padding: clamp(76px, 10vw, 132px) 24px
