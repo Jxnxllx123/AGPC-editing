@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="CSS/style.css" type="text/css" rel="stylesheet">
+        <!-- Utils first -->
+        <script src="utils.js"></script>
+
+    </head>
+
+    <body>
+        <!--
+            Everything visible on the webpage goes inside here.
+            This includes text, images, buttons, and anything else people can see and click.
+            Think of this as the "body" of the page — what the visitor actually sees on screen.
+        -->
+
+        <!-- 
+            LANGUAGE TOGGLE GUIDE:
+            - The button at the end of the navbar switches between English and Chinese.
+            - Each text item has a data-en="English text" and data-zh="Chinese text".
+            - To change a label, just update those attributes. Example:
+                <a data-en="Home" data-zh="首页">Home</a>
+        -->
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg myNav">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Logo on the LEFT -->
+                <a class="navbar-brand d-flex align-items-center customlink" href="index.html">
+                    <img src="Images/agpc-logo-new-a3-crop_orig.jpg" alt="Church Logo" class="navbar-logo">
+                    <span class="navbar-text"data-en="Abundant Grace Presbyterian Church"
+                      data-zh="嘉恩堂长老会">
+                    Abundant Grace Presbyterian Church</span>
+                </a>
+
+                <!-- This wrapper contains all nav links and toggle button on the RIGHT -->
+                <div class="d-flex align-items-center">
+                <!-- Navbar toggler (for small screens) -->
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Collapsible nav links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Your nav items here -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="Visit Us.html" data-en="Visit Us" data-zh="来访我们">Visit Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sermons.html" data-en="Sermons" data-zh="讲道">Sermons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Events.html" data-en="Events" data-zh="活动">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Give.html" data-en="Give" data-zh="奉献">Give</a>
+                    </li>
+
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-en="About Us" data-zh="关于我们">About Us</a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="AGPC.html" data-en="AGPC" data-zh="嘉恩堂">AGPC</a></li>
+                        <li><a class="dropdown-item" href="Ministries.html" data-en="Ministries" data-zh="事工">Ministries</a></li>
+                        <li><a class="dropdown-item" href="Connect.html" data-en="Connect" data-zh="联系我们">Connect</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Language toggle -->
+                    <li class="nav-item">
+                        <button id="languageToggle" class="btn btn-sm lang-toggle ms-3">中文</button>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero-section hero-visitus text-center py-5" style="background-color:#f3f4f6;">
+        <div class="container">
+            <h1 data-en="Visit Us" data-zh="来访我们">Visit Us</h1>
+            <p data-en="Come worship and grow with us" data-zh="来与我们一同敬拜与成长">
+            Come worship and grow with us
+            </p>
+        </div>
+        </section>
+
+        <!-- SERVICE INFO -->
+        <section class="info-section py-5 bg-light">
+        <div class="container text-center">
+            <div class="row g-4">
+            <div class="col-md-4">
+                <h5 data-en="Sunday Worship" data-zh="主日崇拜">Sunday Worship</h5>
+                <p data-en="9:00 AM (Mandarin) · 11:00 AM (English)"
+                data-zh="上午9:00（华语）· 上午11:00（英语）">
+                9:00 AM (Mandarin) · 11:00 AM (English)
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h5 data-en="Location" data-zh="地点">Location</h5>
+                <p>240 Jalan Kayu, Singapore 799464</p>
+            </div>
+            <div class="col-md-4">
+                <h5 data-en="Join Us" data-zh="欢迎参加">Join Us</h5>
+                <p data-en="Come and be part of our warm, welcoming community!" 
+                data-zh="欢迎来到我们的教会大家庭！">
+                Come and be part of our warm, welcoming community!
+                </p>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- GOOGLE MAP -->
+        <section class="map-section py-5">
+        <div class="container text-center">
+            <h5 data-en="Our Location" data-zh="我们的位置">Our Location</h5>
+            <div class="ratio ratio-16x9 mt-3 shadow rounded">
+            <iframe src="https://www.google.com/maps?q=240+Jalan+Kayu+Singapore+799464&z=17&output=embed"
+                    width="100%" height="100%" style="border:0; border-radius:0.5rem;"
+                    allowfullscreen="" loading="lazy">
+            </iframe>
+            </div>
+            <p class="mt-2" data-en="Nearest LRT: Thanggam (SW4), ~3 min walk • Buses: 85, 86, 102, 103 • Bus stop number：68039/68031"
+            data-zh="最近的LRT站：Thanggam（SW4），步行约3分钟 • 公共巴士：85、86、102、103 • 巴士站：68039/68031 ">
+            Nearest LRT: Thanggam (SW4), ~3 min walk • Buses: 85, 86, 102, 103 • Bus stop number：68039/68031
+            </p>
+        </div>
+        </section>
+
+        <!-- PLAN A VISIT CTA -->
+        <section class="cta-section text-center py-5">
+        <div class="container">
+            <h2 data-en="Plan Your Visit" data-zh="计划参与我们的聚会">Plan Your Visit</h2>
+            <p data-en="We would love to welcome you to our community." data-zh="我们很高兴欢迎您加入我们的群体。">
+            We would love to welcome you to our community.
+            </p>
+            <a href="Connect.html" class="btn btn-light" data-en="Contact Us" data-zh="联系我们">Contact Us</a>
+        </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer mt-5">
+            <div class="container text-center">
+                <p>© Abundant Grace Presbyterian Church</p>
+                <p>
+                    Address: 240 Jalan Kayu, Singapore 799464
+                </p>
+                <p>
+                    Tel: +65 6556 2492 |
+                    Email: <a href="mailto:abundantgrace@agpc.net.sg">abundantgrace@agpc.net.sg</a>
+                </p>
+                <p>
+                    Copyright © 2012 - 2025 Abundant Grace Presbyterian Church.
+                    All Rights Reserved. UEN: T13SS0122H
+                </p>
+                <p>Member of The Presbyterian Church in Singapore</p>
+            </div>
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,1434 @@
+/* =====================================================
+   AGPC WEBSITE — GLOBAL STYLESHEET
+   File: CSS/style.css
+
+   CONTENTS
+   01. Colour System
+   02. Global Styles
+   03. Shared Components
+       3.1 Navbar
+       3.2 Language Toggle
+       3.3 Buttons & CTA
+       3.4 Footer
+       3.5 Hero Sections
+       3.6 General Sections
+   04. Homepage (index.html)
+   05. AGPC (AGPC.html)
+   06. Connect (Connect.html)
+   07. Events (Events.html)
+   08. Give (Give.html)
+   09. Ministries (Ministries.html)
+   10. Sermons (Sermons.html)
+   11. Visit Us (Visit Us.html)
+   12. Responsive Styles
+===================================================== */
+
+
+/* =====================================================
+   01. COLOUR SYSTEM
+===================================================== */
+
+:root {
+    /* Brand palette */
+    --brand-primary: #567C8D;
+    --brand-dark: #2F4156;
+    --brand-light: #C8D9E6;
+    --brand-beige: #F5EFEB;
+    --brand-white: #FFFFFF;
+
+    /* Text colours */
+    --text-main: #2F4156;
+    --text-body: #354653;
+    --text-muted: #637481;
+    --text-on-dark: #FFFFFF;
+
+    /* Borders */
+    --border-light: #D9E0E4;
+
+    /* Buttons */
+    --button-primary: #567C8D;
+    --button-hover: #456878;
+
+    /* Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-light: #F5EFEB;
+    --bg-sky-blue: #C8D9E6;
+    --bg-dark: #2F4156;
+}
+
+/* =====================================================
+   02. GLOBAL STYLES
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-white);
+    color: var(--text-body);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main);
+}
+
+h1, h2 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h5 {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+a {
+    color: var(--brand-primary);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--brand-dark);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =====================================================
+   03. SHARED COMPONENTS
+===================================================== */
+
+
+/* -----------------------------------------------------
+   3.1 NAVBAR
+----------------------------------------------------- */
+
+.myNav {
+    position: relative;
+    z-index: 100;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 12px rgba(47, 65, 86, 0.05);
+}
+
+.myNav .navbar-logo {
+    height: 76px;
+    width: auto;
+    margin-right: 0.75rem;
+    object-fit: contain;
+}
+
+.myNav .navbar-text {
+    color: var(--brand-dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: normal;
+}
+
+.myNav .nav-link {
+    margin-left: 0.2rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    color: var(--brand-dark);
+    font-weight: 500;
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
+}
+
+.myNav .nav-link:hover,
+.myNav .nav-link.active {
+    background-color: var(--brand-beige);
+    color: var(--brand-primary);
+}
+
+.myNav .dropdown-toggle::after {
+    margin-left: 0.4rem;
+}
+
+.myNav .dropdown-menu {
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(47, 65, 86, 0.1);
+}
+
+.myNav .dropdown-item {
+    padding: 0.65rem 1rem;
+    color: var(--brand-dark);
+}
+
+.myNav .dropdown-item:hover {
+    background-color: var(--brand-beige);
+    color: var(--brand-primary);
+}
+
+/* Mobile menu button */
+
+.navbar-toggler {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border-light);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232F4156' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* -----------------------------------------------------
+   3.2 LANGUAGE TOGGLE
+----------------------------------------------------- */
+
+.lang-toggle {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--brand-primary);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--brand-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+    background: var(--brand-primary);
+    color: var(--text-on-dark);
+}
+
+
+/* -----------------------------------------------------
+   3.3 BUTTONS & CTA
+----------------------------------------------------- */
+/* Shared buttons */
+
+.cta-section {
+    padding: 4.5rem 1.5rem;
+    background-color: var(--brand-dark)  !important;
+    color: var(--brand-white)  !important;
+    text-align: center;
+}
+
+.cta-section h2 {
+    margin-bottom: 1rem;
+    color: var(--brand-white)  !important;
+}
+
+.cta-section p {
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+    color: var(--brand-light)  !important;
+}
+
+.cta-section .social-links a {
+    color: var(--brand-light)  !important;
+}
+
+.cta-section .social-links a:hover {
+    color: var(--brand-white)  !important;
+}
+
+/* Shared CTA button */
+.btn-cta {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--brand-primary)  !important;
+    border-radius: 999px;
+    background-color: var(--brand-primary)  !important;
+    color: var(--brand-white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.25s ease,
+                border-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+    border-color: var(--brand-light)  !important;
+    background-color: var(--brand-light)  !important;
+    color: var(--brand-dark)  !important;
+    transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------
+   3.4 FOOTER
+----------------------------------------------------- */
+
+.footer {
+    padding: 2rem 1.5rem;
+    background-color: var(--brand-dark)  !important;
+    color: var(--brand-light)  !important;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 0;
+    color: var(--brand-light)  !important;
+    font-size: 0.9rem;
+}
+
+/* -----------------------------------------------------
+   3.5 HERO SECTIONS
+----------------------------------------------------- */
+
+/* Homepage hero */
+
+.hero-section {
+    position: relative;
+    display: flex;
+    min-height: 85vh;
+    padding: 0 1.5rem;
+    align-items: center;
+    justify-content: center;
+    background: url("../Images/Church.jpg") center / cover no-repeat;
+}
+
+.hero-section::before {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    content: "";
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    color: var(--text-on-dark);
+}
+
+.hero-section h1 {
+    margin-bottom: 1rem;
+    color: var(--text-on-dark);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.hero-section p {
+    color: var(--text-on-dark);
+    font-size: 1.4rem;
+}
+
+/* Shared inner-page hero properties */
+
+.hero-sermons,
+.hero-visitus,
+.hero-give,
+.hero-events,
+.hero-connect {
+    min-height: 40vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Individual hero images */
+
+.hero-sermons {
+    background-image: url("../Images/Sermons/Sermons.jpg");
+    background-position: center 42%;
+}
+
+.hero-visitus {
+    background-image: url("../Images/Visit/Visit Us.jpg");
+    background-position: center 25%;
+}
+
+.hero-give {
+    background-image: url("../Images/Give/Offerings.jpg");
+    background-position: center;
+}
+
+.hero-events {
+    background-image: url("../Images/Events/Events.jpg");
+    background-position: center;
+}
+
+.hero-connect {
+    background-image: url("../Images/Connect/Connect.jpg");
+    background-position: center;
+}
+
+
+/* -----------------------------------------------------
+   3.6 GENERAL SECTIONS
+----------------------------------------------------- */
+
+section {
+    padding: 4rem 1.5rem;
+}
+
+section + section {
+    margin-top: 0;
+}
+
+section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.info-section,
+.light-section {
+    background-color: var(--bg-light);
+}
+
+.light-section {
+    text-align: center;
+}
+
+.light-section p {
+    max-width: 700px;
+    margin: 1rem auto 2rem;
+}
+
+/* Consistent content width */
+
+.content-section > .container,
+.info-section > .container {
+    max-width: 1200px;
+}
+
+/* Tablet and mobile spacing */
+
+@media (max-width: 767px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    section h2 {
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    section {
+        padding: 5rem 1.5rem;
+    }
+}
+
+/* =====================================================
+   04. HOMEPAGE — index.html
+===================================================== */
+/* ==========================================
+   AGPC HOMEPAGE — WARM EDITORIAL HERO
+   ========================================== */
+
+.hero-homepage {
+    --hero-ink: #30465d;
+    --hero-muted: #547e92;
+    --hero-cream: #f7f2ec;
+    --hero-clay: #c98267;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--hero-cream);
+    color: var(--hero-ink);
+    text-align: center;
+    padding: clamp(76px, 10vw, 132px) 24px
+             clamp(64px, 8vw, 100px);
+}
+
+/* Soft, organic decorative shapes */
+
+.hero-homepage .hero-art {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hero-homepage .hero-art-one {
+    width: clamp(180px, 27vw, 360px);
+    aspect-ratio: 1;
+    top: -100px;
+    right: -90px;
+    background: rgba(199, 220, 232, 0.55);
+}
+
+.hero-homepage .hero-art-two {
+    width: clamp(150px, 21vw, 280px);
+    aspect-ratio: 1;
+    bottom: -125px;
+    left: -80px;
+    background: rgba(201, 130, 103, 0.12);
+}
+
+/* Central content */
+
+.hero-homepage .hero-content {
+    position: relative;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.hero-homepage .hero-eyebrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    color: var(--hero-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+}
+
+.hero-homepage .hero-eyebrow-line {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--hero-clay);
+}
+
+.hero-homepage h1 {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--hero-ink);
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2.65rem, 6vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+}
+
+.hero-homepage .hero-subtitle {
+    max-width: 590px;
+    margin: 26px auto 0;
+    color: #596777;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.8;
+}
+
+/* Call-to-action buttons */
+
+.hero-homepage .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+}
+
+.hero-homepage .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 13px 23px;
+    border: 1px solid var(--hero-ink);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.hero-homepage .hero-button-primary {
+    background: var(--hero-ink);
+    color: #fff;
+}
+
+.hero-homepage .hero-button-primary:hover {
+    background: var(--hero-muted);
+    border-color: var(--hero-muted);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.hero-homepage .hero-button-secondary {
+    background: transparent;
+    color: var(--hero-ink);
+}
+
+.hero-homepage .hero-button-secondary:hover {
+    background: #fff;
+    border-color: var(--hero-muted);
+    color: var(--hero-muted);
+    transform: translateY(-2px);
+}
+
+.hero-homepage .hero-button:focus-visible {
+    outline: 3px solid var(--hero-clay);
+    outline-offset: 4px;
+}
+
+/* Personal, welcoming detail */
+
+.hero-homepage .hero-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 34px;
+    color: var(--hero-muted);
+    font-size: 0.88rem;
+}
+
+.hero-homepage .hero-note i {
+    color: var(--hero-clay);
+}
+
+.hero-homepage .hero-bottom-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+    color: var(--hero-clay);
+    font-size: 0.8rem;
+}
+
+.hero-homepage .hero-bottom-mark span {
+    width: 36px;
+    height: 1px;
+    background: rgba(84, 126, 146, 0.35);
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 575.98px) {
+    .hero-homepage {
+        padding: 68px 20px 54px;
+    }
+
+    .hero-homepage .hero-eyebrow {
+        gap: 8px;
+        margin-bottom: 23px;
+        font-size: 0.62rem;
+        letter-spacing: 0.11em;
+    }
+
+    .hero-homepage .hero-eyebrow-line {
+        width: 18px;
+    }
+
+    .hero-homepage h1 {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+    }
+
+    .hero-homepage .hero-subtitle {
+        margin-top: 20px;
+    }
+
+    .hero-homepage .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 300px;
+        margin: 28px auto 0;
+    }
+
+    .hero-homepage .hero-button {
+        width: 100%;
+    }
+
+    .hero-homepage .hero-note {
+        margin-top: 26px;
+        font-size: 0.82rem;
+    }
+
+    .hero-homepage .hero-bottom-mark {
+        margin-top: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-homepage .hero-button {
+        transition: none;
+    }
+
+    .hero-homepage .hero-button:hover {
+        transform: none;
+    }
+}
+/* =====================================================
+   04. HOMEPAGE — index.html
+===================================================== */
+
+/* Service information */
+.info-section {
+    background-color: var(--brand-beige);
+}
+
+.info-section .info-card {
+    background-color: var(--brand-white);
+}
+
+.info-section .info-icon {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+.info-section .service-block strong {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+}
+
+/* About section */
+.content-section {
+    background-color: var(--brand-white);
+}
+
+/* Latest Sermons */
+.content-section.sermons-section {
+    background-color: var(--brand-light);
+}
+
+.sermons-section #latest-sermons .card {
+    background-color: var(--brand-white);
+}
+
+/* Upcoming Events */
+.content-section.events-section {
+    background-color: var(--brand-beige);
+}
+
+.events-section .event-card {
+    background-color: var(--brand-white);
+}
+
+/* 5. Service information icons */
+.info-section .info-icon {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+/* 6. Service time badges */
+.info-section .service-block strong {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+}
+
+/* Latest sermons layout */
+
+#latest-sermons .col-md-6 {
+    display: flex;
+}
+
+#latest-sermons .card {
+    width: 100%;
+}
+
+/* Homepage information cards */
+
+.info-card {
+    height: 100%;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(47, 65, 86, 0.08);
+    border-radius: 16px;
+    background-color: var(--bg-white);
+    box-shadow: 0 6px 20px rgba(47, 65, 86, 0.06);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(47, 65, 86, 0.12);
+}
+
+.info-icon {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+    font-size: 1.8rem;
+}
+
+.info-card .btn {
+    padding: 0.65rem 1.3rem;
+    border-radius: 8px;
+}
+
+/* Worship service times */
+
+.service-times {
+    max-width: 340px;
+    margin: 1.5rem auto 0;
+}
+
+.service-block {
+    margin-bottom: 1.5rem;
+}
+
+.service-block:not(:last-of-type) {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.service-block strong {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--brand-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.service-block p {
+    margin: 0.35rem 0;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.cry-room {
+    margin-top: 1.5rem;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Homepage card buttons */
+
+.info-card .btn {
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+}
+
+/* Social links */
+
+.social-links {
+    display: flex;
+    margin: 1.5rem 0;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+.card {
+    flex: 1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+
+/* =====================================================
+   05. AGPC — AGPC.html
+===================================================== */
+
+/* Add AGPC page-specific styles here. */
+
+
+/* =====================================================
+   06. CONNECT — Connect.html
+===================================================== */
+
+/* Add Connect page-specific styles here. */
+
+
+/* =====================================================
+   07. EVENTS — Events.html
+===================================================== */
+
+/* Swiper base */
+
+.swiper {
+    width: 100%;
+    padding: 40px 0;
+}
+
+/* Swiper layout */
+
+.upcoming-events-swiper,
+.past-events-swiper {
+    height: auto;
+}
+
+.upcoming-events-swiper .swiper-wrapper,
+.past-events-swiper .swiper-wrapper {
+    height: auto;
+    align-items: center;
+}
+
+.upcoming-events-swiper .swiper-slide,
+.past-events-swiper .swiper-slide {
+    display: flex;
+    height: auto;
+    justify-content: center;
+}
+
+/* Event cards */
+
+.event-card {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    border-radius: 16px;
+    background: white;
+}
+
+/* Event flyers */
+
+.event-flyer {
+    width: 100%;
+}
+
+.event-flyer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Event information */
+
+.event-info {
+    padding: 12px 14px;
+    text-align: center;
+}
+
+/* Upcoming events carousel */
+
+.upcoming-events-swiper .swiper-slide {
+    width: 75%;
+}
+
+.upcoming-events-swiper .event-flyer {
+    height: 320px;
+}
+
+/* Past events carousel */
+
+.past-events-swiper .swiper-slide {
+    width: 260px;
+}
+
+.past-events-swiper .event-flyer {
+    height: 180px;
+}
+
+/* Event carousel pagination */
+
+.upcoming-events-swiper .swiper-pagination,
+.past-events-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   08. GIVE — Give.html
+===================================================== */
+
+/* Add Give page-specific styles here. */
+
+
+/* =====================================================
+   09. MINISTRIES — Ministries.html
+===================================================== */
+
+/* Ministry cards */
+
+.ministry-card {
+    border: none;
+    background-color: #89c8fc;
+}
+
+.ministry-bg {
+    position: relative;
+    display: flex;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ministry-icon-corner {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    width: 80px;
+    opacity: 0.85;
+    filter: brightness(0) invert(1);
+}
+
+/* Ministry carousel */
+
+.ministry-carousel .carousel-item {
+    min-height: 400px;
+}
+
+.ministry-carousel img {
+    transition: transform 0.3s ease;
+}
+
+.ministry-carousel img:hover {
+    transform: scale(1.03);
+}
+
+/* Ministry modals */
+
+.modal-dialog {
+    width: 90%;
+    max-width: 800px;
+}
+
+.modal-content {
+    min-height: 600px;
+}
+
+/* Carousel controls */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 18px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 60%;
+}
+
+/* Ministry content section */
+
+.content-section {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+}
+
+
+/* =====================================================
+   10. SERMONS — Sermons.html
+===================================================== */
+
+/* -----------------------------------------------------
+    SHARED PAGINATION
+----------------------------------------------------- */
+
+#en-pagination,
+#zh-pagination,
+#both-pagination {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 16px;
+    font-family: "Roboto", sans-serif;
+}
+
+.page-number {
+    position: relative;
+    padding: 4px 8px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-number.active {
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.page-number.active::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 6px;
+    background-color: var(--brand-primary);
+    content: "";
+}
+
+.page-arrow {
+    padding: 4px 8px;
+    color: var(--brand-primary);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.page-arrow.disabled {
+    color: #aaa;
+    cursor: default;
+}
+
+.page-arrow:hover:not(.disabled) {
+    background-color: #eef2ff;
+}
+
+/* Sermon cards */
+
+.sermon-card {
+    display: flex;
+    width: 240px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f4f4f4;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sermon-thumb {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.sermon-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive sermon video */
+
+.sermon-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.sermon-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sermon information */
+
+.sermon-info {
+    display: flex;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sermon-title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.sermon-meta {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Horizontal sermon scrolling */
+
+.sermon-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.sermon-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.sermon-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--brand-primary);
+}
+
+/* Desktop sermon grid */
+
+#english-grid .col,
+#chinese-grid .col,
+#combined-grid .col {
+    /* Desktop layout is defined in the responsive section. */
+}
+
+/* =====================================================
+   11. VISIT US — Visit Us.html
+===================================================== */
+
+/* Add Visit Us page-specific styles here. */
+
+
+/* =====================================================
+   12. RESPONSIVE STYLES
+===================================================== */
+
+/* Tablets and smaller desktops */
+
+@media (max-width: 992px) {
+    .service-times {
+        max-width: 100%;
+    }
+
+    .info-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Desktop sermon grid */
+
+@media (min-width: 992px) {
+    #english-grid .col,
+    #chinese-grid .col,
+    #combined-grid .col {
+        flex: 0 0 30%;
+        max-width: 30%;
+        margin-bottom: 30px;
+    }
+
+    .sermon-card {
+        width: 100%;
+    }
+}
+
+/* Tablets and larger screens */
+
+@media (min-width: 768px) {
+    section {
+        padding: 7rem 1.5rem;
+    }
+
+    section + section {
+        margin-top: 3rem;
+    }
+}
+
+/* Large screens */
+
+@media (min-width: 1200px) {
+    section {
+        padding: 8rem 1.5rem;
+    }
+}
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+===================================================== */
+
+/* Navbar */
+
+@media (max-width: 991.98px) {
+    .myNav .container-fluid {
+        flex-wrap: wrap;
+    }
+
+    .myNav .navbar-logo {
+        height: 56px;
+        margin-right: 0.5rem;
+    }
+
+    .myNav .navbar-text {
+        max-width: 220px;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .myNav .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .myNav .navbar-nav {
+        align-items: stretch !important;
+        padding: 0.75rem 0 1rem;
+    }
+
+    .myNav .nav-link {
+        margin: 0;
+        padding: 0.75rem 1rem;
+    }
+
+    .myNav .lang-toggle {
+        margin: 0.75rem 1rem 0 !important;
+    }
+       /* Keep the logo and church name aligned */
+    .myNav .navbar-brand {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        max-width: calc(100% - 60px);
+    }
+
+    .myNav .navbar-logo {
+        flex-shrink: 0;
+    }
+
+    /* Make dropdowns easier to tap */
+    .myNav .dropdown-menu {
+        margin: 0.25rem 0 0 1rem;
+        border: none;
+        border-left: 2px solid var(--brand-light);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .myNav .dropdown-item {
+        padding: 0.7rem 1rem;
+    }
+
+    /* Prevent navigation items from becoming cramped */
+    .myNav .nav-link {
+        white-space: normal;
+    }
+}
+
+/* Hero */
+
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: 60vh;
+        padding: 3rem 1rem;
+        background-position: center;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.2;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .hero-sermons,
+    .hero-visitus,
+    .hero-give,
+    .hero-events,
+    .hero-connect {
+        min-height: 32vh;
+    }
+}
+
+/* Homepage cards */
+
+@media (max-width: 767px) {
+    .info-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .service-times {
+        max-width: 100%;
+    }
+
+    .service-block strong {
+        font-size: 0.95rem;
+    }
+
+    .social-links {
+        gap: 1.25rem;
+    }
+
+    .social-links a {
+        font-size: 1rem;
+    }
+}
+
+/* Events carousel */
+
+@media (max-width: 767px) {
+    .upcoming-events-swiper .swiper-slide {
+        width: 90%;
+    }
+
+    .upcoming-events-swiper .event-flyer {
+        height: 240px;
+    }
+
+    .past-events-swiper .swiper-slide {
+        width: 220px;
+    }
+
+    .past-events-swiper .event-flyer {
+        height: 160px;
+    }
+}
+
+/* Ministry modals */
+
+@media (max-width: 767px) {
+    .modal-dialog {
+        width: auto;
+        max-width: none;
+        margin: 0.5rem;
+    }
+
+    .modal-content {
+        min-height: auto;
+    }
+
+    .ministry-carousel .carousel-item {
+        min-height: 250px;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
