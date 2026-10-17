@@ -519,8 +519,22 @@ section h2 {
     background: var(--hero-clay);
 }
 
+/* Homepage hero typography */
+
 .hero-homepage h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     color: #F5EFEB;
+}
+
+.hero-homepage .hero-subtitle,
+.hero-homepage .hero-eyebrow,
+.hero-homepage .hero-note,
+.hero-homepage .hero-button {
+    font-family: "Roboto", sans-serif;
 }
 
 .hero-homepage .hero-subtitle {
