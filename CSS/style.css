@@ -950,49 +950,121 @@ section h2 {
 }
 
 /* Preserve the arched event artwork */
-.events-section .upcoming-events-swiper .event-card {
+.events-section .upcoming-events-swiper .event-card-image {
+    position: relative;
+    isolation: isolate;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: clamp(320px, 36vw, 440px);
     flex-direction: column;
-}
-
-.events-section .upcoming-events-swiper .event-flyer {
-    position: relative;
-    width: 100%;
-    height: clamp(320px, 32vw, 410px);
-    flex-shrink: 0;
+    justify-content: center;
     overflow: hidden;
-
-    border: 4px solid #FFFFFF;
-    border-radius: 50% 50% 8px 8px / 24% 24% 8px 8px;
-
-    background: #C8D9E6;
-    box-shadow: 0 16px 36px rgba(47, 65, 86, 0.10);
+    border: none;
+    border-radius: 16px;
+    background: var(--brand-dark);
+    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.12);
 }
 
-.events-section .upcoming-events-swiper .event-flyer img {
-    display: block;
+/* Full-bleed event photograph */
+.events-section .event-card-image .event-flyer {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    background: var(--brand-dark);
+    box-shadow: none;
+}
+
+.events-section .event-card-image .event-flyer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
-.events-section .upcoming-events-swiper
-.event-card:hover .event-flyer img {
+/* Tinted overlay matching the hero */
+.events-section .event-card-image::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(47, 65, 86, 0.88),
+        rgba(47, 65, 86, 0.66)
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.events-section .event-card-image:hover .event-flyer img {
     transform: scale(1.04);
 }
 
-/* Event information */
-.events-section .upcoming-events-swiper .event-info {
+/* Centre all event information over the image */
+.events-section .event-card-image .event-info {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex: 1;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1rem 0.25rem 0;
-    text-align: left;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px;
+    color: #F5EFEB;
+    text-align: center;
+}
+
+.events-section .event-card-image .event-card-eyebrow {
+    color: #C8D9E6;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.events-section .event-card-image .event-info h3 {
+    max-width: 100%;
+    margin: 0;
+    color: #F5EFEB;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.events-section .event-card-image .event-subtitle,
+.events-section .event-card-image .event-card-date {
+    margin: 0;
+    color: rgba(245, 239, 235, 0.92);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.events-section .event-card-image .event-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 10px 20px;
+    border: 1px solid #F5EFEB;
+    border-radius: 999px;
+    background: #F5EFEB;
+    color: #2F4156;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.events-section .event-card-image .event-card-button:hover {
+    background: #C8D9E6;
+    transform: translateY(-2px);
 }
 
 /* Carousel footer */
@@ -1862,19 +1934,12 @@ section h2 {
 
 /* Mobile layout */
 @media (max-width: 575.98px) {
-    .events-section .upcoming-events-swiper .event-flyer {
-        height: min(105vw, 390px);
+    .events-section .upcoming-events-swiper .event-card-image {
+        height: 340px;
     }
 
-    .events-section .events-carousel-footer {
-        margin-top: 1.25rem;
-    }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .events-section .upcoming-events-swiper .event-flyer img {
-        transition: none;
+    .events-section .event-card-image .event-info {
+        padding: 22px;
     }
 }
 
