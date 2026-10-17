@@ -76,13 +76,14 @@ function renderEvent(event) {
 
       <div class="event-card">
 
-        ${event.flyer ? `
-          <div class="event-flyer">
-            <img
-              src="${event.flyer}"
-              alt="${event.title[currentLang]}"
-            >
-          </div>
+        ${(event.image || event.flyer) ? `
+            <div class="event-flyer">
+                <img
+                    src="${event.image || event.flyer}"
+                    alt="${event.title[currentLang] || "Event"}"
+                    loading="lazy"
+                >
+            </div>
         ` : ""}
 
         <div class="event-info">
