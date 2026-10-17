@@ -494,30 +494,6 @@ section h2 {
     text-align: center;
 }
 
-/* Decorative shapes */
-.hero-homepage .hero-art {
-    position: absolute;
-    z-index: -1;
-    pointer-events: none;
-    border-radius: 50%;
-}
-
-.hero-homepage .hero-art-one {
-    width: clamp(150px, 22vw, 290px);
-    aspect-ratio: 1;
-    top: -90px;
-    right: -100px;
-    background: rgba(199, 220, 232, 0.22);
-}
-
-.hero-homepage .hero-art-two {
-    width: clamp(130px, 18vw, 240px);
-    aspect-ratio: 1;
-    bottom: -100px;
-    left: -90px;
-    background: rgba(201, 130, 103, 0.09);
-}
-
 /* Hero content container */
 .hero-homepage .hero-content {
     width: 100%;
