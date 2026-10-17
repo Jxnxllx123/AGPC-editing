@@ -835,14 +835,20 @@ section h2 {
 
 /* Main content container */
 .events-section .events-showcase {
-    position: relative;
-    z-index: 1;
+    width: 100%;
     max-width: 1320px;
+    margin-inline: auto;
+}
+
+.events-section .events-showcase > .row {
+    align-items: center;
 }
 
 /* Events introduction */
 .events-intro {
     padding-block: 1rem;
+    position: relative;
+    align-self: center;
 }
 
 /* Small section label */
@@ -939,16 +945,19 @@ section h2 {
 
 
 /* Events carousel container */
-.events-gallery {
+.events-section .events-gallery {
     min-width: 0;
+    align-self: center;
 }
 
 .events-section .upcoming-events-swiper {
     width: 100%;
+    min-width: 0;
     overflow: hidden;
-    padding: 0;
+    padding: 8px 2px 0;
 }
 
+/* Let Swiper control slide widths */
 .events-section .upcoming-events-swiper .swiper-wrapper {
     align-items: stretch;
 }
@@ -957,164 +966,62 @@ section h2 {
     display: flex;
     height: auto;
     align-items: stretch;
+    justify-content: center;
 }
 
-
-/* Event cards */
+/* Preserve the arched event artwork */
 .events-section .upcoming-events-swiper .event-card {
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: column;
-    overflow: hidden;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    transition: none;
 }
 
-.events-section .upcoming-events-swiper .event-card:hover {
-    transform: none;
-}
-
-
-/* Arched event artwork */
 .events-section .upcoming-events-swiper .event-flyer {
-    position: relative;
-    height: 340px;
+    width: 100%;
+    height: clamp(260px, 29vw, 350px);
+    flex-shrink: 0;
     overflow: hidden;
     border: 4px solid #FFFFFF;
     border-radius: 48% 48% 8px 8px / 24% 24% 8px 8px;
-    background: var(--events-blue);
+    background: var(--brand-light);
     box-shadow: 0 12px 30px rgba(47, 65, 86, 0.07);
 }
 
 .events-section .upcoming-events-swiper .event-flyer img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 .events-section .upcoming-events-swiper
-.swiper-slide-active .event-flyer img {
-    transform: scale(1.02);
+.event-card:hover .event-flyer img {
+    transform: scale(1.035);
 }
 
-
-/* Event information underneath artwork */
+/* Event information */
 .events-section .upcoming-events-swiper .event-info {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 0.3rem;
     padding: 1rem 0.25rem 0;
     text-align: left;
 }
 
-.events-section .upcoming-events-swiper .event-info h3,
-.events-section .upcoming-events-swiper .event-info h4 {
-    margin: 0;
-    color: var(--events-ink);
-    font-family: "DM Serif Display", serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.3;
-}
-
-.events-section .upcoming-events-swiper .event-info p {
-    margin: 0;
-    color: #637481;
-    font-size: 0.84rem;
-    line-height: 1.5;
-}
-
-
 /* Carousel footer */
-.events-carousel-footer {
+.events-section .events-carousel-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: 1.5rem;
 }
 
-.events-pagination-wrap {
-    display: flex;
-    min-width: 0;
-    flex: 1;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.events-pagination-label {
-    flex-shrink: 0;
-    color: #637481;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-/* Pagination indicators */
-.events-section .upcoming-events-swiper .swiper-pagination {
-    position: static;
-    display: flex;
-    width: auto;
-    align-items: center;
-    gap: 6px;
-}
-
-.events-section .upcoming-events-swiper .swiper-pagination-bullet {
-    width: 14px;
-    height: 4px;
-    margin: 0 !important;
-    border-radius: 10px;
-    background: var(--events-blue);
-    opacity: 1;
-    transition: width 0.25s ease, background 0.25s ease;
-}
-
-.events-section .upcoming-events-swiper
-.swiper-pagination-bullet-active {
-    width: 28px;
-    background: var(--events-clay-dark);
-}
-
-/* Previous and next buttons */
-.events-navigation {
-    display: flex;
-    flex-shrink: 0;
-    gap: 8px;
-}
-
-.events-arrow {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(47, 65, 86, 0.2);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--events-ink);
-    font-size: 1rem;
-    cursor: pointer;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.events-arrow:hover {
-    border-color: var(--events-clay);
-    background: var(--events-clay);
-    color: #FFFFFF;
-}
-
-/* Keyboard focus indicators */
-.events-arrow:focus-visible,
-.events-view-all:focus-visible {
+/* Keyboard accessibility */
+.events-section .events-arrow:focus-visible,
+.events-section .events-view-all:focus-visible {
     outline: 3px solid var(--events-clay-dark);
     outline-offset: 4px;
 }
@@ -1667,22 +1574,6 @@ section h2 {
    Non-mobile layout adjustments
 ===================================================== */
 
-/* Desktop sermon grid */
-@media (min-width: 992px) {
-    #english-grid .col,
-    #chinese-grid .col,
-    #combined-grid .col {
-        flex: 0 0 30%;
-        max-width: 30%;
-        margin-bottom: 30px;
-    }
-
-    .sermon-card {
-        width: 100%;
-    }
-}
-
-
 /* =====================================================
    13. RESPONSIVE STYLES
    Mobile and tablet styles will be added next.
@@ -1906,65 +1797,52 @@ section h2 {
    13.6 HOMEPAGE UPCOMING EVENTS
 ----------------------------------------------------- */
 
-@media (max-width: 991.98px) {
 
-    .events-section .events-heading {
-        font-size: clamp(2.8rem, 7vw, 4rem);
+/* Desktop sermon grid */
+@media (min-width: 992px) {
+    #english-grid .col,
+    #chinese-grid .col,
+    #combined-grid .col {
+        flex: 0 0 30%;
+        max-width: 30%;
+        margin-bottom: 30px;
     }
 
-    .events-side-note {
-        margin-top: 1.75rem;
-    }
-
-    .events-section .upcoming-events-swiper .event-flyer {
-        height: clamp(270px, 42vw, 340px);
+    .sermon-card {
+        width: 100%;
     }
 }
 
-@media (max-width: 575.98px) {
 
-    .events-section {
-        padding: 3.5rem 1rem;
-    }
-
-    .events-intro {
-        padding: 0 0.25rem;
-    }
-
-    .events-section .events-heading {
-        font-size: clamp(3rem, 12vw, 3.8rem);
-    }
-
-    .events-section .events-description {
-        max-width: 340px;
-    }
-
-    .events-side-note {
-        margin-top: 1.5rem;
+/* Tablet layout */
+@media (max-width: 991.98px) {
+    .events-section .events-intro {
         margin-bottom: 0.5rem;
     }
 
     .events-section .upcoming-events-swiper .event-flyer {
+        height: clamp(260px, 42vw, 340px);
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 575.98px) {
+    .events-section .upcoming-events-swiper .event-flyer {
         height: min(105vw, 390px);
     }
 
-    .events-carousel-footer {
+    .events-section .events-carousel-footer {
         margin-top: 1.25rem;
     }
+}
 
-    .events-pagination-wrap {
-        gap: 0.5rem;
-    }
-
-    .events-pagination-label {
-        font-size: 0.55rem;
-    }
-
-    .events-arrow {
-        width: 38px;
-        height: 38px;
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .events-section .upcoming-events-swiper .event-flyer img {
+        transition: none;
     }
 }
+
 
 /* -----------------------------------------------------
    13.7 EVENTS PAGE CAROUSELS
@@ -2026,24 +1904,6 @@ section h2 {
 
 @media (prefers-reduced-motion: reduce) {
 
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
-/* =====================================================
-   14. ACCESSIBILITY
-===================================================== */
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
