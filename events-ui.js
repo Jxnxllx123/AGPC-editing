@@ -5,12 +5,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
 
-  // Wait for events to be inserted before initializing Swiper
-  requestAnimationFrame(() => {
-    initUpcomingSwiper();
-  });
+  // Initialise after the event cards are rendered
+  initUpcomingSwiper();
 });
-
 
 // =========================================================
 // 📌 LOAD UPCOMING EVENTS
@@ -128,46 +125,56 @@ function renderEvent(event) {
 // 🎠 UPCOMING EVENTS SWIPER
 // =========================================================
 
-function initUpcomingSwiper() {
 
-  const swiperElement =
-    document.querySelector(".upcoming-events-swiper");
+function initUpcomingSwiper() {
+  const swiperElement = document.querySelector(
+    ".upcoming-events-swiper"
+  );
 
   if (!swiperElement) return;
 
-  const slideCount =
-    document.querySelectorAll(
-      "#upcoming-events .swiper-slide"
-    ).length;
+  const slideCount = document.querySelectorAll(
+    "#upcoming-events .swiper-slide"
+  ).length;
 
-  new Swiper(".upcoming-events-swiper", {
+  // Prevent duplicate Swiper instances
+  if (swiperElement.swiper) {
+    swiperElement.swiper.destroy(true, true);
+  }
 
-    slidesPerView: 1.3,
+  new Swiper(swiperElement, {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 16,
 
-    centeredSlides: true,
-
-    spaceBetween: 20,
-
-    loop: slideCount > 1,
+    loop: slideCount > 2,
 
     navigation: {
-      nextEl: ".upcoming-events-swiper .swiper-button-next",
-      prevEl: ".upcoming-events-swiper .swiper-button-prev",
+      nextEl: ".events-next",
+      prevEl: ".events-prev"
     },
 
     pagination: {
       el: ".upcoming-events-swiper .swiper-pagination",
-      clickable: true,
+      clickable: true
+    },
+
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      }
     },
 
     observer: true,
     observeParents: true,
-
     watchOverflow: true
-
   });
 }
-
 
 // =========================================================
 // 🔁 RECURRING EVENTS
