@@ -658,120 +658,214 @@ section h2 {
    4.2 SERVICE INFORMATION
 ----------------------------------------------------- */
 
-.who-we-are-schedule {
-    margin-top: 40px;
-    padding: 32px;
-    border-radius: 20px;
-    background: #F5F1EB;
-    color: #30465A;
-}
 
-.who-we-are-schedule .schedule-heading {
-    margin-bottom: 24px;
-}
+/* =====================================================
+   HOMEPAGE — REFINED WHO WE ARE & WORSHIP SCHEDULE
+===================================================== */
 
-.who-we-are-schedule .schedule-eyebrow {
-    display: block;
-    margin-bottom: 10px;
-    color: #71806D;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
-
-.who-we-are-schedule .schedule-heading h3 {
-    margin: 0 0 8px;
-    color: #30465A;
-    font-size: clamp(1.7rem, 3vw, 2.2rem);
-}
-
-.who-we-are-schedule .schedule-heading p {
-    margin: 0;
-    color: #526052;
-    line-height: 1.7;
-}
-
-.who-we-are-schedule .schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.who-we-are-schedule .schedule-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    min-width: 0;
-    padding: 22px;
-    border: 1px solid #E5DED5;
-    border-radius: 14px;
+.who-we-are-section {
+    padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
     background: #FFFFFF;
 }
 
-.who-we-are-schedule .schedule-time {
-    flex-shrink: 0;
-    color: #71806D;
-    font-size: 1rem;
+.who-we-are-section .who-intro {
+    margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.who-eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #B96F53;
+    font-size: 0.72rem;
     font-weight: 700;
-    line-height: 1.5;
+    letter-spacing: 0.15em;
 }
 
-.who-we-are-schedule .schedule-details {
-    min-width: 0;
+.who-we-are-section h2 {
+    margin-bottom: 1.25rem;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.1;
 }
 
-.who-we-are-schedule .schedule-details h4,
-.who-we-are-schedule .cry-room-note h4 {
-    margin: 0 0 5px;
-    color: #30465A;
+.who-we-are-section .who-intro p {
+    max-width: 520px;
+    color: #52616B;
     font-size: 1rem;
-    font-weight: 700;
+    line-height: 1.85;
 }
 
-.who-we-are-schedule .schedule-details p,
-.who-we-are-schedule .cry-room-note p {
+.who-we-are-section .who-intro .who-welcome {
+    margin-top: 1rem;
+}
+
+.who-visit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #D99375;
+    color: #2F4156;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.who-visit-link:hover {
+    color: #B96F53;
+}
+
+.who-image-wrap {
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.who-image {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Schedule: one calm, unified panel */
+.who-we-are-section .who-we-are-schedule {
     margin: 0;
-    color: #526052;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid #E8E2DC;
+    border-radius: 8px;
+    background: #F8F5F1;
+}
+
+.who-we-are-section .schedule-heading {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.who-we-are-section .schedule-eyebrow {
+    color: #B96F53;
+}
+
+.who-we-are-section .schedule-heading h3 {
+    margin-bottom: 0.5rem;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+}
+
+.who-we-are-section .schedule-heading p {
+    margin: 0;
+    color: #637481;
+    font-size: 0.95rem;
+}
+
+.who-we-are-section .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.who-we-are-section .schedule-card {
+    display: block;
+    min-width: 0;
+    padding: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #D9D4CD;
+    border-radius: 0;
+    background: transparent;
+}
+
+.who-we-are-section .schedule-time {
+    margin-bottom: 1.25rem;
+    color: #567C8D;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.who-we-are-section .schedule-details h4,
+.who-we-are-section .schedule-family-notes h4 {
+    margin: 0 0 0.25rem;
+    color: #2F4156;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.who-we-are-section .schedule-details p,
+.who-we-are-section .schedule-family-notes p {
+    margin: 0;
+    color: #637481;
     font-size: 0.92rem;
     line-height: 1.6;
 }
 
-.who-we-are-schedule .schedule-divider {
-    height: 1px;
-    margin: 16px 0;
-    background: #EAE5DE;
+.who-we-are-section .schedule-divider {
+    margin: 1.25rem 0;
+    background: #D9D4CD;
 }
 
-.who-we-are-schedule .schedule-card-children {
-    grid-column: 1 / -1;
-}
-
-.who-we-are-schedule .cry-room-note {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 16px;
-    padding: 18px 22px;
-    border-radius: 14px;
-    background: #E8ECE5;
-}
-
-.who-we-are-schedule .cry-room-icon {
+.who-we-are-section .schedule-family-notes {
     display: grid;
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    place-items: center;
-    border-radius: 50%;
-    background: #FFFFFF;
-    color: #30465A;
-    font-size: 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #D9D4CD;
 }
 
-.who-we-are-schedule .cry-room-note h4 {
-    margin-bottom: 3px;
+.who-we-are-section .schedule-family-notes > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
 }
+
+.who-we-are-section .schedule-family-notes > div > i {
+    margin-top: 0.15rem;
+    color: #B96F53;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+    .who-we-are-section {
+        padding: 3.5rem 1.1rem;
+    }
+
+    .who-we-are-section .who-intro {
+        margin-bottom: 2.75rem;
+    }
+
+    .who-we-are-section .who-intro > div:first-child {
+        text-align: center;
+    }
+
+    .who-we-are-section .who-intro p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .who-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .who-we-are-section .who-we-are-schedule {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .who-we-are-section .schedule-grid,
+    .who-we-are-section .schedule-family-notes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .who-we-are-section .schedule-card {
+        padding: 1.25rem 0;
+    }
+
+    .who-we-are-section .schedule-family-notes {
+        gap: 1.25rem;
+    }
+}
+
 
 /* -----------------------------------------------------
    4.3 ABOUT SECTION
