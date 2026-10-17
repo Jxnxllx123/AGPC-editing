@@ -160,6 +160,14 @@ function initUpcomingSwiper() {
       clickable: true
     },
 
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+    },
+    
+    speed: 700,
+
     breakpoints: {
       576: {
         slidesPerView: 2,
