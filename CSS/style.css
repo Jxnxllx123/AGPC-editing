@@ -1042,8 +1042,8 @@ section h2 {
 
 .events-arrow {
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
 
@@ -1053,12 +1053,12 @@ section h2 {
     background: transparent;
 
     color: #2F4156;
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     cursor: pointer;
 
     transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .events-arrow:hover {
@@ -1079,11 +1079,6 @@ section h2 {
     outline-offset: 4px;
 }
 
-/* Keyboard accessibility */
-.events-section .events-arrow:focus-visible,
-.events-section .events-view-all:focus-visible {
-    outline: 3px solid var(--events-clay-dark);
-    outline-offset: 4px;
 }
 
 /* -----------------------------------------------------
