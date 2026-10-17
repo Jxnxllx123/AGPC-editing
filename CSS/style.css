@@ -927,6 +927,358 @@ section h2 {
     transform: translateY(-6px);
 }
 
+.events-section {
+    --events-clay: #D99375;
+    --events-clay-dark: #B96F53;
+    --events-cream: #F5EFEB;
+    --events-ink: #2F4156;
+    --events-blue: #C8D9E6;
+
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
+    background: var(--events-cream);
+}
+
+.events-section .events-showcase {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+}
+
+/* LEFT TYPOGRAPHY */
+
+.events-intro {
+    padding-block: 1rem;
+}
+
+.events-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--events-clay-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.events-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--events-clay);
+}
+
+.events-section .events-heading {
+    max-width: 380px;
+    margin: 0 0 1.25rem;
+    color: var(--events-ink);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.8rem, 4.3vw, 4.3rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    text-align: left;
+    text-wrap: balance;
+}
+
+.events-heading span {
+    display: block;
+    color: var(--events-clay-dark);
+    font-style: italic;
+}
+
+.events-section .events-description {
+    max-width: 330px;
+    margin: 0 0 1.75rem;
+    color: #637481;
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+.events-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--events-clay);
+    color: var(--events-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.events-view-all i {
+    color: var(--events-clay-dark);
+    font-size: 1.1rem;
+}
+
+.events-view-all:hover {
+    gap: 18px;
+    color: var(--events-clay-dark);
+}
+
+.events-side-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3rem;
+    color: #7C898F;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.events-side-line {
+    width: 28px;
+    height: 1px;
+    background: var(--events-clay);
+}
+
+/* CAROUSEL */
+
+.events-gallery {
+    min-width: 0;
+}
+
+.events-section .upcoming-events-swiper {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.events-section .upcoming-events-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.events-section .upcoming-events-swiper .swiper-slide {
+    display: flex;
+    height: auto;
+    align-items: stretch;
+}
+
+/* Event cards */
+
+.events-section .upcoming-events-swiper .event-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+}
+
+.events-section .upcoming-events-swiper .event-card:hover {
+    transform: none;
+}
+
+/* Subtle arched image */
+
+.events-section .upcoming-events-swiper .event-flyer {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    border: 4px solid #FFFFFF;
+    border-radius: 48% 48% 8px 8px / 24% 24% 8px 8px;
+    background: var(--events-blue);
+    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.07);
+}
+
+.events-section .upcoming-events-swiper .event-flyer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.events-section .upcoming-events-swiper
+.swiper-slide-active .event-flyer img {
+    transform: scale(1.02);
+}
+
+/* Event information */
+
+.events-section .upcoming-events-swiper .event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 0.25rem 0;
+    text-align: left;
+}
+
+.events-section .upcoming-events-swiper .event-info h3,
+.events-section .upcoming-events-swiper .event-info h4 {
+    margin: 0;
+    color: var(--events-ink);
+    font-family: "DM Serif Display", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.events-section .upcoming-events-swiper .event-info p {
+    margin: 0;
+    color: #637481;
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+/* CONTROLS */
+
+.events-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.events-pagination-wrap {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.events-pagination-label {
+    flex-shrink: 0;
+    color: #637481;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.events-section .upcoming-events-swiper .swiper-pagination {
+    position: static;
+    display: flex;
+    width: auto;
+    align-items: center;
+    gap: 6px;
+}
+
+.events-section .upcoming-events-swiper .swiper-pagination-bullet {
+    width: 14px;
+    height: 4px;
+    margin: 0 !important;
+    border-radius: 10px;
+    background: var(--events-blue);
+    opacity: 1;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.events-section .upcoming-events-swiper
+.swiper-pagination-bullet-active {
+    width: 28px;
+    background: var(--events-clay-dark);
+}
+
+.events-navigation {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.events-arrow {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(47, 65, 86, 0.2);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--events-ink);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.events-arrow:hover {
+    border-color: var(--events-clay);
+    background: var(--events-clay);
+    color: #FFFFFF;
+}
+
+.events-arrow:focus-visible,
+.events-view-all:focus-visible {
+    outline: 3px solid var(--events-clay-dark);
+    outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 991.98px) {
+    .events-section .events-heading {
+        font-size: clamp(2.8rem, 7vw, 4rem);
+    }
+
+    .events-side-note {
+        margin-top: 1.75rem;
+    }
+
+    .events-section .upcoming-events-swiper .event-flyer {
+        height: clamp(270px, 42vw, 340px);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 575.98px) {
+    .events-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .events-intro {
+        padding: 0 0.25rem;
+    }
+
+    .events-section .events-heading {
+        font-size: clamp(3rem, 12vw, 3.8rem);
+    }
+
+    .events-section .events-description {
+        max-width: 340px;
+    }
+
+    .events-side-note {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .events-section .upcoming-events-swiper .event-flyer {
+        height: min(105vw, 390px);
+    }
+
+    .events-carousel-footer {
+        margin-top: 1.25rem;
+    }
+
+    .events-pagination-wrap {
+        gap: 0.5rem;
+    }
+
+    .events-pagination-label {
+        font-size: 0.55rem;
+    }
+
+    .events-arrow {
+        width: 38px;
+        height: 38px;
+    }
+}
+
 
 /* =====================================================
    05. AGPC — AGPC.html
