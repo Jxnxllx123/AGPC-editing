@@ -322,7 +322,11 @@ function getNextOccurrence(event) {
 
   return {
     ...event,
-    startDate: date.toISOString()
+    startDate: [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, "0"),
+      String(date.getDate()).padStart(2, "0")
+    ].join("-")
   };
 }
 
