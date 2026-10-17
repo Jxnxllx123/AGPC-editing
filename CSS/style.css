@@ -13,6 +13,11 @@
        3.5 Hero Sections
        3.6 General Sections
    04. Homepage (index.html)
+       4.1 Hero
+       4.2 Service information
+       4.3 About
+       4.4 Latest sermons
+       4.5 Upcoming events
    05. AGPC (AGPC.html)
    06. Connect (Connect.html)
    07. Events (Events.html)
@@ -21,8 +26,13 @@
    10. Sermons (Sermons.html)
    11. Visit Us (Visit Us.html)
    12. Responsive Styles
+   13. Accessibility
 ===================================================== */
 
+
+/* =====================================================
+   01. COLOUR SYSTEM
+===================================================== */
 
 /* =====================================================
    01. COLOUR SYSTEM
@@ -67,7 +77,7 @@
 /* =====================================================
    02. GLOBAL STYLES
 ===================================================== */
-
+/* Consistent sizing */
 * {
     box-sizing: border-box;
 }
@@ -85,6 +95,8 @@ body {
     font-weight: 400;
     line-height: 1.7;
 }
+
+/* Text */
 
 p {
     margin-bottom: 1rem;
@@ -108,6 +120,8 @@ h5 {
     font-weight: 700;
 }
 
+/* Links */
+
 a {
     color: var(--brand-primary);
     transition: color 0.2s ease;
@@ -117,6 +131,8 @@ a:hover {
     color: var(--brand-dark);
 }
 
+/* Images */
+
 img {
     display: block;
     max-width: 100%;
@@ -125,7 +141,6 @@ img {
 /* =====================================================
    03. SHARED COMPONENTS
 ===================================================== */
-
 
 /* -----------------------------------------------------
    3.1 NAVBAR
@@ -140,8 +155,8 @@ img {
 }
 
 .myNav .navbar-logo {
-    height: 76px;
     width: auto;
+    height: 76px;
     margin-right: 0.75rem;
     object-fit: contain;
 }
@@ -189,8 +204,6 @@ img {
     color: var(--brand-primary);
 }
 
-/* Mobile menu button */
-
 .navbar-toggler {
     padding: 0.4rem 0.6rem;
     border: 1px solid var(--border-light);
@@ -225,45 +238,43 @@ img {
     color: var(--text-on-dark);
 }
 
-
 /* -----------------------------------------------------
    3.3 BUTTONS & CTA
 ----------------------------------------------------- */
-/* Shared buttons */
-
+/* Shared CTA section */
 .cta-section {
     padding: 4.5rem 1.5rem;
-    background-color: var(--brand-dark)  !important;
-    color: var(--brand-white)  !important;
+    background-color: var(--brand-dark) !important;
+    color: var(--brand-white) !important;
     text-align: center;
 }
 
 .cta-section h2 {
     margin-bottom: 1rem;
-    color: var(--brand-white)  !important;
+    color: var(--brand-white) !important;
 }
 
 .cta-section p {
     max-width: 650px;
     margin: 0 auto 1.5rem;
-    color: var(--brand-light)  !important;
+    color: var(--brand-light) !important;
 }
 
 .cta-section .social-links a {
-    color: var(--brand-light)  !important;
+    color: var(--brand-light) !important;
 }
 
 .cta-section .social-links a:hover {
-    color: var(--brand-white)  !important;
+    color: var(--brand-white) !important;
 }
 
 /* Shared CTA button */
 .btn-cta {
     display: inline-block;
     padding: 0.8rem 2rem;
-    border: 2px solid var(--brand-primary)  !important;
+    border: 2px solid var(--brand-primary) !important;
     border-radius: 999px;
-    background-color: var(--brand-primary)  !important;
+    background-color: var(--brand-primary) !important;
     color: var(--brand-white);
     font-weight: 600;
     text-decoration: none;
@@ -275,9 +286,9 @@ img {
 
 .btn-cta:hover,
 .btn-cta:focus-visible {
-    border-color: var(--brand-light)  !important;
-    background-color: var(--brand-light)  !important;
-    color: var(--brand-dark)  !important;
+    border-color: var(--brand-light) !important;
+    background-color: var(--brand-light) !important;
+    color: var(--brand-dark) !important;
     transform: translateY(-2px);
 }
 
@@ -287,15 +298,15 @@ img {
 
 .footer {
     padding: 2rem 1.5rem;
-    background-color: var(--brand-dark)  !important;
-    color: var(--brand-light)  !important;
+    background-color: var(--brand-dark) !important;
+    color: var(--brand-light) !important;
     font-size: 0.9rem;
     text-align: center;
 }
 
 .footer p {
     margin-bottom: 0;
-    color: var(--brand-light)  !important;
+    color: var(--brand-light) !important;
     font-size: 0.9rem;
 }
 
@@ -303,6 +314,7 @@ img {
    3.5 HERO SECTIONS
 ----------------------------------------------------- */
 
+/* Shared hero overlay */
 .hero-section::before {
     position: absolute;
     inset: 0;
@@ -310,10 +322,6 @@ img {
     content: "";
 }
 
-/* The homepage uses its own cream photo overlay */
-.hero-homepage::before {
-    content: none;
-}
 .hero-section .container {
     position: relative;
     z-index: 1;
@@ -332,7 +340,6 @@ img {
 }
 
 /* Shared inner-page hero properties */
-
 .hero-sermons,
 .hero-visitus,
 .hero-give,
@@ -343,8 +350,7 @@ img {
     background-size: cover;
 }
 
-/* Individual hero images */
-
+/* Individual inner-page hero images */
 .hero-sermons {
     background-image: url("../Images/Sermons/Sermons.jpg");
     background-position: center 42%;
@@ -369,7 +375,6 @@ img {
     background-image: url("../Images/Connect/Connect.jpg");
     background-position: center;
 }
-
 
 /* -----------------------------------------------------
    3.6 GENERAL SECTIONS
@@ -410,31 +415,58 @@ section h2 {
 }
 
 /* Optional larger section spacing */
+
 .section-spacious {
     padding-block: 5rem;
 }
 
-/* Mobile */
-@media (max-width: 767px) {
-    section {
-        padding: 3rem 1rem;
-    }
+/* END OF SHARED COMPONENTS */
 
-    section h2 {
-        margin-bottom: 1.25rem;
-    }
 
-    .section-spacious {
-        padding-block: 3rem;
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =====================================================
-   04. HOMEPAGE — index.html
+   04. HOMEPAGE — index.html  
+       Homepage-specific styles start in Section 2.
 ===================================================== */
-/* ==========================================
-   AGPC HOMEPAGE — WARM EDITORIAL HERO
-   ========================================== */
+
+/* -----------------------------------------------------
+   4.1 HOMEPAGE HERO
+   Warm editorial design with navy photo overlay
+----------------------------------------------------- */
+
+/* The homepage uses its own cream photo overlay */
+.hero-homepage::before {
+    content: none;
+}
 
 .hero-homepage {
     --hero-ink: #F5EFEB;
@@ -450,7 +482,6 @@ section h2 {
     overflow: hidden;
     padding: clamp(76px, 9vw, 120px) 24px;
 
-    /* Church photo with a deep navy overlay */
     background:
         linear-gradient(
             135deg,
@@ -463,8 +494,7 @@ section h2 {
     text-align: center;
 }
 
-/* Soft, organic decorative shapes */
-
+/* Decorative shapes */
 .hero-homepage .hero-art {
     position: absolute;
     z-index: -1;
@@ -474,30 +504,28 @@ section h2 {
 
 .hero-homepage .hero-art-one {
     width: clamp(150px, 22vw, 290px);
+    aspect-ratio: 1;
     top: -90px;
     right: -100px;
-
-    /* Softer blue */
     background: rgba(199, 220, 232, 0.22);
 }
 
 .hero-homepage .hero-art-two {
     width: clamp(130px, 18vw, 240px);
+    aspect-ratio: 1;
     bottom: -100px;
     left: -90px;
-
-    /* More subtle terracotta */
     background: rgba(201, 130, 103, 0.09);
 }
 
-/* Central content */
-
+/* Hero content container */
 .hero-homepage .hero-content {
     width: 100%;
     max-width: 1100px;
     margin-inline: auto;
 }
 
+/* Small introductory label */
 .hero-homepage .hero-eyebrow {
     display: flex;
     justify-content: center;
@@ -518,28 +546,21 @@ section h2 {
     background: var(--hero-clay);
 }
 
-/* Homepage hero typography */
-
+/* Hero heading */
 .hero-homepage h1 {
-    font-family: "DM Serif Display", serif;
     width: 100%;
     max-width: 1000px;
     margin-inline: auto;
-
-    /* Responsive heading size */
+    color: #F5EFEB;
+    font-family: "DM Serif Display", serif;
     font-size: clamp(2.2rem, 5.2vw, 4.5rem);
-
-    /* Keep the lighter, elegant appearance */
     font-weight: 400;
     line-height: 1.15;
     letter-spacing: -0.035em;
-
-    /* Improve line wrapping on different screen sizes */
     text-wrap: balance;
-
-    color: #F5EFEB;
 }
 
+/* Hero typography */
 .hero-homepage .hero-subtitle,
 .hero-homepage .hero-eyebrow,
 .hero-homepage .hero-note,
@@ -548,14 +569,11 @@ section h2 {
 }
 
 .hero-homepage .hero-subtitle {
-    color: rgba(245, 239, 235, 0.9);
-   max-width: 760px;
+    max-width: 760px;
     margin: 1.5rem auto 0;
-
-    /* Scales with screen size */
+    color: rgba(245, 239, 235, 0.9);
     font-size: clamp(1.05rem, 2vw, 1.4rem);
     line-height: 1.65;
-
     text-wrap: pretty;
 }
 
@@ -564,20 +582,12 @@ section h2 {
     color: #C8D9E6;
 }
 
-.hero-homepage .hero-eyebrow-line {
-    background: #E6B49D;
-}
-
-.hero-homepage .hero-note i {
-    color: #E6B49D;
-}
-
+.hero-homepage .hero-note i,
 .hero-homepage .hero-bottom-mark {
     color: #E6B49D;
 }
 
-/* Call-to-action buttons */
-
+/* Hero buttons container */
 .hero-homepage .hero-actions {
     display: flex;
     justify-content: center;
@@ -586,23 +596,20 @@ section h2 {
     margin-top: 34px;
 }
 
+/* Shared hero button styles */
 .hero-homepage .hero-button {
     display: inline-flex;
     min-height: 52px;
     align-items: center;
     justify-content: center;
-
     padding: 0.85rem 1.8rem;
     border: 1.5px solid #F5EFEB;
     border-radius: 999px;
-
-    font-family: "Roboto", sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.3;
     text-align: center;
     text-decoration: none;
-
     transition:
         background-color 0.25s ease,
         border-color 0.25s ease,
@@ -611,9 +618,7 @@ section h2 {
         box-shadow 0.25s ease;
 }
 
-
-/* Primary button — warm cream */
-
+/* Primary hero button */
 .hero-homepage .hero-button-primary {
     background-color: #F5EFEB;
     border-color: #F5EFEB;
@@ -630,9 +635,7 @@ section h2 {
     box-shadow: 0 7px 18px rgba(0, 0, 0, 0.16);
 }
 
-
-/* Secondary button — subtle outline */
-
+/* Secondary hero button */
 .hero-homepage .hero-button-secondary {
     background-color: rgba(47, 65, 86, 0.15);
     border-color: rgba(245, 239, 235, 0.65);
@@ -646,8 +649,8 @@ section h2 {
     color: #FFFFFF;
     transform: translateY(-2px);
 }
-/* Personal, welcoming detail */
 
+/* Welcoming note */
 .hero-homepage .hero-note {
     display: flex;
     justify-content: center;
@@ -658,10 +661,7 @@ section h2 {
     font-size: 0.88rem;
 }
 
-.hero-homepage .hero-note i {
-    color: var(--hero-clay);
-}
-
+/* Decorative line at the bottom */
 .hero-homepage .hero-bottom-mark {
     display: flex;
     align-items: center;
@@ -678,7 +678,1144 @@ section h2 {
     background: rgba(84, 126, 146, 0.35);
 }
 
-/* Responsive adjustments */
+/* -----------------------------------------------------
+   4.2 SERVICE INFORMATION
+----------------------------------------------------- */
+
+/* Section background */
+.info-section {
+    background-color: var(--brand-beige);
+}
+
+/* Service information cards */
+.info-section .info-card {
+    background-color: var(--brand-white);
+}
+
+/* Service icons */
+.info-section .info-icon {
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+/* Service time badges */
+.info-section .service-block strong {
+    background-color: var(--brand-primary);
+    color: var(--brand-white);
+}
+
+/* Information card layout */
+.info-card {
+    height: 100%;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(47, 65, 86, 0.08);
+    border-radius: 16px;
+    background-color: var(--bg-white);
+    box-shadow: 0 6px 20px rgba(47, 65, 86, 0.06);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(47, 65, 86, 0.12);
+}
+
+/* Circular information icons */
+.info-icon {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--brand-light);
+    color: var(--brand-dark);
+    font-size: 1.8rem;
+}
+
+/* Information card buttons */
+.info-card .btn {
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+}
+
+/* Worship service times */
+.service-times {
+    max-width: 340px;
+    margin: 1.5rem auto 0;
+}
+
+.service-block {
+    margin-bottom: 1.5rem;
+}
+
+.service-block:not(:last-of-type) {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.service-block strong {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: var(--brand-primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.service-block p {
+    margin: 0.35rem 0;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.cry-room {
+    margin-top: 1.5rem;
+    color: var(--text-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* -----------------------------------------------------
+   4.3 ABOUT SECTION
+----------------------------------------------------- */
+
+/* Homepage content background */
+.content-section {
+    background-color: var(--brand-white);
+}
+
+/* -----------------------------------------------------
+   4.4 LATEST SERMONS
+----------------------------------------------------- */
+
+/* Sermons section background */
+.content-section.sermons-section {
+    background-color: var(--brand-light);
+}
+
+/* Sermon cards */
+.sermons-section #latest-sermons .card {
+    background-color: var(--brand-white);
+}
+
+#latest-sermons .col-md-6 {
+    display: flex;
+}
+
+#latest-sermons .card {
+    width: 100%;
+}
+
+/* -----------------------------------------------------
+   4.5 UPCOMING EVENTS
+   Artistic arched carousel
+----------------------------------------------------- */
+
+/* Events section colour system and layout */
+.events-section {
+    --events-clay: #D99375;
+    --events-clay-dark: #B96F53;
+    --events-cream: #F5EFEB;
+    --events-ink: #2F4156;
+    --events-blue: #C8D9E6;
+
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
+    background: var(--events-cream);
+}
+
+/* Main content container */
+.events-section .events-showcase {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+}
+
+/* Events introduction */
+.events-intro {
+    padding-block: 1rem;
+}
+
+/* Small section label */
+.events-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    color: var(--events-clay-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.events-eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--events-clay);
+}
+
+/* Events heading */
+.events-section .events-heading {
+    max-width: 380px;
+    margin: 0 0 1.25rem;
+    color: var(--events-ink);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.8rem, 4.3vw, 4.3rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    text-align: left;
+    text-wrap: balance;
+}
+
+.events-heading span {
+    display: block;
+    color: var(--events-clay-dark);
+    font-style: italic;
+}
+
+/* Events description */
+.events-section .events-description {
+    max-width: 330px;
+    margin: 0 0 1.75rem;
+    color: #637481;
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+/* View all events link */
+.events-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--events-clay);
+    color: var(--events-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.events-view-all i {
+    color: var(--events-clay-dark);
+    font-size: 1.1rem;
+}
+
+.events-view-all:hover {
+    gap: 18px;
+    color: var(--events-clay-dark);
+}
+
+/* Decorative side note */
+.events-side-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 3rem;
+    color: #7C898F;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.events-side-line {
+    width: 28px;
+    height: 1px;
+    background: var(--events-clay);
+}
+
+
+/* Events carousel container */
+.events-gallery {
+    min-width: 0;
+}
+
+.events-section .upcoming-events-swiper {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.events-section .upcoming-events-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.events-section .upcoming-events-swiper .swiper-slide {
+    display: flex;
+    height: auto;
+    align-items: stretch;
+}
+
+
+/* Event cards */
+.events-section .upcoming-events-swiper .event-card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+}
+
+.events-section .upcoming-events-swiper .event-card:hover {
+    transform: none;
+}
+
+
+/* Arched event artwork */
+.events-section .upcoming-events-swiper .event-flyer {
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+    border: 4px solid #FFFFFF;
+    border-radius: 48% 48% 8px 8px / 24% 24% 8px 8px;
+    background: var(--events-blue);
+    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.07);
+}
+
+.events-section .upcoming-events-swiper .event-flyer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.events-section .upcoming-events-swiper
+.swiper-slide-active .event-flyer img {
+    transform: scale(1.02);
+}
+
+
+/* Event information underneath artwork */
+.events-section .upcoming-events-swiper .event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 0.25rem 0;
+    text-align: left;
+}
+
+.events-section .upcoming-events-swiper .event-info h3,
+.events-section .upcoming-events-swiper .event-info h4 {
+    margin: 0;
+    color: var(--events-ink);
+    font-family: "DM Serif Display", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.events-section .upcoming-events-swiper .event-info p {
+    margin: 0;
+    color: #637481;
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+
+/* Carousel footer */
+.events-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.events-pagination-wrap {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.events-pagination-label {
+    flex-shrink: 0;
+    color: #637481;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+/* Pagination indicators */
+.events-section .upcoming-events-swiper .swiper-pagination {
+    position: static;
+    display: flex;
+    width: auto;
+    align-items: center;
+    gap: 6px;
+}
+
+.events-section .upcoming-events-swiper .swiper-pagination-bullet {
+    width: 14px;
+    height: 4px;
+    margin: 0 !important;
+    border-radius: 10px;
+    background: var(--events-blue);
+    opacity: 1;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.events-section .upcoming-events-swiper
+.swiper-pagination-bullet-active {
+    width: 28px;
+    background: var(--events-clay-dark);
+}
+
+/* Previous and next buttons */
+.events-navigation {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.events-arrow {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(47, 65, 86, 0.2);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--events-ink);
+    font-size: 1rem;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.events-arrow:hover {
+    border-color: var(--events-clay);
+    background: var(--events-clay);
+    color: #FFFFFF;
+}
+
+/* Keyboard focus indicators */
+.events-arrow:focus-visible,
+.events-view-all:focus-visible {
+    outline: 3px solid var(--events-clay-dark);
+    outline-offset: 4px;
+}
+
+/* -----------------------------------------------------
+   4.6 SHARED HOMEPAGE CARD & SOCIAL STYLES
+----------------------------------------------------- */
+
+/* General card appearance */
+.card {
+    flex: 1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* Social links */
+.social-links {
+    display: flex;
+    margin: 1.5rem 0;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+/* END OF HOMEPAGE STYLES */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   05. AGPC — AGPC.html
+===================================================== */
+
+/* Add AGPC page-specific styles here. */
+
+
+/* =====================================================
+   06. CONNECT — Connect.html
+===================================================== */
+
+/* Add Connect page-specific styles here. */
+
+
+/* =====================================================
+   07. EVENTS — Events.html
+===================================================== */
+
+/* -----------------------------------------------------
+   7.1 SHARED SWIPER LAYOUT
+----------------------------------------------------- */
+
+.swiper {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.upcoming-events-swiper,
+.past-events-swiper {
+    height: auto;
+}
+
+.upcoming-events-swiper .swiper-wrapper,
+.past-events-swiper .swiper-wrapper {
+    height: auto;
+    align-items: center;
+}
+
+.upcoming-events-swiper .swiper-slide,
+.past-events-swiper .swiper-slide {
+    display: flex;
+    height: auto;
+    justify-content: center;
+}
+
+/* -----------------------------------------------------
+   7.2 EVENT CARDS
+----------------------------------------------------- */
+
+.event-card {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* Event flyer container */
+.event-flyer {
+    width: 100%;
+}
+
+.event-flyer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Event information */
+.event-info {
+    padding: 12px 14px;
+    text-align: center;
+}
+
+/* -----------------------------------------------------
+   7.3 UPCOMING EVENTS CAROUSEL
+----------------------------------------------------- */
+
+.upcoming-events-swiper .swiper-slide {
+    width: 75%;
+}
+
+.upcoming-events-swiper .event-flyer {
+    height: 320px;
+}
+
+/* -----------------------------------------------------
+   7.4 PAST EVENTS CAROUSEL
+----------------------------------------------------- */
+
+.past-events-swiper .swiper-slide {
+    width: 260px;
+}
+
+.past-events-swiper .event-flyer {
+    height: 180px;
+}
+
+/* -----------------------------------------------------
+   7.5 EVENT CAROUSEL PAGINATION
+----------------------------------------------------- */
+
+.upcoming-events-swiper .swiper-pagination,
+.past-events-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   08. GIVE — Give.html
+===================================================== */
+
+/* Add Give page-specific styles here. */
+
+
+/* =====================================================
+   09. MINISTRIES — Ministries.html
+===================================================== */
+
+/* -----------------------------------------------------
+   9.1 MINISTRY CARDS
+----------------------------------------------------- */
+
+.ministry-card {
+    border: none;
+    background-color: #89C8FC;
+}
+
+.ministry-bg {
+    position: relative;
+    display: flex;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ministry-icon-corner {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    width: 80px;
+    opacity: 0.85;
+    filter: brightness(0) invert(1);
+}
+
+/* -----------------------------------------------------
+   9.2 MINISTRY CAROUSEL
+----------------------------------------------------- */
+
+.ministry-carousel .carousel-item {
+    min-height: 400px;
+}
+
+.ministry-carousel img {
+    transition: transform 0.3s ease;
+}
+
+.ministry-carousel img:hover {
+    transform: scale(1.03);
+}
+
+/* -----------------------------------------------------
+   9.3 MINISTRY MODALS
+----------------------------------------------------- */
+
+.modal-dialog {
+    width: 90%;
+    max-width: 800px;
+}
+
+.modal-content {
+    min-height: 600px;
+}
+
+/* -----------------------------------------------------
+   9.4 CAROUSEL CONTROLS
+----------------------------------------------------- */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 18px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 60%;
+}
+
+/* -----------------------------------------------------
+   9.5 MINISTRY CONTENT SECTION
+----------------------------------------------------- */
+
+.content-section {
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   10. SERMONS — Sermons.html
+===================================================== */
+
+/* -----------------------------------------------------
+   10.1 SHARED PAGINATION
+----------------------------------------------------- */
+
+#en-pagination,
+#zh-pagination,
+#both-pagination {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 16px;
+    font-family: "Roboto", sans-serif;
+}
+
+.page-number {
+    position: relative;
+    padding: 4px 8px;
+    color: #555555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-number.active {
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.page-number.active::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 6px;
+    background-color: var(--brand-primary);
+    content: "";
+}
+
+.page-arrow {
+    padding: 4px 8px;
+    color: var(--brand-primary);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.page-arrow.disabled {
+    color: #AAAAAA;
+    cursor: default;
+}
+
+.page-arrow:hover:not(.disabled) {
+    background-color: #EEF2FF;
+}
+
+/* -----------------------------------------------------
+   10.2 SERMON CARDS
+----------------------------------------------------- */
+
+.sermon-card {
+    display: flex;
+    width: 240px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #F4F4F4;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sermon-thumb {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.sermon-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------------------------------
+   10.3 SERMON VIDEO
+----------------------------------------------------- */
+
+.sermon-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.sermon-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* -----------------------------------------------------
+   10.4 SERMON INFORMATION
+----------------------------------------------------- */
+
+.sermon-info {
+    display: flex;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sermon-title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.sermon-meta {
+    margin: 0;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+/* -----------------------------------------------------
+   10.5 HORIZONTAL SERMON SCROLLING
+----------------------------------------------------- */
+
+.sermon-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.sermon-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.sermon-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--brand-primary);
+}
+
+/* -----------------------------------------------------
+   10.6 SERMON GRID
+----------------------------------------------------- */
+
+/* Column layout is configured in the desktop section below */
+#english-grid .col,
+#chinese-grid .col,
+#combined-grid .col {
+    /* Desktop layout is defined in Section 12. */
+}
+
+
+/* =====================================================
+   11. VISIT US — Visit Us.html
+===================================================== */
+
+/* Add Visit Us page-specific styles here. */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+   12. DESKTOP-ONLY STYLES
+   Non-mobile layout adjustments
+===================================================== */
+
+/* Desktop sermon grid */
+@media (min-width: 992px) {
+    #english-grid .col,
+    #chinese-grid .col,
+    #combined-grid .col {
+        flex: 0 0 30%;
+        max-width: 30%;
+        margin-bottom: 30px;
+    }
+
+    .sermon-card {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   13. RESPONSIVE STYLES
+   Mobile and tablet styles will be added next.
+===================================================== */
+/* -----------------------------------------------------
+   13.1 GLOBAL SECTION SPACING
+----------------------------------------------------- */
+
+/* Small screens */
+@media (max-width: 767px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    section h2 {
+        margin-bottom: 1.25rem;
+    }
+
+    .section-spacious {
+        padding-block: 3rem;
+    }
+}
+
+/* Tablets and larger screens */
+@media (min-width: 768px) {
+    section {
+        padding: 7rem 1.5rem;
+    }
+}
+
+/* Large desktop screens */
+
+@media (min-width: 1200px) {
+    section {
+        padding: 8rem 1.5rem;
+    }
+}
+
+/* -----------------------------------------------------
+   13.2 NAVBAR
+----------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+
+    .myNav .container-fluid {
+        flex-wrap: wrap;
+    }
+
+    .myNav .navbar-logo {
+        height: 56px;
+        margin-right: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    .myNav .navbar-text {
+        max-width: 220px;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .myNav .navbar-brand {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        max-width: calc(100% - 60px);
+    }
+
+    .myNav .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .myNav .navbar-nav {
+        align-items: stretch !important;
+        padding: 0.75rem 0 1rem;
+    }
+
+    .myNav .nav-link {
+        margin: 0;
+        padding: 0.75rem 1rem;
+        white-space: normal;
+    }
+
+    .myNav .lang-toggle {
+        margin: 0.75rem 1rem 0 !important;
+    }
+
+    .myNav .dropdown-menu {
+        margin: 0.25rem 0 0 1rem;
+        border: none;
+        border-left: 2px solid var(--brand-light);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .myNav .dropdown-item {
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* -----------------------------------------------------
+   13.3 INNER-PAGE HERO SECTIONS
+----------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+    .hero-section {
+        min-height: 60vh;
+        padding: 3rem 1rem;
+        background-position: center;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.2;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .hero-sermons,
+    .hero-visitus,
+    .hero-give,
+    .hero-events,
+    .hero-connect {
+        min-height: 32vh;
+    }
+}
+
+/* -----------------------------------------------------
+   13.4 HOMEPAGE HERO
+----------------------------------------------------- */
 
 @media (max-width: 575.98px) {
 
@@ -727,499 +1864,50 @@ section h2 {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .hero-homepage .hero-button,
-    .hero-homepage .hero-button:hover {
-        transition: none;
-        transform: none;
+/* -----------------------------------------------------
+   13.5 SERVICE INFORMATION AND HOMEPAGE CARDS
+----------------------------------------------------- */
+
+@media (max-width: 992px) {
+
+    .service-times {
+        max-width: 100%;
+    }
+
+    .info-card {
+        margin-bottom: 1rem;
     }
 }
 
-/* Service information */
-.info-section {
-    background-color: var(--brand-beige);
-}
-
-.info-section .info-card {
-    background-color: var(--brand-white);
-}
-
-.info-section .info-icon {
-    background-color: var(--brand-light);
-    color: var(--brand-dark);
-}
-
-.info-section .service-block strong {
-    background-color: var(--brand-primary);
-    color: var(--brand-white);
-}
-
-/* About section */
-.content-section {
-    background-color: var(--brand-white);
-}
-
-/* Latest Sermons */
-.content-section.sermons-section {
-    background-color: var(--brand-light);
-}
-
-.sermons-section #latest-sermons .card {
-    background-color: var(--brand-white);
-}
-
-/* Upcoming Events */
-.content-section.events-section {
-    background-color: var(--brand-beige);
-}
-
-.events-section .event-card {
-    background-color: var(--brand-white);
-}
-
-/* 5. Service information icons */
-.info-section .info-icon {
-    background-color: var(--brand-light);
-    color: var(--brand-dark);
-}
-
-/* 6. Service time badges */
-.info-section .service-block strong {
-    background-color: var(--brand-primary);
-    color: var(--brand-white);
-}
-
-/* Latest sermons layout */
-
-#latest-sermons .col-md-6 {
-    display: flex;
-}
-
-#latest-sermons .card {
-    width: 100%;
-}
-
-/* Homepage information cards */
-
-.info-card {
-    height: 100%;
-    padding: 2rem 1.5rem;
-    border: 1px solid rgba(47, 65, 86, 0.08);
-    border-radius: 16px;
-    background-color: var(--bg-white);
-    box-shadow: 0 6px 20px rgba(47, 65, 86, 0.06);
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(47, 65, 86, 0.12);
-}
-
-.info-icon {
-    display: flex;
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 1.25rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: var(--brand-light);
-    color: var(--brand-dark);
-    font-size: 1.8rem;
-}
-
-.info-card .btn {
-    padding: 0.65rem 1.3rem;
-    border-radius: 8px;
-}
-
-/* Worship service times */
-
-.service-times {
-    max-width: 340px;
-    margin: 1.5rem auto 0;
-}
-
-.service-block {
-    margin-bottom: 1.5rem;
-}
-
-.service-block:not(:last-of-type) {
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.service-block strong {
-    display: inline-block;
-    margin-bottom: 0.75rem;
-    padding: 6px 16px;
-    border-radius: 999px;
-    background: var(--brand-primary);
-    color: white;
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.service-block p {
-    margin: 0.35rem 0;
-    color: var(--text-body);
-    font-size: 0.95rem;
-    line-height: 1.45;
-}
-
-.cry-room {
-    margin-top: 1.5rem;
-    color: var(--text-body);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* Homepage card buttons */
-
-.info-card .btn {
-    padding: 0.65rem 1.4rem;
-    border-radius: 999px;
-}
-
-/* Social links */
-
-.social-links {
-    display: flex;
-    margin: 1.5rem 0;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.social-links a i {
-    font-size: 1.5rem;
-}
-
-.social-links a:hover {
-    transform: translateY(-2px);
-    opacity: 0.8;
-}
-
-.card {
-    flex: 1;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-}
-
-.events-section {
-    --events-clay: #D99375;
-    --events-clay-dark: #B96F53;
-    --events-cream: #F5EFEB;
-    --events-ink: #2F4156;
-    --events-blue: #C8D9E6;
-
-    position: relative;
-    overflow: hidden;
-    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
-    background: var(--events-cream);
-}
+@media (max-width: 767px) {
 
-.events-section .events-showcase {
-    position: relative;
-    z-index: 1;
-    max-width: 1320px;
-}
-
-/* LEFT TYPOGRAPHY */
-
-.events-intro {
-    padding-block: 1rem;
-}
-
-.events-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    color: var(--events-clay-dark);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-}
-
-.events-eyebrow-dot {
-    width: 8px;
-    height: 8px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: var(--events-clay);
-}
-
-.events-section .events-heading {
-    max-width: 380px;
-    margin: 0 0 1.25rem;
-    color: var(--events-ink);
-    font-family: "DM Serif Display", serif;
-    font-size: clamp(2.8rem, 4.3vw, 4.3rem);
-    font-weight: 400;
-    letter-spacing: -0.045em;
-    line-height: 1.02;
-    text-align: left;
-    text-wrap: balance;
-}
-
-.events-heading span {
-    display: block;
-    color: var(--events-clay-dark);
-    font-style: italic;
-}
-
-.events-section .events-description {
-    max-width: 330px;
-    margin: 0 0 1.75rem;
-    color: #637481;
-    font-size: 0.98rem;
-    line-height: 1.8;
-}
-
-.events-view-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 7px;
-    border-bottom: 1px solid var(--events-clay);
-    color: var(--events-ink);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    transition: gap 0.25s ease, color 0.25s ease;
-}
-
-.events-view-all i {
-    color: var(--events-clay-dark);
-    font-size: 1.1rem;
-}
-
-.events-view-all:hover {
-    gap: 18px;
-    color: var(--events-clay-dark);
-}
-
-.events-side-note {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 3rem;
-    color: #7C898F;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-.events-side-line {
-    width: 28px;
-    height: 1px;
-    background: var(--events-clay);
-}
-
-/* CAROUSEL */
-
-.events-gallery {
-    min-width: 0;
-}
-
-.events-section .upcoming-events-swiper {
-    width: 100%;
-    overflow: hidden;
-    padding: 0;
-}
-
-.events-section .upcoming-events-swiper .swiper-wrapper {
-    align-items: stretch;
-}
-
-.events-section .upcoming-events-swiper .swiper-slide {
-    display: flex;
-    height: auto;
-    align-items: stretch;
-}
-
-/* Event cards */
+    .info-card {
+        padding: 1.5rem 1.25rem;
+    }
 
-.events-section .upcoming-events-swiper .event-card {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    transition: none;
-}
-
-.events-section .upcoming-events-swiper .event-card:hover {
-    transform: none;
-}
-
-/* Subtle arched image */
-
-.events-section .upcoming-events-swiper .event-flyer {
-    position: relative;
-    height: 340px;
-    overflow: hidden;
-    border: 4px solid #FFFFFF;
-    border-radius: 48% 48% 8px 8px / 24% 24% 8px 8px;
-    background: var(--events-blue);
-    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.07);
-}
-
-.events-section .upcoming-events-swiper .event-flyer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
-}
-
-.events-section .upcoming-events-swiper
-.swiper-slide-active .event-flyer img {
-    transform: scale(1.02);
-}
-
-/* Event information */
-
-.events-section .upcoming-events-swiper .event-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    padding: 1rem 0.25rem 0;
-    text-align: left;
-}
-
-.events-section .upcoming-events-swiper .event-info h3,
-.events-section .upcoming-events-swiper .event-info h4 {
-    margin: 0;
-    color: var(--events-ink);
-    font-family: "DM Serif Display", serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.3;
-}
-
-.events-section .upcoming-events-swiper .event-info p {
-    margin: 0;
-    color: #637481;
-    font-size: 0.84rem;
-    line-height: 1.5;
-}
+    .service-times {
+        max-width: 100%;
+    }
 
-/* CONTROLS */
+    .service-block strong {
+        font-size: 0.95rem;
+    }
 
-.events-carousel-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.events-pagination-wrap {
-    display: flex;
-    min-width: 0;
-    flex: 1;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.events-pagination-label {
-    flex-shrink: 0;
-    color: #637481;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-.events-section .upcoming-events-swiper .swiper-pagination {
-    position: static;
-    display: flex;
-    width: auto;
-    align-items: center;
-    gap: 6px;
-}
-
-.events-section .upcoming-events-swiper .swiper-pagination-bullet {
-    width: 14px;
-    height: 4px;
-    margin: 0 !important;
-    border-radius: 10px;
-    background: var(--events-blue);
-    opacity: 1;
-    transition: width 0.25s ease, background 0.25s ease;
-}
-
-.events-section .upcoming-events-swiper
-.swiper-pagination-bullet-active {
-    width: 28px;
-    background: var(--events-clay-dark);
-}
-
-.events-navigation {
-    display: flex;
-    flex-shrink: 0;
-    gap: 8px;
-}
-
-.events-arrow {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(47, 65, 86, 0.2);
-    border-radius: 50%;
-    background: transparent;
-    color: var(--events-ink);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
-}
-
-.events-arrow:hover {
-    border-color: var(--events-clay);
-    background: var(--events-clay);
-    color: #FFFFFF;
-}
+    .social-links {
+        gap: 1.25rem;
+    }
 
-.events-arrow:focus-visible,
-.events-view-all:focus-visible {
-    outline: 3px solid var(--events-clay-dark);
-    outline-offset: 4px;
+    .social-links a {
+        font-size: 1rem;
+    }
 }
 
-/* TABLET */
+/* -----------------------------------------------------
+   13.6 HOMEPAGE UPCOMING EVENTS
+----------------------------------------------------- */
 
 @media (max-width: 991.98px) {
+
     .events-section .events-heading {
         font-size: clamp(2.8rem, 7vw, 4rem);
     }
@@ -1233,9 +1921,8 @@ section h2 {
     }
 }
 
-/* MOBILE */
-
 @media (max-width: 575.98px) {
+
     .events-section {
         padding: 3.5rem 1rem;
     }
@@ -1279,523 +1966,12 @@ section h2 {
     }
 }
 
-
-/* =====================================================
-   05. AGPC — AGPC.html
-===================================================== */
-
-/* Add AGPC page-specific styles here. */
-
-
-/* =====================================================
-   06. CONNECT — Connect.html
-===================================================== */
-
-/* Add Connect page-specific styles here. */
-
-
-/* =====================================================
-   07. EVENTS — Events.html
-===================================================== */
-
-/* Swiper base */
-
-.swiper {
-    width: 100%;
-    padding: 40px 0;
-}
-
-/* Swiper layout */
-
-.upcoming-events-swiper,
-.past-events-swiper {
-    height: auto;
-}
-
-.upcoming-events-swiper .swiper-wrapper,
-.past-events-swiper .swiper-wrapper {
-    height: auto;
-    align-items: center;
-}
-
-.upcoming-events-swiper .swiper-slide,
-.past-events-swiper .swiper-slide {
-    display: flex;
-    height: auto;
-    justify-content: center;
-}
-
-/* Event cards */
-
-.event-card {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    flex-direction: column;
-    border-radius: 16px;
-    background: white;
-}
-
-/* Event flyers */
-
-.event-flyer {
-    width: 100%;
-}
-
-.event-flyer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Event information */
-
-.event-info {
-    padding: 12px 14px;
-    text-align: center;
-}
-
-/* Upcoming events carousel */
-
-.upcoming-events-swiper .swiper-slide {
-    width: 75%;
-}
-
-.upcoming-events-swiper .event-flyer {
-    height: 320px;
-}
-
-/* Past events carousel */
-
-.past-events-swiper .swiper-slide {
-    width: 260px;
-}
-
-.past-events-swiper .event-flyer {
-    height: 180px;
-}
-
-/* Event carousel pagination */
-
-.upcoming-events-swiper .swiper-pagination,
-.past-events-swiper .swiper-pagination {
-    position: relative;
-    margin-top: 10px;
-}
-
-
-/* =====================================================
-   08. GIVE — Give.html
-===================================================== */
-
-/* Add Give page-specific styles here. */
-
-
-/* =====================================================
-   09. MINISTRIES — Ministries.html
-===================================================== */
-
-/* Ministry cards */
-
-.ministry-card {
-    border: none;
-    background-color: #89c8fc;
-}
-
-.ministry-bg {
-    position: relative;
-    display: flex;
-    height: 250px;
-    align-items: center;
-    justify-content: center;
-}
-
-.ministry-icon-corner {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 2;
-    width: 80px;
-    opacity: 0.85;
-    filter: brightness(0) invert(1);
-}
-
-/* Ministry carousel */
-
-.ministry-carousel .carousel-item {
-    min-height: 400px;
-}
-
-.ministry-carousel img {
-    transition: transform 0.3s ease;
-}
-
-.ministry-carousel img:hover {
-    transform: scale(1.03);
-}
-
-/* Ministry modals */
-
-.modal-dialog {
-    width: 90%;
-    max-width: 800px;
-}
-
-.modal-content {
-    min-height: 600px;
-}
-
-/* Carousel controls */
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    padding: 18px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: 60%;
-}
-
-/* Ministry content section */
-
-.content-section {
-    position: relative;
-    z-index: 1;
-    background-color: #fff;
-}
-
-
-/* =====================================================
-   10. SERMONS — Sermons.html
-===================================================== */
-
 /* -----------------------------------------------------
-    SHARED PAGINATION
+   13.7 EVENTS PAGE CAROUSELS
 ----------------------------------------------------- */
 
-#en-pagination,
-#zh-pagination,
-#both-pagination {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    gap: 16px;
-    font-family: "Roboto", sans-serif;
-}
-
-.page-number {
-    position: relative;
-    padding: 4px 8px;
-    color: #555;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.page-number.active {
-    color: var(--brand-primary);
-    font-weight: 700;
-}
-
-.page-number.active::after {
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin-top: 6px;
-    background-color: var(--brand-primary);
-    content: "";
-}
-
-.page-arrow {
-    padding: 4px 8px;
-    color: var(--brand-primary);
-    font-weight: 600;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease;
-}
-
-.page-arrow.disabled {
-    color: #aaa;
-    cursor: default;
-}
-
-.page-arrow:hover:not(.disabled) {
-    background-color: #eef2ff;
-}
-
-/* Sermon cards */
-
-.sermon-card {
-    display: flex;
-    width: 240px;
-    flex: 0 0 auto;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #f4f4f4;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.sermon-thumb {
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-}
-
-.sermon-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsive sermon video */
-
-.sermon-video-wrapper {
-    position: relative;
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-}
-
-.sermon-video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Sermon information */
-
-.sermon-info {
-    display: flex;
-    padding: 0.75rem 1rem;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.sermon-title {
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-.sermon-meta {
-    margin: 0;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-/* Horizontal sermon scrolling */
-
-.sermon-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-}
-
-.sermon-scroll::-webkit-scrollbar {
-    height: 8px;
-}
-
-.sermon-scroll::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: var(--brand-primary);
-}
-
-/* Desktop sermon grid */
-
-#english-grid .col,
-#chinese-grid .col,
-#combined-grid .col {
-    /* Desktop layout is defined in the responsive section. */
-}
-
-/* =====================================================
-   11. VISIT US — Visit Us.html
-===================================================== */
-
-/* Add Visit Us page-specific styles here. */
-
-
-/* =====================================================
-   12. RESPONSIVE STYLES
-===================================================== */
-
-/* Tablets and smaller desktops */
-
-@media (max-width: 992px) {
-    .service-times {
-        max-width: 100%;
-    }
-
-    .info-card {
-        margin-bottom: 1rem;
-    }
-}
-
-/* Desktop sermon grid */
-
-@media (min-width: 992px) {
-    #english-grid .col,
-    #chinese-grid .col,
-    #combined-grid .col {
-        flex: 0 0 30%;
-        max-width: 30%;
-        margin-bottom: 30px;
-    }
-
-    .sermon-card {
-        width: 100%;
-    }
-}
-
-/* Tablets and larger screens */
-
-@media (min-width: 768px) {
-    section {
-        padding: 7rem 1.5rem;
-    }
-
-    section + section {
-        margin-top: 3rem;
-    }
-}
-
-/* Large screens */
-
-@media (min-width: 1200px) {
-    section {
-        padding: 8rem 1.5rem;
-    }
-}
-
-/* =====================================================
-   MOBILE RESPONSIVENESS
-===================================================== */
-
-/* Navbar */
-
-@media (max-width: 991.98px) {
-    .myNav .container-fluid {
-        flex-wrap: wrap;
-    }
-
-    .myNav .navbar-logo {
-        height: 56px;
-        margin-right: 0.5rem;
-    }
-
-    .myNav .navbar-text {
-        max-width: 220px;
-        font-size: 0.85rem;
-        line-height: 1.3;
-    }
-
-    .myNav .navbar-collapse {
-        flex-basis: 100%;
-        width: 100%;
-    }
-
-    .myNav .navbar-nav {
-        align-items: stretch !important;
-        padding: 0.75rem 0 1rem;
-    }
-
-    .myNav .nav-link {
-        margin: 0;
-        padding: 0.75rem 1rem;
-    }
-
-    .myNav .lang-toggle {
-        margin: 0.75rem 1rem 0 !important;
-    }
-       /* Keep the logo and church name aligned */
-    .myNav .navbar-brand {
-        display: flex;
-        align-items: center;
-        min-width: 0;
-        max-width: calc(100% - 60px);
-    }
-
-    .myNav .navbar-logo {
-        flex-shrink: 0;
-    }
-
-    /* Make dropdowns easier to tap */
-    .myNav .dropdown-menu {
-        margin: 0.25rem 0 0 1rem;
-        border: none;
-        border-left: 2px solid var(--brand-light);
-        border-radius: 0;
-        box-shadow: none;
-    }
-
-    .myNav .dropdown-item {
-        padding: 0.7rem 1rem;
-    }
-
-    /* Prevent navigation items from becoming cramped */
-    .myNav .nav-link {
-        white-space: normal;
-    }
-}
-
-/* Hero */
-
 @media (max-width: 767px) {
-    .hero-section {
-        min-height: 60vh;
-        padding: 3rem 1rem;
-        background-position: center;
-    }
 
-    .hero-section h1 {
-        font-size: clamp(2rem, 8vw, 2.7rem);
-        line-height: 1.2;
-    }
-
-    .hero-section p {
-        font-size: 1.1rem;
-    }
-
-    .hero-sermons,
-    .hero-visitus,
-    .hero-give,
-    .hero-events,
-    .hero-connect {
-        min-height: 32vh;
-    }
-}
-
-/* Homepage cards */
-
-@media (max-width: 767px) {
-    .info-card {
-        padding: 1.5rem 1.25rem;
-    }
-
-    .service-times {
-        max-width: 100%;
-    }
-
-    .service-block strong {
-        font-size: 0.95rem;
-    }
-
-    .social-links {
-        gap: 1.25rem;
-    }
-
-    .social-links a {
-        font-size: 1rem;
-    }
-}
-
-/* Events carousel */
-
-@media (max-width: 767px) {
     .upcoming-events-swiper .swiper-slide {
         width: 90%;
     }
@@ -1813,9 +1989,12 @@ section h2 {
     }
 }
 
-/* Ministry modals */
+/* -----------------------------------------------------
+   13.8 MINISTRIES AND MODALS
+----------------------------------------------------- */
 
 @media (max-width: 767px) {
+
     .modal-dialog {
         width: auto;
         max-width: none;
@@ -1831,8 +2010,39 @@ section h2 {
     }
 }
 
-/* Accessibility */
+/* -----------------------------------------------------
+   13.9 SERMONS
+----------------------------------------------------- */
 
+/* Keep sermon-specific mobile adjustments here if needed.
+   The desktop sermon grid remains in Section 12. */
+
+
+/* =====================================================
+   14. ACCESSIBILITY
+===================================================== */
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =====================================================
+   14. ACCESSIBILITY
+===================================================== */
+
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
