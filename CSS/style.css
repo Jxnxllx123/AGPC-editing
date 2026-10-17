@@ -833,6 +833,10 @@ section h2 {
     background: var(--events-cream);
 }
 
+.content-section.events-section {
+    background-color: var(--brand-beige);
+}
+
 /* Main content container */
 .events-section .events-showcase {
     width: 100%;
