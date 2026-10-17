@@ -30,7 +30,9 @@ window.EVENTS = [
     endTime: "21:00",
 
     type: "recurring",
-    recurrence: "monthly"
+    recurrence: "monthly",
+
+    image: "Images/Events/prayer-gathering.jpg"
   },
 
 
@@ -58,7 +60,8 @@ window.EVENTS = [
     type: "recurring",
     recurrence: "weekly",
 
-    skipFifthSaturday: true
+    skipFifthSaturday: true,
+    image: "Images/Events/youth-fellowship.jpg"
   },
 
 
@@ -84,7 +87,9 @@ window.EVENTS = [
     endTime: "14:30",
 
     type: "recurring",
-    recurrence: "weekly"
+    recurrence: "weekly",
+
+    image: "Images/Events/junior-youth.jpg"
   },
 
 
@@ -110,7 +115,9 @@ window.EVENTS = [
     endTime: "14:45",
 
     type: "recurring",
-    recurrence: "weekly"
+    recurrence: "weekly",
+
+    image: "Images/Events/choir.jpg"
   },
 
   {
@@ -131,7 +138,9 @@ window.EVENTS = [
     endTime: "15:00",
 
     type: "recurring",
-    recurrence: "biweekly"
+    recurrence: "biweekly",
+
+    image: "Images/Events/migrant-workers.jpg"
   }
 
 
