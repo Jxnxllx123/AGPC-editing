@@ -982,14 +982,17 @@ section h2 {
 }
 
 .events-section .upcoming-events-swiper .event-flyer {
+    position: relative;
     width: 100%;
-    height: clamp(260px, 29vw, 350px);
+    height: clamp(320px, 32vw, 410px);
     flex-shrink: 0;
     overflow: hidden;
+
     border: 4px solid #FFFFFF;
-    border-radius: 48% 48% 8px 8px / 24% 24% 8px 8px;
-    background: var(--brand-light);
-    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.07);
+    border-radius: 50% 50% 8px 8px / 24% 24% 8px 8px;
+
+    background: #C8D9E6;
+    box-shadow: 0 16px 36px rgba(47, 65, 86, 0.10);
 }
 
 .events-section .upcoming-events-swiper .event-flyer img {
@@ -997,12 +1000,13 @@ section h2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    object-position: center;
+    transition: transform 0.6s ease;
 }
 
 .events-section .upcoming-events-swiper
 .event-card:hover .event-flyer img {
-    transform: scale(1.035);
+    transform: scale(1.04);
 }
 
 /* Event information */
