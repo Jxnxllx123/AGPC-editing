@@ -1965,6 +1965,43 @@ section h2 {
     .past-events-swiper .event-flyer {
         height: 160px;
     }
+
+   .events-section .events-intro {
+        text-align: center;
+    }
+
+    .events-section .events-eyebrow {
+        justify-content: center;
+    }
+
+    .events-section .events-heading {
+        max-width: none;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .events-section .events-description {
+        margin-inline: auto;
+    }
+
+    .events-section .events-view-all {
+        justify-content: center;
+    }
+
+    .events-section .events-side-note {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .events-section .upcoming-events-swiper .event-card-image {
+        height: 420px;
+    }
+
+    .events-section .event-card-image .event-info {
+        padding: 24px;
+    }
 }
 
 /* -----------------------------------------------------
