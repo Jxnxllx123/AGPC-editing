@@ -49,74 +49,69 @@ function loadEvents() {
 // 📌 RENDER EVENT CARD
 // =========================================================
 
+
 function renderEvent(event) {
-
   const container = document.getElementById("upcoming-events");
-
   if (!container) return;
 
   const start = new Date(event.startDate);
-
-  const dateText = start.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short"
-  });
+  const dateText = start.toLocaleDateString(
+    currentLang === "zh" ? "zh-CN" : "en-GB",
+    { day: "numeric", month: "short" }
+  );
 
   const timeText =
-    (event.startTime && event.endTime)
+    event.startTime && event.endTime
       ? formatTimeRange(event.startTime, event.endTime)
       : "";
 
   const dateLine = timeText
-    ? `${dateText} • ${timeText}`
+    ? `${dateText} · ${timeText}`
     : dateText;
+
+  const title = event.title[currentLang];
+  const subtitle = event.subtitle?.[currentLang] || "";
 
   container.innerHTML += `
     <div class="swiper-slide">
+      <article class="event-card event-card-image">
 
-      <div class="event-card">
-
-        ${event.image ? `
-            <div class="event-flyer">
-              <img
-                src="${event.image}"
-                alt="${event.title[currentLang]}"
-                loading="lazy"
-              >
-            </div>
-          ` : ""}
-
-        <div class="event-info">
-
-          <h5 class="mb-1">
-            ${event.title[currentLang]}
-          </h5>
-
-          ${event.subtitle ? `
-            <p class="event-subtitle mb-1">
-              ${event.subtitle[currentLang]}
-            </p>
-          ` : ""}
-
-          <p class="text-muted mb-2">
-            ${dateLine}
-          </p>
-
-          ${event.gallery?.length ? `
-            <a
-              class="btn btn-outline-primary btn-sm"
-              onclick='openEventGallery("${event.id}")'
+        <div class="event-flyer">
+          ${event.image ? `
+            <img
+              src="${event.image}"
+              alt=""
+              aria-hidden="true"
             >
-              ${currentLang === "zh"
-                ? "了解更多"
-                : "Learn More"}
-            </a>
           ` : ""}
-
         </div>
 
-      </div>
+        <div class="event-info">
+          <span class="event-card-eyebrow">
+            ${currentLang === "zh" ? "即将举行" : "UPCOMING EVENT"}
+          </span>
 
+          <h3>${title}</h3>
+
+          ${subtitle ? `
+            <p class="event-subtitle">${subtitle}</p>
+          ` : ""}
+
+          <p class="event-card-date">${dateLine}</p>
+
+          ${event.gallery?.length ? `
+            <button
+              type="button"
+              class="event-card-button"
+              onclick="openEventGallery('${event.id}')"
+            >
+              ${currentLang === "zh" ? "了解更多" : "Learn More"}
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+            </button>
+          ` : ""}
+        </div>
+
+      </article>
     </div>
   `;
 }
