@@ -1023,6 +1023,62 @@ section h2 {
     gap: 1rem;
 }
 
+.events-section .upcoming-events-swiper
+.swiper-pagination-bullet {
+    background: #C8D9E6;
+}
+
+.events-section .upcoming-events-swiper
+.swiper-pagination-bullet-active {
+    background: #B96F53;
+}
+
+/* Minimal editorial carousel arrows */
+.events-navigation {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.events-arrow {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+
+    color: #2F4156;
+    font-size: 1.15rem;
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.events-arrow:hover {
+    background: transparent;
+    color: #B96F53;
+}
+
+.events-arrow.events-prev:hover {
+    transform: translateX(-3px);
+}
+
+.events-arrow.events-next:hover {
+    transform: translateX(3px);
+}
+
+.events-arrow:focus-visible {
+    outline: 2px solid #B96F53;
+    outline-offset: 4px;
+}
+
 /* Keyboard accessibility */
 .events-section .events-arrow:focus-visible,
 .events-section .events-view-all:focus-visible {
