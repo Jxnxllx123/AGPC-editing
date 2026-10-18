@@ -91,11 +91,11 @@
 }
 
 .hero-homepage .hero-subtitle {
-    max-width: 760px;
+    max-width: 7880px;
     margin: 1.5rem auto 0;
     color: rgba(245, 239, 235, 0.9);
-    font-size: clamp(1.05rem, 2vw, 1.4rem);
-    line-height: 1.65;
+    font-size: clamp(1.15rem, 1.2vw + 0.85rem, 1.5rem);
+    line-height: 1.75;
     text-wrap: pretty;
 }
 
@@ -222,7 +222,7 @@
     display: inline-block;
     margin-bottom: 1rem;
     color: #B96F53;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
 }
@@ -235,13 +235,14 @@
     line-height: 1.1;
 }
 
-.who-we-are-section .who-intro p {
-    max-width: 520px;
-    color: #52616B;
-    font-size: 1rem;
-    line-height: 1.85;
+/* Main homepage paragraphs */
+.who-we-are-section .who-intro p,
+.who-we-are-section .schedule-details p,
+.who-we-are-section .schedule-family-notes p,
+.events-section .events-description {
+    font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.2rem);
+    line-height: 1.8;
 }
-
 .who-we-are-section .who-intro .who-welcome {
     margin-top: 1rem;
 }
@@ -291,6 +292,7 @@
 
 .who-we-are-section .schedule-eyebrow {
     color: #B96F53;
+    font-size: 0.8rem;
 }
 
 .who-we-are-section .schedule-heading h3 {
@@ -298,12 +300,6 @@
     font-family: "DM Serif Display", serif;
     font-size: clamp(2rem, 3.5vw, 2.8rem);
     font-weight: 400;
-}
-
-.who-we-are-section .schedule-heading p {
-    margin: 0;
-    color: #637481;
-    font-size: 0.95rem;
 }
 
 .who-we-are-section .schedule-grid {
@@ -325,7 +321,7 @@
 .who-we-are-section .schedule-time {
     margin-bottom: 1.25rem;
     color: #567C8D;
-    font-size: 1.1rem;
+    font-size: clamp(1.15rem, 0.5vw + 1rem, 1.3rem);
     font-weight: 700;
 }
 
@@ -333,16 +329,9 @@
 .who-we-are-section .schedule-family-notes h4 {
     margin: 0 0 0.25rem;
     color: #2F4156;
-    font-size: 1rem;
+    font-size: clamp(1.05rem, 0.3vw + 1rem, 1.15rem);
+    line-height: 1.5;
     font-weight: 700;
-}
-
-.who-we-are-section .schedule-details p,
-.who-we-are-section .schedule-family-notes p {
-    margin: 0;
-    color: #637481;
-    font-size: 0.92rem;
-    line-height: 1.6;
 }
 
 .who-we-are-section .schedule-divider {
@@ -492,7 +481,7 @@
     gap: 10px;
     margin-bottom: 1.5rem;
     color: var(--events-clay-dark);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
 }
