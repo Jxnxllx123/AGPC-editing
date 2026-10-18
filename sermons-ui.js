@@ -131,7 +131,9 @@ function renderSermonPage(lang) {
   const data = SERMONS
     .filter(s => {
       const matchesLang = (lang === "both" ? s.lang === "both" : s.lang === lang);
-      const hasVideo = s.video;
+      const hasVideo =
+        typeof s.video === "string" &&
+        s.video.trim() !== "";
 
       const title = typeof s.title === "object" ? s.title[currentLang] : s.title;
       const pastor = typeof s.pastor === "object" ? s.pastor[currentLang] : s.pastor;
