@@ -7,12 +7,12 @@ let currentPage = { en: 1, zh: 1, both: 1 };
 let searchQuery = ""; // ✅ move to top
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderHomepageSermons(2);
+  renderHomepageSermons();
+
   renderSermonPage("en");
   renderSermonPage("zh");
   renderSermonPage("both");
 
-  // 🔍 SEARCH LISTENER
   const searchInput = document.getElementById("sermonSearch");
   if (searchInput) {
     searchInput.addEventListener("input", handleSearch);
@@ -36,48 +36,88 @@ function handleSearch(e) {
 // =====================
 // HOMEPAGE
 // =====================
-function renderHomepageSermons(count = 2) {
+
+function renderHomepageSermons() {
   const container = document.getElementById("latest-sermons");
   if (!container) return;
 
   const now = new Date();
 
-  let upcoming = SERMONS
-    .filter(s => parseDate(s.date) >= now)
-    .sort((a, b) => parseDate(a.date) - parseDate(b.date))
-    .slice(0, count);
+  const upcoming = SERMONS
+    .filter(s => {
+      const date = parseDate(s.date);
+      return date && date >= now;
+    })
+    .sort((a, b) => parseDate(a.date) - parseDate(b.date));
 
-  if (upcoming.length === 0) {
-    upcoming = [...SERMONS]
-      .sort((a, b) => parseDate(b.date) - parseDate(a.date))
-      .slice(0, count);
+  if (!upcoming.length) {
+    container.innerHTML = `
+      <p class="text-center">
+        No upcoming sermons at the moment.
+      </p>`;
+    return;
   }
 
-  container.innerHTML = upcoming.map(s => {
+  // Find the nearest upcoming calendar date
+  const nextDate = parseDate(upcoming[0].date);
 
-    let timeText = "";
-    if (s.time) {
-      const [start, end] = s.time.split(" - ");
-      timeText = formatTimeRange(start, end);
-    }
+  const dateKey = d =>
+    `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 
-    const dateLine = timeText
-      ? `${formatDate(s.date)} • ${timeText}`
-      : formatDate(s.date);
+  const nextKey = dateKey(nextDate);
+
+  const nextSermons = upcoming.filter(
+    s => dateKey(parseDate(s.date)) === nextKey
+  );
+
+  // A combined service takes priority on that date
+  const combined = nextSermons.find(s => s.lang === "both");
+
+  const selected = combined
+    ? [combined]
+    : nextSermons.filter(s => s.lang === "en" || s.lang === "zh");
+
+  container.innerHTML = selected.map(s => {
+    const bilingual = s.lang === "both";
+
+    const titleEn = bilingual ? s.title.en : s.title;
+    const titleZh = bilingual ? s.title.zh : "";
+
+    const pastorEn = bilingual ? s.pastor.en : s.pastor;
+    const pastorZh = bilingual ? s.pastor.zh : "";
+
+    const timeText = s.time
+      ? formatTimeRange(...s.time.split(" - "))
+      : "";
+
+    const dateText = formatDate(s.date);
 
     return `
-      <div class="col-md-6">
-        <div class="card p-3 text-center">
-          <h5>${typeof s.title === "object" ? s.title[currentLang] : s.title}</h5>
-          <p>
-            ${typeof s.pastor === "object" ? s.pastor[currentLang] : s.pastor}
-            • ${dateLine}
+      <div class="col-12 ${selected.length > 1 ? "col-md-6" : ""}">
+        <div class="upcoming-sermon-card">
+          <span class="upcoming-label">
+            ${bilingual ? "COMBINED SERVICE" :
+              s.lang === "zh" ? "华语崇拜" : "ENGLISH SERVICE"}
+          </span>
+
+          <h3>${titleEn}</h3>
+
+          ${bilingual ? `<h4 class="upcoming-title-zh">${titleZh}</h4>` : ""}
+
+          <p class="upcoming-speaker">
+            ${pastorEn}${bilingual ? ` / ${pastorZh}` : ""}
           </p>
+
+          <div class="upcoming-meta">
+            <span>📅 ${dateText}</span>
+            ${timeText ? `<span>◷ ${timeText}</span>` : ""}
+          </div>
         </div>
       </div>
     `;
   }).join("");
 }
+
 
 // =====================
 // SERMON PAGE
