@@ -5,6 +5,111 @@
    Uses existing AGPC brand colours and typography
 ===================================================== */
 
+
+/* -----------------------------------------------------
+   SERMONS HERO — EDITORIAL STYLE
+----------------------------------------------------- */
+
+.hero-sermons {
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    align-items: center;
+
+    padding: 5rem max(1.5rem, calc((100vw - 1120px) / 2));
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(47, 65, 86, 0.90) 0%,
+            rgba(47, 65, 86, 0.72) 52%,
+            rgba(47, 65, 86, 0.35) 100%
+        ),
+        url("../Images/Sermons/Sermons.jpg");
+
+    background-position: center 42%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Override the shared centered hero layout */
+.hero-sermons .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    color: var(--text-on-dark);
+    text-align: left;
+}
+
+/* Editorial serif heading */
+.hero-sermons h1 {
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+
+    color: var(--brand-white);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.08;
+    text-align: left;
+}
+
+/* Short decorative accent */
+.hero-sermons h1::after {
+    display: block;
+    width: 54px;
+    height: 3px;
+    margin-top: 1.4rem;
+
+    background-color: var(--brand-light);
+    content: "";
+}
+
+/* Preserve your existing welcome wording */
+.hero-sermons p {
+    max-width: 680px;
+    margin: 0;
+
+    color: var(--text-on-dark);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .hero-sermons {
+        min-height: 330px;
+        padding: 4rem 1.25rem;
+
+        background-image:
+            linear-gradient(
+                rgba(47, 65, 86, 0.78),
+                rgba(47, 65, 86, 0.84)
+            ),
+            url("../Images/Sermons/Sermons.jpg");
+
+        background-position: center;
+    }
+
+    .hero-sermons h1 {
+        margin-bottom: 1.2rem;
+        font-size: clamp(2.7rem, 12vw, 3.6rem);
+    }
+
+    .hero-sermons h1::after {
+        margin-top: 1rem;
+    }
+
+    .hero-sermons p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+
 /* -----------------------------------------------------
    1. SERMON ARCHIVE LAYOUT
 ----------------------------------------------------- */
