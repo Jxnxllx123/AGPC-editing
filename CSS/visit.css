@@ -314,6 +314,167 @@
 
 
 /* =========================================
+   VISIT US — UPDATED WORSHIP LAYOUT
+========================================= */
+
+.visit-service-grid {
+    margin-bottom: 1.5rem;
+}
+
+/* Main service cards */
+.visit-service-card {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(47, 65, 86, 0.07);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(47, 65, 86, 0.05);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.visit-service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(47, 65, 86, 0.09);
+}
+
+/* Coloured header strip */
+.visit-service-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.visit-service-mandarin .visit-service-header {
+    background: #EBC9B8;
+}
+
+.visit-service-english .visit-service-header {
+    background: #C8DCE6;
+}
+
+.visit-service-header h3 {
+    margin: 0;
+    color: #203D50;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+}
+
+/* Circular icon */
+.visit-service-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border-radius: 50%;
+    background: #B96746;
+    color: #FFFFFF;
+    font-size: 1.6rem;
+}
+
+.visit-service-english .visit-service-icon {
+    background: #365C70;
+}
+
+/* Service details */
+.visit-service-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1.5rem 1.25rem;
+}
+
+.visit-service-detail {
+    min-width: 0;
+    padding: 0 1rem;
+}
+
+.visit-service-detail + .visit-service-detail {
+    border-left: 1px solid #E8E2DC;
+}
+
+.visit-service-detail h4 {
+    margin-bottom: 0.65rem;
+    color: #203D50;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.visit-service-detail p {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    margin: 0;
+    color: #61717B;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Parent / cry room information */
+.visit-family-note,
+.visit-children-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+}
+
+.visit-family-note {
+    margin-bottom: 1rem;
+    background: #E9E4F0;
+}
+
+.visit-children-card {
+    background: #E1E7DC;
+}
+
+.visit-small-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #77708E;
+    font-size: 1.7rem;
+}
+
+.visit-children-card .visit-small-icon {
+    color: #617763;
+}
+
+.visit-family-note h3,
+.visit-children-card h3 {
+    margin: 0 0 0.5rem;
+    color: #203D50;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.visit-family-note p,
+.visit-children-card p {
+    margin: 0;
+    color: #52616B;
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.visit-children-time {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem !important;
+}
+
+.visit-children-time strong {
+    color: #365C70;
+}
+
+/* =========================================
    VISIT US — MOBILE
 ========================================= */
 
@@ -335,6 +496,42 @@
         transform: rotate(-2deg);
     }
 }
+
+/* Mobile layout */
+@media (max-width: 575.98px) {
+    .visit-service-header {
+        padding: 1rem;
+    }
+
+    .visit-service-body {
+        padding: 1.25rem 0.5rem;
+    }
+
+    .visit-service-detail {
+        padding: 0 0.65rem;
+    }
+
+    .visit-service-detail h4 {
+        font-size: 0.9rem;
+    }
+
+    .visit-service-detail p {
+        font-size: 0.82rem;
+    }
+
+    .visit-family-note,
+    .visit-children-card {
+        gap: 0.85rem;
+        padding: 1.15rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visit-service-card {
+        transition: none;
+    }
+}
+
 
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
