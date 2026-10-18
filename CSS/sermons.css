@@ -1,1 +1,82 @@
+/* =====================================================
+   09. MINISTRIES — Ministries.html
+===================================================== */
+
+/* -----------------------------------------------------
+   9.1 MINISTRY CARDS
+----------------------------------------------------- */
+
+.ministry-card {
+    border: none;
+    background-color: #89C8FC;
+}
+
+.ministry-bg {
+    position: relative;
+    display: flex;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ministry-icon-corner {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    width: 80px;
+    opacity: 0.85;
+    filter: brightness(0) invert(1);
+}
+
+/* -----------------------------------------------------
+   9.2 MINISTRY CAROUSEL
+----------------------------------------------------- */
+
+.ministry-carousel .carousel-item {
+    min-height: 400px;
+}
+
+.ministry-carousel img {
+    transition: transform 0.3s ease;
+}
+
+.ministry-carousel img:hover {
+    transform: scale(1.03);
+}
+
+/* -----------------------------------------------------
+   9.3 MINISTRY MODALS
+----------------------------------------------------- */
+
+.modal-dialog {
+    width: 90%;
+    max-width: 800px;
+}
+
+.modal-content {
+    min-height: 600px;
+}
+
+/* -----------------------------------------------------
+   9.4 CAROUSEL CONTROLS
+----------------------------------------------------- */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 18px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: 60%;
+}
+
+/* -----------------------------------------------------
+   9.5 MINISTRY CONTENT SECTION
+----------------------------------------------------- */
+
+.content-section {
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+}
 
