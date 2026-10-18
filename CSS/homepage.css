@@ -234,20 +234,31 @@
 
 /* A more artistic crop for the main photograph */
 .who-we-are-section .who-image-wrap {
-    border-radius: 46% 46% 8px 8px;
+    width: 100%;
+    max-width: 580px;
+    margin-inline: auto;
+    overflow: hidden;
+    border-radius: 48% 48% 8px 8px;
+    background: #C8D9E6;
 }
 
 /* Keep the image filling its new shape */
 .who-we-are-section .who-image {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 4.5;
     object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
 }
 
 
 .who-we-are-section .who-intro {
     margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.who-we-are-section .who-image-wrap:hover .who-image {
+    transform: scale(1.035);
 }
 
 .who-eyebrow {
@@ -611,7 +622,7 @@
     width: 100%;
     min-width: 0;
     overflow: hidden;
-    padding: 8px 2px 0;
+    padding: 16px 8px 24px;
 }
 
 /* Let Swiper control slide widths */
@@ -624,6 +635,8 @@
     height: auto;
     align-items: stretch;
     justify-content: center;
+    padding-inline: 10px;
+    box-sizing: border-box;
 }
 
 /* Preserve the arched event artwork */
@@ -632,14 +645,14 @@
     isolation: isolate;
     display: flex;
     width: 100%;
-    height: clamp(320px, 36vw, 440px);
+    height: clamp(400px, 42vw, 540px);
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
     border: none;
-    border-radius: 16px;
+    border-radius: 46% 46% 12px 12px;
     background: var(--brand-dark);
-    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.12);
+    box-shadow: 0 16px 36px rgba(47, 65, 86, 0.14);
 }
 
 /* Full-bleed event photograph */
@@ -690,8 +703,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    padding: 28px;
+    gap: 16px;
+    padding: clamp(24px, 3vw, 40px);
     color: #F5EFEB;
     text-align: center;
 }
