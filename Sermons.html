@@ -29,98 +29,245 @@
     </head>
     <body>
 
-    <!-- Navbar here -->
-    <nav class="navbar navbar-expand-lg myNav">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Logo on the LEFT -->
-            <a class="navbar-brand d-flex align-items-center customlink" href="index.html">
-                <img src="Images/agpc-logo-new-a3-crop_orig.jpg" alt="Church Logo" class="navbar-logo">
-                <span class="navbar-text"data-en="Abundant Grace Presbyterian Church"
-                      data-zh="嘉恩堂长老会">
-                    Abundant Grace Presbyterian Church</span>
-            </a>
-
-            <!-- This wrapper contains all nav links and toggle button on the RIGHT -->
-            <div class="d-flex align-items-center">
-            <!-- Navbar toggler (for small screens) -->
-            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible nav links -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                <!-- Your nav items here -->
-                <li class="nav-item">
-                    <a class="nav-link" href="Visit Us.html" data-en="Visit Us" data-zh="来访我们">Visit Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Sermons.html" data-en="Sermons" data-zh="讲道">Sermons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Events.html" data-en="Events" data-zh="活动">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Give.html" data-en="Give" data-zh="奉献">Give</a>
-                </li>
-
-                <!-- Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" data-en="About Us" data-zh="关于我们">About Us</a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="AGPC.html" data-en="AGPC" data-zh="嘉恩堂">AGPC</a></li>
-                    <li><a class="dropdown-item" href="Ministries.html" data-en="Ministries" data-zh="事工">Ministries</a></li>
-                    <li><a class="dropdown-item" href="Connect.html" data-en="Connect" data-zh="联系我们">Connect</a></li>
+        <!-- Navbar here -->
+        <nav class="navbar navbar-expand-lg myNav">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Logo on the LEFT -->
+                <a class="navbar-brand d-flex align-items-center customlink" href="index.html">
+                    <img src="Images/agpc-logo-new-a3-crop_orig.jpg" alt="Church Logo" class="navbar-logo">
+                    <span class="navbar-text"data-en="Abundant Grace Presbyterian Church"
+                          data-zh="嘉恩堂长老会">
+                        Abundant Grace Presbyterian Church</span>
+                </a>
+    
+                <!-- This wrapper contains all nav links and toggle button on the RIGHT -->
+                <div class="d-flex align-items-center">
+                <!-- Navbar toggler (for small screens) -->
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Collapsible nav links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                    <!-- Your nav items here -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="Visit Us.html" data-en="Visit Us" data-zh="来访我们">Visit Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Sermons.html" data-en="Sermons" data-zh="讲道">Sermons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Events.html" data-en="Events" data-zh="活动">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Give.html" data-en="Give" data-zh="奉献">Give</a>
+                    </li>
+    
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-en="About Us" data-zh="关于我们">About Us</a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="AGPC.html" data-en="AGPC" data-zh="嘉恩堂">AGPC</a></li>
+                        <li><a class="dropdown-item" href="Ministries.html" data-en="Ministries" data-zh="事工">Ministries</a></li>
+                        <li><a class="dropdown-item" href="Connect.html" data-en="Connect" data-zh="联系我们">Connect</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Language toggle -->
+                    <li class="nav-item">
+                        <button id="languageToggle" class="btn btn-sm lang-toggle ms-3">中文</button>
+                    </li>
                     </ul>
-                </li>
-
-                <!-- Language toggle -->
-                <li class="nav-item">
-                    <button id="languageToggle" class="btn btn-sm lang-toggle ms-3">中文</button>
-                </li>
-                </ul>
+                </div>
+                </div>
             </div>
-            </div>
+        </nav> 
+    
+        
+        <!-- Page title -->
+        <section class="hero-section hero-sermons">
+        <div class="container">
+            <h1 class="text-center mb-3"
+                data-en="Sermons" data-zh="讲道">
+                Sermons
+            </h1>
+    
+            <p class="text-center fs-5"
+            data-en="Welcome! Watch or listen to our latest sermons from English, Chinese, and Combined services."
+            data-zh="欢迎观看我们的最新讲道，包括英语、华语及联合崇拜。">
+            Welcome! Watch or listen to our latest sermons from English, Chinese, and Combined services.
+            </p>
         </div>
-    </nav> 
-
+        </section>
     
-    <!-- Page title -->
-    <section class="hero-section hero-sermons">
-    <div class="container">
-        <h1 class="text-center mb-3"
-            data-en="Sermons" data-zh="讲道">
-            Sermons
-        </h1>
+        
+        <!-- SERMON ARCHIVE -->
+        <section class="sermons-archive">
+            <div class="container">
+        
+                <!-- Archive introduction -->
+                <div class="sermons-intro">
+                    <span class="sermons-eyebrow"
+                          data-en="GROW IN THE WORD"
+                          data-zh="在神的话语中成长">
+                        GROW IN THE WORD
+                    </span>
+        
+                    <h2 data-en="Messages for the Journey"
+                        data-zh="与你同行的信息">
+                        Messages for the Journey
+                    </h2>
+        
+                    <p data-en="Revisit God's Word through our Sunday sermons, from English and Chinese services to our combined worship gatherings."
+                       data-zh="透过主日讲道再次领受神的话语，包括英语、华语及联合崇拜。">
+                        Revisit God's Word through our Sunday sermons, from
+                        English and Chinese services to our combined worship gatherings.
+                    </p>
+                </div>
+        
+                <!-- Search -->
+                <div class="sermons-toolbar">
+                    <label class="visually-hidden" for="sermonSearch">
+                        Search sermons
+                    </label>
+        
+                    <div class="sermon-search-wrap">
+                        <span aria-hidden="true" class="sermon-search-icon">
+                            &#9906;
+                        </span>
+        
+                        <input
+                            type="search"
+                            id="sermonSearch"
+                            class="form-control sermon-search"
+                            placeholder="Search by sermon title or preacher..."
+                            data-en-placeholder="Search by sermon title or preacher..."
+                            data-zh-placeholder="搜索讲道标题或讲员..."
+                        >
+                    </div>
+                </div>
+        
+                <!-- Service filters -->
+                <div class="sermon-filter-wrap">
+                    <div class="sermon-filters"
+                         id="sermonTabs"
+                         role="tablist"
+                         aria-label="Filter sermons by service">
+        
+                        <button class="sermon-filter active"
+                                id="all-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#all-sermons"
+                                type="button"
+                                role="tab"
+                                aria-controls="all-sermons"
+                                aria-selected="true"
+                                data-en="All Sermons"
+                                data-zh="所有讲道">
+                            All Sermons
+                        </button>
+        
+                        <button class="sermon-filter"
+                                id="english-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#english"
+                                type="button"
+                                role="tab"
+                                aria-controls="english"
+                                aria-selected="false"
+                                data-en="English"
+                                data-zh="英语">
+                            English
+                        </button>
+        
+                        <button class="sermon-filter"
+                                id="chinese-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#chinese"
+                                type="button"
+                                role="tab"
+                                aria-controls="chinese"
+                                aria-selected="false"
+                                data-en="中文"
+                                data-zh="华语">
+                            中文
+                        </button>
+        
+                        <button class="sermon-filter"
+                                id="combined-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#combined"
+                                type="button"
+                                role="tab"
+                                aria-controls="combined"
+                                aria-selected="false"
+                                data-en="Combined"
+                                data-zh="联合崇拜">
+                            Combined
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Sermon listings -->
+                <div class="tab-content sermon-tab-content"
+                     id="sermonTabContent">
+        
+                    <!-- All sermons -->
+                    <div class="tab-pane fade show active"
+                         id="all-sermons"
+                         role="tabpanel"
+                         aria-labelledby="all-tab"
+                         tabindex="0">
+        
+                        <div id="all-sermons-grid"></div>
+                        <div id="all-pagination"
+                             class="sermon-pagination"></div>
+                    </div>
+        
+                    <!-- English -->
+                    <div class="tab-pane fade"
+                         id="english"
+                         role="tabpanel"
+                         aria-labelledby="english-tab"
+                         tabindex="0">
+        
+                        <div id="english-grid" class="sermon-grid"></div>
+                        <div id="en-pagination"
+                             class="sermon-pagination"></div>
+                    </div>
+        
+                    <!-- Chinese -->
+                    <div class="tab-pane fade"
+                         id="chinese"
+                         role="tabpanel"
+                         aria-labelledby="chinese-tab"
+                         tabindex="0">
+        
+                        <div id="chinese-grid" class="sermon-grid"></div>
+                        <div id="zh-pagination"
+                             class="sermon-pagination"></div>
+                    </div>
+        
+                    <!-- Combined -->
+                    <div class="tab-pane fade"
+                         id="combined"
+                         role="tabpanel"
+                         aria-labelledby="combined-tab"
+                         tabindex="0">
+        
+                        <div id="combined-grid" class="sermon-grid"></div>
+                        <div id="both-pagination"
+                             class="sermon-pagination"></div>
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+        <!-- END SERMON ARCHIVE -->
 
-        <p class="text-center fs-5"
-        data-en="Welcome! Watch or listen to our latest sermons from English, Chinese, and Combined services."
-        data-zh="欢迎观看我们的最新讲道，包括英语、华语及联合崇拜。">
-        Welcome! Watch or listen to our latest sermons from English, Chinese, and Combined services.
-        </p>
-    </div>
-    </section>
-
-    <div class="container py-5">
-
-        <input type="search" id="sermonSearch" class="form-control mb-4" placeholder="Search sermons by title or pastor…">
-    
-        <!-- Tabs -->
-        <ul class="nav nav-tabs justify-content-center mb-4" id="sermonTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="english-tab" data-bs-toggle="tab" data-bs-target="#english" type="button" role="tab">English</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="chinese-tab" data-bs-toggle="tab" data-bs-target="#chinese" type="button" role="tab">Chinese</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="combined-tab" data-bs-toggle="tab" data-bs-target="#combined" type="button" role="tab">Combined</button>
-            </li>
-        </ul>
-
-    </div>
 
         <!-- Tab Content -->
         <div class="tab-content" id="sermonTabContent">
