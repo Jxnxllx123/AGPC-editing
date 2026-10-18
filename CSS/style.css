@@ -646,36 +646,6 @@ section h2 {
 }
 }
 
-/* -----------------------------------------------------
-   13.3 INNER-PAGE HERO SECTIONS
------------------------------------------------------ */
-
-@media (max-width: 767px) {
-
-    .hero-section {
-        min-height: 60vh;
-        padding: 3rem 1rem;
-        background-position: center;
-    }
-
-    .hero-section h1 {
-        font-size: clamp(2rem, 8vw, 2.7rem);
-        line-height: 1.2;
-    }
-
-    .hero-section p {
-        font-size: 1.1rem;
-    }
-
-    .hero-sermons,
-    .hero-visitus,
-    .hero-give,
-    .hero-events,
-    .hero-connect {
-        min-height: 32vh;
-    }
-}
-
 
 /* -----------------------------------------------------
    13.7 EVENTS PAGE CAROUSELS
