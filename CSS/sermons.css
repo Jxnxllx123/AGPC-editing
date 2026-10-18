@@ -1,82 +1,158 @@
 /* =====================================================
-   09. MINISTRIES — Ministries.html
+   10. SERMONS — Sermons.html
 ===================================================== */
 
 /* -----------------------------------------------------
-   9.1 MINISTRY CARDS
+   10.1 SHARED PAGINATION
 ----------------------------------------------------- */
 
-.ministry-card {
-    border: none;
-    background-color: #89C8FC;
-}
-
-.ministry-bg {
-    position: relative;
+#en-pagination,
+#zh-pagination,
+#both-pagination {
     display: flex;
-    height: 250px;
-    align-items: center;
+    margin-top: 2rem;
     justify-content: center;
+    gap: 16px;
+    font-family: "Roboto", sans-serif;
 }
 
-.ministry-icon-corner {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 2;
-    width: 80px;
-    opacity: 0.85;
-    filter: brightness(0) invert(1);
-}
-
-/* -----------------------------------------------------
-   9.2 MINISTRY CAROUSEL
------------------------------------------------------ */
-
-.ministry-carousel .carousel-item {
-    min-height: 400px;
-}
-
-.ministry-carousel img {
-    transition: transform 0.3s ease;
-}
-
-.ministry-carousel img:hover {
-    transform: scale(1.03);
-}
-
-/* -----------------------------------------------------
-   9.3 MINISTRY MODALS
------------------------------------------------------ */
-
-.modal-dialog {
-    width: 90%;
-    max-width: 800px;
-}
-
-.modal-content {
-    min-height: 600px;
-}
-
-/* -----------------------------------------------------
-   9.4 CAROUSEL CONTROLS
------------------------------------------------------ */
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    padding: 18px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: 60%;
-}
-
-/* -----------------------------------------------------
-   9.5 MINISTRY CONTENT SECTION
------------------------------------------------------ */
-
-.content-section {
+.page-number {
     position: relative;
-    z-index: 1;
-    background-color: #FFFFFF;
+    padding: 4px 8px;
+    color: #555555;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+.page-number.active {
+    color: var(--brand-primary);
+    font-weight: 700;
+}
+
+.page-number.active::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 6px;
+    background-color: var(--brand-primary);
+    content: "";
+}
+
+.page-arrow {
+    padding: 4px 8px;
+    color: var(--brand-primary);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.page-arrow.disabled {
+    color: #AAAAAA;
+    cursor: default;
+}
+
+.page-arrow:hover:not(.disabled) {
+    background-color: #EEF2FF;
+}
+
+/* -----------------------------------------------------
+   10.2 SERMON CARDS
+----------------------------------------------------- */
+
+.sermon-card {
+    display: flex;
+    width: 240px;
+    flex: 0 0 auto;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #F4F4F4;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sermon-thumb {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.sermon-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* -----------------------------------------------------
+   10.3 SERMON VIDEO
+----------------------------------------------------- */
+
+.sermon-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+}
+
+.sermon-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* -----------------------------------------------------
+   10.4 SERMON INFORMATION
+----------------------------------------------------- */
+
+.sermon-info {
+    display: flex;
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.sermon-title {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.sermon-meta {
+    margin: 0;
+    color: #555555;
+    font-size: 0.9rem;
+}
+
+/* -----------------------------------------------------
+   10.5 HORIZONTAL SERMON SCROLLING
+----------------------------------------------------- */
+
+.sermon-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.sermon-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.sermon-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: var(--brand-primary);
+}
+
+/* -----------------------------------------------------
+   10.6 SERMON GRID
+----------------------------------------------------- */
+
+/* Column layout is configured in the desktop section below */
+#english-grid .col,
+#chinese-grid .col,
+#combined-grid .col {
+    /* Desktop layout is defined in Section 12. */
+}
