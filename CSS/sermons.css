@@ -7,6 +7,7 @@
    10.1 SHARED PAGINATION
 ----------------------------------------------------- */
 
+
 #en-pagination,
 #zh-pagination,
 #both-pagination {
@@ -57,20 +58,34 @@
     background-color: #EEF2FF;
 }
 
+
 /* -----------------------------------------------------
    10.2 SERMON CARDS
 ----------------------------------------------------- */
 
+
 .sermon-card {
     display: flex;
-    width: 240px;
-    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     overflow: hidden;
-    border-radius: 8px;
-    background: #F4F4F4;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+
+    background: var(--brand-white);
+    box-shadow: 0 3px 12px rgba(47, 65, 86, 0.06);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
 }
+
+.sermon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(47, 65, 86, 0.12);
+}
+
 
 .sermon-thumb {
     overflow: hidden;
@@ -83,9 +98,11 @@
     object-fit: cover;
 }
 
+
 /* -----------------------------------------------------
    10.3 SERMON VIDEO
 ----------------------------------------------------- */
+
 
 .sermon-video-wrapper {
     position: relative;
@@ -103,27 +120,35 @@
     height: 100%;
 }
 
+
 /* -----------------------------------------------------
    10.4 SERMON INFORMATION
 ----------------------------------------------------- */
 
+
 .sermon-info {
     display: flex;
-    padding: 0.75rem 1rem;
+    padding: 1rem 1.1rem 1.25rem;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.35rem;
 }
 
 .sermon-title {
     margin: 0;
+    color: var(--brand-dark);
+    font-family: "Roboto", sans-serif;
     font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
 }
 
 .sermon-meta {
     margin: 0;
-    color: #555555;
-    font-size: 0.9rem;
+    color: #66717D;
+    font-size: 0.875rem;
+    line-height: 1.6;
 }
+
 
 /* -----------------------------------------------------
    10.5 HORIZONTAL SERMON SCROLLING
@@ -147,13 +172,48 @@
     background-color: var(--brand-primary);
 }
 
+
 /* -----------------------------------------------------
    10.6 SERMON GRID
 ----------------------------------------------------- */
+
 
 /* Column layout is configured in the desktop section below */
 #english-grid .col,
 #chinese-grid .col,
 #combined-grid .col {
     /* Desktop layout is defined in Section 12. */
+}
+
+#english-grid,
+#chinese-grid,
+#combined-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+#english-grid .col,
+#chinese-grid .col,
+#combined-grid .col {
+    min-width: 0;
+    margin-bottom: 0 !important;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    #english-grid,
+    #chinese-grid,
+    #combined-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+    #english-grid,
+    #chinese-grid,
+    #combined-grid {
+        grid-template-columns: 1fr;
+    }
 }
