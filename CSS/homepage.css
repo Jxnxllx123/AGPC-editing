@@ -667,6 +667,22 @@
     transform: translateY(-4px);
 }
 
+.upcoming-title-zh {
+  color: var(--brand-primary);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.upcoming-sermon-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.upcoming-sermon-card h4 {
+  overflow-wrap: anywhere;
+}
+
 /* Full-bleed event photograph */
 .events-section .event-card-image .event-flyer {
     position: absolute;
