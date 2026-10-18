@@ -58,18 +58,36 @@ function formatDate(dateStr) {
   });
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("languageToggle");
 
   if (!btn) return;
 
+  const options = btn.querySelectorAll(".lang-toggle-option");
   const savedLang = localStorage.getItem("language") || "en";
+
+  function updateToggle(lang) {
+    btn.dataset.lang = lang;
+
+    btn.setAttribute(
+      "aria-pressed",
+      String(lang === "zh")
+    );
+
+    options.forEach(option => {
+      const isActive = option.dataset.lang === lang;
+      option.classList.toggle("active", isActive);
+    });
+  }
+
   setLanguage(savedLang);
+  updateToggle(savedLang);
 
   btn.addEventListener("click", () => {
     const newLang = currentLang === "en" ? "zh" : "en";
-    setLanguage(newLang);
 
-    btn.textContent = newLang === "en" ? "中文" : "EN";
+    setLanguage(newLang);
+    updateToggle(newLang);
   });
 });
