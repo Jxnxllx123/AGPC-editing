@@ -1,1 +1,95 @@
+/* =====================================================
+   07. EVENTS — Events.html
+===================================================== */
+
+/* -----------------------------------------------------
+   7.1 SHARED SWIPER LAYOUT
+----------------------------------------------------- */
+
+.swiper {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.upcoming-events-swiper,
+.past-events-swiper {
+    height: auto;
+}
+
+.upcoming-events-swiper .swiper-wrapper,
+.past-events-swiper .swiper-wrapper {
+    height: auto;
+    align-items: center;
+}
+
+.upcoming-events-swiper .swiper-slide,
+.past-events-swiper .swiper-slide {
+    display: flex;
+    height: auto;
+    justify-content: center;
+}
+
+/* -----------------------------------------------------
+   7.2 EVENT CARDS
+----------------------------------------------------- */
+
+.event-card {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    border-radius: 16px;
+    background: #FFFFFF;
+}
+
+/* Event flyer container */
+.event-flyer {
+    width: 100%;
+}
+
+.event-flyer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Event information */
+.event-info {
+    padding: 12px 14px;
+    text-align: center;
+}
+
+/* -----------------------------------------------------
+   7.3 UPCOMING EVENTS CAROUSEL
+----------------------------------------------------- */
+
+.upcoming-events-swiper .swiper-slide {
+    width: 75%;
+}
+
+.upcoming-events-swiper .event-flyer {
+    height: 320px;
+}
+
+/* -----------------------------------------------------
+   7.4 PAST EVENTS CAROUSEL
+----------------------------------------------------- */
+
+.past-events-swiper .swiper-slide {
+    width: 260px;
+}
+
+.past-events-swiper .event-flyer {
+    height: 180px;
+}
+
+/* -----------------------------------------------------
+   7.5 EVENT CAROUSEL PAGINATION
+----------------------------------------------------- */
+
+.upcoming-events-swiper .swiper-pagination,
+.past-events-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
 
