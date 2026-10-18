@@ -17,6 +17,46 @@
 //  Do NOT edit anything outside { }
 //  Leave video empty "" if not uploaded yet
 //
+//SAMPLE FOR ENGLISH SERVICE:
+//{
+//    title: "Is it enough",              // Sermon title in English
+//    pastor: "Pastor Joshua",                  // Name of the preacher
+//    date: "27/09/2026",                    // Date of the sermon (format: DD MMM YYYY)
+//    time: "11:00 - 12:30",
+//    lang: "en",                            // Language: "en" (English)
+//    video: "https://churchagpc-my.sharepoint.com/:v:/g/personal/joshua_lai_churchagpc_onmicrosoft_com/IQAbJUF4LzMYQ60WYqyX7xOcAUMuB3ZNeuAx0RPJk4ahSTM?e=OW4bZh"  // YouTube embed URL
+//  },
+//
+//
+//SAMPLE FOR CHINESE SERVICE:
+//{
+//    title: "你好吗",              // Sermon title in Chinese
+//    pastor: "。。。牧师",                  // Name of the preacher
+//    date: "27/09/2026",                    // Date of the sermon (format: DD MMM YYYY)
+//    time: "9:00 - 10:30",
+//    lang: "zh",                            // Language: "en" (English)
+//    video: "https://churchagpc-my.sharepoint.com/:v:/g/personal/joshua_lai_churchagpc_onmicrosoft_com/IQAbJUF4LzMYQ60WYqyX7xOcAUMuB3ZNeuAx0RPJk4ahSTM?e=OW4bZh"  // YouTube embed URL
+//  },
+//
+//
+//SAMPLE FOR COMBINED SERVICE:
+//{
+//  title: {
+//    en: "Is It Enough?",        // Sermon title in English
+//    zh: "這樣就夠了嗎？"         // Sermon title in Chinese
+//  },
+//  pastor: {
+//    en: "Pastor Joshua",        // Name of the preacher
+//    zh: "約書亞牧師"             // Name of the preacher
+//  },
+//  date: "01/11/2026",           // Date of the sermon (format: D MMM YYYY)
+//  time: "9:00 - 10:30",
+//  lang: "both",             // Language: "both" (Both)
+//  video: ""
+//},
+//
+//
+//
 // =========================================================
 
 console.log("SERMONS LOADED");
@@ -30,8 +70,9 @@ window.SERMONS = [
     lang: "en",                            // Language: "en" (English)
     video: "https://churchagpc-my.sharepoint.com/:v:/g/personal/joshua_lai_churchagpc_onmicrosoft_com/IQAbJUF4LzMYQ60WYqyX7xOcAUMuB3ZNeuAx0RPJk4ahSTM?e=OW4bZh"  // YouTube embed URL
   },
-  
 
+  
+  
   //  ADD NEW SERMONS ABOVE THIS LINE ONLY
 ];
 
