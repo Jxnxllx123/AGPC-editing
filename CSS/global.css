@@ -59,18 +59,19 @@ body {
    03. SHARED TYPOGRAPHY
 ----------------------------------------------------- */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--text-main);
+h1, h2, h3, h4, h5, h6 { 
+   color: var(--text-main); font-family: "DM Serif Display", serif; 
+   font-weight: 400; 
 }
 
-p {
-    font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.15rem);
-    line-height: 1.8;
+p { 
+   font-family: "Roboto", sans-serif; 
+   font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.15rem); 
+   line-height: 1.8; 
+}
+
+a, button, input, textarea, select { 
+   font-family: "Roboto", sans-serif; 
 }
 
 
