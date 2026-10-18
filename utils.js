@@ -1,32 +1,30 @@
+
 let currentLang = "en";
+
+/* =========================================
+   LANGUAGE TRANSLATION
+========================================= */
 
 function setLanguage(lang) {
   currentLang = lang;
 
   localStorage.setItem("language", lang);
 
-  // update all static text (data-en / data-zh)
+  // Update static text
   document.querySelectorAll("[data-en], [data-zh]").forEach(el => {
-  const en = el.getAttribute("data-en");
-  const zh = el.getAttribute("data-zh");
+    const en = el.getAttribute("data-en");
+    const zh = el.getAttribute("data-zh");
 
-  // combined (has both)
-  if (en && zh) {
-    el.textContent = lang === "en" ? en : zh;
-  }
+    if (en !== null && zh !== null) {
+      el.textContent = lang === "en" ? en : zh;
+    } else if (en !== null) {
+      el.textContent = en;
+    } else if (zh !== null) {
+      el.textContent = zh;
+    }
+  });
 
-  // english-only → always English
-  else if (en && !zh) {
-    el.textContent = en;
-  }
-
-  // chinese-only → always Chinese
-  else if (!en && zh) {
-    el.textContent = zh;
-  }
-});
-
-    // update history document link
+  // Update church history PDF
   const historyLink = document.getElementById("historyDocumentLink");
 
   if (historyLink) {
@@ -35,7 +33,7 @@ function setLanguage(lang) {
       : "CHURCH HISTORY_CH.pdf";
   }
 
-  // re-render dynamic sections
+  // Refresh dynamic sections
   if (typeof renderHomepageSermons === "function") {
     renderHomepageSermons(2);
   }
@@ -44,6 +42,10 @@ function setLanguage(lang) {
     loadEvents();
   }
 }
+
+/* =========================================
+   DATE HELPERS
+========================================= */
 
 function parseDate(dateStr) {
   const [day, month, year] = dateStr.split("/").map(Number);
@@ -58,36 +60,53 @@ function formatDate(dateStr) {
   });
 }
 
+/* =========================================
+   LANGUAGE PILL INITIALISATION
+========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initialiseLanguageToggle() {
   const btn = document.getElementById("languageToggle");
 
   if (!btn) return;
 
   const options = btn.querySelectorAll(".lang-toggle-option");
-  const savedLang = localStorage.getItem("language") || "en";
 
+  // Prevent initialisation if the HTML is incorrect
+  if (options.length !== 2) {
+    console.error(
+      "Language toggle needs exactly two .lang-toggle-option spans."
+    );
+    return;
+  }
+
+  // Set the selected language visually
   function updateToggle(lang) {
     btn.dataset.lang = lang;
 
-    btn.setAttribute(
-      "aria-pressed",
-      String(lang === "zh")
-    );
+    btn.setAttribute("aria-label", "Switch language");
+    btn.setAttribute("aria-pressed", String(lang === "zh"));
 
     options.forEach(option => {
       const isActive = option.dataset.lang === lang;
+
       option.classList.toggle("active", isActive);
     });
   }
 
-  setLanguage(savedLang);
-  updateToggle(savedLang);
+  // Restore saved language
+  const savedLang = localStorage.getItem("language");
+  const initialLang = savedLang === "zh" ? "zh" : "en";
 
+  setLanguage(initialLang);
+  updateToggle(initialLang);
+
+  // Switch language when clicked
   btn.addEventListener("click", () => {
-    const newLang = currentLang === "en" ? "zh" : "en";
+    const nextLang = currentLang === "en" ? "zh" : "en";
 
-    setLanguage(newLang);
-    updateToggle(newLang);
+    setLanguage(nextLang);
+    updateToggle(nextLang);
   });
-});
+}
+
+document.addEventListener("DOMContentLoaded", initialiseLanguageToggle);
