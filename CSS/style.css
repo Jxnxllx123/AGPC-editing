@@ -134,39 +134,41 @@ img {
    3.2 LANGUAGE TOGGLE
 ----------------------------------------------------- */
 
-.myNav button.lang-toggle {
-    display: inline-flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+.myNav .lang-toggle {
+    --toggle-padding: 4px;
+    --toggle-gap: 3px;
+
+    position: relative;
+    display: inline-grid !important;
+    grid-template-columns: 52px 52px;
     align-items: center;
-    justify-content: center;
-    gap: 3px;
+    gap: var(--toggle-gap);
 
-    width: max-content;
-    min-width: max-content;
-    padding: 4px;
-
+    padding: var(--toggle-padding);
     border: 1px solid var(--border-light);
     border-radius: 999px;
     background: var(--bg-light);
-    color: var(--brand-dark);
 
-    white-space: nowrap;
     cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
     box-shadow: none;
+    isolation: isolate;
 }
 
-.myNav button.lang-toggle .lang-toggle-option {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
+/* Language labels */
+.myNav .lang-toggle-option {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    min-width: 46px;
-    min-height: 34px;
-    padding: 0.5rem 0.75rem;
+    min-width: 0;
+    height: 34px;
+    padding: 0 6px;
 
-    border: 0;
     border-radius: 999px;
     background: transparent;
     color: var(--brand-dark);
@@ -174,29 +176,67 @@ img {
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1;
-    white-space: nowrap;
 
-    transition: background-color 0.2s ease,
-                color 0.2s ease;
+    transition: color 0.25s ease;
 }
 
-.myNav button.lang-toggle .lang-toggle-option.active {
+/* Moving background */
+.myNav .lang-toggle-slider {
+    position: absolute;
+    z-index: 1;
+
+    top: var(--toggle-padding);
+    bottom: var(--toggle-padding);
+    left: var(--toggle-padding);
+
+    width: 52px;
+    border-radius: 999px;
     background: var(--brand-dark);
+
+    pointer-events: none;
+
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Chinese selected: slide to the second position */
+.myNav .lang-toggle[data-lang="zh"] .lang-toggle-slider {
+    transform: translateX(55px);
+}
+
+/* Keep selected text white */
+.myNav .lang-toggle[data-lang="en"]
+.lang-toggle-option[data-lang="en"],
+.myNav .lang-toggle[data-lang="zh"]
+.lang-toggle-option[data-lang="zh"] {
     color: #FFFFFF;
 }
 
-.myNav button.lang-toggle .lang-toggle-option:not(.active):hover {
-    background: var(--brand-beige);
-}
-
-.myNav button.lang-toggle:focus-visible {
+/* Keyboard accessibility */
+.myNav .lang-toggle:focus-visible {
     outline: 3px solid var(--brand-primary);
     outline-offset: 3px;
 }
 
+/* Mobile sizing */
+@media (max-width: 575.98px) {
+    .myNav .lang-toggle {
+        grid-template-columns: 48px 48px;
+    }
+
+    .myNav .lang-toggle-slider {
+        width: 48px;
+    }
+
+    .myNav .lang-toggle[data-lang="zh"] .lang-toggle-slider {
+        transform: translateX(51px);
+    }
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .myNav button.lang-toggle,
-    .myNav button.lang-toggle .lang-toggle-option {
+    .myNav .lang-toggle-slider,
+    .myNav .lang-toggle-option {
         transition: none;
     }
 }
