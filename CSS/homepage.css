@@ -212,7 +212,39 @@
 .who-we-are-section {
     padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
     background: #FFFFFF;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 }
+
+/* Soft decorative shape behind the section content */
+.who-we-are-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 3rem;
+    right: -8rem;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 42% 58% 63% 37% / 43% 40% 60% 57%;
+    background: rgba(200, 217, 230, 0.25);
+    transform: rotate(-12deg);
+    pointer-events: none;
+}
+
+/* A more artistic crop for the main photograph */
+.who-we-are-section .who-image-wrap {
+    border-radius: 46% 46% 8px 8px;
+}
+
+/* Keep the image filling its new shape */
+.who-we-are-section .who-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
 
 .who-we-are-section .who-intro {
     margin-bottom: clamp(3rem, 5vw, 4.5rem);
@@ -881,4 +913,14 @@
         font-size: 1.2rem;
         line-height: 1.75;
     }
+
+   @media (prefers-reduced-motion: reduce) {
+    .who-we-are-section *,
+    .who-we-are-section *::before,
+    .who-we-are-section *::after {
+        scroll-behavior: auto;
+        animation: none;
+        transition: none;
+    }
+}
 }
