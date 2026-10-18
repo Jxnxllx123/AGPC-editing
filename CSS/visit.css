@@ -474,6 +474,132 @@
     color: #365C70;
 }
 
+
+/* =========================================
+   VISIT US — GETTING HERE
+========================================= */
+
+.visit-location-section {
+    padding: 5rem 1.5rem;
+    background: #F5F0E9;
+}
+
+.visit-location-section .visit-section-heading {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.visit-location-details {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.visit-location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid #DED8D0;
+}
+
+.visit-location-item:first-child {
+    padding-top: 0;
+}
+
+.visit-location-item:last-child {
+    border-bottom: none;
+}
+
+.visit-location-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    place-items: center;
+    border-radius: 14px;
+    background: #DCE8EE;
+    color: #365C70;
+    font-size: 1.5rem;
+}
+
+.visit-location-item:nth-child(3) .visit-location-icon {
+    background: #F1D9CB;
+    color: #B96746;
+}
+
+.visit-location-item h3 {
+    margin: 0 0 0.45rem;
+    color: #203D50;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.visit-location-item p {
+    margin: 0;
+    color: #52616B;
+    font-size: 0.94rem;
+    line-height: 1.75;
+}
+
+/* Map card */
+.visit-map-card {
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #E1DAD1;
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 25px rgba(47, 65, 86, 0.07);
+}
+
+.visit-map-card iframe {
+    display: block;
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    border: 0;
+}
+
+.visit-map-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.25rem;
+}
+
+.visit-map-footer strong {
+    color: #203D50;
+}
+
+.visit-map-footer p {
+    margin: 0.35rem 0 0;
+    color: #61717B;
+    font-size: 0.9rem;
+}
+
+.visit-map-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    border: 1px solid #B96746;
+    border-radius: 999px;
+    color: #A45C40;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease,
+                color 0.2s ease;
+}
+
+.visit-map-link:hover {
+    background: #B96746;
+    color: #FFFFFF;
+}
+
+
 /* =========================================
    VISIT US — MOBILE
 ========================================= */
@@ -495,7 +621,21 @@
     .visit-art-card {
         transform: rotate(-2deg);
     }
+
+    .visit-location-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .visit-map-card iframe {
+        min-height: 320px;
+    }
+
+    .visit-map-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
+
 
 /* Mobile layout */
 @media (max-width: 575.98px) {
@@ -526,17 +666,14 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .visit-service-card {
-        transition: none;
-    }
-}
-
-
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .visit-btn-primary,
     .visit-btn-secondary {
+        transition: none;
+    }
+   
+   .visit-service-card {
         transition: none;
     }
 }
