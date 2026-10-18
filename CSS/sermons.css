@@ -2,218 +2,368 @@
    10. SERMONS — Sermons.html
 ===================================================== */
 
-
-/* -----------------------------------------------------
-   10.1 SHARED PAGINATION
------------------------------------------------------ */
-
-
-#en-pagination,
-#zh-pagination,
-#both-pagination {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    gap: 16px;
-    font-family: "Roboto", sans-serif;
+.sermons-archive {
+    padding: 5rem 1.5rem 6rem;
+    background: var(--bg-light);
 }
 
-.page-number {
-    position: relative;
-    padding: 4px 8px;
-    color: #555555;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.sermons-archive > .container {
+    max-width: 1200px;
 }
 
-.page-number.active {
+/* Introduction */
+
+.sermons-intro {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.sermons-eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
     color: var(--brand-primary);
+    font-size: 0.78rem;
     font-weight: 700;
+    letter-spacing: 0.16em;
 }
 
-.page-number.active::after {
-    display: block;
-    width: 100%;
-    height: 2px;
-    margin-top: 6px;
-    background-color: var(--brand-primary);
-    content: "";
+.sermons-intro h2 {
+    margin-bottom: 1rem;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 400;
+    line-height: 1.2;
 }
 
-.page-arrow {
-    padding: 4px 8px;
+.sermons-intro p {
+    max-width: 660px;
+    margin: 0 auto;
+    color: #66717D;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Search */
+
+.sermons-toolbar {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+}
+
+.sermon-search-wrap {
+    position: relative;
+}
+
+.sermon-search {
+    min-height: 54px;
+    padding: 0.85rem 1rem 0.85rem 3rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: var(--brand-white);
+    color: var(--brand-dark);
+    font-size: 0.95rem;
+    box-shadow: none;
+}
+
+.sermon-search:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(86, 124, 141, 0.12);
+}
+
+.sermon-search-icon {
+    position: absolute;
+    top: 50%;
+    left: 1.1rem;
+    z-index: 2;
     color: var(--brand-primary);
-    font-weight: 600;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease;
+    font-size: 1.5rem;
+    line-height: 1;
+    transform: translateY(-55%);
+    pointer-events: none;
 }
 
-.page-arrow.disabled {
-    color: #AAAAAA;
-    cursor: default;
+/* Service filters */
+
+.sermon-filter-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.5rem;
 }
 
-.page-arrow:hover:not(.disabled) {
-    background-color: #EEF2FF;
+.sermon-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
 }
 
+.sermon-filter {
+    padding: 0.7rem 1.35rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--brand-dark);
+    font-size: 0.94rem;
+    font-weight: 500;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
 
-/* -----------------------------------------------------
-   10.2 SERMON CARDS
------------------------------------------------------ */
+.sermon-filter:hover {
+    background: var(--brand-beige);
+}
 
+.sermon-filter.active {
+    background: var(--brand-dark);
+    color: var(--brand-white);
+}
+
+.sermon-filter:focus-visible {
+    outline: 3px solid var(--brand-primary);
+    outline-offset: 3px;
+}
+
+/* Tab content */
+
+.sermon-tab-content {
+    min-height: 200px;
+}
+
+.sermon-grid,
+#all-sermons-grid {
+    width: 100%;
+}
+
+.sermon-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+}
+
+/* Sunday groups — used by the All Sermons view */
+
+.sermon-sunday {
+    margin-bottom: 4rem;
+}
+
+.sermon-sunday-heading {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.sermon-sunday-date {
+    margin-bottom: 0.4rem;
+    color: var(--brand-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.sermon-sunday-heading h3 {
+    margin: 0;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 400;
+}
+
+/* Sermon cards */
+
+.sermon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 1.5rem;
+}
 
 .sermon-card {
     display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: column;
     overflow: hidden;
-
+    flex-direction: column;
     border: 1px solid var(--border-light);
-    border-radius: 12px;
-
+    border-radius: 10px;
     background: var(--brand-white);
-    box-shadow: 0 3px 12px rgba(47, 65, 86, 0.06);
-
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    box-shadow: 0 3px 12px rgba(47, 65, 86, 0.04);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .sermon-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(47, 65, 86, 0.12);
+    box-shadow: 0 10px 28px rgba(47, 65, 86, 0.1);
 }
-
-
-.sermon-thumb {
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-}
-
-.sermon-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-/* -----------------------------------------------------
-   10.3 SERMON VIDEO
------------------------------------------------------ */
-
 
 .sermon-video-wrapper {
     position: relative;
     width: 100%;
-    height: 0;
     overflow: hidden;
-    padding-bottom: 56.25%;
+    aspect-ratio: 16 / 9;
+    background: #E8E2DC;
 }
 
 .sermon-video-wrapper iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    border: 0;
 }
-
-
-/* -----------------------------------------------------
-   10.4 SERMON INFORMATION
------------------------------------------------------ */
-
 
 .sermon-info {
     display: flex;
-    padding: 1rem 1.1rem 1.25rem;
+    flex: 1;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.45rem;
+    padding: 1.25rem;
+}
+
+.sermon-service-label {
+    margin: 0;
+    color: var(--brand-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
 }
 
 .sermon-title {
     margin: 0;
     color: var(--brand-dark);
     font-family: "Roboto", sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 600;
     line-height: 1.5;
 }
 
 .sermon-meta {
-    margin: 0;
+    margin: auto 0 0;
+    padding-top: 0.4rem;
     color: #66717D;
-    font-size: 0.875rem;
-    line-height: 1.6;
+    font-size: 0.86rem;
+    line-height: 1.7;
 }
 
+/* Combined-service card: give a single result more presence */
 
-/* -----------------------------------------------------
-   10.5 HORIZONTAL SERMON SCROLLING
------------------------------------------------------ */
-
-.sermon-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+.sermon-sunday--combined .sermon-grid {
+    grid-template-columns: minmax(0, 760px);
+    justify-content: center;
 }
 
-.sermon-scroll::-webkit-scrollbar {
-    height: 8px;
-}
-
-.sermon-scroll::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: var(--brand-primary);
-}
-
-
-/* -----------------------------------------------------
-   10.6 SERMON GRID
------------------------------------------------------ */
-
-
-/* Column layout is configured in the desktop section below */
-#english-grid .col,
-#chinese-grid .col,
-#combined-grid .col {
-    /* Desktop layout is defined in Section 12. */
-}
-
-#english-grid,
-#chinese-grid,
-#combined-grid {
+.sermon-sunday--combined .sermon-card {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: stretch;
 }
 
-#english-grid .col,
-#chinese-grid .col,
-#combined-grid .col {
-    min-width: 0;
-    margin-bottom: 0 !important;
+.sermon-sunday--combined .sermon-info {
+    padding: 1.75rem;
 }
 
-/* Tablets */
+/* Pagination */
+
+.page-number,
+.page-arrow {
+    display: inline-flex;
+    min-width: 36px;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    color: var(--brand-dark);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.page-number.active {
+    background: var(--brand-dark);
+    color: var(--brand-white);
+    font-weight: 600;
+}
+
+.page-arrow.disabled {
+    color: #AAA;
+    cursor: default;
+}
+
+.page-number:hover:not(.active),
+.page-arrow:hover:not(.disabled) {
+    background: var(--brand-beige);
+}
+
+.sermon-empty {
+    padding: 3rem 1rem;
+    color: #66717D;
+    text-align: center;
+}
+
+/* Responsive */
+
 @media (max-width: 900px) {
-    #english-grid,
-    #chinese-grid,
-    #combined-grid {
+    .sermon-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Phones */
-@media (max-width: 560px) {
-    #english-grid,
-    #chinese-grid,
-    #combined-grid {
+@media (max-width: 600px) {
+    .sermons-archive {
+        padding: 3.5rem 1rem 4rem;
+    }
+
+    .sermons-intro {
+        margin-bottom: 2rem;
+    }
+
+    .sermon-filter-wrap {
+        margin-bottom: 2.5rem;
+    }
+
+    .sermon-filters {
+        width: 100%;
+        gap: 0.3rem;
+    }
+
+    .sermon-filter {
+        flex: 1 1 calc(50% - 0.3rem);
+        padding: 0.7rem 0.5rem;
+    }
+
+    .sermon-grid {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .sermon-sunday {
+        margin-bottom: 3rem;
+    }
+
+    .sermon-sunday--combined .sermon-card {
+        display: flex;
+    }
+
+    .sermon-sunday--combined .sermon-info {
+        padding: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sermon-card {
+        transition: none;
     }
 }
