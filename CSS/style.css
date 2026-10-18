@@ -134,56 +134,69 @@ img {
    3.2 LANGUAGE TOGGLE
 ----------------------------------------------------- */
 
-.lang-toggle {
-    display: inline-flex;
+.myNav button.lang-toggle {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
     align-items: center;
     justify-content: center;
     gap: 3px;
+
+    width: max-content;
+    min-width: max-content;
     padding: 4px;
+
     border: 1px solid var(--border-light);
     border-radius: 999px;
     background: var(--bg-light);
     color: var(--brand-dark);
+
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.myNav button.lang-toggle .lang-toggle-option {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 46px;
+    min-height: 34px;
+    padding: 0.5rem 0.75rem;
+
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--brand-dark);
+
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1;
-    cursor: pointer;
-    transition: background-color 0.25s ease;
+    white-space: nowrap;
+
+    transition: background-color 0.2s ease,
+                color 0.2s ease;
 }
 
-.lang-toggle-option {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 48px;
-    min-height: 34px;
-    padding: 0.5rem 0.8rem;
-    border-radius: 999px;
-    color: var(--brand-dark);
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.lang-toggle-option.active {
+.myNav button.lang-toggle .lang-toggle-option.active {
     background: var(--brand-dark);
     color: #FFFFFF;
-    box-shadow: 0 2px 6px rgba(47, 65, 86, 0.18);
 }
 
-.lang-toggle:focus-visible {
+.myNav button.lang-toggle .lang-toggle-option:not(.active):hover {
+    background: var(--brand-beige);
+}
+
+.myNav button.lang-toggle:focus-visible {
     outline: 3px solid var(--brand-primary);
     outline-offset: 3px;
 }
 
-.lang-toggle-option:not(.active):hover {
-    background: var(--brand-beige);
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .lang-toggle,
-    .lang-toggle-option {
+    .myNav button.lang-toggle,
+    .myNav button.lang-toggle .lang-toggle-option {
         transition: none;
     }
 }
