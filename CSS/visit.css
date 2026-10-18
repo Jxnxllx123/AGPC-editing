@@ -1,7 +1,7 @@
 
-/* =================================
+/* =========================================
    VISIT US — HERO
-   ================================= */
+========================================= */
 
 .visit-hero {
     position: relative;
@@ -16,6 +16,7 @@
     z-index: 1;
 }
 
+/* Small introductory label */
 .visit-eyebrow {
     display: inline-block;
     margin-bottom: 1.25rem;
@@ -25,18 +26,20 @@
     letter-spacing: 0.13em;
 }
 
+/* Main heading */
 .visit-hero h1 {
     max-width: 680px;
     margin-bottom: 1.25rem;
     color: var(--brand-dark, #2F4156);
     font-size: clamp(2.6rem, 5vw, 4.6rem);
     font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.045em;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
     overflow-wrap: anywhere;
 }
 
-.visit-hero-text {
+/* Supporting text */
+.visit-hero .visit-hero-text {
     max-width: 530px;
     margin-bottom: 2rem;
     color: var(--brand-dark, #2F4156);
@@ -44,6 +47,7 @@
     line-height: 1.85;
 }
 
+/* Buttons */
 .visit-hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -54,31 +58,30 @@
 .visit-btn-primary,
 .visit-btn-secondary {
     display: inline-flex;
+    min-height: 48px;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 48px;
     padding: 0.8rem 1.3rem;
     border: 1px solid var(--brand-dark, #2F4156);
     border-radius: 10px;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
 }
 
 .visit-btn-primary {
     background: var(--brand-dark, #2F4156);
-    color: var(--brand-white, #FFFFFF);
+    color: #FFFFFF;
 }
 
 .visit-btn-primary:hover {
-    background: var(--brand-primary, #567C8D);
     border-color: var(--brand-primary, #567C8D);
-    color: var(--brand-white, #FFFFFF);
+    background: var(--brand-primary, #567C8D);
+    color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -88,18 +91,17 @@
 }
 
 .visit-btn-secondary:hover {
-    background: var(--brand-white, #FFFFFF);
+    background: #FFFFFF;
     color: var(--brand-dark, #2F4156);
     transform: translateY(-2px);
 }
 
 /* Decorative artwork */
-
 .visit-hero-art {
     position: relative;
     display: grid;
-    place-items: center;
     min-height: 340px;
+    place-items: center;
     isolation: isolate;
 }
 
@@ -117,7 +119,7 @@
     padding: clamp(1.5rem, 4vw, 2.5rem);
     border: 1px solid rgba(47, 65, 86, 0.08);
     border-radius: 24px;
-    background: var(--brand-white, #FFFFFF);
+    background: #FFFFFF;
     box-shadow: 0 20px 55px rgba(47, 65, 86, 0.12);
     transform: rotate(-3deg);
 }
@@ -150,6 +152,7 @@
     line-height: 1.6;
 }
 
+/* Decorative dots */
 .visit-art-dot {
     position: absolute;
     width: 17px;
@@ -171,7 +174,9 @@
     background: var(--brand-dark, #2F4156);
 }
 
-/* Mobile */
+/* =========================================
+   VISIT US — MOBILE
+========================================= */
 
 @media (max-width: 767.98px) {
     .visit-hero {
@@ -192,10 +197,10 @@
     }
 }
 
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .visit-btn-primary,
     .visit-btn-secondary {
         transition: none;
     }
 }
-
