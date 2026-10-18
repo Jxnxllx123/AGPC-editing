@@ -835,3 +835,34 @@
 }
 
 /* END OF HOMEPAGE STYLES */
+/* -----------------------------------------------------
+   HOMEPAGE — MOBILE EVENTS ALIGNMENT
+----------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+    .events-section .events-intro {
+        text-align: center;
+    }
+
+    .events-section .events-eyebrow {
+        justify-content: center;
+    }
+
+    .events-section .events-heading {
+        max-width: none;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .events-section .events-description {
+        margin-inline: auto;
+    }
+
+    .events-section .events-view-all {
+        justify-content: center;
+    }
+
+    .events-section .events-side-note {
+        justify-content: center;
+    }
+}
