@@ -174,6 +174,145 @@
     background: var(--brand-dark, #2F4156);
 }
 
+
+/* =========================================
+   VISIT US — SERVICE INFORMATION
+========================================= */
+
+.visit-info-section {
+    padding: 5rem 1.5rem;
+    background: var(--bg-light, #F8F5F1);
+}
+
+.visit-section-heading {
+    max-width: 650px;
+    margin: 0 auto 3rem;
+}
+
+.visit-section-heading h2 {
+    margin-bottom: 1rem;
+    color: var(--brand-dark, #2F4156);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.visit-section-heading > p {
+    margin: 0;
+    color: var(--brand-primary, #567C8D);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.visit-info-card {
+    height: 100%;
+    padding: 2rem;
+    border: 1px solid var(--border-light, #E8E2DC);
+    border-radius: 18px;
+    background: var(--brand-white, #FFFFFF);
+    box-shadow: 0 6px 22px rgba(47, 65, 86, 0.045);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.visit-info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(47, 65, 86, 0.09);
+}
+
+.visit-info-icon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 1.5rem;
+    place-items: center;
+    border-radius: 15px;
+    background: var(--brand-light, #C8D9E6);
+    color: var(--brand-dark, #2F4156);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.visit-info-card h3 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-dark, #2F4156);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.visit-service-time {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border-light, #E8E2DC);
+    color: var(--brand-dark, #2F4156);
+}
+
+.visit-service-time span {
+    color: var(--brand-primary, #567C8D);
+}
+
+.visit-service-time strong {
+    font-size: 0.95rem;
+}
+
+.visit-card-note {
+    margin: 1.25rem 0 0;
+    color: var(--brand-primary, #567C8D);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.visit-card-description {
+    margin-bottom: 1.5rem;
+    color: var(--brand-dark, #2F4156);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.visit-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--brand-primary, #567C8D);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.visit-card-link:hover {
+    color: var(--brand-dark, #2F4156);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Mobile spacing */
+
+@media (max-width: 767.98px) {
+    .visit-info-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .visit-section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .visit-info-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visit-info-card {
+        transition: none;
+    }
+}
+
+
 /* =========================================
    VISIT US — MOBILE
 ========================================= */
