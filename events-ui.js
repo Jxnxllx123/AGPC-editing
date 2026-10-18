@@ -122,6 +122,7 @@ function renderEvent(event) {
 // =========================================================
 
 
+
 function initUpcomingSwiper() {
   const swiperElement = document.querySelector(
     ".upcoming-events-swiper"
@@ -141,7 +142,9 @@ function initUpcomingSwiper() {
   new Swiper(swiperElement, {
     slidesPerView: 1,
     slidesPerGroup: 1,
-    spaceBetween: 16,
+
+    // More breathing room between cards
+    spaceBetween: 24,
 
     loop: slideCount > 2,
 
@@ -156,21 +159,29 @@ function initUpcomingSwiper() {
     },
 
     autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
     },
-    
+
     speed: 700,
 
     breakpoints: {
       576: {
-        slidesPerView: 2,
-        spaceBetween: 16
+        slidesPerView: 1.5,
+        spaceBetween: 24
       },
       768: {
-        slidesPerView: 2,
-        spaceBetween: 20
+        slidesPerView: 1.5,
+        spaceBetween: 28
+      },
+      992: {
+        slidesPerView: 1.5,
+        spaceBetween: 32
+      },
+      1200: {
+        slidesPerView: 1.6,
+        spaceBetween: 36
       }
     },
 
