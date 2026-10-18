@@ -1,139 +1,83 @@
+
 /* =====================================================
    AGPC WEBSITE — GLOBAL STYLES
    File: CSS/global.css
 
-   01. Colour System
-   02. Global Styles
+   01. Colour system
+   02. Global defaults
+   03. Shared typography
+   04. Images
 ===================================================== */
 
 
-/* =====================================================
+/* -----------------------------------------------------
    01. COLOUR SYSTEM
-===================================================== */
+----------------------------------------------------- */
 
 :root {
-    /* Brand palette */
-    --brand-primary: #567C8D;
+    /* Brand colours */
     --brand-dark: #2F4156;
+    --brand-primary: #567C8D;
     --brand-light: #C8D9E6;
     --brand-beige: #F5EFEB;
-    --brand-terracotta: #E6B49D;
     --brand-white: #FFFFFF;
 
-    /* Text */
-    --text-main: #2F4156;
-    --text-body: #354653;
-    --text-muted: #637481;
-    --text-on-dark: #FFFFFF;
-
-    /* Backgrounds */
+    /* Background colours */
     --bg-white: #FFFFFF;
-    --bg-light: #F5EFEB;
-    --bg-sky-blue: #C8D9E6;
-    --bg-dark: #2F4156;
-    --bg-terracotta: #E6B49D;
+    --bg-light: #F8F5F1;
 
-    /* Borders and shadows */
-    --border-light: #D9E0E4;
-    --shadow-card: 0 6px 20px rgba(47, 65, 86, 0.06);
+    /* Text colours */
+    --text-main: #2F4156;
+    --text-on-dark: #F5EFEB;
 
-    /* Buttons */
-    --button-primary: #567C8D;
-    --button-hover: #456878;
+    /* Borders */
+    --border-light: #E8E2DC;
 
     /* Layout */
     --section-padding-y: 4rem;
     --content-max-width: 1200px;
-    --card-radius: 16px;
 }
 
 
-/* =====================================================
-   02. GLOBAL STYLES
-===================================================== */
+/* -----------------------------------------------------
+   02. GLOBAL DEFAULTS
+----------------------------------------------------- */
 
-/* Consistent sizing */
-* {
-    box-sizing: border-box;
-}
-
-/* Global typography */
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
     margin: 0;
-    background-color: var(--bg-white);
-    color: var(--text-body);
     font-family: "Roboto", sans-serif;
-    font-size: 1.125rem;
-    font-weight: 400;
-    line-height: 1.7;
+    color: var(--text-main);
+    background-color: var(--bg-white);
 }
 
-p {
-    margin-bottom: 1rem;
-    color: var(--text-body);
-    font-size: 1.125rem;
-    line-height: 1.75;
-}
 
-h1, h2, h3, h4, h5, h6 {
+/* -----------------------------------------------------
+   03. SHARED TYPOGRAPHY
+----------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--text-main);
 }
 
-h1, h2 {
-    font-weight: 700;
-    letter-spacing: -0.025em;
+p {
+    line-height: 1.6;
 }
 
-h5 {
-    margin-bottom: 0.75rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-}
 
-/* Links */
-a {
-    color: var(--brand-primary);
-    transition: color 0.2s ease;
-}
+/* -----------------------------------------------------
+   04. IMAGES
+----------------------------------------------------- */
 
-a:hover {
-    color: var(--brand-dark);
-}
-
-/* Images */
 img {
     display: block;
     max-width: 100%;
-}
-
-/* Mobile typography */
-@media (max-width: 767.98px) {
-    body {
-        font-size: 1.0625rem;
-        line-height: 1.7;
-    }
-
-    p {
-        font-size: 1.0625rem;
-        line-height: 1.7;
-    }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
 }
