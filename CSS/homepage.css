@@ -54,9 +54,9 @@
     gap: 12px;
     margin-bottom: 28px;
     color: var(--hero-muted);
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     line-height: 1.6;
 }
 
@@ -108,7 +108,7 @@
     gap: 8px;
     margin-top: 34px;
     color: var(--hero-muted);
-    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
 }
 
 /* Decorative line at the bottom */
@@ -193,9 +193,9 @@
     display: inline-block;
     margin-bottom: 1rem;
     color: #B96F53;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
 }
 
 .who-we-are-section h2,
@@ -384,9 +384,9 @@
     gap: 10px;
     margin-bottom: 1.5rem;
     color: var(--events-clay-dark);
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
 }
 
 .events-eyebrow-dot {
@@ -495,7 +495,7 @@
     gap: 10px;
     margin-top: 3rem;
     color: #7C898F;
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.1em;
 }
@@ -948,6 +948,11 @@
         padding: 3.5rem 1.1rem;
     }
 
+   .who-we-are-section .who-eyebrow {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+   }
+
     .who-we-are-section .who-intro {
         margin-bottom: 2.75rem;
     }
@@ -987,26 +992,6 @@
     .who-we-are-section .schedule-eyebrow {
         font-size: 1.05rem;
         line-height: 1.6;
-    }
-
-
-    /* ================================================
-       SHARED HOMEPAGE LINKS
-    ================================================ */
-
-    .who-visit-link,
-    .past-sermons-btn,
-    .events-view-all {
-        gap: 10px;
-        font-size: 1.05rem;
-        letter-spacing: 0.05em;
-        line-height: 1.7;
-    }
-
-    .who-visit-link:hover,
-    .past-sermons-btn:hover,
-    .events-view-all:hover {
-        gap: 14px;
     }
 
 
