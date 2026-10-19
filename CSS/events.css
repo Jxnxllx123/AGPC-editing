@@ -6,12 +6,12 @@
    AGPC EVENTS — HERO
 ========================================= */
 
-.events-hero {
-    padding: clamp(3rem, 7vw, 6rem) 0;
+.events-page .events-hero {
+    padding-block: clamp(3rem, 7vw, 6rem);
     background: var(--brand-beige);
 }
 
-.events-hero-inner {
+.events-page .events-hero-inner {
     display: grid;
     grid-template-columns: 1fr 0.9fr;
     align-items: center;
@@ -21,7 +21,7 @@
     padding-inline: 1.5rem;
 }
 
-.events-eyebrow {
+.events-page .events-eyebrow {
     color: var(--brand-primary);
     font-size: 0.8rem;
     font-weight: 700;
@@ -29,172 +29,246 @@
     text-transform: uppercase;
 }
 
-.events-hero h1 {
+.events-page .events-hero h1 {
     margin-block: 1rem;
-    color: var(--brand-dark);
-    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
     line-height: 1.1;
 }
 
-.events-hero p {
+.events-page .events-hero p {
+    max-width: 540px;
+    line-height: 1.8;
     color: var(--brand-dark);
 }
 
-.events-hero-link,
-.event-card-link {
+.events-page .events-hero-link {
+    display: inline-block;
+    margin-top: 1rem;
     color: var(--brand-primary);
     font-weight: 700;
     text-decoration: none;
 }
 
-.events-hero-link:hover,
-.event-card-link:hover {
+.events-page .events-hero-link:hover,
+.events-page .event-card-link:hover {
     color: var(--brand-dark);
     text-decoration: underline;
 }
 
-.events-hero-image {
+.events-page .events-hero-image {
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 48% 48% 12px 12px;
 }
 
-.events-hero-image img {
+.events-page .events-hero-image img {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
 }
 
 /* Upcoming events */
 
-.events-list-section {
-    padding-block: var(--section-padding-y);
+.events-page .events-list-section {
     background: var(--bg-white);
 }
 
-.events-section-heading {
+.events-page .events-section-heading {
+    margin-bottom: 4rem;
     max-width: 700px;
-    margin: 0 auto 3rem;
     padding-inline: 1.5rem;
     text-align: center;
 }
 
-.events-section-heading h2 {
+.events-page .events-section-heading h2 {
     color: var(--brand-dark);
     font-family: "DM Serif Display", serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
 }
 
-.events-grid {
+.events-page .events-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
 }
 
 
-/* -----------------------------------------------------
-   7.2 EVENT CARDS
------------------------------------------------------ */
+.events-page .events-timeline {
+    max-width: 900px;
+    margin-inline: auto;
+}
 
-.event-card {
+.events-page .timeline-event {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.events-page .timeline-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: start;
+    padding: 0.9rem 0.3rem;
+    border-radius: 12px;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+}
+
+.events-page .timeline-weekday,
+.events-page .timeline-month {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.events-page .timeline-day {
+    font-family: "DM Serif Display", serif;
+    font-size: 2rem;
+    line-height: 1.3;
+}
+
+.events-page .timeline-event-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     overflow: hidden;
     border: 1px solid var(--border-light);
-    border-radius: 12px;
+    border-radius: 16px;
     background: var(--bg-white);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.event-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(47, 65, 86, 0.1);
+.events-page .timeline-event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(47, 65, 86, 0.08);
 }
 
-.event-card-image {
+.events-page .timeline-event-image {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 100%;
+    min-height: 240px;
     object-fit: cover;
     background: var(--bg-light);
 }
 
-.event-card-content {
-    padding: 1.5rem;
+.events-page .timeline-event-content {
+    padding: clamp(1.25rem, 3vw, 2rem);
 }
 
-.event-card-date {
+.events-page .timeline-event-content h3 {
+    margin-block: 0.8rem;
+    font-family: "DM Serif Display", serif;
+    font-size: 1.65rem;
+    line-height: 1.3;
+}
+
+.events-page .event-card-date {
     display: inline-block;
     padding: 0.4rem 0.65rem;
-    border-radius: 5px;
-    background: var(--brand-light);
-    color: var(--brand-dark);
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.event-card h3 {
-    margin-block: 1rem 0.5rem;
-    color: var(--brand-dark);
-    font-size: 1.35rem;
-    line-height: 1.4;
-}
-
-.event-card p {
-    color: var(--brand-dark);
-}
-
-.events-contact {
-    padding: 3rem 1.5rem;
-    border-radius: 12px;
-    background: var(--bg-light);
-    text-align: center;
-}
-
-.events-contact h2 {
-    color: var(--brand-dark);
-    font-family: "DM Serif Display", serif;
-}
-
-.events-contact a {
-    display: inline-block;
-    padding: 0.8rem 1.25rem;
     border-radius: 6px;
-    background: var(--brand-primary);
-    color: var(--brand-white);
+    background: var(--bg-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.events-page .event-details {
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+}
+
+.events-page .event-details summary {
+    color: var(--brand-primary);
     font-weight: 700;
-    text-decoration: none;
+    cursor: pointer;
 }
 
-.events-contact a:hover {
-    background: var(--brand-dark);
+.events-page .event-description {
+    margin-top: 1rem;
 }
 
-.events-hero-link:focus-visible,
-.event-card-link:focus-visible,
-.events-contact a:focus-visible {
+/* Asymmetrical gallery */
+
+.events-page .event-photo-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-auto-rows: 145px;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.events-page .event-photo {
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: var(--bg-light);
+    cursor: zoom-in;
+}
+
+.events-page .event-photo:nth-child(3n + 1) {
+    grid-row: span 2;
+}
+
+.events-page .event-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.events-page .event-photo:hover img {
+    transform: scale(1.04);
+}
+
+.events-page .event-photo:focus-visible,
+.events-page .event-details summary:focus-visible {
     outline: 3px solid var(--brand-primary);
     outline-offset: 4px;
 }
 
 @media (max-width: 767px) {
-    .events-hero-inner {
-        grid-template-columns: 1fr;
-        padding-inline: 1.25rem;
-    }
-
-    .events-grid {
+    .events-page .events-hero-inner {
         grid-template-columns: 1fr;
     }
 
-    .event-card-content {
-        padding: 1.25rem;
+    .events-page .events-hero-image img {
+        aspect-ratio: 16 / 10;
+    }
+
+    .events-page .timeline-event {
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 0.75rem;
+    }
+
+    .events-page .timeline-event-card {
+        grid-template-columns: 1fr;
+    }
+
+    .events-page .timeline-event-image {
+        height: 200px;
+        min-height: 0;
+    }
+
+    .events-page .timeline-day {
+        font-size: 1.6rem;
+    }
+
+    .events-page .event-photo-grid {
+        grid-auto-rows: 100px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .event-card {
+    .events-page .timeline-event-card,
+    .events-page .event-photo img {
         transition: none;
     }
 
-    .event-card:hover {
+    .events-page .timeline-event-card:hover,
+    .events-page .event-photo:hover img {
         transform: none;
     }
 }
