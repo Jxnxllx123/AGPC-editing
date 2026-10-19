@@ -894,25 +894,36 @@
 }
 
 /* END OF HOMEPAGE STYLES */
+
+
+
 /* -----------------------------------------------------
-   HOMEPAGE — MOBILE EVENTS ALIGNMENT
+   HOMEPAGE — RESPONSIVE EVENTS SECTION
+   Desktop: text beside carousel
+   Tablet/mobile: centred text above carousel
 ----------------------------------------------------- */
 
-/* Center "See what's next" on mobile */
-@media (max-width: 767.98px) {
+/* Tablet and smaller: stack and centre the layout */
+@media (max-width: 991.98px) {
+
     .events-section .events-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-block: 0.5rem;
         text-align: center;
     }
 
     .events-section .events-eyebrow {
         justify-content: center;
+        margin-bottom: 1.25rem;
     }
 
     .events-section .events-heading {
         width: 100%;
-        max-width: none;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 600px;
+        margin: 0 auto 1.25rem;
         text-align: center;
     }
 
@@ -921,65 +932,51 @@
     }
 
     .events-section .events-description {
-        font-size: 1.3rem;        /* 20.8px */
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto 1.75rem;
+        text-align: center;
+    }
+
+    .events-section .events-view-all {
+        align-self: center;
+        justify-content: center;
+    }
+
+    .events-section .events-side-note {
+        justify-content: center;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .events-section .events-gallery {
+        width: 100%;
+        min-width: 0;
+        margin-top: 1rem;
+    }
+}
+
+/* Phone: increase supporting text readability */
+@media (max-width: 767.98px) {
+
+    .events-section .events-description {
+        font-size: 1.3rem; /* 20.8px */
         line-height: 1.75;
     }
 
     .events-section .events-view-all {
-        font-size: 1.05rem;       /* 16.8px instead of 14.4px */
+        font-size: 1.05rem; /* 16.8px */
         letter-spacing: 0.06em;
         line-height: 1.6;
     }
 
     .events-section .events-side-note {
-        font-size: 0.8rem;       /* 12.8px instead of 9.6px */
+        font-size: 0.8rem; /* 12.8px */
         letter-spacing: 0.08em;
         line-height: 1.6;
     }
 }
 
-@media (max-width: 575.98px) {
-    .hero-homepage {
-        min-height: 72vh;
-        padding: 5rem 1.25rem 4rem;
-    }
-
-    .hero-homepage h1 {
-        font-size: clamp(2.5rem, 10vw, 3.5rem);
-        line-height: 1.1;
-    }
-
-    .hero-homepage .hero-subtitle {
-        font-size: 1.2rem;
-        line-height: 1.75;
-    }
-
-   
-   .events-section {
-       padding: 4rem 1.1rem;
-   }
-   
-   .events-section .upcoming-events-swiper
-   .event-card-image {
-       height: 460px;
-       border-radius: 130px 130px 12px 12px;
-   }
-   
-   .events-section .event-card-image .event-info {
-       padding: 24px;
-   }
-   
-   .events-section .event-card-image .event-info h3 {
-       font-size: clamp(1.8rem, 7vw, 2.4rem);
-       line-height: 1.15;
-   }
-   
-   .events-section .event-card-image .event-subtitle,
-   .events-section .event-card-image .event-card-date {
-       font-size: 1.05rem;
-       line-height: 1.7;
-   }
-}
 
 @media (prefers-reduced-motion: reduce) {
     .who-we-are-section *,
