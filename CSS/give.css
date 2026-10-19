@@ -1,5 +1,314 @@
 /* =====================================================
    08. GIVE — Give.html
+
+   01. Page hero
+   02. Scripture section
+   03. Offering methods
+   04. Thank-you section
+   05. Responsive styles
 ===================================================== */
 
-/* Add Give page-specific styles here. */
+
+/* -----------------------------------------------------
+   01. PAGE HERO
+----------------------------------------------------- */
+
+.hero-give {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(5rem, 10vw, 9rem) 1.5rem !important;
+    background:
+        radial-gradient(
+            ellipse at 85% 20%,
+            rgba(200, 217, 230, 0.48),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #F8F5F1 0%,
+            #F5EFEB 100%
+        ) !important;
+    text-align: center;
+}
+
+.hero-give .container {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+}
+
+.hero-give h1 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.hero-give p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #5E6B77;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.8;
+}
+
+
+/* -----------------------------------------------------
+   02. SCRIPTURE SECTION
+----------------------------------------------------- */
+
+.offering-verse {
+    position: relative;
+    padding: clamp(4rem, 7vw, 6.5rem) 1.5rem !important;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.offering-verse .container {
+    max-width: 800px !important;
+}
+
+.offering-verse .verse-label {
+    margin-bottom: 1.5rem;
+    color: var(--brand-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.offering-verse .verse-text {
+    margin-bottom: 1.5rem;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+.offering-verse .verse-reference {
+    display: inline-block;
+    color: var(--brand-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+
+/* -----------------------------------------------------
+   03. OFFERING METHODS
+----------------------------------------------------- */
+
+.offering-methods {
+    padding: clamp(4rem, 7vw, 7rem) 1.5rem !important;
+    background-color: #F8F5F1;
+}
+
+.offering-methods > .container {
+    max-width: 1180px !important;
+}
+
+.offering-methods .section-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--brand-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.offering-methods h2 {
+    margin-bottom: 1rem;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    text-align: center;
+}
+
+.offering-methods .offering-intro {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    color: #64717D;
+    text-align: center;
+    line-height: 1.9;
+}
+
+
+/* Offering cards */
+
+.offering-card {
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #E8E2DC !important;
+    border-radius: 18px !important;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 22px rgba(47, 65, 86, 0.04) !important;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.offering-card:hover {
+    transform: translateY(-5px);
+    border-color: #C8D9E6 !important;
+    box-shadow: 0 14px 32px rgba(47, 65, 86, 0.09) !important;
+}
+
+.offering-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
+.offering-card h5 {
+    margin-bottom: 1.1rem;
+    color: var(--brand-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.offering-card p {
+    margin-bottom: 0;
+    color: #5E6B77;
+    font-size: 0.98rem;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+
+/* Banking and cheque details */
+
+.offering-card .offering-detail-label {
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+
+/* PayNow card */
+
+.offering-card.paynow-card .card-body {
+    align-items: center;
+    text-align: center;
+}
+
+.paynow-card .paynow-uen {
+    margin-bottom: 1rem;
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+.paynow-card .paynow-qr {
+    width: min(100%, 230px);
+    margin: 0.5rem auto 0;
+    padding: 0.75rem;
+    border: 1px solid #E8E2DC;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    object-fit: contain;
+}
+
+.paynow-card .paynow-caption {
+    margin-top: 1rem;
+    color: #64717D;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+
+/* -----------------------------------------------------
+   04. THANK-YOU SECTION
+----------------------------------------------------- */
+
+.give-thanks {
+    padding: clamp(4rem, 7vw, 6.5rem) 1.5rem !important;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(86, 124, 141, 0.25),
+            transparent 65%
+        ),
+        var(--brand-dark) !important;
+    text-align: center;
+}
+
+.give-thanks .container {
+    max-width: 760px;
+}
+
+.give-thanks h2 {
+    margin-bottom: 1.25rem;
+    color: #FFFFFF !important;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.give-thanks p {
+    margin: 0 auto;
+    color: #DCE6EC;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+
+/* -----------------------------------------------------
+   05. RESPONSIVE STYLES
+----------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+
+    .hero-give {
+        padding: 5rem 1.25rem !important;
+    }
+
+    .hero-give h1 {
+        margin-bottom: 1rem;
+    }
+
+    .offering-verse {
+        padding: 4rem 1.25rem !important;
+    }
+
+    .offering-verse .verse-text {
+        line-height: 1.7;
+    }
+
+    .offering-methods {
+        padding: 4rem 1.25rem !important;
+    }
+
+    .offering-methods .offering-intro {
+        margin-bottom: 2.5rem;
+    }
+
+    .offering-card .card-body {
+        padding: 1.75rem;
+    }
+
+    .offering-card:hover {
+        transform: none;
+    }
+
+    .give-thanks {
+        padding: 4rem 1.25rem !important;
+    }
+}
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .offering-card {
+        transition: none;
+    }
+}
+
