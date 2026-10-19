@@ -486,6 +486,8 @@
 }
 
 /* View all events link */
+.who-visit-link,
+.past-sermons-btn,
 .events-view-all {
     display: inline-flex;
     align-items: center;
@@ -500,11 +502,15 @@
     transition: gap 0.25s ease, color 0.25s ease;
 }
 
+.who-visit-link,
+.past-sermons-btn,
 .events-view-all i {
     color: var(--events-clay-dark);
     font-size: 1.1rem;
 }
 
+.who-visit-link,
+.past-sermons-btn,
 .events-view-all:hover {
     gap: 18px;
     color: var(--events-clay-dark);
