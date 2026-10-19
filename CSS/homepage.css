@@ -921,18 +921,20 @@
     }
 
     .events-section .events-description {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+        font-size: 1.3rem;        /* 20.8px */
+        line-height: 1.75;
     }
 
     .events-section .events-view-all {
-        justify-content: center;
+        font-size: 1.05rem;       /* 16.8px instead of 14.4px */
+        letter-spacing: 0.06em;
+        line-height: 1.6;
     }
 
     .events-section .events-side-note {
-        justify-content: center;
+        font-size: 0.8rem;       /* 12.8px instead of 9.6px */
+        letter-spacing: 0.08em;
+        line-height: 1.6;
     }
 }
 
@@ -953,30 +955,30 @@
     }
 
    
-.events-section {
-    padding: 4rem 1.1rem;
-}
-
-.events-section .upcoming-events-swiper
-.event-card-image {
-    height: 460px;
-    border-radius: 130px 130px 12px 12px;
-}
-
-.events-section .event-card-image .event-info {
-    padding: 24px;
-}
-
-.events-section .event-card-image .event-info h3 {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
-    line-height: 1.15;
-}
-
-.events-section .event-card-image .event-subtitle,
-.events-section .event-card-image .event-card-date {
-    font-size: 1.05rem;
-    line-height: 1.7;
-}
+   .events-section {
+       padding: 4rem 1.1rem;
+   }
+   
+   .events-section .upcoming-events-swiper
+   .event-card-image {
+       height: 460px;
+       border-radius: 130px 130px 12px 12px;
+   }
+   
+   .events-section .event-card-image .event-info {
+       padding: 24px;
+   }
+   
+   .events-section .event-card-image .event-info h3 {
+       font-size: clamp(1.8rem, 7vw, 2.4rem);
+       line-height: 1.15;
+   }
+   
+   .events-section .event-card-image .event-subtitle,
+   .events-section .event-card-image .event-card-date {
+       font-size: 1.05rem;
+       line-height: 1.7;
+   }
 }
 
 @media (prefers-reduced-motion: reduce) {
