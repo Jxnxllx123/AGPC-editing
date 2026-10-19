@@ -29,7 +29,7 @@
         <script src="events-ui.js"></script>
     </head>
 
-    <body>
+    <body class="events-page">
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg myNav">
@@ -63,14 +63,11 @@
                             aria-label="Toggle navigation">
 
                         <span class="navbar-toggler-icon"></span>
-
                     </button>
 
                     <!-- Collapsible nav links -->
                     <div class="collapse navbar-collapse" id="navbarNav">
-
                         <ul class="navbar-nav ms-auto align-items-center">
-
                             <li class="nav-item">
                                 <a class="nav-link"
                                    href="Visit Us.html"
@@ -109,7 +106,6 @@
 
                             <!-- Dropdown -->
                             <li class="nav-item dropdown">
-
                                 <a class="nav-link dropdown-toggle"
                                    href="#"
                                    role="button"
@@ -121,7 +117,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-
                                     <li>
                                         <a class="dropdown-item"
                                            href="AGPC.html"
@@ -148,9 +143,7 @@
                                             Connect
                                         </a>
                                     </li>
-
                                 </ul>
-
                             </li>
 
                             <!-- Language toggle -->
@@ -198,32 +191,68 @@
         </section>
 
         
-        <!-- UPCOMING EVENTS -->
-        <section class="events-list-section">
+        <!-- EVENTS INTRODUCTION -->
+        <section class="events-hero">
+            <div class="events-hero-inner">
+                <div class="events-hero-content">
+                    <span class="events-eyebrow"
+                          data-en="LIFE AT AGPC"
+                          data-zh="嘉恩堂生活">
+                        LIFE AT AGPC
+                    </span>
+        
+                    <h1 data-en="Gather. Grow. Belong."
+                        data-zh="相聚、成长、归属。">
+                        Gather. Grow. Belong.
+                    </h1>
+        
+                    <p data-en="Discover the gatherings, fellowships and shared moments that make up life at our church."
+                       data-zh="探索教会中的团契、聚会，以及与我们一同分享的美好时光。">
+                        Discover the gatherings, fellowships and shared
+                        moments that make up life at our church.
+                    </p>
+        
+                    <a href="#events-list"
+                       class="events-hero-link"
+                       data-en="EXPLORE OUR EVENTS ↓"
+                       data-zh="探索我们的活动 ↓">
+                        EXPLORE OUR EVENTS ↓
+                    </a>
+                </div>
+        
+                <div class="events-hero-image">
+                    <img src="Images/Main Page/AGPC (1).jpg"
+                         alt="The AGPC church community">
+                </div>
+            </div>
+        </section>
+        
+        <!-- CHRONOLOGICAL EVENT LIST -->
+        <section class="events-list-section" id="events-list">
             <div class="container">
         
                 <div class="events-section-heading">
+                    <span class="events-eyebrow"
+                          data-en="WHAT'S HAPPENING"
+                          data-zh="近期活动">
+                        WHAT'S HAPPENING
+                    </span>
         
-                    <p class="events-eyebrow"
-                       data-en="MARK YOUR CALENDAR"
-                       data-zh="记下活动日期">
-                        MARK YOUR CALENDAR
-                    </p>
-        
-                    <h2 data-en="Upcoming Events"
-                        data-zh="即将举行的活动">
-                        Upcoming Events
+                    <h2 data-en="Find your place."
+                        data-zh="找到属于你的位置。">
+                        Find your place.
                     </h2>
         
-                    <p data-en="Find a gathering, connect with others and be part of life at AGPC."
-                       data-zh="寻找适合你的聚会，与大家建立联系，一同参与嘉恩堂的生活。">
-                        Find a gathering, connect with others and be part of life at AGPC.
+                    <p data-en="Explore our upcoming gatherings and find a place to connect."
+                       data-zh="探索即将举行的聚会，找到与我们联系的机会。">
+                        Explore our upcoming gatherings and find a place
+                        to connect.
                     </p>
-        
                 </div>
         
-                <!-- Event cards are inserted by events-ui.js -->
-                <div id="upcoming-events" class="events-grid">
+                <!-- JavaScript renders the events here -->
+                <div id="events-list-container"
+                     class="events-timeline">
                 </div>
         
             </div>
