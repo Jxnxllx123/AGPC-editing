@@ -72,6 +72,7 @@
 .hero-homepage h1 {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 6.5vw, 6.75rem);
+    color: var(--brand-white);
     line-height: 1.1;
 }
 
