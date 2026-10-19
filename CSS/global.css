@@ -1,12 +1,12 @@
-
 /* =====================================================
    AGPC WEBSITE — GLOBAL STYLES
    File: CSS/global.css
 
    01. Colour system
    02. Global defaults
-   03. Shared typography
-   04. Images
+   03. Typography system
+   04. Shared elements
+   05. Images
 ===================================================== */
 
 
@@ -29,6 +29,7 @@
     /* Text colours */
     --text-main: #2F4156;
     --text-on-dark: #F5EFEB;
+    --text-muted: #526575;
 
     /* Borders */
     --border-light: #E8E2DC;
@@ -36,6 +37,31 @@
     /* Layout */
     --section-padding-y: 4rem;
     --content-max-width: 1200px;
+
+    /* Font families */
+    --font-heading: "DM Serif Display", serif;
+    --font-body: "Roboto", sans-serif;
+
+    /* Body typography */
+    --text-body: 1.1875rem;       /* 19px */
+    --text-body-small: 1.0625rem; /* 17px */
+    --text-lead: 1.25rem;         /* 20px */
+
+    /* Heading typography */
+    --text-h1: clamp(2.5rem, 5vw, 4rem);
+    --text-h2: clamp(2rem, 3.5vw, 3rem);
+    --text-h3: clamp(1.625rem, 2.5vw, 2rem);
+    --text-h4: clamp(1.3rem, 1.5vw, 1.5rem);
+    --text-h5: 1.125rem;
+    --text-h6: 1rem;
+
+    /* Supporting text */
+    --text-label: 1rem;
+    --text-caption: 0.9375rem;
+
+    /* Line heights */
+    --line-body: 1.8;
+    --line-heading: 1.2;
 }
 
 
@@ -49,37 +75,188 @@ html {
 
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: var(--line-body);
     color: var(--text-main);
     background-color: var(--bg-white);
 }
 
 
 /* -----------------------------------------------------
-   03. SHARED TYPOGRAPHY
+   03. TYPOGRAPHY SYSTEM
 ----------------------------------------------------- */
 
-h1 { 
-   color: var(--text-main); font-family: "DM Serif Display", serif; 
-   font-weight: 400; 
+/* Main page heading */
+h1 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
+    font-weight: 400;
+    line-height: 1.1;
 }
 
-p, h2, h3, h4, h5, h6 { 
-   font-family: "Roboto", sans-serif; 
-   font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.15rem); 
-   line-height: 1.8; 
+/* Standard section heading */
+h2 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+    font-weight: 400;
+    line-height: var(--line-heading);
 }
 
-a, button, input, textarea, select { 
-   font-family: "Roboto", sans-serif; 
+/* Subsection heading */
+h3 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+/* Card headings and smaller section titles */
+h4 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: var(--text-h4);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+h5 {
+    font-family: var(--font-body);
+    font-size: var(--text-h5);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+h6 {
+    font-family: var(--font-body);
+    font-size: var(--text-h6);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* All ordinary paragraphs inherit the body size */
+p {
+    font-family: var(--font-body);
+    font-size: inherit;
+    line-height: var(--line-body);
+}
+
+/* Optional larger introductory paragraphs */
+.lead,
+.text-lead {
+    font-size: var(--text-lead);
+    line-height: 1.75;
+}
+
+/* Optional secondary text */
+.text-small {
+    font-size: var(--text-body-small);
+    line-height: 1.7;
+}
+
+.text-caption {
+    font-size: var(--text-caption);
+    line-height: 1.6;
+}
+
+/* Links and form controls */
+a,
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-body);
 }
 
 
 /* -----------------------------------------------------
-   04. IMAGES
+   04. SHARED ELEMENTS
+----------------------------------------------------- */
+
+/* Consistent text wrapping for headings */
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+/* Accessible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 3px;
+}
+
+
+/* -----------------------------------------------------
+   05. IMAGES
 ----------------------------------------------------- */
 
 img {
     display: block;
     max-width: 100%;
+}
+
+
+/* -----------------------------------------------------
+   06. MOBILE TYPOGRAPHY
+----------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+    :root {
+        /* Comfortable mobile reading */
+        --text-body: 1.1875rem;       /* 19px */
+        --text-body-small: 1.0625rem; /* 17px */
+        --text-lead: 1.25rem;         /* 20px */
+
+        /* Consistent mobile heading scale */
+        --text-h1: 2.5rem;             /* 40px */
+        --text-h2: 2rem;               /* 32px */
+        --text-h3: 1.625rem;           /* 26px */
+        --text-h4: 1.375rem;           /* 22px */
+        --text-h5: 1.125rem;           /* 18px */
+        --text-h6: 1.0625rem;          /* 17px */
+
+        --text-label: 1rem;            /* 16px */
+        --text-caption: 1rem;          /* 16px */
+    }
+
+    body {
+        line-height: 1.8;
+    }
+
+    p {
+        margin-bottom: 1.15rem;
+    }
+}
+
+
+/* -----------------------------------------------------
+   07. REDUCED MOTION
+----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
