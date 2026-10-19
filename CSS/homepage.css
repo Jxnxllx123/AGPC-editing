@@ -70,9 +70,9 @@
 /* Homepage hero heading — oversized editorial style */
 .hero-homepage h1 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6.5vw, 6.75rem);
+    font-size: clamp(2.8rem, 4.5vw, 5rem);
     color: var(--brand-white);
-    line-height: 1.1;
+    line-height: 1.12;
 }
 
 /* Hero typography */
