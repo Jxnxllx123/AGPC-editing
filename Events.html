@@ -175,56 +175,58 @@
 
 
         <!-- HERO / PAGE TITLE -->
-        <section class="hero-section hero-events"
-                 style="background-color:#f3f4f6; padding:6rem 1.5rem;">
-
+        <section class="hero-section hero-events">
             <div class="container text-center">
-
-                <h1 data-en="Events"
-                    data-zh="活动">
-                    Events
-                </h1>
-
-                <p data-en="See all upcoming church events and programs"
-                   data-zh="查看所有即将举行的教会活动和计划">
-                    See all upcoming church events and programs
+        
+                <p class="events-eyebrow"
+                   data-en="LIFE AT AGPC"
+                   data-zh="嘉恩堂生活">
+                    LIFE AT AGPC
                 </p>
-
+        
+                <h1 data-en="There's a place for you."
+                    data-zh="这里有属于你的位置">
+                    There's a place for you.
+                </h1>
+        
+                <p data-en="Discover upcoming gatherings, activities and moments in our church community."
+                   data-zh="探索教会即将举行的聚会、活动，以及我们共同分享的美好时刻。">
+                    Discover upcoming gatherings, activities and moments in our church community.
+                </p>
+        
             </div>
-
         </section>
 
-
+        
         <!-- UPCOMING EVENTS -->
-        <section class="content-section swiper-section py-5">
-
+        <section class="events-list-section">
             <div class="container">
-
-                <h2 class="text-center mb-5"
-                    data-en="Upcoming Events"
-                    data-zh="即将举行的活动">
-                    Upcoming Events
-                </h2>
-
-                <!-- SWIPER -->
-                <div class="swiper upcoming-events-swiper">
-
-                    <div class="swiper-wrapper"
-                         id="upcoming-events">
-                        <!-- JS injects event slides here -->
-                    </div>
-
-                    <!-- NAVIGATION -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-                    <!-- PAGINATION -->
-                    <div class="swiper-pagination"></div>
-
+        
+                <div class="events-section-heading">
+        
+                    <p class="events-eyebrow"
+                       data-en="MARK YOUR CALENDAR"
+                       data-zh="记下活动日期">
+                        MARK YOUR CALENDAR
+                    </p>
+        
+                    <h2 data-en="Upcoming Events"
+                        data-zh="即将举行的活动">
+                        Upcoming Events
+                    </h2>
+        
+                    <p data-en="Find a gathering, connect with others and be part of life at AGPC."
+                       data-zh="寻找适合你的聚会，与大家建立联系，一同参与嘉恩堂的生活。">
+                        Find a gathering, connect with others and be part of life at AGPC.
+                    </p>
+        
                 </div>
-
+        
+                <!-- Event cards are inserted by events-ui.js -->
+                <div id="upcoming-events" class="events-grid">
+                </div>
+        
             </div>
-
         </section>
 
 
