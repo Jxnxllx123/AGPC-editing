@@ -361,26 +361,18 @@ section h2 {
 /* END OF SHARED COMPONENTS */
 
 
-/* =====================================================
-   05. AGPC — AGPC.html
-===================================================== */
-
-/* Add AGPC page-specific styles here. */
-
-
-/* =====================================================
-   06. CONNECT — Connect.html
-===================================================== */
-
-/* Add Connect page-specific styles here. */
 
 
 
-/* =====================================================
-   08. GIVE — Give.html
-===================================================== */
 
-/* Add Give page-specific styles here. */
+
+
+
+
+
+
+
+
 
 
 /* =====================================================
@@ -465,79 +457,6 @@ section h2 {
     background-color: #FFFFFF;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* =====================================================
-   11. VISIT US — Visit Us.html
-===================================================== */
-
-/* Add Visit Us page-specific styles here. */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =====================================================
    12. DESKTOP-ONLY STYLES
    Non-mobile layout adjustments
@@ -612,94 +531,6 @@ section h2 {
 }
 }
 
-
-/* -----------------------------------------------------
-   13.7 EVENTS PAGE CAROUSELS
------------------------------------------------------ */
-
-@media (max-width: 767px) {
-
-    .upcoming-events-swiper .swiper-slide {
-        width: 90%;
-    }
-
-    .upcoming-events-swiper .event-flyer {
-        height: 240px;
-    }
-
-    .past-events-swiper .swiper-slide {
-        width: 220px;
-    }
-
-    .past-events-swiper .event-flyer {
-        height: 160px;
-    }
-
-   .events-section .events-intro {
-        text-align: center;
-    }
-
-    .events-section .events-eyebrow {
-        justify-content: center;
-    }
-
-    .events-section .events-heading {
-        max-width: none;
-        margin-inline: auto;
-        text-align: center;
-    }
-
-    .events-section .events-description {
-        margin-inline: auto;
-    }
-
-    .events-section .events-view-all {
-        justify-content: center;
-    }
-
-    .events-section .events-side-note {
-        justify-content: center;
-        margin-top: 2rem;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .events-section .upcoming-events-swiper .event-card-image {
-        height: 420px;
-    }
-
-    .events-section .event-card-image .event-info {
-        padding: 24px;
-    }
-}
-
-/* -----------------------------------------------------
-   13.8 MINISTRIES AND MODALS
------------------------------------------------------ */
-
-@media (max-width: 767px) {
-
-    .modal-dialog {
-        width: auto;
-        max-width: none;
-        margin: 0.5rem;
-    }
-
-    .modal-content {
-        min-height: auto;
-    }
-
-    .ministry-carousel .carousel-item {
-        min-height: 250px;
-    }
-}
-
-/* -----------------------------------------------------
-   13.9 SERMONS
------------------------------------------------------ */
-
-/* Keep sermon-specific mobile adjustments here if needed.
-   The desktop sermon grid remains in Section 12. */
 
 
 /* =====================================================
