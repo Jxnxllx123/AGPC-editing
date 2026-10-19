@@ -155,7 +155,8 @@
     width: 24rem;
     height: 24rem;
     border-radius: 42% 58% 63% 37% / 43% 40% 60% 57%;
-    background: rgba(200, 217, 230, 0.25);
+    background: var(--brand-light);
+    opacity: 0.65;
     transform: rotate(-12deg);
     pointer-events: none;
 }
@@ -321,16 +322,49 @@
 
 /* Sermons section background */
 .content-section.sermons-section {
-    background: #FFFFFF;
-    padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 8% 12%,
+            rgba(200, 217, 230, 0.38),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #F8F5F1 45%,
+            #F5EFEB 100%
+        );
+}
+
+.content-section.sermons-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -5rem;
+    right: -5rem;
+
+    width: clamp(14rem, 24vw, 24rem);
+    aspect-ratio: 1;
+
+    border-radius: 42% 58% 63% 37% / 43% 40% 60% 57%;
+    background: var(--accent-clay);
+    opacity: 0.18;
+    transform: rotate(25deg);
+
+    pointer-events: none;
 }
 
 .content-section.sermons-section > .container {
     width: 100%;
-    max-width: 1480px;
-    padding: clamp(2rem, 4vw, 4rem);
-    background: #F5EFEB;
-    border-radius: 8px;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: clamp(2rem, 4vw, 4rem) 1.5rem;
+    background: transparent;
+    border-radius: 0;
 }
 
 /* Sermon cards */
@@ -360,9 +394,22 @@
     --events-blue: #C8D9E6;
 
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     padding: clamp(4rem, 7vw, 6rem) 1.5rem;
-    background: var(--brand-white);
+
+    background:
+        radial-gradient(
+            ellipse at 92% 15%,
+            rgba(230, 180, 157, 0.24),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #F5EFEB 0%,
+            #F8F5F1 48%,
+            #F5EFEB 100%
+        );
 }
 
 /* Main content container */
@@ -371,8 +418,8 @@
     max-width: 1600px;
     margin-inline: auto;
     padding: clamp(2rem, 4vw, 4rem);
-    background-color: var(--brand-beige);
-    border-radius: 8px;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 .events-section .events-showcase > .row {
@@ -954,7 +1001,11 @@
     ================================================ */
 
     .who-we-are-section {
-        padding: 3.5rem 1.1rem;
+        padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
+       background: var(--brand-white);
+       position: relative;
+       isolation: isolate;
+       overflow: hidden;
     }
 
    .who-we-are-section .who-eyebrow {
