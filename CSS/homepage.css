@@ -221,11 +221,12 @@
 
 /* Schedule: one calm, unified panel */
 .who-we-are-section .who-we-are-schedule {
+    width: 100%;
     margin: 0;
-    padding: clamp(1.5rem, 4vw, 3rem);
-    border: 1px solid #E8E2DC;
-    border-radius: 8px;
-    background: #F8F5F1;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    border: 1px solid #E5D9CF;
+    border-radius: 10px;
+    background: #F5EFEB;
 }
 
 .who-we-are-section .schedule-heading {
@@ -320,7 +321,16 @@
 
 /* Sermons section background */
 .content-section.sermons-section {
-    background-color: var(--brand-light);
+    background: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
+}
+
+.content-section.sermons-section > .container {
+    width: 100%;
+    max-width: 1480px;
+    padding: clamp(2rem, 4vw, 4rem);
+    background: #F5EFEB;
+    border-radius: 8px;
 }
 
 /* Sermon cards */
@@ -352,18 +362,17 @@
     position: relative;
     overflow: hidden;
     padding: clamp(4rem, 7vw, 6rem) 1.5rem;
-    background: var(--events-cream);
-}
-
-.content-section.events-section {
-    background-color: var(--brand-beige);
+    background: var(--brand-white);
 }
 
 /* Main content container */
 .events-section .events-showcase {
     width: 100%;
-    max-width: 1480px;
+    max-width: 1600px;
     margin-inline: auto;
+    padding: clamp(2rem, 4vw, 4rem);
+    background-color: var(--brand-beige);
+    border-radius: 8px;
 }
 
 .events-section .events-showcase > .row {
@@ -1013,7 +1022,11 @@
     ================================================ */
 
     .events-section {
-        padding: 3.5rem 1.1rem;
+        padding: 2rem 1rem;
+    }
+
+   .events-section .events-showcase {
+        padding: 1.5rem 1rem;
     }
 
     .events-section .events-heading {
@@ -1095,6 +1108,15 @@
     }
 }
 
+@media (max-width: 576px) {
+    .content-section.sermons-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .content-section.sermons-section > .container {
+        padding: 1.5rem 1rem;
+    }
+}
 
 /* -----------------------------------------------------
    5.3 REDUCED MOTION
