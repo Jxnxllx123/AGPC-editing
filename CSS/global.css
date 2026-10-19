@@ -15,53 +15,101 @@
 ----------------------------------------------------- */
 
 :root {
-    /* Brand colours */
-    --brand-dark: #2F4156;
-    --brand-primary: #567C8D;
-    --brand-light: #C8D9E6;
-    --brand-beige: #F5EFEB;
-    --brand-white: #FFFFFF;
-
-    /* Background colours */
-    --bg-white: #FFFFFF;
-    --bg-light: #F8F5F1;
-
-    /* Text colours */
-    --text-main: #2F4156;
-    --text-on-dark: #F5EFEB;
-    --text-muted: #526575;
-
-    /* Borders */
-    --border-light: #E8E2DC;
-
-    /* Layout */
-    --section-padding-y: 4rem;
-    --content-max-width: 1200px;
-
-    /* Font families */
-    --font-heading: "DM Serif Display", serif;
-    --font-body: "Roboto", sans-serif;
-
-    /* Body typography */
-    --text-body: 1.1875rem;       /* 19px */
-    --text-body-small: 1.0625rem; /* 17px */
-    --text-lead: 1.25rem;         /* 20px */
-
-    /* Heading typography */
-    --text-h1: clamp(2.5rem, 5vw, 4rem);
-    --text-h2: clamp(2rem, 3.5vw, 3rem);
-    --text-h3: clamp(1.625rem, 2.5vw, 2rem);
-    --text-h4: clamp(1.3rem, 1.5vw, 1.5rem);
-    --text-h5: 1.125rem;
-    --text-h6: 1rem;
-
-    /* Supporting text */
-    --text-label: 1rem;
-    --text-caption: 0.9375rem;
-
-    /* Line heights */
-    --line-body: 1.8;
-    --line-heading: 1.2;
+   /* ================================================ 
+      BRAND COLOURS — CORE PALETTE Main colours used 
+      throughout the website 
+   ================================================ */
+   
+   
+   --brand-dark: #2F4156;
+   --brand-primary: #567C8D;
+   --brand-light: #C8D9E6;
+   --brand-beige: #F5EFEB;
+   --brand-white: #FFFFFF;
+   
+   
+   /* ================================================
+      ACCENT COLOURS — SHARED WEBSITE PALETTE
+      Warm accents from the homepage hero
+   ================================================ */
+   
+   --accent-ink: #F5EFEB;
+   --accent-muted: #C8D9E6;
+   --accent-clay: #E6B49D;
+   
+   
+   /* ================================================
+      BACKGROUND COLOURS
+   ================================================ */
+   
+   --bg-white: #FFFFFF;
+   --bg-light: #F8F5F1;
+   --bg-dark: var(--brand-dark);
+   --bg-blue: var(--brand-primary);
+   --bg-clay: var(--accent-clay);
+   
+   
+   /* ================================================
+      TEXT COLOURS
+   ================================================ */
+   
+   --text-main: var(--brand-dark);
+   --text-on-dark: var(--brand-beige);
+   --text-muted: #526575;
+   --text-accent: var(--accent-clay);
+   
+   
+   /* ================================================
+      BORDERS
+   ================================================ */
+   
+   --border-light: #E8E2DC;
+   --border-accent: var(--accent-clay);
+   
+   
+   /* ================================================
+      INTERFACE ACCENTS
+   ================================================ */
+   
+   --accent-hover: #D49A80;
+   --accent-soft: #F8EAE2;
+   
+   
+   /* ================================================
+      LAYOUT
+   ================================================ */
+   
+   --section-padding-y: 4rem;
+   --content-max-width: 1200px;
+   
+   /* ================================================
+      TYPOGRAPHY
+   ================================================ */
+   
+   --font-heading: "DM Serif Display", serif;
+   --font-body: "Roboto", sans-serif;
+   
+   /* Body typography */
+   --text-body: 1.1875rem;
+   --text-body-small: 1.0625rem;
+   --text-lead: 1.25rem;
+   
+   /* Heading typography */
+   --text-h1: clamp(2.5rem, 5vw, 4rem);
+   --text-h2: clamp(2rem, 3.5vw, 3rem);
+   --text-h3: clamp(1.625rem, 2.5vw, 2rem);
+   --text-h4: clamp(1.3rem, 1.5vw, 1.5rem);
+   --text-h5: 1.125rem;
+   --text-h6: 1rem;
+   
+   /* Supporting text */
+   --text-label: 1rem;
+   --text-caption: 0.9375rem;
+   
+   /* Line heights */
+   --line-body: 1.8;
+   --line-heading: 1.2;
+   
 }
 
 
