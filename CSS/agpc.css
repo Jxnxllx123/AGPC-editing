@@ -1,1 +1,297 @@
 
+/* =====================================================
+   AGPC PAGE — VISUAL DESIGN
+   File: CSS/agpc.css
+===================================================== */
+
+/* 01. HERO */
+
+.agpc-hero {
+    padding: clamp(4rem, 8vw, 7rem) 1.5rem !important;
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(200, 217, 230, 0.65),
+            transparent 40%
+        ),
+        var(--brand-beige) !important;
+    text-align: center;
+}
+
+.agpc-hero .container {
+    max-width: 850px;
+}
+
+.agpc-hero .hero-eyebrow {
+    color: var(--brand-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.agpc-hero h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.8rem, 6vw, 4.75rem);
+    line-height: 1.15;
+}
+
+.agpc-hero p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #536575;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+}
+
+
+/* 02. SECTION HEADINGS */
+
+.agpc-page section h2 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-dark);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.agpc-page .section-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--brand-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+
+/* 03. WHO WE ARE */
+
+.agpc-intro {
+    background: #FFFFFF;
+}
+
+.agpc-intro .intro-image {
+    width: 100%;
+    max-height: 440px;
+    border-radius: 18px;
+    object-fit: cover;
+}
+
+.agpc-intro .intro-copy {
+    max-width: 540px;
+}
+
+.agpc-intro .intro-note {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border-left: 3px solid var(--brand-primary);
+    background: var(--bg-light);
+    color: var(--brand-dark);
+}
+
+
+/* 04. OUR FOUNDATION */
+
+.agpc-foundation {
+    background: var(--brand-dark) !important;
+}
+
+.agpc-page .agpc-foundation h2 {
+    color: #FFFFFF;
+}
+
+.agpc-foundation .section-eyebrow {
+    color: var(--brand-light);
+}
+
+.foundation-card {
+    height: 100%;
+    padding: 1.75rem 1.25rem;
+    border: 1px solid rgba(200, 217, 230, 0.45);
+    border-radius: 14px;
+    background: #FFFFFF;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.foundation-card h5 {
+    color: var(--brand-dark);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.foundation-card p {
+    margin-bottom: 0;
+    color: #5E6B77;
+    font-size: 0.95rem;
+}
+
+.foundation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+
+/* 05. CONSTITUTION AND HISTORY */
+
+.agpc-resource {
+    background: var(--bg-light);
+}
+
+.agpc-resource .resource-card {
+    height: 100%;
+    padding: clamp(1.75rem, 4vw, 3rem);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.agpc-resource .resource-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    font-size: 1.5rem;
+}
+
+
+/* 06. VISION, MISSION AND VALUES */
+
+#vision-mission {
+    background: #EAF0F4 !important;
+}
+
+#vision-mission .info-card {
+    height: 100%;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border: 1px solid rgba(47, 65, 86, 0.08);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 26px rgba(47, 65, 86, 0.06);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+#vision-mission .info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(47, 65, 86, 0.11);
+}
+
+#vision-mission .info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 1.25rem;
+    border-radius: 16px;
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    font-size: 1.6rem;
+}
+
+#vision-mission .info-card h5 {
+    color: var(--brand-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+/* 07. LEADERSHIP */
+
+.agpc-leadership {
+    background: #FFFFFF;
+}
+
+.leadership-card {
+    height: 100%;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    background: #FFFFFF;
+    transition: border-color 0.25s ease,
+                background-color 0.25s ease;
+}
+
+.leadership-card:hover {
+    border-color: var(--brand-light);
+    background: var(--bg-light);
+}
+
+.leadership-card h5 {
+    color: var(--brand-dark);
+    font-weight: 700;
+}
+
+
+/* 08. CTA */
+
+.agpc-page .cta-section {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(86, 124, 141, 0.3),
+            transparent 65%
+        ),
+        var(--brand-dark) !important;
+}
+
+.agpc-page .cta-section h2 {
+    color: #FFFFFF;
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+}
+
+.agpc-page .cta-section p {
+    color: #E0E8ED;
+}
+
+.agpc-page .cta-section .btn-light {
+    border: 2px solid #FFFFFF;
+    border-radius: 999px;
+    color: var(--brand-dark);
+    font-weight: 600;
+}
+
+.agpc-page .cta-section .btn-outline-light {
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+
+/* 09. MOBILE */
+
+@media (max-width: 767.98px) {
+    .agpc-hero {
+        padding: 4rem 1.25rem !important;
+    }
+
+    .agpc-intro .intro-image {
+        max-height: 320px;
+    }
+
+    .foundation-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    #vision-mission .info-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .foundation-card,
+    #vision-mission .info-card,
+    .leadership-card {
+        transition: none;
+    }
+}
+
