@@ -3,10 +3,12 @@
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadEvents();
-
-  // Initialise after the event cards are rendered
-  initUpcomingSwiper();
+    if (document.body.classList.contains("events-page")) {
+        loadDetailedEvents();
+    } else {
+        loadEvents();
+        initUpcomingSwiper();
+    }
 });
 
 // =========================================================
@@ -190,6 +192,176 @@ function initUpcomingSwiper() {
     watchOverflow: true
   });
 }
+
+
+
+
+function loadDetailedEvents() {
+    const container = document.getElementById(
+        "events-list-container"
+    );
+
+    if (!container || !window.EVENTS) return;
+
+    const now = new Date();
+
+    const upcomingEvents = EVENTS
+        .map(event => {
+            const nextEvent = event.type === "recurring"
+                ? getNextOccurrence(event)
+                : event;
+
+            return nextEvent;
+        })
+        .filter(event => {
+            const date = new Date(
+                `${event.startDate.split("T")[0]}T${event.startTime || "00:00"}`
+            );
+
+            return date >= now;
+        })
+        .sort((a, b) => {
+            const dateA = new Date(
+                `${a.startDate.split("T")[0]}T${a.startTime || "00:00"}`
+            );
+
+            const dateB = new Date(
+                `${b.startDate.split("T")[0]}T${b.startTime || "00:00"}`
+            );
+
+            return dateA - dateB;
+        });
+
+    if (!upcomingEvents.length) {
+        container.innerHTML = `
+            <p class="events-empty"
+               data-en="There are no upcoming events at the moment."
+               data-zh="目前没有即将举行的活动。">
+                There are no upcoming events at the moment.
+            </p>
+        `;
+        return;
+    }
+
+    container.innerHTML = upcomingEvents.map(
+        (event, index) => renderDetailedEvent(event, index)
+    ).join("");
+
+    // Reapply the active language to newly rendered content.
+    if (typeof applyLanguage === "function") {
+        applyLanguage(currentLang);
+    }
+}
+
+
+function renderDetailedEvent(event, index) {
+    const lang = typeof currentLang === "string"
+        ? currentLang
+        : "en";
+
+    const title = event.title?.[lang] || event.title?.en || "";
+    const subtitle = event.subtitle?.[lang] || "";
+    const description = event.description?.[lang] || "";
+    const location = event.location?.[lang] || "";
+
+    const date = new Date(
+        `${event.startDate.split("T")[0]}T00:00:00`
+    );
+
+    const dateText = date.toLocaleDateString(
+        lang === "zh" ? "zh-CN" : "en-GB",
+        {
+            day: "numeric",
+            month: "short"
+        }
+    );
+
+    const weekday = date.toLocaleDateString(
+        lang === "zh" ? "zh-CN" : "en-GB",
+        { weekday: "short" }
+    );
+
+    const time = event.startTime && event.endTime
+        ? formatTimeRange(event.startTime, event.endTime)
+        : event.startTime || "";
+
+    const gallery = Array.isArray(event.gallery)
+        ? event.gallery
+        : [];
+
+    const image = event.image
+        ? `<img class="timeline-event-image"
+                src="${event.image}"
+                alt="">`
+        : "";
+
+    const galleryMarkup = gallery.length
+        ? `
+            <div class="event-photo-grid">
+                ${gallery.map((src, photoIndex) => `
+                    <button type="button"
+                            class="event-photo"
+                            onclick="openEventGallery('${event.id}', ${photoIndex})"
+                            aria-label="${lang === "zh" ? "查看照片" : "View photo"} ${photoIndex + 1}">
+                        <img src="${src}" alt="${title}">
+                    </button>
+                `).join("")}
+            </div>
+        `
+        : "";
+
+    const hasDetails = description || location || gallery.length;
+
+    return `
+        <article class="timeline-event" style="--event-index:${index}">
+            <div class="timeline-date">
+                <span class="timeline-weekday">${weekday}</span>
+                <span class="timeline-day">${date.getDate()}</span>
+                <span class="timeline-month">
+                    ${date.toLocaleDateString(
+                        lang === "zh" ? "zh-CN" : "en-GB",
+                        { month: "short" }
+                    )}
+                </span>
+            </div>
+
+            <div class="timeline-event-card">
+                ${image}
+
+                <div class="timeline-event-content">
+                    <span class="event-card-eyebrow">
+                        ${lang === "zh" ? "即将举行" : "UPCOMING EVENT"}
+                    </span>
+
+                    <h3>${title}</h3>
+
+                    ${subtitle ? `<p class="event-subtitle">${subtitle}</p>` : ""}
+
+                    <p class="event-card-date">
+                        ${dateText}${time ? ` · ${time}` : ""}
+                    </p>
+
+                    ${location ? `<p class="event-location">${location}</p>` : ""}
+
+                    ${hasDetails ? `
+                        <details class="event-details">
+                            <summary>
+                                ${lang === "zh" ? "了解更多" : "Explore event"}
+                            </summary>
+
+                            ${description ? `<p class="event-description">${description}</p>` : ""}
+
+                            ${galleryMarkup}
+                        </details>
+                    ` : ""}
+                </div>
+            </div>
+        </article>
+    `;
+}
+
+
+
 
 // =========================================================
 // 🔁 RECURRING EVENTS
