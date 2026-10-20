@@ -130,7 +130,12 @@ function renderSermonPage(lang) {
 
   const data = SERMONS
     .filter(s => {
-      const matchesLang = (lang === "both" ? s.lang === "both" : s.lang === lang);
+      const matchesLang =
+          lang === "all" ||
+          s.lang === lang ||
+          (s.lang === "en" && lang === "en") ||
+          (s.lang === "zh" && lang === "zh") ||
+          (s.lang === "both" && (lang === "en" || lang === "zh" || lang === "both"));
       const hasVideo =
         typeof s.video === "string" &&
         s.video.trim() !== "";
