@@ -68,7 +68,7 @@ window.SERMONS = [
     date: "27/09/2026",                    // Date of the sermon (format: D MMM YYYY)
     time: "11:00 - 12:30",
     lang: "en",                            // Language: "en" (English)
-    video: "https://churchagpc-my.sharepoint.com/:v:/g/personal/joshua_lai_churchagpc_onmicrosoft_com/IQAbJUF4LzMYQ60WYqyX7xOcAUMuB3ZNeuAx0RPJk4ahSTM?e=OW4bZh"  // YouTube embed URL
+    video: ""  // YouTube embed URL
   },
 
   
