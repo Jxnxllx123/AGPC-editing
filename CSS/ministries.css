@@ -200,6 +200,79 @@
     color: var(--text-muted);
 }
 
+
+
+/* Fellowship editorial details */
+
+#fellowship {
+    position: relative;
+    overflow: hidden;
+}
+
+#fellowship .editorial-copy {
+    position: relative;
+    z-index: 1;
+}
+
+#fellowship .editorial-media {
+    position: relative;
+    padding: 1rem 1rem 2.5rem;
+    background: var(--brand-white);
+    transform: rotate(1.5deg);
+    box-shadow: 0 8px 30px rgb(47 65 86 / 8%);
+}
+
+#fellowship .editorial-image {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+#fellowship .editorial-caption {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+}
+
+#fellowship .editorial-stamp {
+    position: absolute;
+    right: -1rem;
+    bottom: 5rem;
+    display: grid;
+    width: 100px;
+    height: 100px;
+    place-content: center;
+    border: 1px solid var(--brand-dark);
+    border-radius: 50%;
+    background: var(--accent-clay);
+    color: var(--brand-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    transform: rotate(10deg);
+}
+
+#fellowship .panel-eyebrow {
+    color: var(--brand-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+@media (max-width: 767.98px) {
+    #fellowship .editorial-media {
+        margin: 0.5rem;
+    }
+
+    #fellowship .editorial-stamp {
+        width: 82px;
+        height: 82px;
+        right: -0.5rem;
+        font-size: 0.65rem;
+    }
+}
+
+
+
 /* Responsive */
 
 @media (max-width: 767.98px) {
