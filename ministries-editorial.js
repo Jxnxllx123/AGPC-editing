@@ -201,13 +201,27 @@ function updateEditorialPanel(button) {
     });
 }
 
-document.querySelectorAll(".editorial-tab").forEach(button => {
-    button.addEventListener("click", () => {
-        updateEditorialPanel(button);
+
+/* ================================================
+   INITIALISE EDITORIAL TABS
+================================================ */
+
+document.querySelectorAll(".editorial-section").forEach(section => {
+    const tabs = section.querySelectorAll(".editorial-tab");
+
+    tabs.forEach(button => {
+        button.addEventListener("click", () => {
+            updateEditorialPanel(button);
+        });
     });
+
+    // Select the active tab, or the first tab by default
+    const activeTab = section.querySelector(
+        ".editorial-tab.is-active"
+    ) || tabs[0];
+
+    if (activeTab) {
+        updateEditorialPanel(activeTab);
+    }
 });
 
-/* Initialise every section with its selected tab */
-document.querySelectorAll(
-    ".editorial-tab.is-active"
-).forEach(updateEditorialPanel);
