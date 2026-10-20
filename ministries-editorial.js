@@ -1,4 +1,4 @@
-
+console.log("Editorial JS is loaded!");
 /* ================================================
    AGPC MINISTRIES — EDITORIAL TABS
 ================================================ */
