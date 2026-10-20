@@ -319,3 +319,42 @@
         flex-shrink: 0;
     }
 }
+
+
+
+/* ================================================ EDITORIAL MINISTRY LAYOUT ================================================ */
+
+/* Desktop: image and text side by side */ .editorial-spread { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+
+/* Keep images consistent */ .editorial-media { position: relative; min-width: 0; }
+
+.editorial-image { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+/* Alternate image and text sides on larger screens */ @media (min-width: 768px) { .editorial-section:nth-of-type(even) .editorial-media { order: 2; }
+
+.editorial-section:nth-of-type(even) .editorial-copy {
+    order: 1;
+}
+
+
+}
+
+/* Mobile: image first, content underneath */ @media (max-width: 767px) { .editorial-spread { grid-template-columns: 1fr; gap: 2rem; }
+
+.editorial-media,
+.editorial-copy {
+    order: initial;
+}
+
+.editorial-image {
+    aspect-ratio: 16 / 10;
+}
+
+.editorial-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+
+}
