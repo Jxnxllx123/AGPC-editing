@@ -1,23 +1,6 @@
-console.log("Editorial JS is loaded!");
-/* ================================================
-   AGPC MINISTRIES — EDITORIAL TABS
-================================================ */
+/* ================================================ AGPC MINISTRIES — EDITORIAL TABS ================================================ */
 
-const ministryPanels = {
-    youth: {
-        eyebrow: {
-            en: "FIND YOUR PEOPLE",
-            zh: "找到属于你的群体"
-        },
-        title: {
-            en: "Find your people.",
-            zh: "找到属于你的群体。"
-        },
-        description: {
-            en: "Discover a community where you can build friendships and grow in faith.",
-            zh: "在团契中建立友谊，在信仰中一同成长。"
-        }
-    },
+const ministryPanels = { fellowship: { youth: { eyebrow: { en: "FIND YOUR PEOPLE", zh: "找到属于你的群体" }, title: { en: "A place to belong.", zh: "找到归属，建立连结。" }, description: { en: "Discover a community where you can build friendships and grow in faith.", zh: "在团契中建立友谊，在信仰中一同成长。" } },
 
     "young-adults": {
         eyebrow: {
@@ -25,12 +8,12 @@ const ministryPanels = {
             zh: "在人生中一同成长"
         },
         title: {
-            en: "Grow through every season.",
-            zh: "在人生不同阶段一同成长。"
+            en: "Faith for the journey.",
+            zh: "在信仰路上彼此同行。"
         },
         description: {
-            en: "Build meaningful friendships and journey together in faith.",
-            zh: "建立有意义的友谊，在信仰道路上彼此同行。"
+            en: "Build meaningful friendships, share life's experiences and grow together in Christ.",
+            zh: "建立有意义的友谊，分享人生经历，在基督里一同成长。"
         }
     },
 
@@ -40,80 +23,104 @@ const ministryPanels = {
             zh: "相聚与连结"
         },
         title: {
-            en: "Faith beyond Sunday.",
-            zh: "让信仰延伸到主日以外。"
+            en: "Community after hours.",
+            zh: "在晚堂中建立团契。"
         },
         description: {
-            en: "Discover fellowship and community through evening gatherings.",
-            zh: "透过晚堂聚会建立团契，彼此连结。"
+            en: "Come together for fellowship, encouragement and a shared journey of faith.",
+            zh: "透过晚堂聚会彼此鼓励，在信仰道路上同行。"
         }
     }
+}
+
+
 };
 
-/* Get the currently selected language */
-function getEditorialLanguage() {
-    const activeLanguage = document.querySelector(
-        ".lang-toggle-option.is-active"
-    );
+/* GET CURRENT LANGUAGE */
 
-    return activeLanguage?.dataset.lang === "zh" ? "zh" : "en";
+function getEditorialLanguage() { const activeOption = document.querySelector( "#languageToggle .lang-toggle-option.is-active" );
+
+if (activeOption) {
+    return activeOption.dataset.lang === "zh" ? "zh" : "en";
 }
 
-/* Update the fellowship panel */
-function updateFellowshipPanel(button) {
-    const content = ministryPanels[button.dataset.panel];
+return document.documentElement.lang === "zh" ? "zh" : "en";
 
-    if (!content) return;
 
-    const section = button.closest(".editorial-section");
-    if (!section) return;
-
-    const panel = section.querySelector(".editorial-panel");
-    if (!panel) return;
-
-    const eyebrow = panel.querySelector(".panel-eyebrow");
-    const title = panel.querySelector("[data-panel-title]");
-    const description = panel.querySelector(
-        "[data-panel-description]"
-    );
-
-    const lang = getEditorialLanguage();
-
-    if (eyebrow) eyebrow.textContent = content.eyebrow[lang];
-    if (title) title.textContent = content.title[lang];
-    if (description) {
-        description.textContent = content.description[lang];
-    }
-
-    /* Update the selected tab */
-    section.querySelectorAll(".editorial-tab").forEach(tab => {
-        const active = tab === button;
-
-        tab.classList.toggle("is-active", active);
-        tab.setAttribute("aria-pressed", String(active));
-    });
 }
 
-/* Initialise the fellowship tabs */
-document.addEventListener("DOMContentLoaded", () => {
-    const section = document.querySelector("#fellowship");
+/* UPDATE A MINISTRY PANEL */
 
-    if (!section) return;
+function updateEditorialPanel(button) { const ministry = button.dataset.ministry; const panelKey = button.dataset.panel;
 
-    const tabs = section.querySelectorAll(".editorial-tab");
+const content = ministryPanels[ministry]?.[panelKey];
+
+if (!content) return;
+
+const section = button.closest(".editorial-section");
+if (!section) return;
+
+const panel = section.querySelector(".editorial-panel");
+if (!panel) return;
+
+const lang = getEditorialLanguage();
+
+const eyebrow = panel.querySelector("[data-panel-eyebrow]");
+const title = panel.querySelector("[data-panel-title]");
+const description = panel.querySelector("[data-panel-description]");
+
+if (eyebrow) eyebrow.textContent = content.eyebrow[lang];
+if (title) title.textContent = content.title[lang];
+if (description) description.textContent = content.description[lang];
+
+section.querySelectorAll(".editorial-tab").forEach(tab => {
+    const active = tab === button;
+
+    tab.classList.toggle("is-active", active);
+    tab.setAttribute("aria-pressed", String(active));
+});
+
+
+}
+
+/* INITIALISE TABS */
+
+function initialiseEditorialTabs() { document.querySelectorAll(".editorial-section").forEach(section => { const tabs = section.querySelectorAll(".editorial-tab");
 
     tabs.forEach(button => {
         button.addEventListener("click", () => {
-            updateFellowshipPanel(button);
+            updateEditorialPanel(button);
         });
     });
 
-    /* Show the selected tab's content on page load */
     const activeTab = section.querySelector(
         ".editorial-tab.is-active"
     ) || tabs[0];
 
     if (activeTab) {
-        updateFellowshipPanel(activeTab);
+        updateEditorialPanel(activeTab);
     }
+});
+
+
+}
+
+/* REFRESH PANELS WHEN LANGUAGE CHANGES */
+
+document.addEventListener("DOMContentLoaded", () => { initialiseEditorialTabs();
+
+const languageToggle = document.querySelector("#languageToggle");
+
+if (languageToggle) {
+    languageToggle.addEventListener("click", () => {
+        // Wait until the existing language script updates its selection.
+        requestAnimationFrame(() => {
+            document.querySelectorAll(
+                ".editorial-section .editorial-tab.is-active"
+            ).forEach(updateEditorialPanel);
+        });
+    });
+}
+
+
 });
