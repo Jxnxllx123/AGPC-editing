@@ -199,10 +199,8 @@ function renderSermonPage(lang) {
 // PAGINATION
 // =====================
 function renderPagination(lang, totalItems) {
-  const totalPages = Math.ceil(totalItems / pageSize);
-  if (totalPages <= 1) return;
-
   let paginationId;
+
   if (lang === "en") paginationId = "en-pagination";
   if (lang === "zh") paginationId = "zh-pagination";
   if (lang === "both") paginationId = "both-pagination";
@@ -210,7 +208,12 @@ function renderPagination(lang, totalItems) {
   const pagination = document.getElementById(paginationId);
   if (!pagination) return;
 
+  // Clear old controls before checking the page count
   pagination.innerHTML = "";
+
+  const totalPages = Math.ceil(totalItems / pageSize);
+
+  if (totalPages <= 1) return;
 
   // ⬅️ PREV
   pagination.innerHTML += `
