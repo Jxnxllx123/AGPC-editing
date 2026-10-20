@@ -112,6 +112,30 @@
             </p>
         </div>
         </section>
+
+        
+        <!-- FEATURED SERMONS -->
+        <section class="featured-sermons-section">
+            <div class="container">
+                <div class="featured-sermons-intro">
+                    <p data-en="LATEST MESSAGES"
+                       data-zh="最新讲道">
+                        LATEST MESSAGES
+                    </p>
+        
+                    <h2 data-en="Featured Sermons"
+                        data-zh="精选讲道">
+                        Featured Sermons
+                    </h2>
+                </div>
+        
+                <div id="featured-sermons" class="row g-4">
+                    <!-- Populated by sermons-ui.js -->
+                </div>
+            </div>
+        </section>
+        <!-- END FEATURED SERMONS -->
+
     
         
         <!-- SERMON ARCHIVE -->
@@ -232,7 +256,7 @@
                          aria-labelledby="all-tab"
                          tabindex="0">
         
-                        <div id="all-sermons-grid"></div>
+                        <div id="all-sermons-grid" class="row sermon-grid"></div>
                         <div id="all-pagination"
                              class="sermon-pagination"></div>
                     </div>
@@ -277,8 +301,6 @@
             </div>
         </section>
         <!-- END SERMON ARCHIVE -->
-
-
         <!-- 🔹 Video Modal -->
         <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
