@@ -1,74 +1,248 @@
-/* =========================================
-   MINISTRIES PAGE — NEW LAYOUT
-========================================= */
 
-.ministries-hero {
-    background: #f5f3ed;
-    padding: 100px 24px 80px;
+/* ================================================
+   EDITORIAL MINISTRIES PAGE
+================================================ */
+
+.ministries-editorial {
+    background: var(--brand-beige);
+    color: var(--brand-dark);
 }
 
-.ministries-hero .container {
-    max-width: 1100px;
+.editorial-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(5rem, 12vw, 10rem) 1.5rem;
+    background: var(--brand-dark);
+    color: var(--brand-beige);
 }
 
-.ministries-hero h1,
-.ministry-heading h2 {
-    font-family: "DM Serif Display", serif;
-    color: #304c39;
+.editorial-hero-inner {
+    position: relative;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
 }
 
-.ministries-hero h1 {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    margin-bottom: 24px;
-}
-
-.ministries-hero p {
-    max-width: 620px;
-    line-height: 1.8;
-}
-
-.section-eyebrow {
-    color: #718168;
-    font-size: 0.75rem;
+.editorial-hero .section-eyebrow {
+    color: var(--accent-clay);
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.14em;
-    text-transform: uppercase;
 }
 
-.ministry-section {
-    padding: 80px 24px;
-    background: #fff;
+.editorial-hero h1 {
+    max-width: 950px;
+    margin: 2rem 0;
+    color: var(--brand-beige);
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
 }
 
-.ministry-section:nth-of-type(even) {
-    background: #f5f3ed;
+.editorial-hero-bottom {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
 }
 
-.ministry-section .container {
-    max-width: 1100px;
+.editorial-hero-intro {
+    max-width: 480px;
+    font-size: var(--text-lead);
 }
 
-.ministry-heading {
-    max-width: 720px;
-    margin-bottom: 36px;
+.editorial-discover {
+    color: var(--accent-clay);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-.ministry-heading h2 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    margin-bottom: 16px;
+.editorial-discover:hover {
+    color: var(--brand-light);
 }
 
-.ministry-heading p {
-    line-height: 1.8;
-    color: #50584e;
+.editorial-hero-note {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--accent-clay);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    transform: rotate(8deg);
 }
 
-@media (max-width: 768px) {
-    .ministries-hero {
-        padding: 64px 20px;
+/* Editorial section */
+
+.editorial-section {
+    padding: var(--editorial-section-padding, 5rem) 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--brand-beige);
+}
+
+.editorial-section:nth-child(even) {
+    background: var(--brand-white);
+}
+
+.editorial-inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+.editorial-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.editorial-section:nth-child(even) .editorial-spread {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.editorial-section:nth-child(even) .editorial-copy {
+    order: 2;
+}
+
+.editorial-section:nth-child(even) .editorial-media {
+    order: 1;
+}
+
+/* Typography */
+
+.editorial-kicker {
+    margin-bottom: 1.25rem;
+    color: var(--brand-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.editorial-title {
+    max-width: 12ch;
+    margin-bottom: 1.5rem;
+    color: var(--brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.035em;
+}
+
+.editorial-intro {
+    max-width: 36rem;
+    color: var(--text-muted);
+    font-size: var(--text-lead);
+    line-height: 1.7;
+}
+
+.editorial-caption {
+    margin-top: 0.85rem;
+    color: var(--text-muted);
+    font-size: var(--text-caption);
+    line-height: 1.5;
+}
+
+/* Photography */
+
+.editorial-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+/* Sub-ministry navigation */
+
+.editorial-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 2rem 0;
+}
+
+.editorial-tab {
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--brand-primary);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--brand-dark);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 180ms ease,
+                color 180ms ease;
+}
+
+.editorial-tab:hover {
+    background: var(--brand-light);
+}
+
+.editorial-tab.is-active {
+    border-color: var(--brand-dark);
+    background: var(--brand-dark);
+    color: var(--brand-white);
+}
+
+.editorial-panel {
+    max-width: 38rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.editorial-panel h3 {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+}
+
+.editorial-panel p {
+    color: var(--text-muted);
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+    .editorial-hero {
+        padding: 5rem 1.25rem;
     }
 
-    .ministry-section {
-        padding: 52px 20px;
+    .editorial-hero-note {
+        position: static;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+
+    .editorial-spread,
+    .editorial-section:nth-child(even) .editorial-spread {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .editorial-section:nth-child(even) .editorial-copy,
+    .editorial-section:nth-child(even) .editorial-media {
+        order: initial;
+    }
+
+    .editorial-section {
+        padding: 4rem 1.25rem;
+    }
+
+    .editorial-title {
+        font-size: clamp(2.75rem, 11vw, 4rem);
+    }
+
+    .editorial-image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .editorial-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.75rem;
+    }
+
+    .editorial-tab {
+        flex-shrink: 0;
     }
 }
