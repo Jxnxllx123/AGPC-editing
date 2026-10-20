@@ -1,82 +1,74 @@
-/* =====================================================
-   09. MINISTRIES — Ministries.html
-===================================================== */
+/* =========================================
+   MINISTRIES PAGE — NEW LAYOUT
+========================================= */
 
-/* -----------------------------------------------------
-   9.1 MINISTRY CARDS
------------------------------------------------------ */
-
-.ministry-card {
-    border: none;
-    background-color: #89C8FC;
+.ministries-hero {
+    background: #f5f3ed;
+    padding: 100px 24px 80px;
 }
 
-.ministry-bg {
-    position: relative;
-    display: flex;
-    height: 250px;
-    align-items: center;
-    justify-content: center;
+.ministries-hero .container {
+    max-width: 1100px;
 }
 
-.ministry-icon-corner {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 2;
-    width: 80px;
-    opacity: 0.85;
-    filter: brightness(0) invert(1);
+.ministries-hero h1,
+.ministry-heading h2 {
+    font-family: "DM Serif Display", serif;
+    color: #304c39;
 }
 
-/* -----------------------------------------------------
-   9.2 MINISTRY CAROUSEL
------------------------------------------------------ */
-
-.ministry-carousel .carousel-item {
-    min-height: 400px;
+.ministries-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    margin-bottom: 24px;
 }
 
-.ministry-carousel img {
-    transition: transform 0.3s ease;
+.ministries-hero p {
+    max-width: 620px;
+    line-height: 1.8;
 }
 
-.ministry-carousel img:hover {
-    transform: scale(1.03);
+.section-eyebrow {
+    color: #718168;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 }
 
-/* -----------------------------------------------------
-   9.3 MINISTRY MODALS
------------------------------------------------------ */
-
-.modal-dialog {
-    width: 90%;
-    max-width: 800px;
+.ministry-section {
+    padding: 80px 24px;
+    background: #fff;
 }
 
-.modal-content {
-    min-height: 600px;
+.ministry-section:nth-of-type(even) {
+    background: #f5f3ed;
 }
 
-/* -----------------------------------------------------
-   9.4 CAROUSEL CONTROLS
------------------------------------------------------ */
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    padding: 18px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-size: 60%;
+.ministry-section .container {
+    max-width: 1100px;
 }
 
-/* -----------------------------------------------------
-   9.5 MINISTRY CONTENT SECTION
------------------------------------------------------ */
-
-.content-section {
-    position: relative;
-    z-index: 1;
-    background-color: #FFFFFF;
+.ministry-heading {
+    max-width: 720px;
+    margin-bottom: 36px;
 }
 
+.ministry-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 16px;
+}
+
+.ministry-heading p {
+    line-height: 1.8;
+    color: #50584e;
+}
+
+@media (max-width: 768px) {
+    .ministries-hero {
+        padding: 64px 20px;
+    }
+
+    .ministry-section {
+        padding: 52px 20px;
+    }
+}
