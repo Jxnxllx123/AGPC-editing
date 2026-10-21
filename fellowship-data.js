@@ -51,7 +51,7 @@ const FELLOWSHIP_DATA = [
   {
     title: {
       en: "Young Adult Fellowship",
-      zh: "少年团契"
+      zh: "社青团契"
     },
     description: {
     en: "Young Adult Fellowship is a community for young adults to grow in faith and journey through life's different seasons together. Through faith-based book discussions, open sharing and prayer, we encourage one another in our walk with God and support one another through the challenges of university, work and everyday life. Beyond our regular sessions, we also make time to relax, enjoy activities and build meaningful friendships together.",
@@ -91,12 +91,63 @@ const FELLOWSHIP_DATA = [
     }
   },
   {
-    title: { en: "Evening Fellowship", zh: "晚间团契" },
-    schedule: { en: "Sunday · 7:15–8:40pm (except first Sunday communion service)", zh: "星期日 7.15pm-8.40pm（每月第一主日圣餐崇拜除外）" }
+  title: {
+    en: "Evening Fellowship",
+    zh: "晚间团契"
   },
-  {
-    title: { en: "Young Adult Groups", zh: "社青小组" },
-    images: ["Images/Ministries/Fellowships/Youth & Adult Fellowship.jpg"],
-    schedule: { en: "St Antony – Thursday 8:00pm (every two weeks), Some People – Wednesday 8:00pm (every two weeks)", zh: "St Antony（星期四8pm－两个礼拜一次）、一些人（星期三8pm－两个礼拜一次）" }
+  description: {
+    en: "Evening Fellowship is an opportunity to connect with others in the AGPC community and grow together in faith. Through fellowship and time spent together, we hope to encourage one another and build meaningful connections within the church.",
+    zh: "晚间团契让我们有机会与嘉恩堂的弟兄姐妹建立联系，并在信仰中一同成长。透过团契相交与彼此陪伴，我们盼望能够互相鼓励，并在教会中建立真挚的关系。"
+  },
+  audience: {
+    en: "To be confirmed.",
+    zh: "适合参加的对象有待确认。"
+  },
+  activities: {
+    en: [],
+    zh: []
+  },
+  welcomeMessage: {
+    en: "We welcome you to join us for a time of fellowship and connection with the AGPC community!",
+    zh: "欢迎你加入我们，一同享受团契相交的时光，与嘉恩堂的弟兄姐妹建立联系！"
+  },
+  schedule: {
+    en: "Sunday · 7:15–8:40pm (except the first Sunday of the month)",
+    zh: "星期日 · 晚上7:15–8:40（每月第一个主日除外）"
   }
+},
+  
+{
+  title: {
+    en: "Adult Groups",
+    zh: "成人小组"
+  },
+  description: {
+    en: "Adult Groups provide opportunities to connect with others in the church community and grow together in faith. Through gathering and fellowship, members can build relationships and encourage one another in their walk with God.",
+    zh: "成人小组提供了与教会弟兄姐妹建立联系、在信仰中一同成长的机会。透过聚会与团契相交，组员能够建立彼此的关系，并在信仰的道路上互相鼓励。"
+  },
+  audience: {
+    en: "Adults seeking fellowship and connection within the AGPC community.",
+    zh: "欢迎希望参与团契生活，并与嘉恩堂弟兄姐妹建立联系的成年人参加。"
+  },
+  activities: {
+    en: [],
+    zh: []
+  },
+  welcomeMessage: {
+    en: "Looking to connect with others and grow in faith together? You're welcome to find out more about our adult groups and join a community within AGPC.",
+    zh: "希望认识更多弟兄姐妹，并在信仰中一同成长吗？欢迎你进一步了解我们的成人小组，加入嘉恩堂的群体生活。"
+  },
+  images: [
+    "Images/Ministries/Fellowships/Youth & Adult Fellowship.jpg"
+  ],
+  schedule: {
+    en: "St Antony – Thursday, 8:00pm (every two weeks); Some People – Wednesday, 8:00pm (every two weeks)",
+    zh: "St Antony（星期四晚上8:00，每两个星期一次）；一些人（星期三晚上8:00，每两个星期一次）"
+  }
+
+
+  
+}
+
 ];
