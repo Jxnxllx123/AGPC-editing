@@ -15,6 +15,23 @@ function getEditorialLanguage() {
     return document.documentElement.lang === "zh" ? "zh" : "en";
 }
 
+function updateMinistryMainImage(section, item, lang) {
+    const image = section.querySelector(".editorial-image");
+
+    if (!image || !item) return;
+
+    // Use the first image belonging to the selected tab.
+    // If that tab has no images, keep the existing main photo.
+    if (item.images && item.images.length > 0) {
+        image.src = item.images[0];
+    }
+
+    // Update accessible image description.
+    if (item.title) {
+        image.alt = item.title[lang] || "";
+    }
+}
+
 function getMinistryData() {
     return {
         fellowship:
@@ -187,6 +204,8 @@ function renderMinistryPanel(button) {
 
         const item = fellowship[groupIndex];
 
+       updateMinistryMainImage(section, item, lang);
+
         if (item) {
             panel.appendChild(renderEntry(item, lang));
         } else {
@@ -224,6 +243,8 @@ function renderMinistryPanel(button) {
         }
 
         if (panelKey === "sunday-school") {
+
+           updateMinistryMainImage(section, education[1], lang);
             // All supplied Sunday School classes
             education.slice(1).forEach(item => {
                 panel.appendChild(renderEntry(item, lang));
