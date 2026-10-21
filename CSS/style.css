@@ -435,24 +435,55 @@ img {
     transform: translateY(-2px);
 }
 
-/* -----------------------------------------------------
-   3.4 FOOTER
------------------------------------------------------ */
+/* =====================================================
+   FOOTER — AGPC SHARED DESIGN
+===================================================== */
 
 .footer {
-    padding: 2rem 1.5rem;
-    background-color: var(--brand-dark) !important;
-    color: var(--brand-light) !important;
+    padding: 2.5rem 1.5rem;
+    background-color: var(--brand-dark);
+    color: var(--brand-light);
     font-size: 0.9rem;
+    line-height: 1.7;
     text-align: center;
 }
 
+.footer .container {
+    max-width: 900px;
+}
+
 .footer p {
-    margin-bottom: 0;
-    color: var(--brand-light) !important;
+    margin: 0 0 0.35rem;
+    color: var(--brand-light);
     font-size: 0.9rem;
 }
 
+.footer a {
+    color: var(--brand-light);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease,
+                text-decoration-color 0.2s ease;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+    color: #ffffff;
+    text-decoration-color: currentColor;
+}
+
+@media (max-width: 575.98px) {
+    .footer {
+        padding: 2rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+        overflow-wrap: anywhere;
+    }
+}
 
 /* -----------------------------------------------------
    3.6 GENERAL SECTIONS
@@ -542,37 +573,6 @@ section h2 {
     section {
         padding: 8rem 1.5rem;
     }
-}
-
-/* -----------------------------------------------------
-   13.2 NAVBAR
------------------------------------------------------ */
-
-@media (max-width: 991.98px) {
-
-    .myNav .navbar-logo {
-    height: 56px;
-    margin-right: 0.5rem;
-    flex-shrink: 0;
-}
-
-.myNav .navbar-text {
-    max-width: 220px;
-    font-size: 0.95rem;
-    line-height: 1.35;
-}
-
-.myNav .nav-link {
-    margin: 0;
-    padding: 0.75rem 1rem;
-    font-size: 1.05rem;
-    white-space: normal;
-}
-
-.myNav .dropdown-item {
-    padding: 0.7rem 1rem;
-    font-size: 1rem;
-}
 }
 
 
