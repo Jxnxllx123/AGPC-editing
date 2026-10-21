@@ -77,6 +77,11 @@ function getMinistryData() {
         education:
             typeof EDUCATION_DATA !== "undefined"
                 ? EDUCATION_DATA
+                : [],
+       
+       studentCare:
+            typeof STUDENTCARE_DATA !== "undefined"
+                ? STUDENTCARE_DATA
                 : []
     };
 }
@@ -183,6 +188,106 @@ function renderEntry(item, lang) {
                 item.schedule[lang] || item.schedule.en || ""
             )
         );
+    }
+
+    // Student Care programme details
+    ["level", "days", "time", "fee", "registration"].forEach(key => {
+        if (!item[key]) return;
+
+        const labels = {
+            level: { en: "Level", zh: "年级" },
+            days: { en: "Operating days", zh: "开放日" },
+            time: { en: "Operating hours", zh: "开放时间" },
+            fee: { en: "Fee", zh: "费用" },
+            registration: { en: "Registration", zh: "报名" }
+        };
+
+        const row = createElement("p", "editorial-detail");
+        const label = createElement(
+            "strong",
+            "",
+            `${labels[key][lang]}: `
+        );
+
+        const value = createElement(
+            "span",
+            "",
+            item[key][lang] || item[key].en || ""
+        );
+
+        row.append(label, value);
+        entry.appendChild(row);
+    });
+
+    // General description
+    if (item.text) {
+        entry.appendChild(
+            createElement(
+                "p",
+                "editorial-entry-description",
+                item.text[lang] || item.text.en || ""
+            )
+        );
+    }
+
+    // Activity list
+    if (item.activities?.length) {
+        const list = createElement("ul", "editorial-activity-list");
+
+        item.activities.forEach(activity => {
+            list.appendChild(
+                createElement(
+                    "li",
+                    "",
+                    activity[lang] || activity.en || ""
+                )
+            );
+        });
+
+        entry.appendChild(list);
+    }
+
+    // Parent testimonials
+    if (item.testimonials?.length) {
+        const list = createElement("div", "editorial-testimonials");
+
+        item.testimonials.forEach(testimonial => {
+            list.appendChild(
+                createElement(
+                    "blockquote",
+                    "editorial-testimonial",
+                    `“${testimonial[lang] || testimonial.en || ""}”`
+                )
+            );
+        });
+
+        entry.appendChild(list);
+    }
+
+    // Contact numbers
+    if (item.phone?.length) {
+        const contact = createElement("p", "editorial-contact");
+        contact.appendChild(
+            createElement(
+                "strong",
+                "",
+                lang === "zh" ? "联系电话：" : "Contact: "
+            )
+        );
+
+        item.phone.forEach((number, index) => {
+            if (index > 0) {
+                contact.appendChild(
+                    document.createTextNode(" / ")
+                );
+            }
+
+            const link = createElement("a", "", number);
+            link.href = `tel:${number.replace(/\s/g, "")}`;
+            contact.appendChild(link);
+        });
+
+        entry.appendChild(contact);
     }
 
     return entry;
@@ -307,6 +412,65 @@ function renderMinistryPanel(button) {
 
     /* Other ministries can keep their existing content
        until their data has been connected. */
+   
+   /* =====================================
+   STUDENT CARE
+   ===================================== */
+
+   if (ministry === "student-care") {
+       const studentCare = data.studentCare;
+   
+       const introduction = studentCare[0]?.text?.[lang];
+   
+       if (introduction) {
+           panel.appendChild(
+               createElement(
+                   "p",
+                   "editorial-data-intro",
+                   introduction
+               )
+           );
+       }
+   
+       let items = [];
+   
+       if (panelKey === "programme") {
+           items = studentCare.filter(item =>
+               item.level || item.days || item.fee || item.registration
+           );
+   
+       } else if (panelKey === "activities") {
+           items = studentCare.filter(item =>
+               item.activities?.length || item.images?.length
+           );
+   
+       } else if (panelKey === "registration") {
+           items = studentCare.filter(item =>
+               item.registration || item.phone?.length
+           );
+       }
+   
+       if (items.length) {
+           items.forEach(item => {
+               panel.appendChild(renderEntry(item, lang));
+           });
+       } else {
+           panel.appendChild(
+               createElement(
+                   "p",
+                   "editorial-empty",
+                   lang === "zh"
+                       ? "相关资料暂未提供。"
+                       : "Details for this section are not available yet."
+               )
+           );
+       }
+   
+       return;
+   }
+   
+
+   
 }
 
 /* Initialise all tabs */
