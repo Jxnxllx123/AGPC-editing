@@ -15,22 +15,23 @@ function getEditorialLanguage() {
     return document.documentElement.lang === "zh" ? "zh" : "en";
 }
 
-function updateMinistryMainImage(section, item, lang) {
+
+function updateMinistryMainImage(section, item, lang, fallbackSrc) {
     const image = section.querySelector(".editorial-image");
 
-    if (!image || !item) return;
+    if (!image) return;
 
-    // Use the first image belonging to the selected tab.
-    // If that tab has no images, keep the existing main photo.
-    if (item.images && item.images.length > 0) {
-        image.src = item.images[0];
+    const imageSrc = item?.images?.[0] || fallbackSrc;
+
+    if (imageSrc) {
+        image.src = imageSrc;
     }
 
-    // Update accessible image description.
-    if (item.title) {
-        image.alt = item.title[lang] || "";
+    if (item?.title) {
+        image.alt = item.title[lang] || item.title.en || "Ministry";
     }
 }
+
 
 function getMinistryData() {
     return {
@@ -126,19 +127,18 @@ function renderGallery(images, lang) {
 }
 
 /* Render one education class or fellowship group */
+
 function renderEntry(item, lang) {
     const entry = createElement("article", "editorial-entry");
 
     if (item.title) {
         entry.appendChild(
-            createElement("h4", "editorial-entry-title", item.title[lang] || "")
+            createElement(
+                "h3",
+                "editorial-entry-title",
+                item.title[lang] || item.title.en || ""
+            )
         );
-    }
-
-    const gallery = renderGallery(item.images, lang);
-
-    if (gallery) {
-        entry.appendChild(gallery);
     }
 
     if (item.schedule) {
@@ -146,13 +146,14 @@ function renderEntry(item, lang) {
             createElement(
                 "p",
                 "editorial-schedule",
-                item.schedule[lang] || ""
+                item.schedule[lang] || item.schedule.en || ""
             )
         );
     }
 
     return entry;
 }
+
 
 /* Render content into a ministry panel */
 function renderMinistryPanel(button) {
@@ -185,11 +186,12 @@ function renderMinistryPanel(button) {
         const fellowship = data.fellowship;
 
         const groupIndex = {
-            "youth": 1,
-            "young-adults": 2,
-            "evening": 4
-        }[panelKey];
-
+          "youth": 1,
+          "young-adults": 2,
+          "young-adults-adults": 3,
+          "evening": 4
+      }[panelKey];
+       
         const introduction = fellowship[0]?.text?.[lang];
 
         if (introduction) {
@@ -204,7 +206,12 @@ function renderMinistryPanel(button) {
 
         const item = fellowship[groupIndex];
 
-       updateMinistryMainImage(section, item, lang);
+       updateMinistryMainImage(
+          section,
+          item,
+          lang,
+          "Images/Ministries/fellowship.png"
+      );
 
         if (item) {
             panel.appendChild(renderEntry(item, lang));
