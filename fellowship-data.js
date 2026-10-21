@@ -20,10 +20,6 @@ const FELLOWSHIP_DATA = [
     schedule: { en: "St Antony – Thursday 8:00pm (every two weeks), Some People – Wednesday 8:00pm (every two weeks)", zh: "St Antony（星期四8pm－两个礼拜一次）、一些人（星期三8pm－两个礼拜一次）" }
   },
   {
-    title: { en: "Young Adults & Adults Fellowship", zh: "青成团契" },
-    schedule: { en: "Saturday · 6:00pm (except 4th Saturday of the month)", zh: "星期六6pm（每月第四个星期六除外）" }
-  },
-  {
     title: { en: "Evening Fellowship", zh: "晚间团契" },
     schedule: { en: "Sunday · 7:15–8:40pm (except first Sunday communion service)", zh: "星期日 7.15pm-8.40pm（每月第一主日圣餐崇拜除外）" }
   }
