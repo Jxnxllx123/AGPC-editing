@@ -16,20 +16,54 @@ function getEditorialLanguage() {
 }
 
 
+
 function updateMinistryMainImage(section, item, lang, fallbackSrc) {
-    const image = section.querySelector(".editorial-image");
+    const collage = section.querySelector(".editorial-collage");
 
-    if (!image) return;
+    if (!collage) return;
 
-    const imageSrc = item?.images?.[0] || fallbackSrc;
+    // Use up to 3 photos from the selected tab.
+    const images = item?.images?.length
+        ? item.images.slice(0, 3)
+        : [fallbackSrc];
 
-    if (imageSrc) {
-        image.src = imageSrc;
+    // Set the collage layout according to the number of photos.
+    collage.classList.remove("layout-one", "layout-two", "layout-many");
+
+    if (images.length === 1) {
+        collage.classList.add("layout-one");
+    } else if (images.length === 2) {
+        collage.classList.add("layout-two");
+    } else {
+        collage.classList.add("layout-many");
     }
 
-    if (item?.title) {
-        image.alt = item.title[lang] || item.title.en || "Ministry";
-    }
+    // Clear the previous tab's photos.
+    collage.replaceChildren();
+
+    images.forEach((src, index) => {
+        const image = document.createElement("img");
+
+        image.className = "editorial-image";
+        image.src = src;
+        image.alt = item?.title?.[lang]
+            ? `${item.title[lang]} — ${index + 1}`
+            : "Ministry activity photo";
+        image.loading = index === 0 ? "eager" : "lazy";
+
+        // If a photo is missing, fall back to the existing ministry image.
+        image.addEventListener("error", function handleImageError() {
+            image.removeEventListener("error", handleImageError);
+
+            if (image.src !== new URL(fallbackSrc, document.baseURI).href) {
+                image.src = fallbackSrc;
+            } else {
+                image.hidden = true;
+            }
+        });
+
+        collage.appendChild(image);
+    });
 }
 
 
