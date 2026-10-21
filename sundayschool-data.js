@@ -21,7 +21,7 @@ const EDUCATION_DATA = [
   },
   {
     title: { en: "Newcomers / Seniors / Baptism", zh: "新来者 / 长者 / 洗礼" },
-    schedule: { en: "unday · 10:45am–12:00pm", zh: "星期日 · 10:45–12:00" }
+    schedule: { en: "Sunday · 10:45am–12:00pm", zh: "星期日 · 10:45–12:00" }
   },
   {
     title: { en: "Adult Class", zh: "成人课程" },
