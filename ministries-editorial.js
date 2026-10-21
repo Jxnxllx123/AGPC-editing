@@ -188,7 +188,6 @@ function renderMinistryPanel(button) {
         const groupIndex = {
           "youth": 1,
           "young-adults": 2,
-          "young-adults-adults": 3,
           "evening": 4
       }[panelKey];
        
