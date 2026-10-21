@@ -10,23 +10,6 @@
        3.2 Language Toggle
        3.3 Buttons & CTA
        3.4 Footer
-       3.5 Hero Sections
-       3.6 General Sections
-   04. Homepage (index.html)
-       4.1 Hero
-       4.2 Service information
-       4.3 About
-       4.4 Latest sermons
-       4.5 Upcoming events
-   05. AGPC (AGPC.html)
-   06. Connect (Connect.html)
-   07. Events (Events.html)
-   08. Give (Give.html)
-   09. Ministries (Ministries.html)
-   10. Sermons (Sermons.html)
-   11. Visit Us (Visit Us.html)
-   12. Responsive Styles
-   13. Accessibility
 ===================================================== */
 
 /* Inner-page hero text */
@@ -58,11 +41,46 @@ img {
    03. SHARED COMPONENTS
 ===================================================== */
 
-/* -----------------------------------------------------
-   3.1 NAVBAR
------------------------------------------------------ */
+/* =====================================================
+   NAVBAR — AGPC SHARED DESIGN
+===================================================== */
 
-/* Navbar typography */
+/* Full-width white strip */
+.myNav {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #e7e9ed;
+    box-shadow: 0 2px 8px rgba(47, 65, 86, 0.04);
+}
+
+/* Full-width layout with comfortable spacing */
+.myNav > .container-fluid {
+    padding: 0.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo and church name */
+.myNav .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-right: 1.5rem;
+    padding: 0;
+    text-decoration: none;
+    min-width: 0;
+}
+
+.myNav .navbar-logo {
+    width: auto;
+    height: 68px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
 .myNav .navbar-text {
     color: var(--brand-dark);
     font-size: 1rem;
@@ -71,65 +89,187 @@ img {
     white-space: normal;
 }
 
+/* Navigation links */
+.myNav .navbar-nav {
+    gap: 0.35rem;
+}
+
 .myNav .nav-link {
-    font-size: 1.0625rem;
-    font-weight: 500;
-}
-
-.myNav {
     position: relative;
-    z-index: 100;
-    background-color: var(--bg-white);
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 2px 12px rgba(47, 65, 86, 0.05);
+    padding: 0.7rem 0.75rem;
+    color: var(--brand-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.2s ease;
 }
 
-.myNav .navbar-logo {
-    width: auto;
-    height: 76px;
-    margin-right: 0.75rem;
-    object-fit: contain;
+/* Thin underline on hover */
+.myNav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.35rem;
+    height: 1px;
+    background: var(--brand-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
 }
 
 .myNav .nav-link:hover,
+.myNav .nav-link:focus-visible {
+    color: var(--brand-primary);
+    background: transparent;
+}
+
+.myNav .nav-link:hover::after,
+.myNav .nav-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+/* Current page */
 .myNav .nav-link.active {
-    background-color: var(--brand-beige);
     color: var(--brand-primary);
+    background: transparent;
 }
 
-.myNav .dropdown-toggle::after {
-    margin-left: 0.4rem;
+.myNav .nav-link.active::after {
+    transform: scaleX(1);
 }
 
-.myNav .dropdown-menu {
+/* Language toggle remains part of the navigation */
+.myNav .lang-toggle {
+    margin-left: 0.5rem;
+}
+
+/* Hamburger button */
+.myNav .navbar-toggler {
+    padding: 0.45rem 0.6rem;
     border: 1px solid var(--border-light);
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(47, 65, 86, 0.1);
-}
-
-.myNav .dropdown-item {
-    padding: 0.65rem 1rem;
-    color: var(--brand-dark);
-}
-
-.myNav .dropdown-item:hover {
-    background-color: var(--brand-beige);
-    color: var(--brand-primary);
-}
-
-.navbar-toggler {
-    padding: 0.4rem 0.6rem;
-    border: 1px solid var(--border-light);
-}
-
-.navbar-toggler:focus {
+    border-radius: 6px;
     box-shadow: none;
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232F4156' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.myNav .navbar-toggler:focus {
+    box-shadow: none;
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
 }
 
+/* =====================================================
+   MOBILE NAVBAR
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    /* Allow the navigation to move onto a new row */
+    .myNav > .container-fluid {
+        flex-wrap: wrap;
+        padding: 0.6rem 1rem;
+    }
+
+    /*
+       Flatten the existing wrapper so the logo,
+       hamburger and collapsed menu can form rows.
+       No HTML restructuring is required.
+    */
+    .myNav > .container-fluid > .d-flex {
+        display: contents !important;
+    }
+
+    /* First row: logo and church name */
+    .myNav .navbar-brand {
+        flex: 1 1 0;
+        min-width: 0;
+        margin-right: 0.5rem;
+    }
+
+    .myNav .navbar-logo {
+        height: 52px;
+        margin-right: 0;
+    }
+
+    .myNav .navbar-text {
+        max-width: 240px;
+        font-size: 0.9rem;
+        line-height: 1.25;
+    }
+
+    /* Keep hamburger beside the logo */
+    .myNav .navbar-toggler {
+        flex: 0 0 auto;
+        margin: 0 !important;
+    }
+
+    /* Second row: expanded navigation */
+    .myNav .navbar-collapse {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-top: 0.75rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid #eeeeee;
+    }
+
+    .myNav .navbar-nav {
+        align-items: stretch !important;
+        gap: 0;
+        width: 100%;
+    }
+
+    .myNav .nav-item {
+        width: 100%;
+    }
+
+    .myNav .nav-link {
+        display: block;
+        padding: 0.8rem 0.5rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .myNav .nav-link::after {
+        display: none;
+    }
+
+    .myNav .nav-link:hover,
+    .myNav .nav-link.active {
+        color: var(--brand-primary);
+        background: transparent;
+    }
+
+    /* Language toggle aligned to the left on mobile */
+    .myNav .lang-toggle {
+        margin: 0.8rem 0;
+    }
+}
+
+/* Compact phones */
+@media (max-width: 400px) {
+
+    .myNav > .container-fluid {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .myNav .navbar-logo {
+        height: 44px;
+    }
+
+    .myNav .navbar-text {
+        max-width: 175px;
+        font-size: 0.82rem;
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .myNav .nav-link,
+    .myNav .nav-link::after {
+        transition: none;
+    }
+}
 /* -----------------------------------------------------
    3.2 LANGUAGE TOGGLE
 ----------------------------------------------------- */
