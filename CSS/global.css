@@ -1,12 +1,13 @@
 /* =====================================================
-   AGPC WEBSITE — GLOBAL STYLES
+   AGPC WEBSITE — GLOBAL FOUNDATION
    File: CSS/global.css
 
    01. Colour system
-   02. Global defaults
-   03. Typography system
-   04. Shared elements
-   05. Images
+   02. Layout tokens
+   03. Global defaults
+   04. Typography
+   05. Shared accessibility
+   06. Reduced motion
 ===================================================== */
 
 
@@ -15,101 +16,71 @@
 ----------------------------------------------------- */
 
 :root {
-   /* ================================================ 
-      BRAND COLOURS — CORE PALETTE Main colours used 
-      throughout the website 
-   ================================================ */
-   
-   
-   --brand-dark: #2F4156;
-   --brand-primary: #567C8D;
-   --brand-light: #C8D9E6;
-   --brand-beige: #F5EFEB;
-   --brand-white: #FFFFFF;
-   
-   
-   /* ================================================
-      ACCENT COLOURS — SHARED WEBSITE PALETTE
-      Warm accents from the homepage hero
-   ================================================ */
-   
-   --accent-ink: #F5EFEB;
-   --accent-muted: #C8D9E6;
-   --accent-clay: #E6B49D;
-   
-   
-   /* ================================================
-      BACKGROUND COLOURS
-   ================================================ */
-   
-   --bg-white: #FFFFFF;
-   --bg-light: #F8F5F1;
-   --bg-dark: var(--brand-dark);
-   --bg-blue: var(--brand-primary);
-   --bg-clay: var(--accent-clay);
-   
-   
-   /* ================================================
-      TEXT COLOURS
-   ================================================ */
-   
-   --text-main: var(--brand-dark);
-   --text-on-dark: var(--brand-beige);
-   --text-muted: #526575;
-   --text-accent: var(--accent-clay);
-   
-   
-   /* ================================================
-      BORDERS
-   ================================================ */
-   
-   --border-light: #E8E2DC;
-   --border-accent: var(--accent-clay);
-   
-   
-   /* ================================================
-      INTERFACE ACCENTS
-   ================================================ */
-   
-   --accent-hover: #D49A80;
-   --accent-soft: #F8EAE2;
-   
-   
-   /* ================================================
-      LAYOUT
-   ================================================ */
-   
-   --section-padding-y: 4rem;
-   --content-max-width: 1200px;
-   
-   /* ================================================
-      TYPOGRAPHY
-   ================================================ */
-   
-   --font-heading: "DM Serif Display", serif;
-   --font-body: "Roboto", sans-serif;
-   
-   /* Body typography */
-   --text-body: 1.1875rem;
-   --text-body-small: 1.0625rem;
-   --text-lead: 1.25rem;
-   
-   /* Heading typography */
-   --text-h1: clamp(2.5rem, 5vw, 4rem);
-   --text-h2: clamp(2rem, 3.5vw, 3rem);
-   --text-h3: clamp(1.625rem, 2.5vw, 2rem);
-   --text-h4: clamp(1.3rem, 1.5vw, 1.5rem);
-   --text-h5: 1.125rem;
-   --text-h6: 1rem;
-   
-   /* Supporting text */
-   --text-label: 1rem;
-   --text-caption: 0.9375rem;
-   
-   /* Line heights */
-   --line-body: 1.8;
-   --line-heading: 1.2;
-   
+    /* Brand colours */
+    --brand-dark: #2F4156;
+    --brand-primary: #567C8D;
+    --brand-light: #C8D9E6;
+    --brand-beige: #F5EFEB;
+    --brand-white: #FFFFFF;
+
+    /* Accents */
+    --accent-ink: #F5EFEB;
+    --accent-muted: #C8D9E6;
+    --accent-clay: #E6B49D;
+    --accent-hover: #D49A80;
+    --accent-soft: #F8EAE2;
+
+    /* Backgrounds */
+    --bg-white: #FFFFFF;
+    --bg-light: #F8F5F1;
+    --bg-cream: #F5EFEB;
+    --bg-dark: var(--brand-dark);
+    --bg-blue: var(--brand-primary);
+    --bg-clay: var(--accent-clay);
+
+    /* Text */
+    --text-main: var(--brand-dark);
+    --text-on-dark: var(--brand-beige);
+    --text-muted: #526575;
+    --text-accent: #B96F53;
+
+    /* Borders */
+    --border-light: #E8E2DC;
+    --border-accent: var(--accent-clay);
+
+    /* Layout */
+    --content-max-width: 1200px;
+    --content-wide-width: 1400px;
+    --section-padding-y: clamp(4rem, 7vw, 6.5rem);
+    --section-padding-x: clamp(1.25rem, 4vw, 2.5rem);
+    --content-gap: clamp(2rem, 4vw, 4rem);
+
+    /* Typography */
+    --font-heading: "DM Serif Display", Georgia, serif;
+    --font-body: "Roboto", Arial, sans-serif;
+
+    --text-body: 1.125rem;
+    --text-body-small: 1rem;
+    --text-lead: 1.25rem;
+    --text-label: 0.9375rem;
+    --text-caption: 0.875rem;
+
+    --text-h1: clamp(3rem, 5.2vw, 5rem);
+    --text-h2: clamp(2.125rem, 3.5vw, 3.25rem);
+    --text-h3: clamp(1.75rem, 2.5vw, 2.25rem);
+    --text-h4: clamp(1.125rem, 1.5vw, 1.375rem);
+    --text-h5: 1.125rem;
+    --text-h6: 1rem;
+
+    --line-body: 1.75;
+    --line-heading: 1.2;
+
+    /* Shared visual details */
+    --radius-small: 4px;
+    --radius-medium: 12px;
+    --radius-large: 20px;
+    --shadow-soft: 0 12px 32px rgba(47, 65, 86, 0.08);
+    --shadow-image: 0 20px 45px rgba(47, 65, 86, 0.12);
 }
 
 
@@ -119,92 +90,120 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
 }
 
 body {
     margin: 0;
+    color: var(--text-main);
+    background: var(--bg-white);
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: 400;
     line-height: var(--line-body);
-    color: var(--text-main);
-    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-
-/* -----------------------------------------------------
-   03. TYPOGRAPHY SYSTEM
------------------------------------------------------ */
-
-/* Main page heading */
-h1 {
-    margin-top: 0;
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-size: var(--text-h1);
-    font-weight: 400;
-    line-height: 1.1;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-/* Standard section heading */
-h2 {
-    margin-top: 0;
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-size: var(--text-h2);
-    font-weight: 400;
-    line-height: var(--line-heading);
+img {
+    display: block;
+    max-width: 100%;
 }
 
-/* Subsection heading */
-h3 {
-    margin-top: 0;
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    font-size: var(--text-h3);
-    font-weight: 400;
-    line-height: 1.25;
-}
-
-/* Card headings and smaller section titles */
-h4 {
-    margin-top: 0;
-    color: var(--text-main);
+button,
+input,
+textarea,
+select,
+a {
     font-family: var(--font-body);
-    font-size: var(--text-h4);
-    font-weight: 700;
-    line-height: 1.5;
 }
 
-h5 {
-    font-family: var(--font-body);
-    font-size: var(--text-h5);
-    font-weight: 700;
-    line-height: 1.5;
+button,
+input,
+textarea,
+select {
+    font-size: inherit;
 }
 
-h6 {
-    font-family: var(--font-body);
-    font-size: var(--text-h6);
-    font-weight: 700;
-    line-height: 1.5;
+a {
+    color: inherit;
 }
 
-/* All ordinary paragraphs inherit the body size */
 p {
-    font-family: var(--font-body);
+    margin-top: 0;
     font-size: inherit;
     line-height: var(--line-body);
 }
 
-/* Optional larger introductory paragraphs */
+section {
+    position: relative;
+    margin: 0;
+}
+
+
+/* -----------------------------------------------------
+   03. TYPOGRAPHY
+----------------------------------------------------- */
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--text-h1);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: var(--text-h2);
+    line-height: var(--line-heading);
+}
+
+h3 {
+    font-size: var(--text-h3);
+    line-height: 1.25;
+}
+
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+h4 {
+    font-size: var(--text-h4);
+}
+
+h5 {
+    font-size: var(--text-h5);
+}
+
+h6 {
+    font-size: var(--text-h6);
+}
+
 .lead,
 .text-lead {
     font-size: var(--text-lead);
-    line-height: 1.75;
+    line-height: 1.7;
 }
 
-/* Optional secondary text */
 .text-small {
     font-size: var(--text-body-small);
     line-height: 1.7;
@@ -215,45 +214,34 @@ p {
     line-height: 1.6;
 }
 
-/* Links and form controls */
-a,
-button,
-input,
-textarea,
-select {
-    font-family: var(--font-body);
-}
-
 
 /* -----------------------------------------------------
-   04. SHARED ELEMENTS
+   04. SHARED ACCESSIBILITY
 ----------------------------------------------------- */
 
-/* Consistent text wrapping for headings */
-h1,
-h2,
-h3 {
-    text-wrap: balance;
-}
-
-/* Accessible keyboard focus */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--brand-primary);
+    outline: 3px solid var(--brand-primary);
     outline-offset: 3px;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
 /* -----------------------------------------------------
-   05. IMAGES
+   05. TABLET TYPOGRAPHY
 ----------------------------------------------------- */
 
-img {
-    display: block;
-    max-width: 100%;
+@media (max-width: 991.98px) {
+    :root {
+        --text-body: 1.125rem;
+        --text-h2: clamp(2rem, 4vw, 2.75rem);
+    }
 }
 
 
@@ -263,29 +251,30 @@ img {
 
 @media (max-width: 767.98px) {
     :root {
-        /* Comfortable mobile reading */
-        --text-body: 1.1875rem;       /* 19px */
-        --text-body-small: 1.0625rem; /* 17px */
-        --text-lead: 1.25rem;         /* 20px */
+        --section-padding-y: 3.75rem;
+        --section-padding-x: 1.25rem;
 
-        /* Consistent mobile heading scale */
-        --text-h1: 2.5rem;             /* 40px */
-        --text-h2: 2rem;               /* 32px */
-        --text-h3: 1.625rem;           /* 26px */
-        --text-h4: 1.375rem;           /* 22px */
-        --text-h5: 1.125rem;           /* 18px */
-        --text-h6: 1.0625rem;          /* 17px */
+        --text-body: 1.125rem;
+        --text-body-small: 1rem;
+        --text-lead: 1.2rem;
 
-        --text-label: 1rem;            /* 16px */
-        --text-caption: 1rem;          /* 16px */
+        --text-h1: clamp(2.5rem, 8vw, 3.25rem);
+        --text-h2: 2rem;
+        --text-h3: 1.625rem;
+        --text-h4: 1.1875rem;
+        --text-h5: 1.125rem;
+        --text-h6: 1rem;
+
+        --text-label: 0.9375rem;
+        --text-caption: 0.9375rem;
     }
 
     body {
-        line-height: 1.8;
+        line-height: 1.75;
     }
 
     p {
-        margin-bottom: 1.15rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -302,9 +291,9 @@ img {
     *,
     *::before,
     *::after {
+        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
 }
