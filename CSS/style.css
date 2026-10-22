@@ -546,72 +546,39 @@
 /* FINAL MOBILE NAVBAR */
 @media (max-width: 767.98px) {
     nav.myNav {
-        width: 100%;
-        min-height: 88px;
-        padding: 8px 0;
-        background: #fff;
+        min-height: 72px;
+        padding: 4px 0;
     }
 
     nav.myNav > .container-fluid {
-        min-height: 72px;
-        padding: 8px 16px;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    nav.myNav .navbar-brand {
-        flex: 1 1 auto;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        min-width: 0;
-        margin: 0;
+        min-height: 64px;
+        padding: 6px 12px;
     }
 
     nav.myNav .navbar-logo {
-        display: block;
-        width: 60px;
-        height: 60px;
-        max-width: none;
-        flex: 0 0 60px;
-        object-fit: contain;
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
     }
 
     nav.myNav .navbar-text {
-        display: block;
-        max-width: 230px;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.25;
-        font-weight: 700;
-    }
-
-    nav.myNav > .container-fluid > .d-flex {
-        display: flex !important;
-        flex: 0 0 auto;
-        align-items: center;
-        margin-left: 8px;
     }
 
     nav.myNav .navbar-toggler {
-        display: flex;
-        width: 52px;
-        height: 48px;
-        justify-content: center;
-        align-items: center;
-        padding: 8px;
-        margin: 0 !important;
-        flex: 0 0 52px;
+        width: 46px;
+        height: 44px;
+        flex-basis: 46px;
+        padding: 7px;
     }
 
     nav.myNav .navbar-toggler-icon {
-        width: 28px;
-        height: 28px;
-        background-size: 28px 28px;
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
     }
 }
-
 @media (max-width: 380px) {
     nav.myNav .navbar-logo {
         width: 50px;
