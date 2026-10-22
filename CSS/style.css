@@ -542,53 +542,56 @@
     }
 }
 
-@media (max-width: 767.98px) {
+@media screen and (max-width: 767.98px) {
 
-    .myNav {
-        min-height: 76px;
-        padding: 10px 0 !important;
+    nav.myNav {
+        height: auto !important;
+        min-height: 90px !important;
+        padding: 12px 0 !important;
+        transform: none !important;
     }
 
-    .myNav > .container-fluid {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 14px;
-        padding-right: 14px;
+    nav.myNav > .container-fluid {
+        min-height: 66px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 
-    /* Logo and church name */
-    .myNav .navbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-right: 8px;
-        min-width: 0;
-    }
-
-    .myNav .navbar-logo {
-        width: 48px;
-        height: 48px;
-        object-fit: contain;
-        flex-shrink: 0;
-    }
-
-    .myNav .navbar-text {
-        font-size: 14px;
-        line-height: 1.3;
-        white-space: normal;
-    }
-
-    /* Hamburger button */
-    .myNav .navbar-toggler {
-        padding: 10px;
+    nav.myNav .navbar-brand {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 0 !important;
         margin: 0 !important;
-        flex-shrink: 0;
+        transform: none !important;
     }
 
-    .myNav .navbar-toggler-icon {
-        width: 1.5em;
-        height: 1.5em;
+    nav.myNav .navbar-logo {
+        width: 52px !important;
+        height: 52px !important;
+        max-width: none !important;
+        flex-shrink: 0 !important;
+    }
+
+    nav.myNav .navbar-text {
+        font-size: 16px !important;
+        line-height: 1.3 !important;
+    }
+
+    nav.myNav .navbar-toggler {
+        width: 52px !important;
+        height: 48px !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    nav.myNav .navbar-toggler-icon {
+        width: 1.5em !important;
+        height: 1.5em !important;
     }
 }
 
@@ -676,7 +679,3 @@
         transition: none !important;
     }
 }
-.myNav {
-    background-color: red !important;
-}
-
