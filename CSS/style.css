@@ -542,58 +542,88 @@
     }
 }
 
-@media screen and (max-width: 767.98px) {
 
+/* FINAL MOBILE NAVBAR */
+@media (max-width: 767.98px) {
     nav.myNav {
-        height: auto !important;
-        min-height: 90px !important;
-        padding: 12px 0 !important;
-        transform: none !important;
+        width: 100%;
+        min-height: 88px;
+        padding: 8px 0;
+        background: #fff;
     }
 
     nav.myNav > .container-fluid {
-        min-height: 66px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding-left: 16px !important;
-        padding-right: 16px !important;
+        min-height: 72px;
+        padding: 8px 16px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
     }
 
     nav.myNav .navbar-brand {
-        display: flex !important;
-        align-items: center !important;
-        gap: 10px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        transform: none !important;
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+        margin: 0;
     }
 
     nav.myNav .navbar-logo {
-        width: 52px !important;
-        height: 52px !important;
-        max-width: none !important;
-        flex-shrink: 0 !important;
+        display: block;
+        width: 60px;
+        height: 60px;
+        max-width: none;
+        flex: 0 0 60px;
+        object-fit: contain;
     }
 
     nav.myNav .navbar-text {
-        font-size: 16px !important;
-        line-height: 1.3 !important;
+        display: block;
+        max-width: 230px;
+        font-size: 16px;
+        line-height: 1.25;
+        font-weight: 700;
+    }
+
+    nav.myNav > .container-fluid > .d-flex {
+        display: flex !important;
+        flex: 0 0 auto;
+        align-items: center;
+        margin-left: 8px;
     }
 
     nav.myNav .navbar-toggler {
-        width: 52px !important;
-        height: 48px !important;
-        padding: 10px !important;
+        display: flex;
+        width: 52px;
+        height: 48px;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
         margin: 0 !important;
-        flex-shrink: 0 !important;
+        flex: 0 0 52px;
     }
 
     nav.myNav .navbar-toggler-icon {
-        width: 1.5em !important;
-        height: 1.5em !important;
+        width: 28px;
+        height: 28px;
+        background-size: 28px 28px;
     }
 }
+
+@media (max-width: 380px) {
+    nav.myNav .navbar-logo {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+
+    nav.myNav .navbar-text {
+        font-size: 14px;
+    }
+}
+
 
 @media (max-width: 575.98px) {
     .myNav > .container-fluid {
