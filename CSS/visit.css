@@ -130,6 +130,9 @@
     color: var(--brand-primary, #567C8D);
     font-size: 3.5rem;
     line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-variant-emoji: text;
 }
 
 .visit-art-card p {
