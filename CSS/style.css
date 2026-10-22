@@ -676,3 +676,7 @@
         transition: none !important;
     }
 }
+.myNav {
+    background-color: red !important;
+}
+
