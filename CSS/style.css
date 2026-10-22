@@ -562,9 +562,10 @@
     }
 
     nav.myNav .navbar-text {
-        font-size: 14px;
-        line-height: 1.25;
-    }
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: 700;
+   }   
 
     nav.myNav .navbar-toggler {
         width: 46px;
