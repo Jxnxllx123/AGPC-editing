@@ -543,34 +543,52 @@
 }
 
 @media (max-width: 767.98px) {
+
     .myNav {
-        padding: 8px 0;
+        min-height: 76px;
+        padding: 10px 0 !important;
     }
 
-    .myNav .container-fluid {
-        padding-left: 12px;
-        padding-right: 12px;
+    .myNav > .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    /* Logo and church name */
+    .myNav .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 8px;
+        min-width: 0;
     }
 
     .myNav .navbar-logo {
-        max-width: 42px;
-        height: auto;
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        flex-shrink: 0;
     }
 
     .myNav .navbar-text {
         font-size: 14px;
-        line-height: 1.2;
+        line-height: 1.3;
+        white-space: normal;
     }
 
+    /* Hamburger button */
     .myNav .navbar-toggler {
-        padding: 8px 10px;
-        margin-right: 0 !important;
+        padding: 10px;
+        margin: 0 !important;
         flex-shrink: 0;
     }
 
-    .myNav .nav-link {
-        font-size: 16px;
-        padding: 12px 16px;
+    .myNav .navbar-toggler-icon {
+        width: 1.5em;
+        height: 1.5em;
     }
 }
 
