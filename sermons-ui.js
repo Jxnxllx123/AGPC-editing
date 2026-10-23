@@ -356,7 +356,14 @@ function renderSermonPage(lang) {
     }).join("");
   }
 
-  renderPagination(lang, data.length, ids.pagination);
+  const pagination = document.getElementById(ids.pagination);
+
+   if (pagination) {
+       pagination.dataset.totalItems = data.length;
+   }
+   
+   renderPagination(lang, data.length, ids.pagination);
+   
 }
 
 /* =========================================================
@@ -378,55 +385,86 @@ function getServiceLabel(lang) {
 ========================================================= */
 
 function renderPagination(lang, totalItems, paginationId) {
-  const pagination = document.getElementById(paginationId);
-  if (!pagination) return;
+    const pagination = document.getElementById(paginationId);
+    if (!pagination) return;
 
-  const totalPages = Math.ceil(totalItems / pageSize);
+    const totalPages = Math.ceil(totalItems / pageSize);
+    const page = currentPage[lang];
 
-  if (totalPages <= 1) {
-    pagination.innerHTML = "";
-    return;
-  }
+    if (totalPages <= 1) {
+        pagination.innerHTML = "";
+        return;
+    }
 
-  const page = currentPage[lang];
-
-  let html = `
-    <button type="button"
-      class="page-arrow ${page === 1 ? "disabled" : ""}"
-      ${page === 1 ? "disabled" : ""}
-      onclick="goToPage('${lang}', ${page - 1})"
-      aria-label="Previous page">
-      &lt;
-    </button>
-  `;
-
-  for (let i = 1; i <= totalPages; i++) {
-    html += `
-      <button type="button"
-        class="page-number ${i === page ? "active" : ""}"
-        ${i === page ? 'aria-current="page"' : ""}
-        onclick="goToPage('${lang}', ${i})">
-        ${i}
-      </button>
+    let html = `
+        <button
+            type="button"
+            class="page-arrow"
+            ${page === 1 ? "disabled" : ""}
+            onclick="goToPage('${lang}', ${page - 1})"
+            aria-label="Previous page">
+            Previous
+        </button>
     `;
-  }
 
-  html += `
-    <button type="button"
-      class="page-arrow ${page === totalPages ? "disabled" : ""}"
-      ${page === totalPages ? "disabled" : ""}
-      onclick="goToPage('${lang}', ${page + 1})"
-      aria-label="Next page">
-      &gt;
-    </button>
-  `;
+    for (let i = 1; i <= totalPages; i++) {
+        html += `
+            <button
+                type="button"
+                class="page-number ${i === page ? "active" : ""}"
+                ${i === page
+                    ? 'aria-current="page"'
+                    : ""}
+                onclick="goToPage('${lang}', ${i})">
+                ${i}
+            </button>
+        `;
+    }
 
-  pagination.innerHTML = html;
+    html += `
+        <button
+            type="button"
+            class="page-arrow"
+            ${page === totalPages ? "disabled" : ""}
+            onclick="goToPage('${lang}', ${page + 1})"
+            aria-label="Next page">
+            Next
+        </button>
+    `;
+
+    pagination.innerHTML = html;
 }
 
 function goToPage(lang, page) {
-  currentPage[lang] = page;
-  renderSermonPage(lang);
+    const paginationIds = {
+        all: "all-pagination",
+        en: "en-pagination",
+        zh: "zh-pagination",
+        both: "both-pagination"
+    };
+
+    const paginationId = paginationIds[lang];
+    if (!paginationId) return;
+
+    const pagination = document.getElementById(paginationId);
+    if (!pagination) return;
+
+    const totalPages = Math.ceil(
+        pagination.dataset.totalItems / pageSize
+    );
+
+    if (totalPages < 1) return;
+
+    currentPage[lang] = Math.max(
+        1,
+        Math.min(page, totalPages)
+    );
+
+    renderSermonPage(lang);
+
+    // Keep the visitor near the archive while changing pages.
+    document.getElementById("sermonTabContent")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 /* =========================================================
