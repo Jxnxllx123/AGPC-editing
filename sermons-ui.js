@@ -106,73 +106,133 @@ function renderHomepageSermons() {
 ========================================================= */
 
 function renderSermonArchive() {
-  renderFeaturedSermon();
+    renderFeaturedSermons();
 
-  renderSermonPage("all");
-  renderSermonPage("en");
-  renderSermonPage("zh");
-  renderSermonPage("both");
+    renderSermonPage("all");
+    renderSermonPage("en");
+    renderSermonPage("zh");
+    renderSermonPage("both");
 }
 
 /* =========================================================
-   FEATURED LATEST SERMON
-   The newest sermon with an uploaded video is featured.
+   LATEST SUNDAY MESSAGES
+   Normal Sunday: English + Chinese
+   Combined Sunday: One combined sermon
 ========================================================= */
 
-function renderFeaturedSermon() {
-  const container = document.getElementById("featured-sermon");
-  if (!container) return;
+function renderFeaturedSermons() {
+    const container = document.getElementById("featured-sermons");
+    if (!container) return;
 
-  const latest = SERMONS
-    .filter(s => hasVideo(s))
-    .sort((a, b) => parseDate(b.date) - parseDate(a.date))[0];
+    // Group sermons by their actual service date.
+    const datedSermons = SERMONS
+        .map(sermon => ({
+            sermon,
+            date: parseDate(sermon.date)
+        }))
+        .filter(item =>
+            item.date instanceof Date &&
+            !Number.isNaN(item.date.getTime())
+        );
 
-  if (!latest) {
-    container.innerHTML = "";
-    return;
-  }
+    if (!datedSermons.length) {
+        container.innerHTML = `
+            <p class="text-center">
+                ${currentLang === "zh"
+                    ? "目前没有讲道记录。"
+                    : "No sermons available yet."}
+            </p>
+        `;
+        return;
+    }
 
-  const title = getSermonTitle(latest);
-  const pastor = getSermonPastor(latest);
-  const timeText = latest.time
-    ? formatTimeRange(...latest.time.split(" - "))
-    : "";
+// Find the newest Sunday represented in the database.
+    const latestDate = Math.max(
+        ...datedSermons.map(item => item.date.getTime())
+    );
 
-  container.innerHTML = `
-    <section class="featured-sermon">
-      <div class="featured-sermon-video">
-        <iframe
-          src="${escapeHtml(latest.video)}"
-          title="${escapeHtml(title)}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write;
-                 encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
+    const latestSunday = datedSermons
+        .filter(item => item.date.getTime() === latestDate)
+        .map(item => item.sermon);
 
-      <div class="featured-sermon-info">
-        <span class="sermon-service-label">
-          ${getServiceLabel(latest.lang)}
-        </span>
+    // A combined service takes priority for that Sunday.
+    const combined = latestSunday.find(
+        sermon => sermon.lang === "both"
+    );
 
-        <p class="featured-eyebrow">
-          ${currentLang === "zh" ? "最新讲道" : "LATEST SERMON"}
-        </p>
+    const featured = combined
+        ? [combined]
+        : [
+            ...["en", "zh"].map(lang =>
+                latestSunday.find(sermon => sermon.lang === lang)
+            )
+        ].filter(Boolean);
 
-        <h3>${escapeHtml(title)}</h3>
+    container.innerHTML = featured.map(sermon => {
+        const title = getSermonTitle(sermon);
+        const pastor = getSermonPastor(sermon);
 
-        <p>${escapeHtml(pastor)}</p>
+        const dateLine = sermon.time
+            ? `${formatDate(sermon.date)} · ${
+                formatTimeRange(...sermon.time.split(" - "))
+              }`
+            : formatDate(sermon.date);
 
-        <p>
-          ${formatDate(latest.date)}
-          ${timeText ? ` · ${timeText}` : ""}
-        </p>
-      </div>
-    </section>
-  `;
+        const videoContent = hasVideo(sermon)
+            ? `
+                <div class="sermon-video-wrapper">
+                    <iframe
+                        src="${escapeHtml(sermon.video)}"
+                        title="${escapeHtml(title)}"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write;
+                               encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            `
+            : `
+                <div class="sermon-video-placeholder">
+                    <p>
+                        ${currentLang === "zh"
+                            ? "讲道视频即将上线"
+                            : "Sermon video coming soon"}
+                    </p>
+                </div>
+            `;
+
+        const columnClass = featured.length === 1
+            ? "col-12 col-md-8 mx-auto"
+            : "col-12 col-md-6";
+
+        return `
+            <div class="${columnClass}">
+                <article class="sermon-card featured-message-card">
+                    ${videoContent}
+
+                    <div class="sermon-info">
+                        <span class="sermon-service-label">
+                            ${getServiceLabel(sermon.lang)}
+                        </span>
+
+                        <h3 class="sermon-title">
+                            ${escapeHtml(title)}
+                        </h3>
+
+                        <p class="sermon-meta">
+                            ${escapeHtml(pastor)}
+                        </p>
+
+                        <p class="sermon-meta">
+                            ${escapeHtml(dateLine)}
+                        </p>
+                    </div>
+                </article>
+            </div>
+        `;
+    }).join("");
 }
-
+   
 /* =========================================================
    SEARCH
 ========================================================= */
