@@ -268,7 +268,7 @@ THANK-YOU SECTION — SOFT CIRCULAR ACCENT
    isolation: isolate; 
    overflow: hidden; 
    padding: clamp(4.5rem, 8vw, 6.5rem) 1.5rem !important; 
-   ackground: #FFFFFF !important; 
+   background: #FFFFFF !important; 
    text-align: center; 
 }
 
