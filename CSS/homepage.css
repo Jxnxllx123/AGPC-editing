@@ -132,71 +132,85 @@
    4.2 SERVICE INFORMATION
 ----------------------------------------------------- */
 
+
 /* =====================================================
-   WHO WE ARE — WARM EDITORIAL PHOTO + PAPER CARD
+   WHO WE ARE — WELCOME TO AGPC EDITORIAL LAYOUT
 ===================================================== */
 
 .who-we-are-section {
     --who-paper: #FFF9F0;
     --who-ink: #2F4156;
     --who-clay: #B96F53;
-    --who-blue: #C8D9E6;
 
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
     background: #FAF6F0;
 }
 
-/* Large photo stage */
-.who-we-are-section .who-intro {
-    margin-bottom: clamp(4rem, 8vw, 7rem);
+/* Image and overlapping paper clipping */
+.who-intro-art {
+    position: relative;
+    min-height: 620px;
+    margin-bottom: clamp(7rem, 12vw, 10rem);
 }
 
-.who-photo-stage {
+.who-art-photo {
     position: relative;
     width: 100%;
-    min-height: 540px;
-    isolation: isolate;
+    height: clamp(440px, 52vw, 650px);
 }
 
-/* The photograph is the main visual */
-.who-we-are-section .who-image {
+.who-art-image {
     display: block;
     width: 100%;
-    height: clamp(480px, 58vw, 720px);
+    height: 100%;
     object-fit: cover;
     object-position: center 40%;
     border-radius: 8px 8px 90px 8px;
     box-shadow: 0 20px 55px rgba(47, 65, 86, 0.12);
-    transition: transform 0.7s ease;
 }
 
-.who-photo-stage:hover .who-image {
-    transform: scale(1.01);
+/* Small label on the photograph */
+.who-photo-label {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    padding: 10px 14px;
+    background: rgba(47, 65, 86, 0.75);
+    color: #FFF9F0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
 }
 
-/* Small editorial caption on the photograph */
-.who-photo-caption {
+.who-photo-star {
     position: absolute;
     top: 24px;
     right: 26px;
-    z-index: 1;
-    padding: 10px 15px;
-    border: 1px solid rgba(255, 249, 240, 0.65);
-    border-radius: 2px;
-    background: rgba(47, 65, 86, 0.48);
     color: #FFF9F0;
-    font-family: "Roboto", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: 2rem;
 }
 
-/* Overlapping paper clipping */
+.who-art-photo .who-photo-caption {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    top: auto;
+    padding: 10px 14px;
+    background: rgba(47, 65, 86, 0.7);
+    color: #FFF9F0;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+}
+
+/* Paper clipping — overlaps the image */
 .who-paper-card {
     position: absolute;
     z-index: 2;
-    left: clamp(20px, 5vw, 76px);
-    bottom: -48px;
-
+    left: clamp(24px, 7vw, 100px);
+    bottom: -55px;
     width: min(490px, 53%);
     padding: clamp(28px, 3.5vw, 46px);
 
@@ -204,28 +218,38 @@
     color: var(--who-ink);
     border: 1px solid #E9DED1;
     border-radius: 2px;
-    box-shadow: 0 16px 40px rgba(47, 65, 86, 0.13);
+    box-shadow: 0 16px 40px rgba(47, 65, 86, 0.15);
 
     transform: rotate(-1.2deg);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* A subtle paper-like lift on hover */
 .who-paper-card:hover {
     transform: rotate(0deg) translateY(-3px);
-    box-shadow: 0 20px 46px rgba(47, 65, 86, 0.16);
+    box-shadow: 0 20px 46px rgba(47, 65, 86, 0.18);
 }
 
-.who-paper-card .who-eyebrow {
-    display: inline-block;
-    margin-bottom: 12px;
+/* Welcome label */
+.who-paper-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
     color: var(--who-clay);
-    font-family: "Roboto", sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.14em;
 }
 
+.who-paper-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--who-clay);
+}
+
+/* Main heading */
 .who-paper-card h2 {
     margin: 0 0 18px;
     color: var(--who-ink);
@@ -243,53 +267,90 @@
     line-height: 1.8;
 }
 
-.who-paper-card .who-welcome {
+.who-paper-card .who-paper-welcome {
     margin-bottom: 22px;
 }
 
-/* Keep your existing link style but make it fit the paper */
-.who-paper-card .events-view-all {
-    font-size: 0.8rem;
+/* Visit us link */
+.who-paper-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--who-clay);
+    color: var(--who-ink);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: gap 0.25s ease, color 0.25s ease;
 }
 
-/* Small playful decorative accent */
-.who-card-doodle {
+.who-paper-link:hover {
+    gap: 18px;
+    color: var(--who-clay);
+}
+
+.who-paper-link i {
+    font-size: 1.1rem;
+}
+
+.who-paper-doodle {
     position: absolute;
     top: 20px;
     right: 24px;
     color: #D99375;
     font-size: 1.6rem;
-    line-height: 1;
     transform: rotate(15deg);
 }
 
-/* =====================================================
-   WHO WE ARE — RESPONSIVE
-===================================================== */
+/* Keep Sunday Worship as its own section underneath */
+.who-we-are-section .who-we-are-schedule {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    border: 1px solid #E5D9CF;
+    border-radius: 10px;
+    background: #F5EFEB;
+}
 
+/* Tablet and mobile */
 @media (max-width: 767.98px) {
-    .who-we-are-section .who-intro {
-        margin-bottom: 3rem;
+    .who-we-are-section {
+        padding: 3.5rem 1.25rem;
     }
 
-    .who-photo-stage {
-        min-height: auto;
-        padding-bottom: 0;
+    .who-intro-art {
+        min-height: 0;
+        margin-bottom: 4rem;
     }
 
-    .who-we-are-section .who-image {
+    .who-art-photo {
         height: clamp(340px, 95vw, 500px);
-        aspect-ratio: auto;
+    }
+
+    .who-art-image {
         border-radius: 6px 6px 55px 6px;
     }
 
-    .who-photo-caption {
+    .who-photo-label {
         top: 14px;
-        right: 12px;
-        max-width: calc(100% - 24px);
-        padding: 8px 10px;
+        left: 12px;
+        max-width: calc(100% - 60px);
         font-size: 0.65rem;
-        letter-spacing: 0.09em;
+    }
+
+    .who-photo-star {
+        top: 12px;
+        right: 14px;
+    }
+
+    .who-art-photo .who-photo-caption {
+        right: 12px;
+        bottom: 14px;
+        font-size: 0.65rem;
     }
 
     .who-paper-card {
@@ -300,9 +361,8 @@
         max-width: 490px;
         margin: -55px auto 0;
         padding: 28px 24px;
-        transform: rotate(-1deg);
         box-sizing: border-box;
-       
+        transform: rotate(-1deg);
     }
 
     .who-paper-card h2 {
@@ -314,9 +374,14 @@
         line-height: 1.75;
     }
 
-    .who-card-doodle {
-        top: 14px;
-        right: 16px;
+    .who-we-are-section .who-we-are-schedule {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .who-we-are-section .schedule-grid,
+    .who-we-are-section .schedule-family-notes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
     }
 }
 
