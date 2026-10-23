@@ -186,66 +186,53 @@
                     </div>
                 </div>
         
+               
                 <!-- Service filters -->
                 <div class="sermon-filter-wrap">
                     <div class="sermon-filters"
                          id="sermonTabs"
-                         role="tablist"
+                         role="group"
                          aria-label="Filter sermons by service">
-        
+                
                         <button class="sermon-filter active"
-                                id="all-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#all-sermons"
                                 type="button"
-                                role="tab"
-                                aria-controls="all-sermons"
-                                aria-selected="true"
+                                data-filter="all"
+                                aria-pressed="true"
                                 data-en="All Sermons"
                                 data-zh="所有讲道">
                             All Sermons
                         </button>
-        
+                
                         <button class="sermon-filter"
-                                id="english-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#english"
                                 type="button"
-                                role="tab"
-                                aria-controls="english"
-                                aria-selected="false"
+                                data-filter="en"
+                                aria-pressed="false"
                                 data-en="English"
                                 data-zh="英语">
                             English
                         </button>
-        
+                
                         <button class="sermon-filter"
-                                id="chinese-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#chinese"
                                 type="button"
-                                role="tab"
-                                aria-controls="chinese"
-                                aria-selected="false"
-                                data-en="中文"
+                                data-filter="zh"
+                                aria-pressed="false"
+                                data-en="Chinese"
                                 data-zh="华语">
-                            中文
+                            Chinese
                         </button>
-        
+                
                         <button class="sermon-filter"
-                                id="combined-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#combined"
                                 type="button"
-                                role="tab"
-                                aria-controls="combined"
-                                aria-selected="false"
+                                data-filter="both"
+                                aria-pressed="false"
                                 data-en="Combined"
                                 data-zh="联合崇拜">
                             Combined
                         </button>
+                
                     </div>
                 </div>
+
         
                 <!-- Sermon listings -->
                 <div class="tab-content sermon-tab-content"
