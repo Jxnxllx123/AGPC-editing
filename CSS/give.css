@@ -88,7 +88,7 @@
 
 .offering-verse .verse-label {
     margin-bottom: 1.25rem;
-    color: var(--brand-primary);
+    color: var(--accent-clay);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.17em;
@@ -132,7 +132,7 @@
 
 .offering-methods .section-eyebrow {
     margin-bottom: 0.75rem;
-    color: var(--brand-primary);
+    color: var(--accent-clay);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.16em;
