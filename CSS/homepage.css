@@ -132,14 +132,211 @@
    4.2 SERVICE INFORMATION
 ----------------------------------------------------- */
 
+/* =====================================================
+   WHO WE ARE — WARM EDITORIAL PHOTO + PAPER CARD
+===================================================== */
+
+.who-we-are-section {
+    --who-paper: #FFF9F0;
+    --who-ink: #2F4156;
+    --who-clay: #B96F53;
+    --who-blue: #C8D9E6;
+
+    background: #FAF6F0;
+}
+
+/* Large photo stage */
+.who-we-are-section .who-intro {
+    margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.who-photo-stage {
+    position: relative;
+    width: 100%;
+    min-height: 540px;
+    isolation: isolate;
+}
+
+/* The photograph is the main visual */
+.who-we-are-section .who-image {
+    display: block;
+    width: 100%;
+    height: clamp(480px, 58vw, 720px);
+    object-fit: cover;
+    object-position: center 40%;
+    border-radius: 8px 8px 90px 8px;
+    box-shadow: 0 20px 55px rgba(47, 65, 86, 0.12);
+    transition: transform 0.7s ease;
+}
+
+.who-photo-stage:hover .who-image {
+    transform: scale(1.01);
+}
+
+/* Small editorial caption on the photograph */
+.who-photo-caption {
+    position: absolute;
+    top: 24px;
+    right: 26px;
+    z-index: 1;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 249, 240, 0.65);
+    border-radius: 2px;
+    background: rgba(47, 65, 86, 0.48);
+    color: #FFF9F0;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+/* Overlapping paper clipping */
+.who-paper-card {
+    position: absolute;
+    z-index: 2;
+    left: clamp(20px, 5vw, 76px);
+    bottom: -48px;
+
+    width: min(490px, 53%);
+    padding: clamp(28px, 3.5vw, 46px);
+
+    background: var(--who-paper);
+    color: var(--who-ink);
+    border: 1px solid #E9DED1;
+    border-radius: 2px;
+    box-shadow: 0 16px 40px rgba(47, 65, 86, 0.13);
+
+    transform: rotate(-1.2deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* A subtle paper-like lift on hover */
+.who-paper-card:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 0 20px 46px rgba(47, 65, 86, 0.16);
+}
+
+.who-paper-card .who-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--who-clay);
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.who-paper-card h2 {
+    margin: 0 0 18px;
+    color: var(--who-ink);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.who-paper-card p {
+    margin: 0 0 14px;
+    color: #526575;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.who-paper-card .who-welcome {
+    margin-bottom: 22px;
+}
+
+/* Keep your existing link style but make it fit the paper */
+.who-paper-card .events-view-all {
+    font-size: 0.8rem;
+}
+
+/* Small playful decorative accent */
+.who-card-doodle {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: #D99375;
+    font-size: 1.6rem;
+    line-height: 1;
+    transform: rotate(15deg);
+}
+
+/* =====================================================
+   WHO WE ARE — RESPONSIVE
+===================================================== */
+
+@media (max-width: 767.98px) {
+    .who-we-are-section .who-intro {
+        margin-bottom: 3rem;
+    }
+
+    .who-photo-stage {
+        min-height: auto;
+        padding-bottom: 0;
+    }
+
+    .who-we-are-section .who-image {
+        height: clamp(340px, 95vw, 500px);
+        aspect-ratio: auto;
+        border-radius: 6px 6px 55px 6px;
+    }
+
+    .who-photo-caption {
+        top: 14px;
+        right: 12px;
+        max-width: calc(100% - 24px);
+        padding: 8px 10px;
+        font-size: 0.65rem;
+        letter-spacing: 0.09em;
+    }
+
+    .who-paper-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: calc(100% - 24px);
+        max-width: 490px;
+        margin: -55px auto 0;
+        padding: 28px 24px;
+        transform: rotate(-1deg);
+        box-sizing: border-box;
+       
+    }
+
+    .who-paper-card h2 {
+        font-size: clamp(2.4rem, 9vw, 3.2rem);
+    }
+
+    .who-paper-card p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .who-card-doodle {
+        top: 14px;
+        right: 16px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .who-photo-stage *,
+    .who-photo-stage *::before,
+    .who-photo-stage *::after {
+        transition: none !important;
+    }
+}
+
 
 /* =====================================================
    HOMEPAGE — REFINED WHO WE ARE & WORSHIP SCHEDULE
 ===================================================== */
 
 .who-we-are-section {
-    padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
-    background: #FFFFFF;
+    padding: clamp(4rem, 7vw, 6rem) 1.5rem;
+    background: #FAF6F0;
     position: relative;
     isolation: isolate;
     overflow: hidden;
@@ -161,63 +358,11 @@
     pointer-events: none;
 }
 
-/* A more artistic crop for the main photograph */
-.who-we-are-section .who-image-wrap {
-    width: 100%;
-    max-width: 580px;
-    margin-inline: auto;
-    overflow: hidden;
-    border-radius: 48% 48% 8px 8px;
-    background: #C8D9E6;
-}
-
-/* Keep the image filling its new shape */
-.who-we-are-section .who-image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 4.5;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.6s ease;
-}
-
-
-.who-we-are-section .who-intro {
-    margin-bottom: clamp(3rem, 5vw, 4.5rem);
-}
-
-.who-we-are-section .who-image-wrap:hover .who-image {
-    transform: scale(1.035);
-}
-
-.who-eyebrow {
-    display: inline-block;
-    margin-bottom: 1rem;
-    color: #B96F53;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
 .who-we-are-section h2,
 .events-section .events-heading {
     font-family: var(--font-heading);
     font-size: var(--text-h2);
     line-height: 1.2;
-}
-
-/* Main homepage paragraphs */
-/* Comfortable, more generous homepage body typography */
-.who-we-are-section .who-intro p,
-.who-we-are-section .schedule-details p,
-.who-we-are-section .schedule-family-notes p,
-.events-section .events-description {
-    font-size: var(--text-body);
-    line-height: var(--line-body);
-}
-
-.who-we-are-section .who-intro .who-welcome {
-    margin-top: 1rem;
 }
 
 /* Schedule: one calm, unified panel */
