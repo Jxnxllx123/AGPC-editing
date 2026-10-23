@@ -24,11 +24,11 @@
     --brand-white: #FFFFFF;
 
     /* Accents */
-    --accent-ink: #F5EFEB;
-    --accent-muted: #C8D9E6;
-    --accent-clay: #E6B49D;
-    --accent-hover: #D49A80;
-    --accent-soft: #F8EAE2;
+   --accent-ink: #F5EFEB;
+   --accent-muted: #C8D9E6;
+   --accent-clay: #B96F50;     /* Terracotta text */
+   --accent-hover: #98563D;    /* Darker terracotta */
+   --accent-soft: #F8EAE2;     /* Soft terracotta background */
 
     /* Backgrounds */
     --bg-white: #FFFFFF;
