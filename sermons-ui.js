@@ -11,16 +11,66 @@ const pageSize = 6;
 let currentPage = { all: 1, en: 1, zh: 1, both: 1 };
 let searchQuery = "";
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  renderHomepageSermons();
-  renderSermonArchive();
+    renderHomepageSermons();
+    renderSermonArchive();
 
-  const searchInput = document.getElementById("sermonSearch");
+    // Search sermons
+    const searchInput = document.getElementById("sermonSearch");
 
-  if (searchInput) {
-    searchInput.addEventListener("input", handleSearch);
-  }
+    if (searchInput) {
+        searchInput.addEventListener("input", handleSearch);
+    }
+
+    // Service filter buttons
+    const filterButtons = document.querySelectorAll(
+        "#sermonTabs .sermon-filter"
+    );
+
+    const paneIds = {
+        all: "all-sermons",
+        en: "english",
+        zh: "chinese",
+        both: "combined"
+    };
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.dataset.filter;
+
+            if (!paneIds[filter]) return;
+
+            // Update the selected button.
+            filterButtons.forEach(item => {
+                const selected = item === button;
+
+                item.classList.toggle("active", selected);
+                item.setAttribute(
+                    "aria-pressed",
+                    String(selected)
+                );
+            });
+
+            // Hide every archive panel.
+            document.querySelectorAll(
+                "#sermonTabContent .tab-pane"
+            ).forEach(pane => {
+                pane.classList.remove("show", "active");
+            });
+
+            // Show only the selected archive.
+            const selectedPane = document.getElementById(
+                paneIds[filter]
+            );
+
+            if (selectedPane) {
+                selectedPane.classList.add("show", "active");
+            }
+        });
+    });
 });
+
 
 /* =========================================================
    HOMEPAGE UPCOMING SERMONS
@@ -268,9 +318,7 @@ function renderSermonPage(lang) {
   const data = SERMONS
     .filter(s => {
       const matchesLang =
-        lang === "all" ||
-        s.lang === lang ||
-        (["en", "zh"].includes(lang) && s.lang === "both");
+          lang === "all" || s.lang === lang;
 
       const searchableText = [
         getSermonTitle(s, "en"),
