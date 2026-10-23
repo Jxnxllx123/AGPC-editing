@@ -18,17 +18,19 @@
     overflow: hidden;
     padding: clamp(5rem, 10vw, 9rem) 1.5rem !important;
     background:
-        radial-gradient(
-            ellipse at 85% 20%,
-            rgba(200, 217, 230, 0.48),
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            #F8F5F1 0%,
-            #F5EFEB 100%
-        ) !important;
+           linear-gradient(
+               90deg,
+               rgba(35, 49, 65, 0.86) 0%,
+               rgba(35, 49, 65, 0.70) 55%,
+               rgba(35, 49, 65, 0.45) 100%
+           ),
+           url("../Images/Give/Offerings.jpg");
+
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
     text-align: center;
+   
 }
 
 .hero-give .container {
@@ -39,62 +41,75 @@
 
 .hero-give h1 {
     margin-bottom: 1.25rem;
-    color: var(--brand-dark);
+    color: #FFFFFF;
     font-family: "DM Serif Display", serif;
-    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-size: clamp(3.5rem, 7vw, 5.5rem);
     font-weight: 400;
     line-height: 1.1;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.025em;
 }
 
 .hero-give p {
     max-width: 600px;
     margin: 0 auto;
-    color: #5E6B77;
-    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    color: #F0F3F5;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
     line-height: 1.8;
+}
+
+/* Mobile hero */
+@media (max-width: 767.98px) {
+    .hero-give {
+        min-height: 350px;
+        padding: 5rem 1.25rem !important;
+        background-position: center;
+    }
+
+    .hero-give h1 {
+        font-size: clamp(3rem, 12vw, 4rem);
+    }
 }
 
 
 /* -----------------------------------------------------
-   02. SCRIPTURE SECTION
+   02. SCRIPTURE — QUIET EDITORIAL STYLE
 ----------------------------------------------------- */
 
 .offering-verse {
     position: relative;
-    padding: clamp(4rem, 7vw, 6.5rem) 1.5rem !important;
-    background-color: #FFFFFF;
+    padding: clamp(3.5rem, 6vw, 5rem) 1.5rem !important;
+    background: #FFFFFF;
     text-align: center;
 }
 
 .offering-verse .container {
-    max-width: 800px !important;
+    max-width: 760px !important;
 }
 
 .offering-verse .verse-label {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     color: var(--brand-primary);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.17em;
     text-transform: uppercase;
 }
 
 .offering-verse .verse-text {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     color: var(--brand-dark);
     font-family: "DM Serif Display", serif;
-    font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.75;
 }
 
 .offering-verse .verse-reference {
     display: inline-block;
     color: var(--brand-primary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
 }
 
 
@@ -103,8 +118,12 @@
 ----------------------------------------------------- */
 
 .offering-methods {
-    padding: clamp(4rem, 7vw, 7rem) 1.5rem !important;
-    background-color: #F8F5F1;
+    background:
+        linear-gradient(
+            180deg,
+            #F8F5F1 0%,
+            #F4F0EA 100%
+        ) !important;
 }
 
 .offering-methods > .container {
@@ -142,6 +161,10 @@
 /* Offering cards */
 
 .offering-card {
+    position: relative;
+}
+
+.offering-card {
     overflow: hidden;
     height: 100%;
     border: 1px solid #E8E2DC !important;
@@ -152,6 +175,16 @@
         transform 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
+}
+
+.offering-card::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--brand-primary);
+    content: "";
 }
 
 .offering-card:hover {
@@ -206,11 +239,14 @@
 }
 
 .paynow-card .paynow-qr {
-    width: min(100%, 230px);
+    display: block;
+    width: 175px;
+    max-width: 100%;
+    height: auto;
     margin: 0.5rem auto 0;
-    padding: 0.75rem;
+    padding: 0.35rem;
     border: 1px solid #E8E2DC;
-    border-radius: 12px;
+    border-radius: 10px;
     background-color: #FFFFFF;
     object-fit: contain;
 }
