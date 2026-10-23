@@ -68,7 +68,7 @@ window.SERMONS = [
     date: "27/09/2026",                    // Date of the sermon (format: D MMM YYYY)
     time: "11:00 - 12:30",
     lang: "en",                            // Language: "en" (English)
-    video: ""  // YouTube embed URL
+    video: "https://www.youtube.com/embed/9E8gH20fxo8?si=ZKUMIGI7kXMb9Qmh"  // YouTube embed URL
   },
 
   
