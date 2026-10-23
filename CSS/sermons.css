@@ -260,42 +260,61 @@ body:has(#sermonTabs) {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.65rem;
-    padding: 0 0 1rem;
-    border: 0;
-    font-family: "Roboto", sans-serif;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 0 0.8rem;
 }
 
-#sermonTabs .sermon-filter {
-    padding: 0.7rem 1.35rem;
+.sermon-filter {
+    padding: 0.75rem 1.5rem;
     border: 1px solid var(--border-light);
     border-radius: 999px;
     background: transparent;
     color: var(--brand-dark);
+    font-family: "Roboto", sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
-#sermonTabs .sermon-filter:hover {
+.sermon-filter:hover {
     border-color: var(--brand-primary);
-    background: var(--bg-light);
+    background-color: var(--bg-light);
     color: var(--brand-primary);
 }
 
-#sermonTabs .sermon-filter.active {
+.sermon-filter.active {
     border-color: var(--brand-primary);
-    background: var(--brand-primary);
+    background-color: var(--brand-primary);
     color: var(--brand-white);
 }
 
-#sermonTabs .sermon-filter:focus-visible {
+.sermon-filter:focus-visible {
     outline: 3px solid var(--brand-light);
     outline-offset: 3px;
 }
 
+@media (max-width: 560px) {
+    #sermonTabs {
+        gap: 0.4rem;
+    }
+
+    .sermon-filter {
+        padding: 0.65rem 0.9rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sermon-filter {
+        transition: none;
+    }
+}
 
 /* -----------------------------------------------------
    4. SERMON GRID
