@@ -250,8 +250,9 @@ body:has(#sermonTabs) {
     outline: none;
 }
 
+
 /* -----------------------------------------------------
-   3. SERVICE TABS
+   3. SERVICE FILTERS
 ----------------------------------------------------- */
 
 #sermonTabs {
@@ -259,53 +260,48 @@ body:has(#sermonTabs) {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.65rem;
-
-    padding: 0 0 0.8rem;
+    padding: 0 0 1rem;
     border: 0;
+    font-family: "Roboto", sans-serif;
 }
 
-#sermonTabs .nav-item {
-    margin: 0;
-}
-
-#sermonTabs .nav-link {
-    padding: 0.75rem 1.5rem;
-
-    border: 1px solid transparent;
+#sermonTabs .sermon-filter {
+    padding: 0.7rem 1.35rem;
+    border: 1px solid var(--border-light);
     border-radius: 999px;
-
     background: transparent;
     color: var(--brand-dark);
-
     font-size: 0.95rem;
     font-weight: 500;
-
-    transition: color 0.2s ease,
-                background-color 0.2s ease,
+    cursor: pointer;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
                 border-color 0.2s ease;
 }
 
-#sermonTabs .nav-link:hover {
-    border-color: var(--border-light);
-    background-color: var(--bg-light);
+#sermonTabs .sermon-filter:hover {
+    border-color: var(--brand-primary);
+    background: var(--bg-light);
     color: var(--brand-primary);
 }
 
-#sermonTabs .nav-link.active {
+#sermonTabs .sermon-filter.active {
     border-color: var(--brand-primary);
-    background-color: var(--brand-primary);
+    background: var(--brand-primary);
     color: var(--brand-white);
 }
 
-#sermonTabs .nav-link:focus-visible {
+#sermonTabs .sermon-filter:focus-visible {
     outline: 3px solid var(--brand-light);
     outline-offset: 3px;
 }
+
 
 /* -----------------------------------------------------
    4. SERMON GRID
 ----------------------------------------------------- */
 
+#all-sermons-grid,
 #english-grid,
 #chinese-grid,
 #combined-grid {
@@ -315,14 +311,16 @@ body:has(#sermonTabs) {
     align-items: stretch;
 }
 
-#english-grid .col,
-#chinese-grid .col,
-#combined-grid .col {
+#all-sermons-grid > .col,
+#english-grid > .col,
+#chinese-grid > .col,
+#combined-grid > .col {
     display: flex;
     min-width: 0;
-    margin: 0 !important;
+    margin: 0;
     padding: 0;
 }
+
 
 /* -----------------------------------------------------
    5. SERMON CARDS
@@ -402,10 +400,12 @@ body:has(#sermonTabs) {
     line-height: 1.7;
 }
 
+
 /* -----------------------------------------------------
    6. EMPTY SEARCH RESULTS
 ----------------------------------------------------- */
 
+#all-sermons-grid > p,
 #english-grid > p,
 #chinese-grid > p,
 #combined-grid > p {
@@ -413,19 +413,20 @@ body:has(#sermonTabs) {
     width: 100%;
     margin: 1.5rem 0;
     padding: 2.5rem 1rem;
-
     border-radius: 8px;
-    background-color: var(--bg-light);
+    background: var(--bg-light);
     color: var(--brand-dark);
-
     font-size: 0.95rem;
     text-align: center;
 }
 
+
+
 /* -----------------------------------------------------
-   7. PAGINATION
+   7. ARCHIVE PAGINATION
 ----------------------------------------------------- */
 
+#all-pagination,
 #en-pagination,
 #zh-pagination,
 #both-pagination {
@@ -434,55 +435,58 @@ body:has(#sermonTabs) {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-
-    margin-top: 2.5rem;
+    margin: 2rem auto 3rem;
     font-family: "Roboto", sans-serif;
 }
 
 .page-number,
 .page-arrow {
     display: inline-flex;
-    min-width: 38px;
-    min-height: 38px;
+    min-width: 40px;
+    min-height: 40px;
     align-items: center;
     justify-content: center;
+    padding: 0.45rem 0.75rem;
 
-    padding: 0.4rem 0.65rem;
+    border: 1px solid var(--border-light);
     border-radius: 6px;
-
+    background: var(--brand-white);
     color: var(--brand-dark);
-    font-size: 0.9rem;
 
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
     cursor: pointer;
+
     transition: background-color 0.2s ease,
-                color 0.2s ease;
+                color 0.2s ease,
+                border-color 0.2s ease;
 }
 
-.page-number:hover,
-.page-arrow:hover:not(.disabled) {
-    background-color: var(--bg-light);
+.page-number:hover:not(.active),
+.page-arrow:hover:not(:disabled) {
+    border-color: var(--brand-primary);
+    background: var(--bg-light);
     color: var(--brand-primary);
 }
 
 .page-number.active {
-    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    background: var(--brand-primary);
     color: var(--brand-white);
     font-weight: 600;
 }
 
-.page-number.active::after {
-    display: none;
+.page-number:focus-visible,
+.page-arrow:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 3px;
 }
 
-.page-arrow {
-    color: var(--brand-primary);
-    font-weight: 600;
+.page-arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
-.page-arrow.disabled {
-    color: #B7BDC1;
-    cursor: default;
-}
 
 /* -----------------------------------------------------
    8. ACCESSIBILITY
@@ -494,11 +498,13 @@ body:has(#sermonTabs) {
     outline-offset: 3px;
 }
 
+
 /* -----------------------------------------------------
    9. TABLET
 ----------------------------------------------------- */
 
 @media (max-width: 900px) {
+    #all-sermons-grid,
     #english-grid,
     #chinese-grid,
     #combined-grid {
@@ -506,6 +512,7 @@ body:has(#sermonTabs) {
         gap: 1.5rem;
     }
 }
+
 
 /* -----------------------------------------------------
    10. MOBILE
@@ -519,18 +526,19 @@ body:has(#sermonTabs) {
     }
 
     #sermonTabs {
-        gap: 0.25rem;
+        gap: 0.4rem;
     }
 
-    #sermonTabs .nav-link {
-        padding: 0.65rem 0.9rem;
-        font-size: 0.875rem;
+    #sermonTabs .sermon-filter {
+        padding: 0.6rem 0.85rem;
+        font-size: 0.85rem;
     }
 
     #sermonSearch {
         margin-bottom: 1.75rem !important;
     }
 
+    #all-sermons-grid,
     #english-grid,
     #chinese-grid,
     #combined-grid {
@@ -546,10 +554,12 @@ body:has(#sermonTabs) {
         font-size: 1rem;
     }
 
+    #all-pagination,
     #en-pagination,
     #zh-pagination,
     #both-pagination {
-        margin-top: 2rem;
+        gap: 0.35rem;
+        margin-top: 1.75rem;
     }
 }
 
@@ -560,7 +570,7 @@ body:has(#sermonTabs) {
 @media (prefers-reduced-motion: reduce) {
     .sermon-card,
     #sermonSearch,
-    #sermonTabs .nav-link,
+    #sermonTabs .sermon-filter,
     .page-number,
     .page-arrow {
         transition: none;
