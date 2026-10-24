@@ -369,6 +369,7 @@ function renderSermonPage(lang) {
                       src="https://img.youtube.com/vi/${escapeHtml(getYouTubeId(s.video))}/hqdefault.jpg"
                       alt="${escapeHtml(title)}"
                       loading="lazy"
+                      onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${escapeHtml(getYouTubeId(s.video))}/mqdefault.jpg';"
                   >
               </div>
           `
