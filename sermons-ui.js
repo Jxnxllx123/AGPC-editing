@@ -7,60 +7,84 @@
    - Search and pagination
 ========================================================= */
 
-const pageSize = 6;
-let currentPage = { all: 1, en: 1, zh: 1, both: 1 };
-let searchQuery = "";
 
+const pageSize = 6;
+
+let currentPage = {
+    all: 1,
+    en: 1,
+    zh: 1,
+    both: 1
+};
+
+let searchQuery = "";
 
 document.addEventListener("DOMContentLoaded", () => {
     renderHomepageSermons();
+    renderFeaturedSermons();
     renderSermonArchive();
+    initializeSermonFilters();
+    initializeSermonModal();
 
-    // Search sermons
     const searchInput = document.getElementById("sermonSearch");
 
     if (searchInput) {
-        searchInput.addEventListener("input", handleSearch);
-    }
+        searchInput.addEventListener("input", event => {
+            searchQuery = event.target.value.trim().toLowerCase();
 
-    // Service filter buttons
-    const filterButtons = document.querySelectorAll(
-    "#sermonTabs .sermon-filter"
-);
+            currentPage = {
+                all: 1,
+                en: 1,
+                zh: 1,
+                both: 1
+            };
 
-const paneIds = {
-    all: "all-sermons",
-    en: "english",
-    zh: "chinese",
-    both: "combined"
-};
-
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const filter = button.dataset.filter;
-        const targetId = paneIds[filter];
-
-        if (!targetId) return;
-
-        // Update filter buttons
-        filterButtons.forEach(item => {
-            const selected = item === button;
-
-            item.classList.toggle("active", selected);
-            item.setAttribute("aria-pressed", String(selected));
+            renderSermonArchive();
         });
+    }
+});
 
-        // Switch panels
-        document.querySelectorAll(
-            "#sermonTabContent .tab-pane"
-        ).forEach(pane => {
-            const selected = pane.id === targetId;
+function initializeSermonFilters() {
+    const buttons = document.querySelectorAll(
+        "#sermonTabs .sermon-filter"
+    );
 
-            pane.classList.toggle("active", selected);
-            pane.classList.toggle("show", selected);
+    const paneIds = {
+        all: "all-sermons",
+        en: "english",
+        zh: "chinese",
+        both: "combined"
+    };
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            const filter = button.dataset.filter;
+            const targetId = paneIds[filter];
+
+            if (!targetId) return;
+
+            buttons.forEach(item => {
+                const selected = item === button;
+
+                item.classList.toggle("active", selected);
+                item.setAttribute(
+                    "aria-pressed",
+                    String(selected)
+                );
+            });
+
+            document.querySelectorAll(
+                "#sermonTabContent .tab-pane"
+            ).forEach(pane => {
+                const selected = pane.id === targetId;
+
+                pane.classList.toggle("active", selected);
+                pane.classList.toggle("show", selected);
+            });
         });
     });
-});
+}
+
 
 
 /* =========================================================
@@ -147,8 +171,6 @@ function renderHomepageSermons() {
 ========================================================= */
 
 function renderSermonArchive() {
-    renderFeaturedSermons();
-
     renderSermonPage("all");
     renderSermonPage("en");
     renderSermonPage("zh");
@@ -161,11 +183,11 @@ function renderSermonArchive() {
    Combined Sunday: One combined sermon
 ========================================================= */
 
+
 function renderFeaturedSermons() {
     const container = document.getElementById("featured-sermons");
     if (!container) return;
 
-    // Group sermons by their actual service date.
     const datedSermons = SERMONS
         .map(sermon => ({
             sermon,
@@ -174,44 +196,40 @@ function renderFeaturedSermons() {
         .filter(item =>
             item.date instanceof Date &&
             !Number.isNaN(item.date.getTime())
-        );
+        )
+        .sort((a, b) => b.date.getTime() - a.date.getTime());
 
     if (!datedSermons.length) {
-        container.innerHTML = `
-            <p class="text-center">
-                ${currentLang === "zh"
-                    ? "目前没有讲道记录。"
-                    : "No sermons available yet."}
-            </p>
-        `;
+        container.innerHTML =
+            `<p class="text-center">No sermons available yet.</p>`;
         return;
     }
 
-// Find the newest Sunday represented in the database.
-    const latestDate = Math.max(
-        ...datedSermons.map(item => item.date.getTime())
+    // Get the latest calendar date, ignoring time differences.
+    const latestDate = datedSermons[0].date;
+
+    const sameDay = datedSermons.filter(item =>
+        item.date.getFullYear() === latestDate.getFullYear() &&
+        item.date.getMonth() === latestDate.getMonth() &&
+        item.date.getDate() === latestDate.getDate()
     );
 
-    const latestSunday = datedSermons
-        .filter(item => item.date.getTime() === latestDate)
-        .map(item => item.sermon);
-
-    // A combined service takes priority for that Sunday.
-    const combined = latestSunday.find(
-        sermon => sermon.lang === "both"
+    const combined = sameDay.find(
+        item => item.sermon.lang === "both"
     );
 
     const featured = combined
-        ? [combined]
-        : [
-            ...["en", "zh"].map(lang =>
-                latestSunday.find(sermon => sermon.lang === lang)
+        ? [combined.sermon]
+        : sameDay
+            .filter(item =>
+                ["en", "zh"].includes(item.sermon.lang)
             )
-        ].filter(Boolean);
+            .map(item => item.sermon);
 
     container.innerHTML = featured.map(sermon => {
         const title = getSermonTitle(sermon);
         const pastor = getSermonPastor(sermon);
+        const playable = hasVideo(sermon);
 
         const dateLine = sermon.time
             ? `${formatDate(sermon.date)} · ${
@@ -219,48 +237,26 @@ function renderFeaturedSermons() {
               }`
             : formatDate(sermon.date);
 
-         const videoContent = hasVideo(sermon)
-             ? `
-                 <div class="sermon-video-wrapper sermon-video-thumbnail">
-                     <div class="sermon-play-icon" aria-hidden="true">
-                         ▶
-                     </div>
-                     <span class="sermon-watch-label">
-                         ${currentLang === "zh" ? "观看讲道" : "Watch Sermon"}
-                     </span>
-                 </div>
-             `
-             : `
-                 <div class="sermon-video-placeholder">
-                     <p>
-                         ${currentLang === "zh"
-                             ? "讲道视频即将上线"
-                             : "Sermon video coming soon"}
-                     </p>
-                 </div>
-             `;
+        const videoContent = renderVideoContent(sermon);
 
-        const columnClass = featured.length === 1
-            ? "col-12 col-md-8 mx-auto"
-            : "col-12 col-md-6";
+        const columnClass = featured.length > 1
+            ? "col-12 col-md-6"
+            : "col-12 col-md-8 mx-auto";
 
         return `
             <div class="${columnClass}">
                 <article
-                   class="sermon-card featured-message-card ${hasVideo(sermon) ? "sermon-card-playable" : ""}"
-                   ${hasVideo(sermon) ? `
-                       data-sermon-video="${escapeHtml(sermon.video)}"
-                       data-sermon-title="${escapeHtml(title)}"
-                       data-sermon-pastor="${escapeHtml(pastor)}"
-                       role="button"
-                       tabindex="0"
-                       aria-label="${escapeHtml(
-                           currentLang === "zh"
-                               ? `观看讲道：${title}`
-                               : `Watch sermon: ${title}`
-                       )}"
-                   ` : ""}
-               >
+                    class="sermon-card featured-message-card
+                        ${playable ? "sermon-card-playable" : ""}"
+                    ${playable ? `
+                        data-sermon-video="${escapeHtml(sermon.video)}"
+                        data-sermon-title="${escapeHtml(title)}"
+                        data-sermon-pastor="${escapeHtml(pastor)}"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Watch sermon: ${escapeHtml(title)}"
+                    ` : ""}
+                >
                     ${videoContent}
 
                     <div class="sermon-info">
@@ -285,18 +281,7 @@ function renderFeaturedSermons() {
         `;
     }).join("");
 }
-   
-/* =========================================================
-   SEARCH
-========================================================= */
 
-function handleSearch(event) {
-  searchQuery = event.target.value.trim().toLowerCase();
-
-  currentPage = { all: 1, en: 1, zh: 1, both: 1 };
-
-  renderSermonArchive();
-}
 
 /* =========================================================
    SERMON ARCHIVE
@@ -321,7 +306,10 @@ function renderSermonPage(lang) {
   const data = SERMONS
     .filter(s => {
       const matchesLang =
-          lang === "all" || s.lang === lang;
+          lang === "all" ||
+          s.lang === lang ||
+          (lang === "en" && s.lang === "both") ||
+          (lang === "zh" && s.lang === "both");
 
       const searchableText = [
         getSermonTitle(s, "en"),
@@ -362,40 +350,23 @@ function renderSermonPage(lang) {
         ? `${formatDate(s.date)} · ${formatTimeRange(...s.time.split(" - "))}`
         : formatDate(s.date);
 
-      const videoContent = hasVideo(s)
-          ? `
-              <div class="sermon-video-wrapper">
-                  <img
-                      src="https://img.youtube.com/vi/${escapeHtml(getYouTubeId(s.video))}/hqdefault.jpg"
-                      alt="${escapeHtml(title)}"
-                      loading="lazy"
-                      onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${escapeHtml(getYouTubeId(s.video))}/mqdefault.jpg';"
-                  >
-              </div>
-          `
-          : `
-              <div class="sermon-video-placeholder">
-                  <p>${currentLang === "zh"
-                      ? "讲道视频即将上线"
-                      : "Sermon video coming soon"}</p>
-              </div>
-          `;
+      
+      const playable = hasVideo(s);
+      
+      const videoContent = renderVideoContent(s);
+
 
       return `
         <div class="col mb-4">
           <article
-             class="sermon-card ${hasVideo(s) ? "sermon-card-playable" : ""}"
-             ${hasVideo(s) ? `
+             class="sermon-card ${playable ? "sermon-card-playable" : ""}"
+             ${playable ? `
                  data-sermon-video="${escapeHtml(s.video)}"
                  data-sermon-title="${escapeHtml(title)}"
                  data-sermon-pastor="${escapeHtml(pastor)}"
                  role="button"
                  tabindex="0"
-                 aria-label="${escapeHtml(
-                     currentLang === "zh"
-                         ? `观看讲道：${title}`
-                         : `Watch sermon: ${title}`
-                 )}"
+                 aria-label="Watch sermon: ${escapeHtml(title)}"
              ` : ""}
          >
             ${videoContent}
@@ -591,72 +562,94 @@ function formatTimeRange(start, end) {
    Opens the selected sermon in a Bootstrap modal
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+
+function initializeSermonModal() {
     const modalElement = document.getElementById("videoModal");
     const videoFrame = document.getElementById("modalVideo");
     const titleElement = document.getElementById("videoModalTitle");
     const pastorElement = document.getElementById("videoModalPastor");
 
-    if (!modalElement || !videoFrame || !window.bootstrap) return;
+    if (
+          !modalElement ||
+          !videoFrame ||
+          !titleElement ||
+          !pastorElement ||
+          !window.bootstrap
+      ) {
+          return;
+      }
 
-    const sermonModal = bootstrap.Modal.getOrCreateInstance(modalElement);
+    const sermonModal =
+        bootstrap.Modal.getOrCreateInstance(modalElement);
 
-    function openSermon(card) {
-        const videoUrl = card.dataset.sermonVideo;
-
-        if (!videoUrl) return;
-
-        const isChinese = currentLang === "zh";
-        const title = card.dataset.sermonTitle || "";
-        const pastor = card.dataset.sermonPastor || "";
-
-        // Update the modal information.
-        titleElement.textContent = title;
-        pastorElement.textContent = pastor;
-
-        titleElement.setAttribute(
-            "data-en", title
-        );
-        titleElement.setAttribute(
-            "data-zh", title
-        );
-
-        // Add autoplay without discarding existing URL parameters.
+    function getEmbedUrl(videoUrl) {
         try {
             const url = new URL(videoUrl, window.location.href);
 
-            if (url.hostname.includes("youtube.com") ||
-                url.hostname.includes("youtube-nocookie.com")) {
-                url.searchParams.set("autoplay", "1");
-            } else if (url.hostname.includes("youtu.be")) {
-                url.searchParams.set("autoplay", "1");
+            let videoId = "";
+
+            if (url.hostname === "youtu.be" ||
+                url.hostname.endsWith(".youtu.be")) {
+                videoId = url.pathname.split("/").filter(Boolean)[0];
+            } else if (
+                url.hostname.includes("youtube.com") ||
+                url.hostname.includes("youtube-nocookie.com")
+            ) {
+                if (url.pathname === "/watch") {
+                    videoId = url.searchParams.get("v") || "";
+                } else {
+                    const match = url.pathname.match(
+                        /^\/(?:embed|shorts|live)\/([^/?]+)/
+                    );
+
+                    if (match) videoId = match[1];
+                }
+            } else {
+                // Allow existing direct embed URLs from other providers.
+                return url.href;
             }
 
-            videoFrame.src = url.href;
+            if (!videoId) return "";
+
+            return `https://www.youtube-nocookie.com/embed/${
+                encodeURIComponent(videoId)
+            }?autoplay=1`;
         } catch {
-            // If the URL cannot be parsed, use the original URL.
-            videoFrame.src = videoUrl;
+            return "";
+        }
+    }
+
+    function openSermon(card) {
+        const videoUrl = card.dataset.sermonVideo;
+        if (!videoUrl) return;
+
+        const embedUrl = getEmbedUrl(videoUrl);
+
+        if (!embedUrl) {
+            console.error("Invalid or unsupported sermon video URL.");
+            return;
         }
 
-        videoFrame.title = isChinese
-            ? `讲道视频：${title}`
-            : `Sermon video: ${title}`;
+        const title = card.dataset.sermonTitle || "Watch Sermon";
+        const pastor = card.dataset.sermonPastor || "";
+
+        titleElement.textContent = title;
+        pastorElement.textContent = pastor;
+
+        videoFrame.title = `Sermon video: ${title}`;
+        videoFrame.src = embedUrl;
 
         sermonModal.show();
     }
 
-    // Click anywhere on a playable sermon card.
     document.addEventListener("click", event => {
         const card = event.target.closest(
             ".sermon-card-playable[data-sermon-video]"
         );
 
-        if (card) {
-            openSermon(card);
-        }
+        if (card) openSermon(card);
     });
 
-    // Support keyboard users: Enter or Space opens the card.
     document.addEventListener("keydown", event => {
         const card = event.target.closest(
             ".sermon-card-playable[data-sermon-video]"
@@ -670,12 +663,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Stop playback when the modal closes.
     modalElement.addEventListener("hidden.bs.modal", () => {
         videoFrame.src = "";
         titleElement.textContent =
             currentLang === "zh" ? "观看讲道" : "Watch Sermon";
         pastorElement.textContent = "";
     });
-});
+}
 
+function renderVideoContent(sermon) {
+    if (!hasVideo(sermon)) {
+        return `
+            <div class="sermon-video-placeholder">
+                <p>${currentLang === "zh"
+                    ? "讲道视频即将上线"
+                    : "Sermon video coming soon"}</p>
+            </div>
+        `;
+    }
+
+    return `
+        <div class="sermon-video-thumbnail">
+            <span class="sermon-play-icon" aria-hidden="true">▶</span>
+            <span class="sermon-watch-label">
+                ${currentLang === "zh"
+                    ? "点击观看讲道"
+                    : "Click to Watch Sermon"}
+            </span>
+        </div>
+    `;
+}
