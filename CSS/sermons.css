@@ -48,7 +48,6 @@
     padding: 0;
 
     color: var(--text-on-dark);
-    text-align: left;
 }
 
 /* Editorial serif heading */
@@ -61,17 +60,16 @@
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1.08;
-    text-align: left;
 }
 
 /* Short decorative accent */
 .hero-sermons h1::after {
     display: block;
-    width: 54px;
-    height: 3px;
+    width: 42px;
+    height: 2px;
     margin: 1.4rem auto 0;
 
-    background-color: var(--brand-light);
+    background-color: var(--accent-clay);
     content: "";
 }
 
@@ -83,7 +81,6 @@
     color: var(--text-on-dark);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    text-align: left;
 }
 
 /* Mobile adjustments */
