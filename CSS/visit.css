@@ -5,10 +5,20 @@
 
 .visit-hero {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
     padding: clamp(4rem, 8vw, 7rem) 0;
-    background: var(--brand-beige, #F5EFEB);
-    color: var(--brand-dark, #2F4156);
+
+    /* Church photo with a light blue tint */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(200, 217, 230, 0.88),
+            rgba(245, 239, 235, 0.78)
+        ),
+        url("../Images/Visit/Visit Us.jpg") center 45% / cover no-repeat;
+
+    color: var(--brand-dark);
 }
 
 .visit-hero .container {
@@ -20,21 +30,23 @@
 .visit-eyebrow {
     display: inline-block;
     margin-bottom: 1.25rem;
-    color: var(--brand-primary, #567C8D);
-    font-size: 0.78rem;
+    color: var(--brand-primary);
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.13em;
+    line-height: 1.6;
 }
 
 /* Main heading */
 .visit-hero h1 {
     max-width: 680px;
     margin-bottom: 1.25rem;
-    color: var(--brand-dark, #2F4156);
+    color: var(--brand-dark);
+    font-family: var(--font-heading);
     font-size: clamp(2.6rem, 5vw, 4.6rem);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.12;
-    letter-spacing: -0.04em;
+    letter-spacing: normal;
     overflow-wrap: anywhere;
 }
 
@@ -42,7 +54,7 @@
 .visit-hero .visit-hero-text {
     max-width: 530px;
     margin-bottom: 2rem;
-    color: var(--brand-dark, #2F4156);
+    color: var(--brand-dark);
     font-size: clamp(1rem, 1.5vw, 1.15rem);
     line-height: 1.85;
 }
@@ -63,36 +75,38 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.8rem 1.3rem;
-    border: 1px solid var(--brand-dark, #2F4156);
-    border-radius: 10px;
+    border: 1px solid var(--brand-light);
+    border-radius: var(--radius-medium);
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
     transition: background 0.2s ease,
                 color 0.2s ease,
-                transform 0.2s ease;
+                transform 0.2s ease;;
 }
 
 .visit-btn-primary {
-    background: var(--brand-dark, #2F4156);
-    color: #FFFFFF;
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: var(--brand-white);
 }
 
 .visit-btn-primary:hover {
-    border-color: var(--brand-primary, #567C8D);
-    background: var(--brand-primary, #567C8D);
-    color: #FFFFFF;
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: var(--brand-white);
     transform: translateY(-2px);
 }
 
 .visit-btn-secondary {
-    background: transparent;
-    color: var(--brand-dark, #2F4156);
+    background: rgba(255, 255, 255, 0.35);
+    border-color: var(--brand-dark);
+    color: var(--brand-dark);
 }
 
 .visit-btn-secondary:hover {
-    background: #FFFFFF;
-    color: var(--brand-dark, #2F4156);
+    background: var(--brand-white);
+    color: var(--brand-dark);
     transform: translateY(-2px);
 }
 
@@ -111,33 +125,33 @@
     width: min(88%, 350px);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--brand-light, #C8D9E6);
+    background: var(--brand-light);
+opacity: 0.85;
 }
 
 .visit-art-card {
     width: min(100%, 350px);
     padding: clamp(1.5rem, 4vw, 2.5rem);
     border: 1px solid rgba(47, 65, 86, 0.08);
-    border-radius: 24px;
-    background: #FFFFFF;
-    box-shadow: 0 20px 55px rgba(47, 65, 86, 0.12);
+    border-radius: var(--radius-large);
+    background: var(--brand-white);
+    box-shadow: var(--shadow-image);
     transform: rotate(-3deg);
 }
 
 .visit-art-symbol {
     display: block;
     margin-bottom: 1.5rem;
-    color: var(--brand-primary, #567C8D);
-    font-size: 3.5rem;
-    line-height: 1;
+    color: var(--brand-primary);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 3.5rem;
     font-weight: 400;
-    font-variant-emoji: text;
+    line-height: 1;
 }
 
 .visit-art-card p {
     margin-bottom: 0.45rem;
-    color: var(--brand-dark, #2F4156);
+    color: var(--brand-dark);
     font-size: clamp(1.15rem, 2vw, 1.45rem);
     font-weight: 600;
     line-height: 1.45;
@@ -147,12 +161,13 @@
     display: block;
     margin-top: 1.75rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--border-light, #E8E2DC);
-    color: var(--brand-primary, #567C8D);
+    border-top: 1px solid var(--border-light);
+    color: var(--brand-primary);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
 /* Decorative dots */
@@ -161,7 +176,7 @@
     width: 17px;
     height: 17px;
     border-radius: 50%;
-    background: var(--brand-primary, #567C8D);
+    background: var(--brand-primary);
 }
 
 .dot-one {
@@ -174,7 +189,7 @@
     left: 8%;
     width: 12px;
     height: 12px;
-    background: var(--brand-dark, #2F4156);
+    background: var(--accent-clay);
 }
 
 
@@ -350,11 +365,11 @@
 }
 
 .visit-service-mandarin .visit-service-header {
-    background: #EBC9B8;
+    background: var(--accent-soft);
 }
 
 .visit-service-english .visit-service-header {
-    background: #C8DCE6;
+    background: var(--brand-light);
 }
 
 .visit-service-header h3 {
@@ -427,11 +442,11 @@
 
 .visit-family-note {
     margin-bottom: 1rem;
-    background: #E9E4F0;
+    background: var(--brand-beige);
 }
 
 .visit-children-card {
-    background: #E1E7DC;
+    background: var(--brand-light);
 }
 
 .visit-small-icon {
@@ -484,7 +499,7 @@
 
 .visit-location-section {
     padding: 5rem 1.5rem;
-    background: #F5F0E9;
+    background: var(--brand-beige);
 }
 
 .visit-location-section .visit-section-heading {
