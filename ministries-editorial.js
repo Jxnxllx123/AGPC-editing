@@ -3,17 +3,17 @@
    AGPC MINISTRIES — EDITORIAL TABS
    ========================================= */
 
-function getEditorialLanguage() {
-    const activeOption = document.querySelector(
-        "#languageToggle .lang-toggle-option.is-active"
-    );
 
-    if (activeOption) {
-        return activeOption.dataset.lang === "zh" ? "zh" : "en";
+function getEditorialLanguage() {
+    const toggle = document.querySelector("#languageToggle");
+
+    if (toggle?.dataset.lang) {
+        return toggle.dataset.lang;
     }
 
     return document.documentElement.lang === "zh" ? "zh" : "en";
 }
+
 
 
 
@@ -495,18 +495,16 @@ function initialiseEditorialTabs() {
 }
 
 /* Refresh panels when the language changes */
+
 document.addEventListener("DOMContentLoaded", () => {
     initialiseEditorialTabs();
 
-    const languageToggle = document.querySelector("#languageToggle");
-
-    if (languageToggle) {
-        languageToggle.addEventListener("click", () => {
-            requestAnimationFrame(() => {
-                document.querySelectorAll(
-                    ".editorial-section .editorial-tab.is-active"
-                ).forEach(renderMinistryPanel);
-            });
+    document.addEventListener("languageChanged", () => {
+        document.querySelectorAll(
+            ".editorial-section .editorial-tab.is-active"
+        ).forEach(button => {
+            renderMinistryPanel(button);
         });
-    }
+    });
 });
+
