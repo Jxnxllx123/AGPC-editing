@@ -132,12 +132,9 @@
 ----------------------------------------------------- */
 
 .offering-methods {
-    background:
-        linear-gradient(
-            180deg,
-            #F8F5F1 0%,
-            #F4F0EA 100%
-        ) !important;
+    background: var(--brand-white) !important;
+    padding-top: clamp(3.5rem, 6vw, 5rem) !important;
+    padding-bottom: clamp(3.5rem, 6vw, 5rem) !important;
 }
 
 .offering-methods > .container {
