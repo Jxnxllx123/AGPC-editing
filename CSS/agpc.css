@@ -7,41 +7,144 @@
 /* 01. HERO */
 
 .agpc-hero {
-    padding: clamp(4rem, 8vw, 7rem) 1.5rem !important;
+    --hero-ink: var(--brand-beige);
+    --hero-muted: var(--brand-light);
+    --hero-clay: var(--accent-clay);
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 65vh;
+    padding: clamp(5rem, 9vw, 8rem) 1.5rem !important;
+    overflow: hidden;
+
     background:
-        radial-gradient(
-            circle at 90% 15%,
-            rgba(200, 217, 230, 0.65),
-            transparent 40%
+        linear-gradient(
+            135deg,
+            rgba(47, 65, 86, 0.88),
+            rgba(47, 65, 86, 0.66)
         ),
-        var(--brand-beige) !important;
+        url("../Images/Church.jpg") center / cover no-repeat !important;
+
+    color: var(--hero-ink);
     text-align: center;
+}
+
+.agpc-hero .agpc-hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
 }
 
 .agpc-hero .container {
     max-width: 850px;
 }
 
-.agpc-hero .hero-eyebrow {
-    color: var(--brand-primary);
-    font-size: 0.8rem;
+.agpc-hero .agpc-hero-eyebrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+
+    color: var(--hero-muted);
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
     font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+}
+
+.agpc-hero .agpc-hero-eyebrow-line {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--hero-clay);
+    flex-shrink: 0;
 }
 
 .agpc-hero h1 {
     margin-bottom: 1rem;
-    font-size: clamp(2.8rem, 6vw, 4.75rem);
-    line-height: 1.15;
+    color: var(--brand-white);
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.12;
 }
 
 .agpc-hero p {
-    max-width: 650px;
-    margin: 0 auto;
-    color: #536575;
-    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+    color: rgba(245, 239, 235, 0.9);
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    line-height: 1.65;
+    text-wrap: pretty;
 }
+
+
+
+/* =====================================================
+   AGPC — EDITORIAL VISIT US LINKS
+===================================================== */
+
+.agpc-page .agpc-visit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 0 7px;
+    border: 0;
+    border-bottom: 1px solid var(--accent-clay);
+    border-radius: 0;
+    background: transparent;
+
+    color: var(--brand-dark);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    text-decoration: none;
+
+    transition:
+        gap 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.agpc-page .agpc-visit-link i {
+    color: var(--accent-hover);
+    font-size: 1.1rem;
+    transition: transform 0.25s ease;
+}
+
+.agpc-page .agpc-visit-link:hover {
+    gap: 18px;
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+}
+
+.agpc-page .agpc-visit-link:hover i {
+    transform: translate(2px, -2px);
+}
+
+.agpc-page .agpc-visit-link:focus-visible {
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .agpc-page .agpc-visit-link,
+    .agpc-page .agpc-visit-link i {
+        transition: none;
+    }
+}
+
 
 
 /* 02. SECTION HEADINGS */
@@ -232,46 +335,105 @@
 }
 
 
-/* 08. CTA */
 
-.agpc-page .cta-section {
-    background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(86, 124, 141, 0.3),
-            transparent 65%
-        ),
-        var(--brand-dark) !important;
+/* =====================================================
+   AGPC — JOURNEY WITH US CTA
+===================================================== */
+
+.agpc-page .cta-section .agpc-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
 }
 
-.agpc-page .cta-section h2 {
-    color: #FFFFFF;
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-}
+/* Reuse homepage CTA button appearance */
+.agpc-page .cta-section .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-.agpc-page .cta-section p {
-    color: #E0E8ED;
-}
-
-.agpc-page .cta-section .btn-light {
-    border: 2px solid #FFFFFF;
+    padding: 0.8rem 1.6rem;
+    border: 2px solid var(--brand-beige);
     border-radius: 999px;
+
+    background: var(--brand-beige);
     color: var(--brand-dark);
+
+    font-family: var(--font-body);
+    font-size: 1rem;
     font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
 
-.agpc-page .cta-section .btn-outline-light {
-    border-radius: 999px;
-    font-weight: 600;
+.agpc-page .cta-section .btn-cta:hover {
+    border-color: var(--brand-light);
+    background: var(--brand-light);
+    color: var(--brand-dark);
+    transform: translateY(-2px);
 }
+
+.agpc-page .cta-section .btn-cta:focus-visible {
+    outline: 2px solid var(--brand-beige);
+    outline-offset: 4px;
+}
+
+@media (max-width: 480px) {
+    .agpc-page .cta-section .agpc-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .agpc-page .cta-section .btn-cta {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .agpc-page .cta-section .btn-cta {
+        transition: none;
+    }
+}
+
 
 
 /* 09. MOBILE */
 
+/* Mobile hero */
 @media (max-width: 767.98px) {
     .agpc-hero {
-        padding: 4rem 1.25rem !important;
+        min-height: 55vh;
+        padding: 5rem 1.25rem !important;
+    }
+
+    .agpc-hero .agpc-hero-eyebrow {
+        gap: 8px;
+        margin-bottom: 1.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+    }
+
+    .agpc-hero .agpc-hero-eyebrow-line {
+        width: 18px;
+    }
+
+    .agpc-hero h1 {
+        font-size: clamp(2.8rem, 9vw, 4rem);
+        line-height: 1.08;
+    }
+
+    .agpc-hero p {
+        margin-top: 1.25rem;
+        font-size: 1.15rem;
+        line-height: 1.7;
     }
 
     .agpc-intro .intro-image {
