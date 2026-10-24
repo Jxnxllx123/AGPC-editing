@@ -2,6 +2,7 @@
 // 📅 EVENTS UI SYSTEM
 // =========================================================
 
+
 document.addEventListener("DOMContentLoaded", () => {
     if (document.body.classList.contains("events-page")) {
         loadDetailedEvents();
@@ -9,7 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
         loadEvents();
         initUpcomingSwiper();
     }
+
+    // Re-render events whenever the language changes
+    document.addEventListener("languageChanged", () => {
+        if (document.body.classList.contains("events-page")) {
+            loadDetailedEvents();
+        } else {
+            loadEvents();
+            initUpcomingSwiper();
+        }
+    });
 });
+
 
 // =========================================================
 // 📌 LOAD UPCOMING EVENTS
@@ -232,12 +244,15 @@ function loadDetailedEvents() {
             return dateA - dateB;
         });
 
-    if (!upcomingEvents.length) {
+        if (!upcomingEvents.length) {
+        const lang = currentLang === "zh" ? "zh" : "en";
+    
         container.innerHTML = `
-            <p class="events-empty"
-               data-en="There are no upcoming events at the moment."
-               data-zh="目前没有即将举行的活动。">
-                There are no upcoming events at the moment.
+            <p class="events-empty">
+                ${lang === "zh"
+                    ? "目前没有即将举行的活动。"
+                    : "There are no upcoming events at the moment."
+                }
             </p>
         `;
         return;
