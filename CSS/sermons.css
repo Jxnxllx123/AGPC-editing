@@ -208,28 +208,54 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    display: flex;
-    width: 64px;
-    height: 64px;
+    z-index: 2;
+
+    display: flex !important;
+    width: 66px;
+    height: 66px;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%, -50%);
 
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255, 255, 255, 0.95);
     border-radius: 50%;
-    background: rgba(47, 65, 86, 0.85);
-    color: #fff;
-    font-size: 25px;
-    padding-left: 4px;
+    background: rgba(47, 65, 86, 0.88);
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.25);
 
     pointer-events: none;
-    transition: background 0.2s ease,
+    transition: background-color 0.2s ease,
                 transform 0.2s ease;
 }
 
-.sermon-card-playable:hover .sermon-play-icon {
+/* Draw a triangle using CSS instead of a text symbol */
+.sermon-video-thumbnail .play-triangle {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 17px solid #ffffff;
+}
+
+.sermon-card-playable:hover .sermon-video-thumbnail .sermon-play-icon {
     background: var(--brand-primary);
     transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* Slightly smaller button on phones */
+@media (max-width: 767px) {
+    .sermon-video-thumbnail .sermon-play-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .sermon-video-thumbnail .play-triangle {
+        border-top-width: 9px;
+        border-bottom-width: 9px;
+        border-left-width: 14px;
+    }
 }
 
 .sermon-video-thumbnail .sermon-watch-label {
