@@ -4,8 +4,113 @@
    File: CSS/agpc.css
 ===================================================== */
 
-/* 01. HERO */
+.agpc-page {
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    color: var(--brand-dark);
+    background: #FFFFFF;
+}
 
+.agpc-page h1,
+.agpc-page h2,
+.agpc-page h3 {
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-weight: 400;
+}
+
+/* Editorial headings */
+.agpc-page h1,
+.agpc-page section h2,
+.agpc-page .info-card h5 {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+}
+
+/* Body copy */
+.agpc-page p,
+.agpc-page li {
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Standard section headings */
+.agpc-page section h2 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-dark);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Smaller headings */
+.agpc-page section h5 {
+    color: #2F4156;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Foundation: style the columns that actually exist */
+.agpc-page .agpc-foundation .row > div {
+    padding: 1.5rem;
+    border-right: 1px solid rgba(200, 217, 230, 0.25);
+}
+
+.agpc-page .agpc-foundation .row > div:last-child {
+    border-right: 0;
+}
+
+.agpc-page .agpc-foundation h5 {
+    color: #FFF9F0;
+}
+
+.agpc-page .agpc-foundation p {
+    margin-bottom: 0;
+    color: #C8D9E6;
+}
+
+/* Resource sections */
+.agpc-page .agpc-resource p {
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+    color: #526575;
+}
+
+/* Leadership: balanced spacing */
+.agpc-page .agpc-leadership .row > div {
+    padding: 1.25rem;
+}
+
+.agpc-page .agpc-leadership h5 {
+    margin-bottom: 0.5rem;
+}
+
+.agpc-page .agpc-leadership p {
+    max-width: 230px;
+    margin: 0 auto;
+    color: #526575;
+}
+
+/* Mobile spacing */
+@media (max-width: 767.98px) {
+    .agpc-page .agpc-foundation .row > div {
+        border-right: 0;
+        border-bottom: 1px solid rgba(200, 217, 230, 0.25);
+    }
+
+    .agpc-page .agpc-foundation .row > div:last-child {
+        border-bottom: 0;
+    }
+
+    .agpc-page section h2 {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+    }
+}
+
+
+/* 01. HERO */
 .agpc-hero {
     --hero-ink: var(--brand-beige);
     --hero-muted: var(--brand-light);
