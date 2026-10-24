@@ -188,7 +188,10 @@
                 </div>
                 
                 <div class="sermons-toolbar">
-                    <label class="visually-hidden" for="sermonSearch">
+                    <label class="visually-hidden"
+                           for="sermonSearch"
+                           data-en="Search sermons"
+                           data-zh="搜索讲道">
                         Search sermons
                     </label>
         
@@ -214,7 +217,9 @@
                     <div class="sermon-filters"
                          id="sermonTabs"
                          role="group"
-                         aria-label="Filter sermons by service">
+                         aria-label="Filter sermons by service"
+                         data-en-aria-label="Filter sermons by service"
+                         data-zh-aria-label="按崇拜类别筛选讲道">
                 
                         <button class="sermon-filter active"
                                 type="button"
@@ -315,12 +320,41 @@
         
         <!-- END SERMON ARCHIVE -->
         <!-- 🔹 Video Modal -->
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade"
+             id="videoModal"
+             tabindex="-1"
+             aria-labelledby="videoModalTitle"
+             aria-hidden="true">
+        
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                <div class="modal-body p-0">
-                    <iframe id="modalVideo" class="w-100" style="height:500px;" src="" allowfullscreen></iframe>
-                </div>
+        
+                    <div class="modal-header">
+                        <h5 class="modal-title"
+                            id="videoModalTitle"
+                            data-en="Watch Sermon"
+                            data-zh="观看讲道">
+                            Watch Sermon
+                        </h5>
+        
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                                data-en-aria-label="Close"
+                                data-zh-aria-label="关闭">
+                        </button>
+                    </div>
+        
+                    <div class="modal-body p-0">
+                        <iframe id="modalVideo"
+                                class="w-100"
+                                style="height:500px;"
+                                title="Sermon video"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+        
                 </div>
             </div>
         </div>
