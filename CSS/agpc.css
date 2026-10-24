@@ -1063,35 +1063,86 @@
 }
 
 
+
 /* =====================================================
-   AGPC — JOURNEY WITH US CTA
+   08. JOURNEY WITH US — FINAL CTA
 ===================================================== */
 
+.agpc-page .cta-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: clamp(5rem, 9vw, 8rem) 1.5rem !important;
+
+    background: var(--brand-dark);
+    color: var(--brand-white);
+    text-align: center;
+}
+
+/* Subtle decorative accent */
+.agpc-page .cta-section::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin: 0 auto 2rem;
+    background: var(--accent-clay);
+}
+
+/* CTA heading */
+.agpc-page .cta-section h2 {
+    max-width: 750px;
+    margin: 0 auto 1.25rem;
+
+    color: var(--brand-white);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Supporting text */
+.agpc-page .cta-section p {
+    max-width: 580px;
+    margin: 0 auto;
+
+    color: var(--brand-light);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    line-height: 1.8;
+}
+
+/* Button layout */
 .agpc-page .cta-section .agpc-cta-actions {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 1.75rem;
+
+    margin-top: 2rem;
 }
 
-/* Reuse homepage CTA button appearance */
+/* Primary and secondary buttons */
 .agpc-page .cta-section .btn-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    padding: 0.8rem 1.6rem;
-    border: 2px solid var(--brand-beige);
+    min-width: 155px;
+    padding: 0.9rem 1.75rem;
+
+    border: 1px solid var(--brand-beige);
     border-radius: 999px;
 
     background: var(--brand-beige);
     color: var(--brand-dark);
 
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
     text-decoration: none;
 
     transition:
@@ -1101,22 +1152,36 @@
         transform 0.25s ease;
 }
 
+/* Secondary button */
+.agpc-page .cta-section .btn-cta + .btn-cta {
+    background: transparent;
+    color: var(--brand-white);
+}
+
+/* Hover effects */
 .agpc-page .cta-section .btn-cta:hover {
+    transform: translateY(-2px);
     border-color: var(--brand-light);
     background: var(--brand-light);
     color: var(--brand-dark);
-    transform: translateY(-2px);
 }
 
+/* Keyboard accessibility */
 .agpc-page .cta-section .btn-cta:focus-visible {
     outline: 2px solid var(--brand-beige);
-    outline-offset: 4px;
+    outline-offset: 5px;
 }
 
+/* Mobile */
 @media (max-width: 480px) {
+    .agpc-page .cta-section {
+        padding: 4.5rem 1.25rem !important;
+    }
+
     .agpc-page .cta-section .agpc-cta-actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.85rem;
     }
 
     .agpc-page .cta-section .btn-cta {
@@ -1124,63 +1189,11 @@
     }
 }
 
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
     .agpc-page .cta-section .btn-cta {
         transition: none;
     }
 }
 
-
-
-/* 09. MOBILE */
-
-/* Mobile hero */
-@media (max-width: 767.98px) {
-    .agpc-hero {
-        min-height: 55vh;
-        padding: 5rem 1.25rem !important;
-    }
-
-    .agpc-hero .agpc-hero-eyebrow {
-        gap: 8px;
-        margin-bottom: 1.5rem;
-        font-size: 0.85rem;
-        letter-spacing: 0.1em;
-    }
-
-    .agpc-hero .agpc-hero-eyebrow-line {
-        width: 18px;
-    }
-
-    .agpc-hero h1 {
-        font-size: clamp(2.8rem, 9vw, 4rem);
-        line-height: 1.08;
-    }
-
-    .agpc-hero p {
-        margin-top: 1.25rem;
-        font-size: 1.15rem;
-        line-height: 1.7;
-    }
-
-    .agpc-intro .intro-image {
-        max-height: 320px;
-    }
-
-    .foundation-card {
-        padding: 1.5rem 1.25rem;
-    }
-
-    #vision-mission .info-card {
-        padding: 1.5rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .foundation-card,
-    #vision-mission .info-card,
-    .leadership-card {
-        transition: none;
-    }
-}
 
