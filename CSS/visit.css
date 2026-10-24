@@ -30,7 +30,7 @@
 .visit-eyebrow {
     display: inline-block;
     margin-bottom: 1.25rem;
-    color: var(--brand-primary);
+    color: #B96746;
     font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 0.13em;
@@ -76,7 +76,8 @@
     gap: 0.5rem;
     padding: 0.8rem 1.3rem;
     border: 1px solid var(--brand-light);
-    border-radius: var(--radius-medium);
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
