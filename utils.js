@@ -6,64 +6,88 @@ let currentLang = "en";
 ========================================= */
 
 function setLanguage(lang) {
-  currentLang = lang;
+    currentLang = lang === "zh" ? "zh" : "en";
 
-  localStorage.setItem("language", lang);
+    localStorage.setItem("language", currentLang);
+    document.documentElement.lang = currentLang;
 
-  // Update static text
-  document.querySelectorAll("[data-en], [data-zh]").forEach(el => {
-    const en = el.getAttribute("data-en");
-    const zh = el.getAttribute("data-zh");
+    // Translate elements marked with data-en and data-zh.
+    document.querySelectorAll("[data-en], [data-zh]").forEach(el => {
+        const translatedText = el.getAttribute(
+            currentLang === "zh" ? "data-zh" : "data-en"
+        );
 
-    if (en !== null && zh !== null) {
-      el.textContent = lang === "en" ? en : zh;
-    } else if (en !== null) {
-      el.textContent = en;
-    } else if (zh !== null) {
-      el.textContent = zh;
+        if (translatedText === null) return;
+
+        // Translate image descriptions without changing the image.
+        if (el instanceof HTMLImageElement) {
+            el.alt = translatedText;
+            return;
+        }
+
+        // Translate accessibility labels.
+        if (el.hasAttribute("aria-label")) {
+            el.setAttribute("aria-label", translatedText);
+        }
+
+        // Update text without removing nested HTML elements.
+        const textNodes = Array.from(el.childNodes).filter(
+            node => node.nodeType === Node.TEXT_NODE
+        );
+
+        if (textNodes.length > 0) {
+            textNodes[0].nodeValue = translatedText;
+            textNodes.slice(1).forEach(node => {
+                node.nodeValue = "";
+            });
+        } else if (el.children.length === 0) {
+            el.textContent = translatedText;
+        }
+    });
+
+    // Update church history PDF.
+    const historyLink = document.getElementById("historyDocumentLink");
+
+    if (historyLink) {
+        historyLink.href = currentLang === "en"
+            ? "CHURCH HISTORY_EN.pdf"
+            : "CHURCH HISTORY_CH.pdf";
     }
-  });
 
-  // Update church history PDF
-  const historyLink = document.getElementById("historyDocumentLink");
-
-  if (historyLink) {
-    historyLink.href = lang === "en"
-      ? "CHURCH HISTORY_EN.pdf"
-      : "CHURCH HISTORY_CH.pdf";
-  }
-
-  // Refresh dynamic sections
-  
-  // Refresh dynamic sections
+    // Refresh dynamic content.
     if (typeof renderHomepageSermons === "function") {
-    renderHomepageSermons(2);
-  }
+        renderHomepageSermons(2);
+    }
 
-  if (typeof loadEvents === "function") {
-    loadEvents();
-  }
+    if (typeof loadEvents === "function") {
+        loadEvents();
+    }
 
-  // Refresh the events calendar when the language changes
-  document.dispatchEvent(new Event("languageChanged"));
-
+    // Notify all language-aware components.
+    document.dispatchEvent(
+        new CustomEvent("languageChanged", {
+            detail: { lang: currentLang }
+        })
+    );
 }
-
 /* =========================================
    DATE HELPERS
 ========================================= */
 
 function parseDate(dateStr) {
-  const [day, month, year] = dateStr.split("/").map(Number);
-  return new Date(year, month - 1, day);
+    const [day, month, year] = dateStr.split("/").map(Number);
+    return new Date(year, month - 1, day);
 }
 
 function formatDate(dateStr) {
-  return parseDate(dateStr).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric"
-  });
+    return parseDate(dateStr).toLocaleDateString(
+        currentLang === "zh" ? "zh-SG" : "en-GB",
+        {
+            day: "numeric",
+            month: "short",
+            year: "numeric"
+        }
+    );
 }
 
 /* =========================================
@@ -71,48 +95,44 @@ function formatDate(dateStr) {
 ========================================= */
 
 function initialiseLanguageToggle() {
-  const btn = document.getElementById("languageToggle");
+    const btn = document.getElementById("languageToggle");
 
-  if (!btn) return;
+    if (!btn) return;
 
-  const options = btn.querySelectorAll(".lang-toggle-option");
+    const options = btn.querySelectorAll(".lang-toggle-option");
 
-  // Prevent initialisation if the HTML is incorrect
-  if (options.length !== 2) {
-    console.error(
-      "Language toggle needs exactly two .lang-toggle-option spans."
-    );
-    return;
-  }
+    if (options.length !== 2) {
+        console.error("Language toggle requires two language options.");
+        return;
+    }
 
-  // Set the selected language visually
-  function updateToggle(lang) {
-    btn.dataset.lang = lang;
+    function updateToggle(lang) {
+        btn.dataset.lang = lang;
+        btn.setAttribute("aria-pressed", String(lang === "zh"));
 
-    btn.setAttribute("aria-label", "Switch language");
-    btn.setAttribute("aria-pressed", String(lang === "zh"));
+        options.forEach(option => {
+            option.classList.toggle(
+                "active",
+                option.dataset.lang === lang
+            );
+        });
+    }
 
-    options.forEach(option => {
-      const isActive = option.dataset.lang === lang;
+    const savedLang = localStorage.getItem("language");
+    const initialLang = savedLang === "zh" ? "zh" : "en";
 
-      option.classList.toggle("active", isActive);
+    updateToggle(initialLang);
+    setLanguage(initialLang);
+
+    btn.addEventListener("click", () => {
+        const nextLang = currentLang === "en" ? "zh" : "en";
+
+        updateToggle(nextLang);
+        setLanguage(nextLang);
     });
-  }
-
-  // Restore saved language
-  const savedLang = localStorage.getItem("language");
-  const initialLang = savedLang === "zh" ? "zh" : "en";
-
-  setLanguage(initialLang);
-  updateToggle(initialLang);
-
-  // Switch language when clicked
-  btn.addEventListener("click", () => {
-    const nextLang = currentLang === "en" ? "zh" : "en";
-
-    setLanguage(nextLang);
-    updateToggle(nextLang);
-  });
 }
 
-document.addEventListener("DOMContentLoaded", initialiseLanguageToggle);
+document.addEventListener(
+    "DOMContentLoaded",
+    initialiseLanguageToggle
+);
