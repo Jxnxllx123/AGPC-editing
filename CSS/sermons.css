@@ -231,15 +231,6 @@
     text-align: center;
 }
 
-.sermon-card-playable {
-    cursor: pointer;
-}
-
-.sermon-card-playable:focus-visible {
-    outline: 3px solid var(--accent-clay);
-    outline-offset: 4px;
-}
-
 .sermon-service-label {
     display: inline-block;
     margin-bottom: 0.25rem;
@@ -402,17 +393,6 @@ body:has(#sermonTabs) {
 .sermon-filter:focus-visible {
     outline: 3px solid var(--brand-light);
     outline-offset: 3px;
-}
-
-@media (max-width: 560px) {
-    #sermonTabs {
-        gap: 0.4rem;
-    }
-
-    .sermon-filter {
-        padding: 0.65rem 0.9rem;
-        font-size: 0.875rem;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -678,21 +658,6 @@ body:has(#sermonTabs) {
         gap: 0.35rem;
         margin-top: 1.75rem;
     }
-}
-
-
-/* =====================================================
-   CLICKABLE SERMON CARDS & VIDEO MODAL
-===================================================== */
-
-/* Playable cards */
-.sermon-card-playable {
-    cursor: pointer;
-}
-
-.sermon-card-playable:focus-visible {
-    outline: 3px solid var(--accent-clay);
-    outline-offset: 4px;
 }
 
 
