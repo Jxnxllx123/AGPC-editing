@@ -10,27 +10,26 @@
    SERMONS HERO — EDITORIAL STYLE
 ----------------------------------------------------- */
 
-.hero-sermons {
-    position: relative;
-    display: flex;
-    min-height: 390px;
-    align-items: center;
-    justify-content: center;
+.hero-sermons { 
+   position: relative; 
+   display: flex; 
+   min-height: 390px; 
+   align-items: center; 
+   justify-content: center; 
+   padding: 5rem 1.5rem;
 
-    padding: 5rem 1.5rem;
+   background-image:
+    linear-gradient(
+        90deg,
+        rgba(47, 65, 86, 0.90) 0%,
+        rgba(47, 65, 86, 0.72) 52%,
+        rgba(47, 65, 86, 0.35) 100%
+    ),
+    url("../Images/Sermons/Sermons.jpg");
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(47, 65, 86, 0.90) 0%,
-            rgba(47, 65, 86, 0.72) 52%,
-            rgba(47, 65, 86, 0.35) 100%
-        ),
-        url("../Images/Sermons/Sermons.jpg");
-
-    background-position: center 42%;
-    background-size: cover;
-    background-repeat: no-repeat;
+   background-position: center 42%;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 
 .hero-sermons::before {
@@ -38,49 +37,54 @@
 }
 
 /* Override the shared centered hero layout */
-.hero-sermons .container {
-    position: relative;
-    z-index: 1;
+.hero-sermons .container { 
+   position: relative; 
+   z-index: 1; 
+   width: 100%; 
+   max-width: 900px; 
+   margin: 0 auto; 
+   padding: 0; 
+   color: var(--text-on-dark); 
+   text-align: center; 
+}
 
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0;
-
-    color: var(--text-on-dark);
+.hero-sermons .sermons-hero-content { 
+   width: 100%; 
+   margin: 0 auto; 
+   text-align: center; 
 }
 
 /* Editorial serif heading */
-.hero-sermons h1 {
-    max-width: 700px;
-    margin-bottom: 1.5rem;
-
+ .hero-sermons h1 { 
+    max-width: none; 
+    margin: 0 0 1.5rem;
     color: var(--brand-white);
     font-family: "DM Serif Display", serif;
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1.08;
-}
+    text-align: center;
+ }
 
 /* Short decorative accent */
-.hero-sermons h1::after {
-    display: block;
-    width: 42px;
-    height: 2px;
-    margin: 1.4rem auto 0;
-
+ .hero-sermons h1::after { 
+    display: block; 
+    width: 36px; 
+    height: 1px; 
+    margin: 1.25rem auto 0;
     background-color: var(--accent-clay);
     content: "";
-}
+ }
 
 /* Preserve your existing welcome wording */
 .hero-sermons p {
     max-width: 680px;
-    margin: 0;
+    margin: 0 auto;
 
     color: var(--text-on-dark);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.8;
+    text-align: center;
 }
 
 /* Mobile adjustments */
