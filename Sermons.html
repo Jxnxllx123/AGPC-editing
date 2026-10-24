@@ -319,45 +319,50 @@
 
         
         <!-- END SERMON ARCHIVE -->
-        <!-- 🔹 Video Modal -->
+        <!-- SERMON VIDEO MODAL -->
         <div class="modal fade"
              id="videoModal"
              tabindex="-1"
              aria-labelledby="videoModalTitle"
              aria-hidden="true">
         
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content sermon-modal-content">
         
                     <div class="modal-header">
-                        <h5 class="modal-title"
-                            id="videoModalTitle"
-                            data-en="Watch Sermon"
-                            data-zh="观看讲道">
-                            Watch Sermon
-                        </h5>
+                        <div>
+                            <h5 class="modal-title" id="videoModalTitle">
+                                Watch Sermon
+                            </h5>
+                            <p class="sermon-modal-pastor mb-0"
+                               id="videoModalPastor"></p>
+                        </div>
         
                         <button type="button"
                                 class="btn-close"
                                 data-bs-dismiss="modal"
-                                aria-label="Close"
-                                data-en-aria-label="Close"
-                                data-zh-aria-label="关闭">
+                                aria-label="Close">
                         </button>
                     </div>
         
                     <div class="modal-body p-0">
-                        <iframe id="modalVideo"
-                                class="w-100"
-                                style="height:500px;"
+                        <div class="sermon-modal-video-wrapper">
+                            <iframe
+                                id="modalVideo"
+                                src=""
                                 title="Sermon video"
+                                allow="accelerometer; autoplay; clipboard-write;
+                                       encrypted-media; gyroscope; picture-in-picture;
+                                       web-share"
                                 allowfullscreen>
-                        </iframe>
+                            </iframe>
+                        </div>
                     </div>
         
                 </div>
             </div>
         </div>
+
 
         <!-- FOOTER -->
         <footer class="footer mt-5">
