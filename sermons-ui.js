@@ -373,22 +373,19 @@ function renderSermonPage(lang) {
 
       const videoContent = hasVideo(s)
           ? `
-              <div class="sermon-video-wrapper sermon-video-thumbnail">
-                  <div class="sermon-play-icon" aria-hidden="true">
-                      ▶
-                  </div>
-                  <span class="sermon-watch-label">
-                      ${currentLang === "zh" ? "观看讲道" : "Watch Sermon"}
-                  </span>
+              <div class="sermon-video-wrapper">
+                  <img
+                      src="https://img.youtube.com/vi/${escapeHtml(getYouTubeId(s.video))}/hqdefault.jpg"
+                      alt="${escapeHtml(title)}"
+                      loading="lazy"
+                  >
               </div>
           `
           : `
               <div class="sermon-video-placeholder">
-                  <p>
-                      ${currentLang === "zh"
-                          ? "讲道视频即将上线"
-                          : "Sermon video coming soon"}
-                  </p>
+                  <p>${currentLang === "zh"
+                      ? "讲道视频即将上线"
+                      : "Sermon video coming soon"}</p>
               </div>
           `;
 
