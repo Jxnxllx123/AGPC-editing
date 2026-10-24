@@ -4,117 +4,90 @@
    File: CSS/agpc.css
 ===================================================== */
 
+
+/* =====================================================
+   AGPC — TYPOGRAPHY SYSTEM
+===================================================== */
+
 .agpc-page {
     font-family: var(--font-body, "Roboto"), sans-serif;
-    color: var(--brand-dark);
+    color: var(--brand-dark, #2F4156);
     background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Elegant editorial headings */
 .agpc-page h1,
 .agpc-page h2,
 .agpc-page h3 {
     font-family: var(--font-heading, "DM Serif Display"), serif;
     font-weight: 400;
+    letter-spacing: -0.025em;
 }
 
-/* Editorial headings */
-.agpc-page h1,
-.agpc-page section h2,
-.agpc-page .info-card h5 {
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-}
-
-/* Body copy */
-.agpc-page p,
-.agpc-page li {
-    font-family: var(--font-body, "Roboto"), sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
-}
-
-/* Standard section headings */
+/* Main section headings */
 .agpc-page section h2 {
     margin-bottom: 1.25rem;
-    color: var(--brand-dark);
-    font-family: var(--font-heading, "DM Serif Display"), serif;
+    color: var(--brand-dark, #2F4156);
     font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 400;
-    line-height: 1.15;
+    line-height: 1.2;
 }
 
-/* Smaller headings */
+/* Card and subsection headings */
 .agpc-page section h5 {
-    color: #2F4156;
-    font-family: "Roboto", sans-serif;
+    margin-bottom: 0.75rem;
+    color: var(--brand-dark, #2F4156);
+    font-family: var(--font-body, "Roboto"), sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.5;
 }
 
-/* Foundation: style the columns that actually exist */
-.agpc-page .agpc-foundation .row > div {
-    padding: 1.5rem;
-    border-right: 1px solid rgba(200, 217, 230, 0.25);
+/* Consistent readable body text */
+.agpc-page p,
+.agpc-page li {
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
 }
 
-.agpc-page .agpc-foundation .row > div:last-child {
-    border-right: 0;
+/* Small editorial labels */
+.agpc-page .section-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--brand-primary, #526575);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
 }
 
-.agpc-page .agpc-foundation h5 {
-    color: #FFF9F0;
-}
-
-.agpc-page .agpc-foundation p {
-    margin-bottom: 0;
-    color: #C8D9E6;
-}
-
-/* Resource sections */
-.agpc-page .agpc-resource p {
-    max-width: 620px;
-    margin: 0 auto 1.5rem;
-    color: #526575;
-}
-
-/* Leadership: balanced spacing */
-.agpc-page .agpc-leadership .row > div {
-    padding: 1.25rem;
-}
-
-.agpc-page .agpc-leadership h5 {
-    margin-bottom: 0.5rem;
-}
-
-.agpc-page .agpc-leadership p {
-    max-width: 230px;
-    margin: 0 auto;
-    color: #526575;
-}
-
-/* Mobile spacing */
+/* Mobile typography */
 @media (max-width: 767.98px) {
-    .agpc-page .agpc-foundation .row > div {
-        border-right: 0;
-        border-bottom: 1px solid rgba(200, 217, 230, 0.25);
-    }
-
-    .agpc-page .agpc-foundation .row > div:last-child {
-        border-bottom: 0;
-    }
-
     .agpc-page section h2 {
         font-size: clamp(2rem, 8vw, 2.6rem);
+        line-height: 1.2;
+    }
+
+    .agpc-page p,
+    .agpc-page li {
+        font-size: 0.98rem;
+        line-height: 1.8;
     }
 }
 
 
-/* 01. HERO */
-.agpc-hero {
-    --hero-ink: var(--brand-beige);
-    --hero-muted: var(--brand-light);
-    --hero-clay: var(--accent-clay);
+
+/* =====================================================
+   01. AGPC — EDITORIAL HERO
+===================================================== */
+
+.agpc-page .agpc-hero {
+    --hero-ink: var(--brand-beige, #F5EFEB);
+    --hero-muted: var(--brand-light, #C8D9E6);
+    --hero-clay: var(--accent-clay, #C58D72);
 
     position: relative;
     isolation: isolate;
@@ -122,15 +95,16 @@
     align-items: center;
     justify-content: center;
 
-    min-height: 65vh;
-    padding: clamp(5rem, 9vw, 8rem) 1.5rem !important;
+    min-height: 62vh;
+    padding: clamp(6rem, 10vw, 9rem) 1.5rem !important;
     overflow: hidden;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(47, 65, 86, 0.88),
-            rgba(47, 65, 86, 0.66)
+            120deg,
+            rgba(35, 49, 67, 0.88) 0%,
+            rgba(47, 65, 86, 0.72) 55%,
+            rgba(47, 65, 86, 0.55) 100%
         ),
         url("../Images/Church.jpg") center / cover no-repeat !important;
 
@@ -138,57 +112,107 @@
     text-align: center;
 }
 
-.agpc-hero .agpc-hero-content {
+/* Keep the content centred and readable */
+.agpc-page .agpc-hero .agpc-hero-content {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin-inline: auto;
 }
 
-.agpc-hero .container {
+.agpc-page .agpc-hero .container {
     max-width: 850px;
 }
 
-.agpc-hero .agpc-hero-eyebrow {
+/* Small editorial introduction */
+.agpc-page .agpc-hero .agpc-hero-eyebrow {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
+    justify-content: center;
+    gap: 14px;
+
+    margin-bottom: 1.75rem;
 
     color: var(--hero-muted);
-    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     line-height: 1.6;
 }
 
-.agpc-hero .agpc-hero-eyebrow-line {
+/* Decorative lines */
+.agpc-page .agpc-hero .agpc-hero-eyebrow-line {
     display: block;
-    width: 28px;
+    width: 30px;
     height: 1px;
-    background: var(--hero-clay);
     flex-shrink: 0;
+    background: var(--hero-clay);
 }
 
-.agpc-hero h1 {
-    margin-bottom: 1rem;
-    color: var(--brand-white);
-    font-family: var(--font-heading);
-    font-size: clamp(2.8rem, 6vw, 5rem);
+/* Main title */
+.agpc-page .agpc-hero h1 {
+    margin: 0;
+
+    color: #FFFFFF;
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
     font-weight: 400;
-    line-height: 1.12;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+    text-wrap: balance;
 }
 
-.agpc-hero p {
-    max-width: 800px;
+/* Subtitle */
+.agpc-page .agpc-hero p {
+    max-width: 660px;
     margin: 1.5rem auto 0;
+
     color: rgba(245, 239, 235, 0.9);
-    font-family: "Roboto", sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
-    line-height: 1.65;
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.8;
     text-wrap: pretty;
+}
+
+/* Gentle transition into the next section */
+.agpc-page .agpc-intro {
+    position: relative;
+    padding-top: clamp(4rem, 7vw, 6rem) !important;
+    padding-bottom: clamp(4rem, 7vw, 6rem) !important;
+    background: #FFFFFF;
+}
+
+/* Mobile hero */
+@media (max-width: 767.98px) {
+    .agpc-page .agpc-hero {
+        min-height: 52vh;
+        padding: 5.5rem 1.25rem !important;
+    }
+
+    .agpc-page .agpc-hero .agpc-hero-eyebrow {
+        gap: 9px;
+        margin-bottom: 1.5rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+    }
+
+    .agpc-page .agpc-hero .agpc-hero-eyebrow-line {
+        width: 20px;
+    }
+
+    .agpc-page .agpc-hero h1 {
+        font-size: clamp(2.8rem, 10vw, 4rem);
+        line-height: 1.1;
+    }
+
+    .agpc-page .agpc-hero p {
+        margin-top: 1.25rem;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
 }
 
 
@@ -272,74 +296,250 @@
 }
 
 
-/* 03. WHO WE ARE */
 
-.agpc-intro {
+/* =====================================================
+   03. AGPC — WHO WE ARE
+   Editorial introduction
+===================================================== */
+
+.agpc-page .agpc-intro {
+    position: relative;
+    padding: clamp(4.5rem, 8vw, 7rem) 0 !important;
     background: #FFFFFF;
 }
 
-.agpc-intro .intro-image {
-    width: 100%;
-    max-height: 440px;
-    border-radius: 18px;
-    object-fit: cover;
+/* Balanced text and image layout */
+.agpc-page .agpc-intro .row {
+    align-items: center;
+    --bs-gutter-x: clamp(2rem, 5vw, 5rem);
+    --bs-gutter-y: 2.5rem;
 }
 
-.agpc-intro .intro-copy {
-    max-width: 540px;
+/* Introduction heading */
+.agpc-page .agpc-intro h2 {
+    max-width: 520px;
+    margin-bottom: 1.75rem;
+
+    color: var(--brand-dark, #2F4156);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
 }
 
-.agpc-intro .intro-note {
+/* Subtle decorative underline */
+.agpc-page .agpc-intro h2::after {
+    content: "";
+    display: block;
+
+    width: 54px;
+    height: 2px;
+    margin-top: 1.25rem;
+
+    background: var(--accent-clay, #C58D72);
+}
+
+/* Readable introduction paragraphs */
+.agpc-page .agpc-intro p {
+    max-width: 520px;
+    margin-bottom: 1.25rem;
+
+    color: #526575;
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.95;
+}
+
+/* Church membership note */
+.agpc-page .agpc-intro p.text-muted {
     display: inline-block;
     margin-top: 0.5rem;
-    padding: 0.55rem 0.9rem;
-    border-left: 3px solid var(--brand-primary);
-    background: var(--bg-light);
-    color: var(--brand-dark);
+    margin-bottom: 0;
+
+    padding: 0.7rem 1rem;
+    border-left: 2px solid var(--accent-clay, #C58D72);
+
+    background: #F5F3F0;
+    color: #526575 !important;
+
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+/* Church photograph */
+.agpc-page .agpc-intro .intro-image {
+    display: block;
+    width: 100%;
+    height: clamp(320px, 38vw, 480px);
+    max-height: none;
+
+    border: 1px solid rgba(47, 65, 86, 0.08);
+    border-radius: 6px 72px 6px 6px;
+
+    object-fit: cover;
+    object-position: center;
+
+    box-shadow: 0 18px 45px rgba(47, 65, 86, 0.10);
+}
+
+/* Smooth visual transition into Foundation */
+.agpc-page .agpc-foundation {
+    position: relative;
+    padding: clamp(4.5rem, 8vw, 6.5rem) 0 !important;
+
+    background: var(--brand-dark, #2F4156) !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767.98px) {
+    .agpc-page .agpc-intro {
+        padding: 4rem 0 !important;
+    }
+
+    .agpc-page .agpc-intro .row {
+        --bs-gutter-y: 2rem;
+    }
+
+    .agpc-page .agpc-intro h2 {
+        margin-bottom: 1.25rem;
+        font-size: clamp(2.3rem, 9vw, 3rem);
+    }
+
+    .agpc-page .agpc-intro p {
+        font-size: 0.98rem;
+        line-height: 1.85;
+    }
+
+    .agpc-page .agpc-intro .intro-image {
+        height: 300px;
+        border-radius: 6px 48px 6px 6px;
+    }
 }
 
 
-/* 04. OUR FOUNDATION */
 
-.agpc-foundation {
-    background: var(--brand-dark) !important;
+
+/* =====================================================
+   04. AGPC — OUR FOUNDATION
+   Refined four-column layout
+===================================================== */
+
+.agpc-page .agpc-foundation {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4.5rem, 8vw, 7rem) 0 !important;
+    background: var(--brand-dark, #2F4156) !important;
 }
 
+/* Section heading */
 .agpc-page .agpc-foundation h2 {
+    margin-bottom: 1rem;
     color: #FFFFFF;
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
 }
 
-.agpc-foundation .section-eyebrow {
-    color: var(--brand-light);
+/* Warm accent beneath the heading */
+.agpc-page .agpc-foundation h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 2px;
+    margin: 1.25rem auto 0;
+    background: var(--accent-clay, #C58D72);
 }
 
-.foundation-card {
-    height: 100%;
-    padding: 1.75rem 1.25rem;
-    border: 1px solid rgba(200, 217, 230, 0.45);
-    border-radius: 14px;
-    background: #FFFFFF;
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease;
+/* Space between the heading and the principles */
+.agpc-page .agpc-foundation .row {
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.25rem;
+    margin-top: 2.5rem !important;
 }
 
-.foundation-card h5 {
-    color: var(--brand-dark);
+/* Each existing Bootstrap column becomes a card */
+.agpc-page .agpc-foundation .row > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(200, 217, 230, 0.22);
+    border-right: 1px solid rgba(200, 217, 230, 0.22);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.055);
+    text-align: left;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Subtle hover, without excessive animation */
+.agpc-page .agpc-foundation .row > div:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 217, 230, 0.48);
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* Principle titles */
+.agpc-page .agpc-foundation h5 {
+    margin-bottom: 0.85rem;
+    color: var(--brand-beige, #F5EFEB);
+    font-family: var(--font-body, "Roboto"), sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.5;
 }
 
-.foundation-card p {
+/* Principle descriptions */
+.agpc-page .agpc-foundation p {
     margin-bottom: 0;
-    color: #5E6B77;
+    color: var(--brand-light, #C8D9E6);
     font-size: 0.95rem;
+    line-height: 1.8;
 }
 
-.foundation-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+/* Constitution section follows with a softer background */
+.agpc-page .agpc-foundation + .agpc-resource {
+    padding: clamp(4rem, 7vw, 6rem) 0 !important;
+    background: #F7F6F3;
 }
+
+/* Mobile layout */
+@media (max-width: 767.98px) {
+    .agpc-page .agpc-foundation {
+        padding: 4rem 0 !important;
+    }
+
+    .agpc-page .agpc-foundation .row {
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 1rem;
+        margin-top: 2rem !important;
+    }
+
+    .agpc-page .agpc-foundation .row > div {
+        padding: 1.5rem;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .agpc-page .agpc-foundation .row > div {
+        transition: none;
+    }
+
+    .agpc-page .agpc-foundation .row > div:hover {
+        transform: none;
+    }
+}
+
 
 
 /* 05. CONSTITUTION AND HISTORY */
