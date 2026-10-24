@@ -672,6 +672,7 @@ function initializeSermonModal() {
 }
 
 
+
 function renderVideoContent(sermon) {
     if (!hasVideo(sermon)) {
         return `
@@ -683,7 +684,6 @@ function renderVideoContent(sermon) {
         `;
     }
 
-    // Extract the YouTube video ID from the URL.
     let videoId = "";
 
     try {
@@ -704,7 +704,6 @@ function renderVideoContent(sermon) {
         videoId = "";
     }
 
-    // Show the actual YouTube thumbnail.
     if (!videoId) {
         return `
             <div class="sermon-video-placeholder">
@@ -720,6 +719,9 @@ function renderVideoContent(sermon) {
                 alt="${escapeHtml(getSermonTitle(sermon))}"
                 loading="lazy"
             >
+
+            <span class="sermon-play-icon" aria-hidden="true">▶</span>
         </div>
     `;
 }
+
