@@ -172,6 +172,29 @@
     box-shadow: 0 20px 55px rgba(47, 65, 86, 0.12);
 }
 
+/* Paper clip — positioned at the photo's top-right corner */
+.who-paper-tape {
+    position: absolute;
+    z-index: 3;
+
+    /* Move it to the corner of the photo */
+    top: -18px;
+    right: 24px;
+
+    width: 32px;
+    height: 65px;
+
+    border: 3px solid #B96F53;
+    border-radius: 18px;
+
+    background: transparent;
+
+    /* Give it a slight paper-clip angle */
+    transform: rotate(12deg);
+
+    pointer-events: none;
+}
+
 /* Small label on the photograph */
 .who-photo-label {
     position: absolute;
