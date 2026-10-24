@@ -671,6 +671,7 @@ function initializeSermonModal() {
     });
 }
 
+
 function renderVideoContent(sermon) {
     if (!hasVideo(sermon)) {
         return `
@@ -682,14 +683,43 @@ function renderVideoContent(sermon) {
         `;
     }
 
+    // Extract the YouTube video ID from the URL.
+    let videoId = "";
+
+    try {
+        const url = new URL(sermon.video);
+
+        if (url.hostname.includes("youtu.be")) {
+            videoId = url.pathname.split("/").filter(Boolean)[0];
+        } else if (url.pathname === "/watch") {
+            videoId = url.searchParams.get("v") || "";
+        } else {
+            const match = url.pathname.match(
+                /^\/(?:embed|shorts|live)\/([^/?]+)/
+            );
+
+            if (match) videoId = match[1];
+        }
+    } catch {
+        videoId = "";
+    }
+
+    // Show the actual YouTube thumbnail.
+    if (!videoId) {
+        return `
+            <div class="sermon-video-placeholder">
+                <p>Video unavailable</p>
+            </div>
+        `;
+    }
+
     return `
         <div class="sermon-video-thumbnail">
-            <span class="sermon-play-icon" aria-hidden="true">▶</span>
-            <span class="sermon-watch-label">
-                ${currentLang === "zh"
-                    ? "点击观看讲道"
-                    : "Click to Watch Sermon"}
-            </span>
+            <img
+                src="https://img.youtube.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg"
+                alt="${escapeHtml(getSermonTitle(sermon))}"
+                loading="lazy"
+            >
         </div>
     `;
 }
