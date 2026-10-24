@@ -1064,135 +1064,193 @@
 
 
 
-/* =====================================================
-   08. JOURNEY WITH US — FINAL CTA
-===================================================== */
 
-.agpc-page .cta-section {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
+/* =========================================
+   AGPC CTA — MATCH HOMEPAGE COLOURS
+========================================= */
 
-    padding: clamp(5rem, 9vw, 8rem) 1.5rem !important;
-
-    background: var(--brand-dark);
-    color: var(--brand-white);
-    text-align: center;
-}
-
-/* Subtle decorative accent */
-.agpc-page .cta-section::before {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 2px;
-    margin: 0 auto 2rem;
-    background: var(--accent-clay);
+.cta-section {
+    background: #F5EFEB;
+    color: #2F4156;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 1.5rem;
 }
 
 /* CTA heading */
-.agpc-page .cta-section h2 {
-    max-width: 750px;
-    margin: 0 auto 1.25rem;
-
-    color: var(--brand-white);
-    font-family: var(--font-heading, "DM Serif Display"), serif;
-    font-size: clamp(2.4rem, 5vw, 4rem);
+.cta-section h2 {
+    color: #2F4156;
+    font-family: "DM Serif Display", serif;
     font-weight: 400;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
     line-height: 1.15;
+    margin-bottom: 1rem;
 }
 
-/* Supporting text */
-.agpc-page .cta-section p {
-    max-width: 580px;
-    margin: 0 auto;
-
-    color: var(--brand-light);
-    font-family: var(--font-body, "Roboto"), sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
+/* CTA description */
+.cta-section p {
+    color: #526575;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.15rem;
     line-height: 1.8;
 }
 
-/* Button layout */
-.agpc-page .cta-section .agpc-cta-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    margin-top: 2rem;
-}
-
-/* Primary and secondary buttons */
-.agpc-page .cta-section .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-width: 155px;
-    padding: 0.9rem 1.75rem;
-
-    border: 1px solid var(--brand-beige);
-    border-radius: 999px;
-
-    background: var(--brand-beige);
-    color: var(--brand-dark);
-
-    font-family: var(--font-body, "Roboto"), sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    line-height: 1.5;
+/* Social links */
+.cta-section .social-links a {
+    color: #2F4156;
     text-decoration: none;
-
-    transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
-/* Secondary button */
-.agpc-page .cta-section .btn-cta + .btn-cta {
-    background: transparent;
-    color: var(--brand-white);
-}
-
-/* Hover effects */
-.agpc-page .cta-section .btn-cta:hover {
+.cta-section .social-links a:hover {
+    color: #B96F53;
     transform: translateY(-2px);
-    border-color: var(--brand-light);
-    background: var(--brand-light);
-    color: var(--brand-dark);
+}
+
+/* Contact Us button */
+.cta-section .btn-cta {
+    background: #2F4156;
+    color: #FFF9F0;
+    border: 1px solid #2F4156;
+    border-radius: 999px;
+    padding: 0.85rem 1.8rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+}
+
+/* Button hover */
+.cta-section .btn-cta:hover {
+    background: #B96F53;
+    border-color: #B96F53;
+    color: #FFF9F0;
+    transform: translateY(-2px);
 }
 
 /* Keyboard accessibility */
-.agpc-page .cta-section .btn-cta:focus-visible {
-    outline: 2px solid var(--brand-beige);
-    outline-offset: 5px;
+.cta-section a:focus-visible {
+    outline: 2px solid #B96F53;
+    outline-offset: 4px;
 }
 
-/* Mobile */
-@media (max-width: 480px) {
-    .agpc-page .cta-section {
-        padding: 4.5rem 1.25rem !important;
+
+/* =========================================
+   AGPC CTA — MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    .cta-section {
+        padding: 3.5rem 1.25rem;
+        background: #F5EFEB;
+        color: #2F4156;
     }
 
-    .agpc-page .cta-section .agpc-cta-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.85rem;
+    /* Heading */
+    .cta-section h2 {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2.3rem, 9vw, 3rem);
+        line-height: 1.12;
+        margin-bottom: 1rem;
+        color: #2F4156;
     }
 
-    .agpc-page .cta-section .btn-cta {
+    /* Description */
+    .cta-section p {
+        max-width: 360px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: #526575;
+    }
+
+    /* Social links */
+    .cta-section .social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.75rem 0 2rem;
+    }
+
+    .cta-section .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+
+        padding: 0.7rem 0.9rem;
+        min-width: 125px;
+
+        color: #2F4156;
+        background: transparent;
+        border: 1px solid #D9D4CD;
+        border-radius: 999px;
+
+        font-size: 0.95rem;
+        text-decoration: none;
+    }
+
+    .cta-section .social-links a i {
+        font-size: 1.15rem;
+    }
+
+    .cta-section .social-links a:hover {
+        color: #B96F53;
+        border-color: #B96F53;
+        transform: translateY(-2px);
+    }
+
+    /* Contact Us button */
+    .cta-section .btn-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
         width: 100%;
+        max-width: 280px;
+        min-height: 50px;
+        padding: 0.85rem 1.5rem;
+
+        background: #2F4156;
+        color: #FFF9F0;
+        border: 1px solid #2F4156;
+        border-radius: 999px;
+
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .cta-section .btn-cta:hover {
+        background: #B96F53;
+        border-color: #B96F53;
+        color: #FFF9F0;
+    }
+
+    /* Accessible keyboard focus */
+    .cta-section a:focus-visible {
+        outline: 2px solid #B96F53;
+        outline-offset: 4px;
     }
 }
 
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-    .agpc-page .cta-section .btn-cta {
-        transition: none;
+/* Smaller phones */
+@media (max-width: 380px) {
+
+    .cta-section {
+        padding: 3rem 1rem;
+    }
+
+    .cta-section .social-links {
+        gap: 0.6rem;
+    }
+
+    .cta-section .social-links a {
+        min-width: 115px;
+        padding: 0.65rem 0.75rem;
+        font-size: 0.9rem;
     }
 }
 
