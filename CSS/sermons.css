@@ -131,6 +131,7 @@
     display: block;
     margin-bottom: 0.75rem;
 
+    color: var(--accent-clay);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
