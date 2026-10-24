@@ -25,48 +25,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Service filter buttons
     const filterButtons = document.querySelectorAll(
-        "#sermonTabs .sermon-filter"
-    );
+    "#sermonTabs .sermon-filter"
+);
 
-    const paneIds = {
-        all: "all-sermons",
-        en: "english",
-        zh: "chinese",
-        both: "combined"
-    };
+const paneIds = {
+    all: "all-sermons",
+    en: "english",
+    zh: "chinese",
+    both: "combined"
+};
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const filter = button.dataset.filter;
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        const targetId = paneIds[filter];
 
-            if (!paneIds[filter]) return;
+        if (!targetId) return;
 
-            // Update the selected button.
-            filterButtons.forEach(item => {
-                const selected = item === button;
+        // Update filter buttons
+        filterButtons.forEach(item => {
+            const selected = item === button;
 
-                item.classList.toggle("active", selected);
-                item.setAttribute(
-                    "aria-pressed",
-                    String(selected)
-                );
-            });
+            item.classList.toggle("active", selected);
+            item.setAttribute("aria-pressed", String(selected));
+        });
 
-            // Hide every archive panel.
-            document.querySelectorAll(
-                "#sermonTabContent .tab-pane"
-            ).forEach(pane => {
-                pane.classList.remove("show", "active");
-            });
+        // Switch panels
+        document.querySelectorAll(
+            "#sermonTabContent .tab-pane"
+        ).forEach(pane => {
+            const selected = pane.id === targetId;
 
-            // Show only the selected archive.
-            const selectedPane = document.getElementById(
-                paneIds[filter]
-            );
-
-            if (selectedPane) {
-                selectedPane.classList.add("show", "active");
-            }
+            pane.classList.toggle("active", selected);
+            pane.classList.toggle("show", selected);
         });
     });
 });
