@@ -34,6 +34,8 @@ function setLanguage(lang) {
   }
 
   // Refresh dynamic sections
+  
+  // Refresh dynamic sections
   if (typeof renderHomepageSermons === "function") {
     renderHomepageSermons(2);
   }
@@ -41,6 +43,15 @@ function setLanguage(lang) {
   if (typeof loadEvents === "function") {
     loadEvents();
   }
+
+  // Refresh the detailed events calendar
+  if (typeof loadDetailedEvents === "function") {
+    loadDetailedEvents();
+  }
+
+  // Notify other dynamic sections that the language changed
+  document.dispatchEvent(new Event("languageChanged"));
+
 }
 
 /* =========================================
