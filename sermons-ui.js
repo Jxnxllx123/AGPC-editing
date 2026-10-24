@@ -720,7 +720,9 @@ function renderVideoContent(sermon) {
                 loading="lazy"
             >
 
-            <span class="sermon-play-icon" aria-hidden="true">▶</span>
+            <span class="sermon-play-icon" aria-hidden="true">
+                <span class="play-triangle"></span>
+            </span>
         </div>
     `;
 }
