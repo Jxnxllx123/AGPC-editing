@@ -36,7 +36,7 @@ function setLanguage(lang) {
   // Refresh dynamic sections
   
   // Refresh dynamic sections
-  if (typeof renderHomepageSermons === "function") {
+    if (typeof renderHomepageSermons === "function") {
     renderHomepageSermons(2);
   }
 
@@ -44,12 +44,7 @@ function setLanguage(lang) {
     loadEvents();
   }
 
-  // Refresh the detailed events calendar
-  if (typeof loadDetailedEvents === "function") {
-    loadDetailedEvents();
-  }
-
-  // Notify other dynamic sections that the language changed
+  // Refresh the events calendar when the language changes
   document.dispatchEvent(new Event("languageChanged"));
 
 }
