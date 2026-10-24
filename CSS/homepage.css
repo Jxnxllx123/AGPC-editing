@@ -175,15 +175,17 @@
 /* Paper clip — positioned at the photo's top-right corner */
 .who-paper-tape {
     position: absolute;
-    z-index: 3;
-    top: -12px;
-    right: 24px;
+    z-index: 5;
 
-    width: 24px;
-    height: 44px;
+    /* Sit just inside the photo's corner */
+    top: 8px;
+    right: 18px;
 
-    border: 3px solid #B96F53;
-    border-radius: 16px;
+    width: 22px;
+    height: 38px;
+
+    border: 2.5px solid #B96F53;
+    border-radius: 14px;
     background: transparent;
 
     transform: rotate(12deg);
