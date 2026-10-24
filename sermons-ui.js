@@ -228,28 +228,26 @@ function renderFeaturedSermons() {
               }`
             : formatDate(sermon.date);
 
-        const videoContent = hasVideo(sermon)
-            ? `
-                <div class="sermon-video-wrapper">
-                    <iframe
-                        src="${escapeHtml(sermon.video)}"
-                        title="${escapeHtml(title)}"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write;
-                               encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            `
-            : `
-                <div class="sermon-video-placeholder">
-                    <p>
-                        ${currentLang === "zh"
-                            ? "讲道视频即将上线"
-                            : "Sermon video coming soon"}
-                    </p>
-                </div>
-            `;
+         const videoContent = hasVideo(sermon)
+             ? `
+                 <div class="sermon-video-wrapper sermon-video-thumbnail">
+                     <div class="sermon-play-icon" aria-hidden="true">
+                         ▶
+                     </div>
+                     <span class="sermon-watch-label">
+                         ${currentLang === "zh" ? "观看讲道" : "Watch Sermon"}
+                     </span>
+                 </div>
+             `
+             : `
+                 <div class="sermon-video-placeholder">
+                     <p>
+                         ${currentLang === "zh"
+                             ? "讲道视频即将上线"
+                             : "Sermon video coming soon"}
+                     </p>
+                 </div>
+             `;
 
         const columnClass = featured.length === 1
             ? "col-12 col-md-8 mx-auto"
@@ -257,7 +255,21 @@ function renderFeaturedSermons() {
 
         return `
             <div class="${columnClass}">
-                <article class="sermon-card featured-message-card">
+                <article
+                   class="sermon-card featured-message-card ${hasVideo(sermon) ? "sermon-card-playable" : ""}"
+                   ${hasVideo(sermon) ? `
+                       data-sermon-video="${escapeHtml(sermon.video)}"
+                       data-sermon-title="${escapeHtml(title)}"
+                       data-sermon-pastor="${escapeHtml(pastor)}"
+                       role="button"
+                       tabindex="0"
+                       aria-label="${escapeHtml(
+                           currentLang === "zh"
+                               ? `观看讲道：${title}`
+                               : `Watch sermon: ${title}`
+                       )}"
+                   ` : ""}
+               >
                     ${videoContent}
 
                     <div class="sermon-info">
@@ -360,29 +372,43 @@ function renderSermonPage(lang) {
         : formatDate(s.date);
 
       const videoContent = hasVideo(s)
-        ? `
-          <div class="sermon-video-wrapper">
-            <iframe
-              src="${escapeHtml(s.video)}"
-              title="${escapeHtml(title)}"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write;
-                     encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        `
-        : `
-          <div class="sermon-video-placeholder">
-            <p>${currentLang === "zh"
-              ? "讲道视频即将上线"
-              : "Sermon video coming soon"}</p>
-          </div>
-        `;
+          ? `
+              <div class="sermon-video-wrapper sermon-video-thumbnail">
+                  <div class="sermon-play-icon" aria-hidden="true">
+                      ▶
+                  </div>
+                  <span class="sermon-watch-label">
+                      ${currentLang === "zh" ? "观看讲道" : "Watch Sermon"}
+                  </span>
+              </div>
+          `
+          : `
+              <div class="sermon-video-placeholder">
+                  <p>
+                      ${currentLang === "zh"
+                          ? "讲道视频即将上线"
+                          : "Sermon video coming soon"}
+                  </p>
+              </div>
+          `;
 
       return `
         <div class="col mb-4">
-          <article class="sermon-card">
+          <article
+             class="sermon-card ${hasVideo(s) ? "sermon-card-playable" : ""}"
+             ${hasVideo(s) ? `
+                 data-sermon-video="${escapeHtml(s.video)}"
+                 data-sermon-title="${escapeHtml(title)}"
+                 data-sermon-pastor="${escapeHtml(pastor)}"
+                 role="button"
+                 tabindex="0"
+                 aria-label="${escapeHtml(
+                     currentLang === "zh"
+                         ? `观看讲道：${title}`
+                         : `Watch sermon: ${title}`
+                 )}"
+             ` : ""}
+         >
             ${videoContent}
 
             <div class="sermon-info mt-2">
@@ -569,3 +595,98 @@ function formatTimeRange(start, end) {
 
   return `${format(start)} – ${format(end)}`;
 }
+
+
+/* =========================================================
+   SERMON VIDEO MODAL
+   Opens the selected sermon in a Bootstrap modal
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const modalElement = document.getElementById("videoModal");
+    const videoFrame = document.getElementById("modalVideo");
+    const titleElement = document.getElementById("videoModalTitle");
+    const pastorElement = document.getElementById("videoModalPastor");
+
+    if (!modalElement || !videoFrame || !window.bootstrap) return;
+
+    const sermonModal = bootstrap.Modal.getOrCreateInstance(modalElement);
+
+    function openSermon(card) {
+        const videoUrl = card.dataset.sermonVideo;
+
+        if (!videoUrl) return;
+
+        const isChinese = currentLang === "zh";
+        const title = card.dataset.sermonTitle || "";
+        const pastor = card.dataset.sermonPastor || "";
+
+        // Update the modal information.
+        titleElement.textContent = title;
+        pastorElement.textContent = pastor;
+
+        titleElement.setAttribute(
+            "data-en", title
+        );
+        titleElement.setAttribute(
+            "data-zh", title
+        );
+
+        // Add autoplay without discarding existing URL parameters.
+        try {
+            const url = new URL(videoUrl, window.location.href);
+
+            if (url.hostname.includes("youtube.com") ||
+                url.hostname.includes("youtube-nocookie.com")) {
+                url.searchParams.set("autoplay", "1");
+            } else if (url.hostname.includes("youtu.be")) {
+                url.searchParams.set("autoplay", "1");
+            }
+
+            videoFrame.src = url.href;
+        } catch {
+            // If the URL cannot be parsed, use the original URL.
+            videoFrame.src = videoUrl;
+        }
+
+        videoFrame.title = isChinese
+            ? `讲道视频：${title}`
+            : `Sermon video: ${title}`;
+
+        sermonModal.show();
+    }
+
+    // Click anywhere on a playable sermon card.
+    document.addEventListener("click", event => {
+        const card = event.target.closest(
+            ".sermon-card-playable[data-sermon-video]"
+        );
+
+        if (card) {
+            openSermon(card);
+        }
+    });
+
+    // Support keyboard users: Enter or Space opens the card.
+    document.addEventListener("keydown", event => {
+        const card = event.target.closest(
+            ".sermon-card-playable[data-sermon-video]"
+        );
+
+        if (!card) return;
+
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openSermon(card);
+        }
+    });
+
+    // Stop playback when the modal closes.
+    modalElement.addEventListener("hidden.bs.modal", () => {
+        videoFrame.src = "";
+        titleElement.textContent =
+            currentLang === "zh" ? "观看讲道" : "Watch Sermon";
+        pastorElement.textContent = "";
+    });
+});
+
