@@ -205,10 +205,33 @@
 
 /* Hide the custom terracotta play button */
 .sermon-video-thumbnail .sermon-play-icon {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: 64px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background: rgba(47, 65, 86, 0.85);
+    color: #fff;
+    font-size: 25px;
+    padding-left: 4px;
+
+    pointer-events: none;
+    transition: background 0.2s ease,
+                transform 0.2s ease;
 }
 
-/* Hide the custom watch label */
+.sermon-card-playable:hover .sermon-play-icon {
+    background: var(--brand-primary);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
 .sermon-video-thumbnail .sermon-watch-label {
     display: none;
 }
