@@ -518,9 +518,9 @@
 
     .myNav .nav-link {
         display: block;
-        padding: 0.8rem 0.5rem;
-        border-bottom: 1px solid #F0F0F0;
-        font-size: 1rem;
+       padding: 0.65rem 0.5rem;
+       border-bottom: 1px solid #F0F0F0;
+       font-size: 0.9rem;
     }
 
     .myNav .nav-link::after {
@@ -680,6 +680,6 @@
 
 @media (max-width: 767.98px) {
     .myNav {
-        zoom: 1.5 !important;
+        zoom: 1.1 !important;
     }
 }
