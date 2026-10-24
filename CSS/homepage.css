@@ -699,12 +699,6 @@
     text-wrap: balance;
 }
 
-.events-heading span {
-    display: block;
-    color: var(--events-clay-dark);
-    font-style: italic;
-}
-
 /* Events description — comfortable editorial body text */
 .events-section .events-description {
     max-width: 420px;
