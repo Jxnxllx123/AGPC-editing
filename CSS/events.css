@@ -2,70 +2,80 @@
    07. EVENTS — Events.html
 ===================================================== */
 
+
 /* =========================================
-   AGPC EVENTS — HERO
+   EVENTS PAGE — FULL-WIDTH HERO
 ========================================= */
 
-.events-page .events-hero {
-    padding-block: clamp(3rem, 7vw, 6rem);
-    background: var(--brand-beige);
-}
-
-.events-page .events-hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 0.9fr;
+.hero-events {
+    position: relative;
+    display: flex;
+    min-height: 390px;
     align-items: center;
-    gap: clamp(2rem, 5vw, 4rem);
-    max-width: var(--content-max-width);
-    margin-inline: auto;
-    padding-inline: 1.5rem;
+    justify-content: center;
+    padding: 5rem 1.5rem;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(47, 65, 86, 0.88) 0%,
+            rgba(47, 65, 86, 0.70) 55%,
+            rgba(47, 65, 86, 0.40) 100%
+        ),
+        url("../Images/Events/Events.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.events-page .events-eyebrow {
-    color: var(--brand-primary);
+.hero-events .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    color: var(--text-on-dark);
+    text-align: center;
+}
+
+.hero-events .events-eyebrow {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--accent-clay);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
 
-.events-page .events-hero h1 {
-    margin-block: 1rem;
+.hero-events h1 {
+    margin: 0 0 1.5rem;
+    color: var(--brand-white);
     font-family: "DM Serif Display", serif;
-    font-size: clamp(2.7rem, 5vw, 4.5rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.08;
 }
 
-.events-page .events-hero p {
-    max-width: 540px;
+.hero-events h1::after {
+    display: block;
+    width: 36px;
+    height: 1px;
+    margin: 1.25rem auto 0;
+    background-color: var(--accent-clay);
+    content: "";
+}
+
+.hero-events p:not(.events-eyebrow) {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--text-on-dark);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    color: var(--brand-dark);
 }
 
-.events-page .events-hero-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: var(--brand-primary);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.events-page .events-hero-link:hover,
-.events-page .event-card-link:hover {
-    color: var(--brand-dark);
-    text-decoration: underline;
-}
-
-.events-page .events-hero-image {
-    overflow: hidden;
-    border-radius: 48% 48% 12px 12px;
-}
-
-.events-page .events-hero-image img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-}
 
 /* Upcoming events */
 
@@ -73,19 +83,38 @@
     background: var(--bg-white);
 }
 
+
 .events-page .events-section-heading {
-    margin-bottom: 4rem;
     max-width: 700px;
-    padding-inline: 1.5rem;
+    margin: 0 auto 3rem;
+    padding: 4rem 1.5rem 0;
     text-align: center;
 }
 
+.events-page .events-section-heading .events-eyebrow {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--accent-clay);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 .events-page .events-section-heading h2 {
+    margin-bottom: 0.75rem;
     color: var(--brand-dark);
     font-family: "DM Serif Display", serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
 }
+
+.events-page .events-section-heading p {
+    margin-bottom: 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
 
 .events-page .events-grid {
     display: grid;
@@ -259,6 +288,35 @@
     .events-page .event-photo-grid {
         grid-auto-rows: 100px;
     }
+
+   
+    .hero-events {
+        min-height: 330px;
+        padding: 4rem 1.25rem;
+        background-image:
+            linear-gradient(
+                rgba(47, 65, 86, 0.80),
+                rgba(47, 65, 86, 0.86)
+            ),
+            url("../Images/Events/Events.jpg");
+        background-position: center;
+    }
+
+    .hero-events h1 {
+        margin-bottom: 1.2rem;
+        font-size: clamp(2.7rem, 12vw, 3.6rem);
+    }
+
+    .hero-events p:not(.events-eyebrow) {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .events-page .events-section-heading {
+        padding-top: 3rem;
+        margin-bottom: 2.5rem;
+    }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
