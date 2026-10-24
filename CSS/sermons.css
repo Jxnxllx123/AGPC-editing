@@ -614,6 +614,133 @@ body:has(#sermonTabs) {
     }
 }
 
+
+/* =====================================================
+   CLICKABLE SERMON CARDS & VIDEO MODAL
+===================================================== */
+
+/* Playable cards */
+.sermon-card-playable {
+    cursor: pointer;
+}
+
+.sermon-card-playable:focus-visible {
+    outline: 3px solid var(--accent-clay);
+    outline-offset: 4px;
+}
+
+/* Video thumbnail area */
+.sermon-video-thumbnail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    background:
+        linear-gradient(
+            rgba(35, 48, 64, 0.60),
+            rgba(35, 48, 64, 0.75)
+        );
+
+    color: var(--brand-white);
+    transition: background-color 0.25s ease;
+}
+
+.sermon-card-playable:hover .sermon-video-thumbnail {
+    background-color: #26374A;
+}
+
+/* Play button */
+.sermon-play-icon {
+    display: flex;
+    width: 58px;
+    height: 58px;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    background: var(--accent-clay);
+    color: white;
+    font-size: 1.25rem;
+
+    transition: transform 0.25s ease;
+}
+
+.sermon-card-playable:hover .sermon-play-icon {
+    transform: scale(1.1);
+}
+
+.sermon-watch-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* Modal appearance */
+.sermon-modal-content {
+    overflow: hidden;
+    border: 0;
+    border-radius: 12px;
+    background: var(--brand-white);
+}
+
+.sermon-modal-content .modal-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.sermon-modal-content .modal-title {
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: 1.5rem;
+}
+
+.sermon-modal-pastor {
+    margin-top: 0.3rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive widescreen player */
+.sermon-modal-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.sermon-modal-video-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Mobile modal spacing */
+@media (max-width: 575px) {
+    .sermon-modal-content .modal-header {
+        padding: 1rem;
+    }
+
+    .sermon-modal-content .modal-title {
+        font-size: 1.2rem;
+    }
+
+    .sermon-play-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+}
+
+
 /* -----------------------------------------------------
    11. REDUCED MOTION
 ----------------------------------------------------- */
