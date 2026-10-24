@@ -1254,4 +1254,9 @@
     }
 }
 
-
+.agpc-page .agpc-foundation .section-eyebrow,
+.agpc-page .agpc-constitution .section-eyebrow,
+.agpc-page #vision-mission .section-eyebrow,
+.agpc-page .agpc-history .section-eyebrow {
+    color: #B96F53 !important;
+}
