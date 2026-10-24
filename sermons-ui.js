@@ -29,19 +29,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("sermonSearch");
 
     if (searchInput) {
-        searchInput.addEventListener("input", event => {
-            searchQuery = event.target.value.trim().toLowerCase();
-
-            currentPage = {
-                all: 1,
-                en: 1,
-                zh: 1,
-                both: 1
-            };
-
-            renderSermonArchive();
-        });
-    }
+       searchInput.placeholder = currentLang === "zh"
+           ? "搜索讲道标题或牧师姓名..."
+           : "Search sermons by title or pastor...";
+   
+       searchInput.addEventListener("input", event => {
+           searchQuery = event.target.value.trim().toLowerCase();
+   
+           currentPage = {
+               all: 1,
+               en: 1,
+               zh: 1,
+               both: 1
+           };
+   
+           renderSermonArchive();
+       });
+   }
 });
 
 function initializeSermonFilters() {
@@ -335,13 +339,17 @@ function renderSermonPage(lang) {
   const start = (currentPage[lang] - 1) * pageSize;
   const pageItems = data.slice(start, start + pageSize);
 
-  if (!data.length) {
-    container.innerHTML = `
-      <p class="text-center">
-        ${currentLang === "zh" ? "找不到相关讲道。" : "No sermons found."}
-      </p>
-    `;
-  } else {
+  
+   if (!data.length) {
+       container.innerHTML = `
+           <p class="text-center">
+               ${currentLang === "zh"
+                   ? "找不到相关讲道。请尝试其他关键词。"
+                   : "No sermons found. Try another search."}
+           </p>
+       `;
+   }
+ else {
     container.innerHTML = pageItems.map(s => {
       const title = getSermonTitle(s);
       const pastor = getSermonPastor(s);
