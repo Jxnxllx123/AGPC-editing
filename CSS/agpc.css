@@ -961,6 +961,107 @@
 }
 
 
+/* =====================================================
+   07. OUR LEADERSHIP
+===================================================== */
+
+.agpc-page .agpc-leadership {
+    position: relative;
+    padding: clamp(5rem, 8vw, 7rem) 1.5rem !important;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+/* Section heading */
+.agpc-page .agpc-leadership h2 {
+    margin-bottom: 0.85rem;
+    color: var(--brand-dark);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Small editorial accent */
+.agpc-page .agpc-leadership h2::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    margin: 1.25rem auto 0;
+    background: var(--accent-clay);
+}
+
+/* Leadership grid */
+.agpc-page .agpc-leadership .row {
+    margin-top: 2.5rem !important;
+    row-gap: 1.5rem;
+}
+
+/* Individual leadership items */
+.agpc-page .agpc-leadership .row > div {
+    padding: 1.25rem;
+    border-right: 1px solid var(--border-light);
+}
+
+/* Remove separator from the final column */
+.agpc-page .agpc-leadership .row > div:last-child {
+    border-right: 0;
+}
+
+/* Role titles */
+.agpc-page .agpc-leadership h5 {
+    margin-bottom: 0.75rem;
+    color: var(--brand-dark);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Role descriptions */
+.agpc-page .agpc-leadership p {
+    max-width: 230px;
+    margin: 0 auto;
+    color: var(--text-muted, #526575);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Gentle hover effect */
+.agpc-page .agpc-leadership .row > div {
+    transition: background-color 0.25s ease;
+}
+
+.agpc-page .agpc-leadership .row > div:hover {
+    background-color: var(--bg-light, #F8F6F1);
+}
+
+/* Tablet and mobile */
+@media (max-width: 767.98px) {
+    .agpc-page .agpc-leadership {
+        padding: 4rem 1.25rem !important;
+    }
+
+    .agpc-page .agpc-leadership .row > div {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-light);
+        padding: 1.5rem 1rem;
+    }
+
+    .agpc-page .agpc-leadership .row > div:last-child {
+        border-bottom: 0;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .agpc-page .agpc-leadership .row > div {
+        transition: none;
+    }
+}
+
 
 /* =====================================================
    AGPC — JOURNEY WITH US CTA
