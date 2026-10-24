@@ -176,9 +176,9 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 1.5rem;
-    background: var(--brand-dark);
-    color: var(--brand-white);
+    padding: 0;
+    background: transparent;
+    color: inherit;
     text-align: center;
 }
 
@@ -187,28 +187,11 @@
 }
 
 .sermon-video-thumbnail {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255, 255, 255, 0.08),
-            transparent 65%
-        ),
-        var(--brand-dark);
+    background: transparent;
 }
 
 .sermon-play-icon {
-    display: flex;
-    width: 62px;
-    height: 62px;
-    align-items: center;
-    justify-content: center;
-    padding-left: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    border-radius: 50%;
-    background: var(--accent-clay);
-    color: white;
-    font-size: 1.4rem;
-    transition: transform 0.2s ease;
+    display: none;
 }
 
 .sermon-card-playable:hover .sermon-play-icon {
@@ -216,19 +199,7 @@
 }
 
 .sermon-watch-label {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 0.7rem;
-    background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, 0.55)
-    );
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-align: center;
+    display: none;
 }
 
 .sermon-service-label {
