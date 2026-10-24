@@ -132,7 +132,7 @@
 ----------------------------------------------------- */
 
 .offering-methods {
-    background: var(--brand-white) !important;
+    background: #FFFFFF !important;
     padding-top: clamp(3.5rem, 6vw, 5rem) !important;
     padding-bottom: clamp(3.5rem, 6vw, 5rem) !important;
 }
