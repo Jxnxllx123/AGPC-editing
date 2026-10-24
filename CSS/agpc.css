@@ -419,156 +419,247 @@
 }
 
 
-
-
 /* =====================================================
-   04. AGPC — OUR FOUNDATION
-   Refined four-column layout
+   04. OUR FOUNDATION
 ===================================================== */
 
 .agpc-page .agpc-foundation {
     position: relative;
+    padding: clamp(4.5rem, 8vw, 7rem) 1.5rem;
     overflow: hidden;
-    padding: clamp(4.5rem, 8vw, 7rem) 0 !important;
-    background: var(--brand-dark, #2F4156) !important;
+    background: var(--brand-dark);
+    color: var(--brand-white);
 }
 
-/* Section heading */
+/* Section introduction */
+
+.agpc-page .agpc-foundation .section-eyebrow {
+    margin-bottom: 1rem;
+    color: var(--brand-light);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
 .agpc-page .agpc-foundation h2 {
     margin-bottom: 1rem;
-    color: #FFFFFF;
+    color: var(--brand-white);
     font-family: var(--font-heading, "DM Serif Display"), serif;
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
     font-weight: 400;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
+    line-height: 1.15;
 }
 
-/* Warm accent beneath the heading */
-.agpc-page .agpc-foundation h2::after {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 2px;
-    margin: 1.25rem auto 0;
-    background: var(--accent-clay, #C58D72);
+.agpc-page .agpc-foundation .foundation-intro {
+    max-width: 540px;
+    margin: 0 auto;
+    color: var(--brand-light);
+    font-size: 1rem;
+    line-height: 1.8;
 }
 
-/* Space between the heading and the principles */
-.agpc-page .agpc-foundation .row {
-    --bs-gutter-x: 1.25rem;
-    --bs-gutter-y: 1.25rem;
-    margin-top: 2.5rem !important;
+/* Four-column editorial layout */
+
+.agpc-page .foundation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid rgba(200, 217, 230, 0.3);
+    border-bottom: 1px solid rgba(200, 217, 230, 0.3);
 }
 
-/* Each existing Bootstrap column becomes a card */
-.agpc-page .agpc-foundation .row > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 2rem 1.5rem;
-    border: 1px solid rgba(200, 217, 230, 0.22);
-    border-right: 1px solid rgba(200, 217, 230, 0.22);
-    border-radius: 12px;
-
-    background: rgba(255, 255, 255, 0.055);
+.agpc-page .foundation-item {
+    position: relative;
+    min-width: 0;
+    padding: 2.25rem 1.5rem;
     text-align: left;
-
-    transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
 }
 
-/* Subtle hover, without excessive animation */
-.agpc-page .agpc-foundation .row > div:hover {
-    transform: translateY(-4px);
-    border-color: rgba(200, 217, 230, 0.48);
-    background: rgba(255, 255, 255, 0.10);
+.agpc-page .foundation-item + .foundation-item {
+    border-left: 1px solid rgba(200, 217, 230, 0.3);
 }
 
-/* Principle titles */
-.agpc-page .agpc-foundation h5 {
-    margin-bottom: 0.85rem;
-    color: var(--brand-beige, #F5EFEB);
+/* Subtle editorial numbering */
+
+.agpc-page .foundation-number {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: var(--accent-clay);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+/* Consistent typography */
+
+.agpc-page .foundation-item h5 {
+    margin-bottom: 0.75rem;
+    color: var(--brand-white);
     font-family: var(--font-body, "Roboto"), sans-serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.5;
 }
 
-/* Principle descriptions */
-.agpc-page .agpc-foundation p {
+.agpc-page .foundation-item p {
     margin-bottom: 0;
-    color: var(--brand-light, #C8D9E6);
-    font-size: 0.95rem;
+    color: var(--brand-light);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.925rem;
     line-height: 1.8;
 }
 
-/* Constitution section follows with a softer background */
-.agpc-page .agpc-foundation + .agpc-resource {
-    padding: clamp(4rem, 7vw, 6rem) 0 !important;
-    background: #F7F6F3;
+/* Restrained hover effect */
+
+.agpc-page .foundation-item {
+    transition: background-color 0.25s ease;
 }
 
-/* Mobile layout */
-@media (max-width: 767.98px) {
+.agpc-page .foundation-item:hover {
+    background: rgba(255, 255, 255, 0.045);
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .agpc-page .foundation-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .agpc-page .foundation-item {
+        padding: 2rem;
+    }
+
+    .agpc-page .foundation-item:nth-child(3) {
+        border-left: 0;
+    }
+
+    .agpc-page .foundation-item:nth-child(n+3) {
+        border-top: 1px solid rgba(200, 217, 230, 0.3);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 575.98px) {
     .agpc-page .agpc-foundation {
-        padding: 4rem 0 !important;
+        padding: 4rem 1.25rem;
     }
 
-    .agpc-page .agpc-foundation .row {
-        --bs-gutter-x: 0;
-        --bs-gutter-y: 1rem;
-        margin-top: 2rem !important;
+    .agpc-page .foundation-grid {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
     }
 
-    .agpc-page .agpc-foundation .row > div {
-        padding: 1.5rem;
+    .agpc-page .foundation-item {
+        padding: 1.75rem 0.5rem;
+        text-align: center;
+    }
+
+    .agpc-page .foundation-item + .foundation-item {
+        border-top: 1px solid rgba(200, 217, 230, 0.3);
+        border-left: 0;
+    }
+
+    .agpc-page .foundation-number {
+        margin-bottom: 1rem;
     }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    .agpc-page .agpc-foundation .row > div {
+    .agpc-page .foundation-item {
         transition: none;
     }
-
-    .agpc-page .agpc-foundation .row > div:hover {
-        transform: none;
-    }
 }
 
 
 
-/* 05. CONSTITUTION AND HISTORY */
+/* =====================================================
+   05. CHURCH CONSTITUTION
+===================================================== */
 
-.agpc-resource {
+.agpc-page .agpc-constitution {
+    position: relative;
+    padding: clamp(5rem, 9vw, 8rem) 1.5rem;
+    overflow: hidden;
     background: var(--bg-light);
-}
-
-.agpc-resource .resource-card {
-    height: 100%;
-    padding: clamp(1.75rem, 4vw, 3rem);
-    border: 1px solid var(--border-light);
-    border-radius: 18px;
-    background: #FFFFFF;
     text-align: center;
 }
 
-.agpc-resource .resource-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 58px;
-    height: 58px;
-    margin-bottom: 1rem;
-    border-radius: 50%;
-    background: var(--brand-light);
-    color: var(--brand-dark);
-    font-size: 1.5rem;
+/* Keep the content narrow and readable */
+
+.agpc-page .agpc-constitution .constitution-content {
+    max-width: 700px;
+    margin: 0 auto;
 }
+
+/* Small editorial label */
+
+.agpc-page .agpc-constitution .section-eyebrow {
+    margin-bottom: 1rem;
+    color: var(--brand-primary);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.7;
+    text-transform: uppercase;
+}
+
+/* Main heading */
+
+.agpc-page .agpc-constitution h2 {
+    margin-bottom: 1.25rem;
+    color: var(--brand-dark);
+    font-family: var(--font-heading, "DM Serif Display"), serif;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* Supporting description */
+
+.agpc-page .agpc-constitution .constitution-description {
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    color: var(--brand-dark);
+    font-family: var(--font-body, "Roboto"), sans-serif;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Existing editorial link */
+
+.agpc-page .agpc-constitution .agpc-visit-link {
+    margin-top: 0.25rem;
+}
+
+/* Subtle ending detail */
+
+.agpc-page .agpc-constitution .constitution-bottom-line {
+    width: 64px;
+    height: 2px;
+    margin: clamp(3rem, 6vw, 5rem) auto 0;
+    background: var(--accent-clay);
+}
+
+@media (max-width: 575.98px) {
+    .agpc-page .agpc-constitution {
+        padding: 4.5rem 1.25rem;
+    }
+
+    .agpc-page .agpc-constitution h2 {
+        font-size: clamp(2.1rem, 8vw, 2.7rem);
+    }
+
+    .agpc-page .agpc-constitution .constitution-description {
+        font-size: 0.95rem;
+    }
+}
+
 
 
 /* 06. VISION, MISSION AND VALUES */
