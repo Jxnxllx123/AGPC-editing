@@ -47,7 +47,7 @@
     margin: 0 auto;
 
     color: var(--text-on-dark);
-    text-align: left;
+    text-align: center;
 }
 
 /* Editorial serif heading */
@@ -60,7 +60,7 @@
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1.08;
-    text-align: left;
+    text-align: center;
 }
 
 /* Short decorative accent */
@@ -68,7 +68,7 @@
     display: block;
     width: 54px;
     height: 3px;
-    margin-top: 1.4rem;
+    margin: 1.4rem auto 0;
 
     background-color: var(--brand-light);
     content: "";
@@ -82,7 +82,7 @@
     color: var(--text-on-dark);
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     line-height: 1.8;
-    text-align: left;
+    text-align: center;
 }
 
 /* Mobile adjustments */
@@ -106,10 +106,6 @@
         font-size: clamp(2.7rem, 12vw, 3.6rem);
     }
 
-    .hero-sermons h1::after {
-        margin-top: 1rem;
-    }
-
     .hero-sermons p {
         font-size: 1rem;
         line-height: 1.7;
@@ -130,12 +126,15 @@
     margin-bottom: 1.75rem;
 }
 
+.sermons-eyebrow,
 .featured-sermons-intro > p {
-    margin-bottom: 0.5rem;
-    color: var(--brand-primary);
+    display: block;
+    margin-bottom: 0.75rem;
+
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .featured-sermons-intro h2 {
@@ -216,6 +215,11 @@ body:has(#sermonTabs) {
     padding: 0 1.5rem 4rem;
 }
 
+.sermons-archive {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
+
 /* -----------------------------------------------------
    2. SEARCH FIELD
 ----------------------------------------------------- */
@@ -251,6 +255,27 @@ body:has(#sermonTabs) {
 }
 
 
+/* Sermon archive heading */
+.sermon-library-heading {
+    margin: 3rem auto 2rem;
+    padding: 2rem 1.5rem 0;
+    max-width: var(--content-max-width);
+}
+
+.sermon-library-heading h2 {
+    margin-bottom: 0.75rem;
+    color: var(--brand-dark);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.sermon-library-heading p {
+    margin-bottom: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+
 /* -----------------------------------------------------
    3. SERVICE FILTERS
 ----------------------------------------------------- */
@@ -263,6 +288,10 @@ body:has(#sermonTabs) {
     max-width: var(--content-max-width);
     margin: 0 auto;
     padding: 0 0 0.8rem;
+}
+
+.sermon-filter-wrap {
+    margin-bottom: 2rem;
 }
 
 .sermon-filter {
