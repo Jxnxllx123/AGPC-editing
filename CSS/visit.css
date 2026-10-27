@@ -539,12 +539,13 @@ opacity: 0.85;
     border-radius: 14px;
     background: #DCE8EE;
     color: #365C70;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
-.visit-location-item:nth-child(3) .visit-location-icon {
-    background: #F1D9CB;
-    color: #B96746;
+/* Keep the icons consistent across phones and browsers */
+.visit-location-icon i {
+    display: block;
+    line-height: 1;
 }
 
 .visit-location-item h3 {
