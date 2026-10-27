@@ -4,7 +4,7 @@ const STUDENTCARE_DATA = [
   {
     text: {
       en: "Abundant Grace Student Care Centre offers supportive care and engaging programmes for children outside school hours.",
-      zh: "宏茂桥嘉恩堂学生托管中心在课余时间为儿童提供关怀与丰富的课程。"
+      zh: "嘉恩堂学生托管中心在课余时间为儿童提供关怀与丰富的课程。"
     }
   },
 
