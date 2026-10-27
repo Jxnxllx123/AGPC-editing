@@ -1134,6 +1134,22 @@
     outline-offset: 4px;
 }
 
+/* Spacing between CTA buttons */
+.agpc-cta-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Stack buttons with spacing on mobile */
+@media (max-width: 767.98px) {
+    .agpc-cta-actions {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+}
 
 /* =========================================
    AGPC CTA — MOBILE RESPONSIVE
