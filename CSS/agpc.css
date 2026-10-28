@@ -969,7 +969,7 @@
 .agpc-page .agpc-leadership {
     position: relative;
     padding: clamp(5rem, 8vw, 7rem) 1.5rem !important;
-    background: #FAF9F6;
+    background: #FFFFFF;
     text-align: center;
 }
 
@@ -1065,9 +1065,12 @@
 .agpc-page .agpc-leadership .leader-image {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+    height: 300px;
+
+    object-fit: contain;
     object-position: center;
+
+    background: #FFFFFF;
 }
 
 /* Member names and roles */
