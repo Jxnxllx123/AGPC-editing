@@ -1109,12 +1109,6 @@
     line-height: 1.7;
 }
 
-/* Subtle hover effect */
-
-.agpc-page .agpc-leadership .leader-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(47, 65, 86, 0.09);
-}
 
 /* Tablet */
 
