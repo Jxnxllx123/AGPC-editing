@@ -41,11 +41,11 @@ window.EVENTS = [
   // =======================================================
 
   {
-    id: "youth-fellowship",
+    id: "young-adult-fellowship",
 
     title: {
-      en: "Youth Fellowship",
-      zh: "青年团契"
+      en: "Young Adult Fellowship",
+      zh: "社青团契"
     },
 
     subtitle: {
