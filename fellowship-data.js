@@ -40,7 +40,7 @@ const FELLOWSHIP_DATA = [
     zh: "欢迎加入我们，一同建立友谊、分享生活点滴，并在信仰中成长！无论是参与活动、彼此交流，还是一同认识神，我们都期待与你相聚，在团契中建立联系、共同成长。"
   },
     images: [
-      "Images/Ministries/Fellowships/Junior Youth Fellowship.jpg"
+      "Images/Ministries/Fellowships/Junior Youth Fellowship.jpeg"
     ],
     schedule: {
       en: "Sunday · 1:00–2:30pm",
