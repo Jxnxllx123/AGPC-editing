@@ -79,7 +79,13 @@ const OUTREACH_DATA = [
                 "在新加坡关怀中国客工",
                 "透过本地宣教发展晚堂聚会"
             ]
-        }
+        },
+
+        images: [
+      "Images/Ministries/Chinese Migrant Worker (1).jpg",
+      "Images/Ministries/Chinese Migrant Worker (2).jpg",
+      "Images/Ministries/Chinese Migrant Worker (3).jpg"
+    ]
     }
 
 ];
