@@ -40,8 +40,7 @@ const FELLOWSHIP_DATA = [
     zh: "欢迎加入我们，一同建立友谊、分享生活点滴，并在信仰中成长！无论是参与活动、彼此交流，还是一同认识神，我们都期待与你相聚，在团契中建立联系、共同成长。"
   },
     images: [
-      "Images/Ministries/Fellowships/Youth Fellowship (1).jpg",
-      "Images/Ministries/Fellowships/Youth Fellowship (2).jpg"
+      "Images/Ministries/Fellowships/Junior Youth Fellowship.jpg"
     ],
     schedule: {
       en: "Sunday · 1:00–2:30pm",
@@ -82,8 +81,8 @@ const FELLOWSHIP_DATA = [
     zh: "正在寻找一个能与你一同在信仰中成长、分享人生旅程的群体吗？无论你正在求学、踏入职场，还是单纯希望认识更多朋友，我们都欢迎你的加入！欢迎你自在地参与我们的讨论与分享，与大家一同祷告，或轻松地享受彼此相聚的时光。我们期待认识你！"
   },
     images: [
-      "Images/Ministries/Fellowships/Youth Fellowship (1).jpg",
-      "Images/Ministries/Fellowships/Youth Fellowship (2).jpg"
+      "Images/Ministries/Fellowships/Young Adult Fellowship (1).jpg",
+      "Images/Ministries/Fellowships/Young Adult Fellowship (2).jpg"
     ],
     schedule: {
       en: "Saturday · 4:00–6:00pm",
