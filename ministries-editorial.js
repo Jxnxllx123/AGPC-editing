@@ -71,18 +71,27 @@ function getMinistryData() {
     return {
         fellowship:
             typeof FELLOWSHIP_DATA !== "undefined"
-                ? FELLOWSHIP_DATA
-                : [],
+                ? FELLOWSHIP_DATA : [],
+
+        music:
+            typeof MUSIC_DATA !== "undefined"
+                ? MUSIC_DATA : [],
 
         education:
             typeof EDUCATION_DATA !== "undefined"
-                ? EDUCATION_DATA
-                : [],
-       
-       studentCare:
+                ? EDUCATION_DATA : [],
+
+        studentCare:
             typeof STUDENTCARE_DATA !== "undefined"
-                ? STUDENTCARE_DATA
-                : []
+                ? STUDENTCARE_DATA : [],
+
+        prayerCare:
+            typeof PRAYERCARE_DATA !== "undefined"
+                ? PRAYERCARE_DATA : [],
+
+        outreach:
+            typeof OUTREACH_DATA !== "undefined"
+                ? OUTREACH_DATA : []
     };
 }
 
@@ -100,6 +109,8 @@ function createElement(tag, className, text) {
 
     return element;
 }
+
+
 
 /* Render an image gallery */
 function renderGallery(images, lang) {
@@ -468,7 +479,114 @@ function renderMinistryPanel(button) {
    
        return;
    }
+
+   /* =====================================
+   MUSIC MINISTRY
+   ===================================== */
+
+   if (ministry === "music") {
    
+       const music = data.music;
+   
+       const item = music.find(entry =>
+           entry.id === panelKey
+       );
+   
+       updateMinistryMainImage(
+           section,
+           item,
+           lang,
+           "Images/Ministries/music.png"
+       );
+   
+       if (item) {
+           panel.appendChild(renderEntry(item, lang));
+       } else {
+           panel.appendChild(
+               createElement(
+                   "p",
+                   "editorial-empty",
+                   lang === "zh"
+                       ? "音乐事工资料暂未提供。"
+                       : "Music ministry details are not available yet."
+               )
+           );
+       }
+   
+       return;
+   }
+
+   /* =====================================
+   PRAYER & CARE MINISTRY
+   ===================================== */
+   
+   if (ministry === "prayer-care") {
+   
+       const prayerCare = data.prayerCare;
+   
+       const item = prayerCare.find(entry =>
+           entry.id === panelKey
+       );
+   
+       updateMinistryMainImage(
+           section,
+           item,
+           lang,
+           "Images/Ministries/prayer-care.png"
+       );
+   
+       if (item) {
+           panel.appendChild(renderEntry(item, lang));
+       } else {
+           panel.appendChild(
+               createElement(
+                   "p",
+                   "editorial-empty",
+                   lang === "zh"
+                       ? "祷告与关怀资料暂未提供。"
+                       : "Prayer and care details are not available yet."
+               )
+           );
+       }
+   
+       return;
+   }
+
+   /* =====================================
+   OUTREACH & MISSIONS
+   ===================================== */
+
+   if (ministry === "outreach") {
+   
+       const outreach = data.outreach;
+   
+       const item = outreach.find(entry =>
+           entry.id === panelKey
+       );
+   
+       updateMinistryMainImage(
+           section,
+           item,
+           lang,
+           "Images/Ministries/outreach.png"
+       );
+   
+       if (item) {
+           panel.appendChild(renderEntry(item, lang));
+       } else {
+           panel.appendChild(
+               createElement(
+                   "p",
+                   "editorial-empty",
+                   lang === "zh"
+                       ? "相关资料暂未提供。"
+                       : "Details are not available yet."
+               )
+           );
+       }
+   
+       return;
+   }
 
    
 }
