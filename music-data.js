@@ -23,7 +23,11 @@ const MUSIC_DATA = [
             en: "Adult Choir Practice: Sunday · 1:00–3:00pm\nWorship Team Practice: Saturday · 2:00–4:00pm",
 
             zh: "成人诗班练习：星期日 · 下午1:00–3:00\n敬拜团练习：星期六 · 下午2:00–4:00"
-        }
+        },
+        
+         images: [
+      "Images/Ministries/Choir.jpeg"
+    ]
     },
 
     // =====================================
