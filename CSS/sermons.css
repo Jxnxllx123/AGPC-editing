@@ -100,7 +100,7 @@
             ),
             url("../Images/Sermons/Sermons.JPG");
 
-        background-position: center;
+        background-position: center 55%;
     }
 
     .hero-sermons h1 {
